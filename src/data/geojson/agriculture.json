@@ -1,0 +1,405 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-01",
+                "name": "Çukurova Pamuk Bölgesi",
+                "nameEn": "Cukurova Cotton Region",
+                "type": "Pamuk",
+                "category": "economic",
+                "product": "Pamuk",
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin EN ÖNEMLİ pamuk üretim merkezi. Adana, Mersin, Osmaniye. Çırçır fabrikaları. Tekstil hammaddesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.3000,
+                    36.9000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-02",
+                "name": "GAP Pamuk Bölgesi",
+                "nameEn": "GAP Cotton Region",
+                "type": "Pamuk",
+                "category": "economic",
+                "product": "Pamuk",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Harran ve çevresi. GAP sulamasıyla üretim arttı. Şanlıurfa, Diyarbakır. 2. büyük pamuk bölgesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.0000,
+                    37.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-03",
+                "name": "Ege Pamuk Bölgesi",
+                "nameEn": "Aegean Cotton Region",
+                "type": "Pamuk",
+                "category": "economic",
+                "product": "Pamuk",
+                "region": "Ege",
+                "kpssNote": "Büyük Menderes ve Gediz ovaları. Aydın, Denizli. Kaliteli pamuk. İzmir pamuk borsası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.0000,
+                    37.8500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-04",
+                "name": "Konya Tahıl Bölgesi",
+                "nameEn": "Konya Grain Region",
+                "type": "Tahıl",
+                "category": "economic",
+                "product": "Buğday",
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin TAHIL AMBARI. En fazla buğday üretimi. Konya Ovası. Step iklimi, kuru tarım."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.5000,
+                    37.8500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-05",
+                "name": "İç Anadolu Arpa Bölgesi",
+                "nameEn": "Central Anatolia Barley Region",
+                "type": "Tahıl",
+                "category": "economic",
+                "product": "Arpa",
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye arpa üretiminde dünyada üst sıralarda. Konya, Ankara, Eskişehir. Hayvan yemi ve bira sanayisi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.0000,
+                    39.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-06",
+                "name": "Doğu Karadeniz Fındık Bölgesi",
+                "nameEn": "Eastern Black Sea Hazelnut Region",
+                "type": "Fındık",
+                "category": "economic",
+                "product": "Fındık",
+                "region": "Karadeniz",
+                "kpssNote": "Dünya fındık üretiminin %70'i Türkiye'den. Ordu, Giresun, Trabzon, Samsun. Türkiye DÜNYA LİDERİ."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.0000,
+                    41.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-07",
+                "name": "Ege Üzüm Bölgesi",
+                "nameEn": "Aegean Grape Region",
+                "type": "Üzüm",
+                "category": "economic",
+                "product": "Üzüm (Sultani)",
+                "region": "Ege",
+                "kpssNote": "Manisa (Alaşehir, Salihli). Çekirdeksiz kuru üzüm. Dünya üretiminde üst sıralarda. İhracat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.5000,
+                    38.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-08",
+                "name": "Ege Zeytinyağı Bölgesi",
+                "nameEn": "Aegean Olive Oil Region",
+                "type": "Zeytin",
+                "category": "economic",
+                "product": "Zeytin/Zeytinyağı",
+                "region": "Ege",
+                "kpssNote": "Aydın, İzmir, Balıkesir. Zeytinyağı ihracatı. Türkiye dünya zeytin üretiminde 4. sırada."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.5000,
+                    38.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-09",
+                "name": "Akdeniz Turunçgil Bölgesi",
+                "nameEn": "Mediterranean Citrus Region",
+                "type": "Turunçgil",
+                "category": "economic",
+                "product": "Portakal/Limon/Mandalina",
+                "region": "Akdeniz",
+                "kpssNote": "Mersin, Adana, Antalya, Hatay. Türkiye turunçgil ihracatında dünya 5. si. Finike portakalı meşhur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.5000,
+                    36.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-10",
+                "name": "Antalya Seracılık Bölgesi",
+                "nameEn": "Antalya Greenhouse Region",
+                "type": "Seracılık",
+                "category": "economic",
+                "product": "Domates/Biber/Sebze",
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin SERA BAŞKENTİ. Kumluca, Demre, Finike. Kış dönemi sebze üretimi. İhracat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.3000,
+                    36.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-11",
+                "name": "Aydın İncir Bölgesi",
+                "nameEn": "Aydin Fig Region",
+                "type": "İncir",
+                "category": "economic",
+                "product": "Kuru İncir",
+                "region": "Ege",
+                "kpssNote": "Türkiye DÜNYA İNCİR LİDERİ. Aydın-Germencik. Coğrafi işaretli. İhracatın büyük bölümü buradan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.8000,
+                    37.8500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-12",
+                "name": "Malatya Kayısı Bölgesi",
+                "nameEn": "Malatya Apricot Region",
+                "type": "Kayısı",
+                "category": "economic",
+                "product": "Kuru Kayısı",
+                "region": "Doğu Anadolu",
+                "kpssNote": "DÜNYA KAYISI ÜRETİMİNİN %90'I Türkiye'den, büyük bölümü Malatya'dan. Coğrafi işaretli ürün."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.3000,
+                    38.3500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-13",
+                "name": "Antep Fıstığı Bölgesi",
+                "nameEn": "Gaziantep Pistachio Region",
+                "type": "Fıstık",
+                "category": "economic",
+                "product": "Antep Fıstığı",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Gaziantep, Şanlıurfa, Adıyaman. Dünya üretiminde 3. sıra. Coğrafi işaretli. Tatlı sanayisi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.3500,
+                    37.0500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-14",
+                "name": "Rize Çay Bölgesi",
+                "nameEn": "Rize Tea Region",
+                "type": "Çay",
+                "category": "economic",
+                "product": "Çay",
+                "region": "Karadeniz",
+                "kpssNote": "Türkiye'nin TEK ÇAY üretim bölgesi. Rize, Trabzon. ÇAYKUR. 1947'den beri üretim."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.5000,
+                    41.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-15",
+                "name": "Konya Şeker Pancarı Bölgesi",
+                "nameEn": "Konya Sugar Beet Region",
+                "type": "Şeker Pancarı",
+                "category": "economic",
+                "product": "Şeker Pancarı",
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin en fazla şeker pancarı üretilen ili. Konya Şeker fabrikası. Karasal iklime uygun."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.5000,
+                    38.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-16",
+                "name": "Trakya Ayçiçeği Bölgesi",
+                "nameEn": "Thrace Sunflower Region",
+                "type": "Ayçiçeği",
+                "category": "economic",
+                "product": "Ayçiçeği (Yağlık)",
+                "region": "Marmara",
+                "kpssNote": "Edirne, Kırklareli, Tekirdağ. Türkiye ayçiçeği üretiminin %80'i. Yağ sanayisi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.5000,
+                    41.7000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-17",
+                "name": "Marmara Pirinç Bölgesi",
+                "nameEn": "Marmara Rice Region",
+                "type": "Çeltik",
+                "category": "economic",
+                "product": "Pirinç",
+                "region": "Marmara",
+                "kpssNote": "Edirne (Baldo pirinci). Türkiye pirinç üretiminde kendine yetemiyor, ithalat yapıyor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.5000,
+                    41.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-18",
+                "name": "Isparta Gül Bölgesi",
+                "nameEn": "Isparta Rose Region",
+                "type": "Gül",
+                "category": "economic",
+                "product": "Gül Yağı",
+                "region": "Akdeniz",
+                "kpssNote": "DÜNYA GÜL YAĞI ÜRETİMİNİN %60'I Isparta'dan. Gülyağı, gülsuyu. Kozmetik sektörü. Coğrafi işaret."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5000,
+                    37.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-19",
+                "name": "Bursa Şeftali Bölgesi",
+                "nameEn": "Bursa Peach Region",
+                "type": "Meyvecilik",
+                "category": "economic",
+                "product": "Şeftali",
+                "region": "Marmara",
+                "kpssNote": "Bursa şeftalisi meşhur. Marmara meyvecilik merkezi. Kiraz, armut da üretilir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0000,
+                    40.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "agri-20",
+                "name": "Afyon Haşhaş Bölgesi",
+                "nameEn": "Afyon Poppy Region",
+                "type": "Haşhaş",
+                "category": "economic",
+                "product": "Haşhaş (Afyon)",
+                "region": "Ege",
+                "kpssNote": "Afyonkarahisar adını aldı. İlaç sanayisi için yasal üretim. Tıbbi morfin ve kodein. Dünya üretiminde öncü."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5500,
+                    38.7333
+                ]
+            }
+        }
+    ]
+}

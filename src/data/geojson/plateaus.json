@@ -1,0 +1,265 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-01",
+                "name": "Erzurum-Kars Platosu",
+                "nameEn": "Erzurum-Kars Plateau",
+                "type": "Lav Platosu",
+                "category": "physical",
+                "elevation": 2000,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Türkiye'nin EN YÜKSEK platosu (2000m+). Volkanik lav örtüsü. Hayvancılık. Sert kara iklimi. Kaşar peyniri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.5000,
+                    40.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-02",
+                "name": "İç Anadolu Platosu",
+                "nameEn": "Central Anatolian Plateau",
+                "type": "Kripto-Karstik Plato",
+                "category": "physical",
+                "elevation": 1000,
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin merkezinde. Step iklimi. Tahıl tarımı. Tuz Gölü ve çevresi. 800-1200m yükseklik."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.0000,
+                    39.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-03",
+                "name": "Cihanbeyli Platosu",
+                "nameEn": "Cihanbeyli Plateau",
+                "type": "Flüvyal Plato",
+                "category": "physical",
+                "elevation": 900,
+                "region": "İç Anadolu",
+                "kpssNote": "Konya'da. Tuz Gölü havzası içinde. Kurak step. Kuru tarım."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.9000,
+                    38.6500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-04",
+                "name": "Obruk Platosu",
+                "nameEn": "Obruk Plateau",
+                "type": "Karstik Plato",
+                "category": "physical",
+                "elevation": 1100,
+                "region": "İç Anadolu",
+                "kpssNote": "Konya-Karaman arasında. Obruklar (düden çukurları) yaygın. KARSTİK yapı. Yeraltı suları."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.5000,
+                    37.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-05",
+                "name": "Haymana Platosu",
+                "nameEn": "Haymana Plateau",
+                "type": "Flüvyal Plato",
+                "category": "physical",
+                "elevation": 1200,
+                "region": "İç Anadolu",
+                "kpssNote": "Ankara güneyinde. Sakarya Nehri kaynağına yakın. Tahıl. Küçükbaş hayvancılık."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.5000,
+                    39.4000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-06",
+                "name": "Uzunyayla Platosu",
+                "nameEn": "Uzunyayla Plateau",
+                "type": "Flüvyal Plato",
+                "category": "physical",
+                "elevation": 1700,
+                "region": "İç Anadolu",
+                "kpssNote": "Sivas-Kayseri arasında. Yüksek plato. Hayvancılık. Kızılırmak kaynağı yakını."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.5000,
+                    39.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-07",
+                "name": "Taşeli Platosu",
+                "nameEn": "Taseli Plateau",
+                "type": "Karstik Plato",
+                "category": "physical",
+                "elevation": 1500,
+                "region": "Akdeniz",
+                "kpssNote": "Mersin-Karaman arasında. KARSTİK yapı (mağaralar, düdenler). Orta Toroslar'da. Yoğun karstlaşma."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.5000,
+                    36.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-08",
+                "name": "Tekirdağ Platosu",
+                "nameEn": "Tekirdag Plateau",
+                "type": "Dalgalı Plato",
+                "category": "physical",
+                "elevation": 200,
+                "region": "Marmara",
+                "kpssNote": "Trakya'da. Düşük yükseklik. Ayçiçeği, üzüm bağları. Hafif dalgalı arazi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.5000,
+                    41.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-09",
+                "name": "Yazılıkaya Platosu",
+                "nameEn": "Yazilikaya Plateau",
+                "type": "Volkanik Plato",
+                "category": "physical",
+                "elevation": 1000,
+                "region": "İç Anadolu",
+                "kpssNote": "Eskişehir çevresinde. Volkanik tüfler. Frigya vadisi oyma kaya medeniyeti."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5000,
+                    39.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-10",
+                "name": "Bozok Platosu",
+                "nameEn": "Bozok Plateau",
+                "type": "Flüvyal Plato",
+                "category": "physical",
+                "elevation": 1100,
+                "region": "İç Anadolu",
+                "kpssNote": "Yozgat çevresinde. Step iklimi. Tahıl tarımı. Kızılırmak havzası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.8000,
+                    39.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-11",
+                "name": "Gaziantep Platosu",
+                "nameEn": "Gaziantep Plateau",
+                "type": "Bazalt Platosu",
+                "category": "physical",
+                "elevation": 850,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Güneydoğu'nun kuzeyinde. Volkanik bazalt. Antep fıstığı. Sanayi şehri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.3000,
+                    37.0500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-12",
+                "name": "Şanlıurfa Platosu",
+                "nameEn": "Sanliurfa Plateau",
+                "type": "Karstik-Kalker Plato",
+                "category": "physical",
+                "elevation": 600,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Fırat'ın batısında. Kalkerli yapı. Antep fıstığı. Göbeklitepe burada."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.8000,
+                    37.1500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plateau-13",
+                "name": "Mardin Eşiği",
+                "nameEn": "Mardin Threshold",
+                "type": "Karstik Plato",
+                "category": "physical",
+                "elevation": 1000,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Mezopotamya ile Anadolu arasında. Mardin tarihi şehri. Kalker. Dicle vadisine bakar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.7000,
+                    37.3000
+                ]
+            }
+        }
+    ]
+}

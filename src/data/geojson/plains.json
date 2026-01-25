@@ -1,0 +1,365 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-01",
+                "name": "Çukurova (Adana Ovası)",
+                "nameEn": "Cukurova Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "area": 7500,
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin EN VERİMLİ ovası. Seyhan ve Ceyhan deltası. Pamuk, turunçgil, mısır. Akdeniz iklimi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.5000,
+                    37.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-02",
+                "name": "Konya Ovası",
+                "nameEn": "Konya Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 26000,
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin EN GENİŞ ovası (26.000 km²). Kapalı havza. Tahıl ambarı. Sulu tarım yetersiz, step iklimi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.5000,
+                    37.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-03",
+                "name": "Bafra Ovası",
+                "nameEn": "Bafra Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "area": 600,
+                "region": "Karadeniz",
+                "kpssNote": "Kızılırmak Deltası. Samsun'da. Çeltik, tütün, mısır. UNESCO Biyosfer Rezerv Alanı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.9000,
+                    41.6000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-04",
+                "name": "Çarşamba Ovası",
+                "nameEn": "Carsamba Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "area": 450,
+                "region": "Karadeniz",
+                "kpssNote": "Yeşilırmak Deltası. Samsun'da. Fındık, sebze, çeltik. Verimli tarım alanı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.7000,
+                    41.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-05",
+                "name": "Harran Ovası",
+                "nameEn": "Harran Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 1500,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Şanlıurfa'da. GAP ile sulama. Pamuk, buğday. İlk tarım toplulukları (Göbeklitepe yakını)."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.0000,
+                    36.8500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-06",
+                "name": "Gediz Ovası",
+                "nameEn": "Gediz Plain",
+                "type": "Graben Ovası",
+                "category": "physical",
+                "area": 1200,
+                "region": "Ege",
+                "kpssNote": "Manisa-İzmir arasında. Üzüm (Sultani), pamuk. Gediz Nehri boyunca. Graben oluşumu."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.0000,
+                    38.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-07",
+                "name": "Büyük Menderes Ovası",
+                "nameEn": "Buyuk Menderes Plain",
+                "type": "Graben Ovası",
+                "category": "physical",
+                "area": 1400,
+                "region": "Ege",
+                "kpssNote": "Aydın-Denizli arasında. Pamuk, incir, zeytin. Graben yapısı. Jeotermal kaynaklar (Pamukkale)."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.3000,
+                    37.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-08",
+                "name": "Bakırçay Ovası",
+                "nameEn": "Bakirçay Plain",
+                "type": "Graben Ovası",
+                "category": "physical",
+                "area": 300,
+                "region": "Ege",
+                "kpssNote": "İzmir Bergama çevresinde. Zeytin, tütün. Pergamon antik kenti. Graben oluşumu."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.2000,
+                    39.1000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-09",
+                "name": "Antalya Ovası",
+                "nameEn": "Antalya Plain",
+                "type": "Kıyı Ovası",
+                "category": "physical",
+                "area": 700,
+                "region": "Akdeniz",
+                "kpssNote": "Akdeniz kıyısında. Seracılık, turunçgil, muz. Aksu ve Köprüçay deltası. Turizm ve tarım."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.7000,
+                    36.9000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-10",
+                "name": "Iğdır Ovası",
+                "nameEn": "Igdir Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 2000,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Aras Nehri boyunca. Doğu'nun en alçak ovası (800m). Pamuk yetişir. Mikro klima."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.0000,
+                    39.9000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-11",
+                "name": "Muş Ovası",
+                "nameEn": "Mus Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 1600,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Murat Nehri boyunca. Doğu Anadolu'nun geniş ovalarından. Tahıl, şeker pancarı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.5000,
+                    38.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-12",
+                "name": "Erzurum Ovası",
+                "nameEn": "Erzurum Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 2000,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Karasu'nun (Fırat) kaynağı. Yüksek ova (1900m). Tahıl, hayvancılık. Sert kara iklimi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.2000,
+                    39.9000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-13",
+                "name": "Ergene Ovası",
+                "nameEn": "Ergene Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 3500,
+                "region": "Marmara",
+                "kpssNote": "Trakya'nın büyük ovası. Ergene Nehri. Ayçiçeği, buğday. Sanayi kirliliği sorunu."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.0000,
+                    41.3000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-14",
+                "name": "Adapazarı Ovası",
+                "nameEn": "Adapazari Plain",
+                "type": "Alüvyal Ova",
+                "category": "physical",
+                "area": 800,
+                "region": "Marmara",
+                "kpssNote": "Sakarya Nehri boyunca. Verimli tarım alanı. Deprem riski (1999). Fındık."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.4000,
+                    40.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-15",
+                "name": "Elazığ Ovası",
+                "nameEn": "Elazig Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 500,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Fırat kıyısında. Kayısı. Keban Barajı yakınında. Fay hattı üzerinde."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.2000,
+                    38.6500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-16",
+                "name": "Malatya Ovası",
+                "nameEn": "Malatya Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 1000,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Türkiye'nin KAYISI başkenti. Fırat kıyısında. Dünya kayısı üretiminin %90'ı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.3000,
+                    38.3500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-17",
+                "name": "Amik Ovası",
+                "nameEn": "Amik Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 1000,
+                "region": "Akdeniz",
+                "kpssNote": "Hatay'da. Asi Nehri sulaması. Eski Amik Gölü kurutuldu. Pamuk, sebze."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.4000,
+                    36.4000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-18",
+                "name": "Bursa Ovası",
+                "nameEn": "Bursa Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "area": 600,
+                "region": "Marmara",
+                "kpssNote": "Nilüfer Çayı boyunca. Şeftali, meyvecilik. Uludağ eteğinde. Sanayi bölgesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0000,
+                    40.2000
+                ]
+            }
+        }
+    ]
+}

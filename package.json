@@ -1,6 +1,27 @@
 {
   "name": "geo-kpss",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "KPSS Coğrafya sınavına hazırlık için interaktif Türkiye harita platformu",
+  "author": "Geo-KPSS Contributors",
+  "license": "MIT",
+  "keywords": [
+    "kpss",
+    "coğrafya",
+    "türkiye",
+    "harita",
+    "eğitim",
+    "quiz",
+    "leaflet",
+    "next.js"
+  ],
+  "homepage": "https://github.com/KULLANICI_ADI/geo-kpss#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KULLANICI_ADI/geo-kpss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KULLANICI_ADI/geo-kpss/issues"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,12 +30,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.563.0",
     "next": "16.1.4",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-leaflet": "^5.0.0",
+    "zustand": "^5.0.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/leaflet": "^1.9.21",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

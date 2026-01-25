@@ -1,0 +1,227 @@
+[
+    {
+        "id": "q-01",
+        "type": "multiple-choice",
+        "category": "physical",
+        "difficulty": "easy",
+        "question": "Türkiye'nin en yüksek dağı hangisidir?",
+        "options": [
+            "Uludağ",
+            "Erciyes Dağı",
+            "Ağrı Dağı",
+            "Kaçkar Dağları"
+        ],
+        "correctAnswer": "Ağrı Dağı",
+        "explanation": "Ağrı Dağı 5137 metre yüksekliği ile Türkiye'nin en yüksek dağıdır. Volkanik kökenlidir."
+    },
+    {
+        "id": "q-02",
+        "type": "multiple-choice",
+        "category": "physical",
+        "difficulty": "easy",
+        "question": "Türkiye'nin tamamen ülke sınırları içinde akan en uzun nehri hangisidir?",
+        "options": [
+            "Fırat Nehri",
+            "Kızılırmak",
+            "Dicle Nehri",
+            "Sakarya Nehri"
+        ],
+        "correctAnswer": "Kızılırmak",
+        "explanation": "Kızılırmak 1355 km uzunluğu ile TAMAMı Türkiye sınırları içinde akan en uzun nehirdir."
+    },
+    {
+        "id": "q-03",
+        "type": "multiple-choice",
+        "category": "physical",
+        "difficulty": "medium",
+        "question": "Türkiye'nin ve Batı Asya'nın en büyük gölü hangisidir?",
+        "options": [
+            "Tuz Gölü",
+            "Van Gölü",
+            "Beyşehir Gölü",
+            "İznik Gölü"
+        ],
+        "correctAnswer": "Van Gölü",
+        "explanation": "Van Gölü 3713 km² yüzölçümü ile Türkiye'nin en büyük gölüdür. Sodalı suya sahiptir."
+    },
+    {
+        "id": "q-04",
+        "type": "multiple-choice",
+        "category": "physical",
+        "difficulty": "medium",
+        "question": "Türkiye'nin en büyük TATLI SU gölü hangisidir?",
+        "options": [
+            "Van Gölü",
+            "Tuz Gölü",
+            "Beyşehir Gölü",
+            "Eğirdir Gölü"
+        ],
+        "correctAnswer": "Beyşehir Gölü",
+        "explanation": "Beyşehir Gölü 656 km² ile Türkiye'nin en büyük tatlı su gölüdür. Van ve Tuz gölleri tuzludur."
+    },
+    {
+        "id": "q-05",
+        "type": "multiple-choice",
+        "category": "economic",
+        "difficulty": "easy",
+        "question": "Türkiye'nin en büyük barajı hangisidir?",
+        "options": [
+            "Keban Barajı",
+            "Karakaya Barajı",
+            "Atatürk Barajı",
+            "Ilısu Barajı"
+        ],
+        "correctAnswer": "Atatürk Barajı",
+        "explanation": "Atatürk Barajı 2400 MW kapasitesi ile Türkiye'nin en büyük, dünyanın 6. büyük barajıdır."
+    },
+    {
+        "id": "q-06",
+        "type": "multiple-choice",
+        "category": "economic",
+        "difficulty": "hard",
+        "question": "Türkiye dünya BOR rezervlerinin yaklaşık yüzde kaçına sahiptir?",
+        "options": [
+            "%25",
+            "%40",
+            "%55",
+            "%73"
+        ],
+        "correctAnswer": "%73",
+        "explanation": "Türkiye dünya bor rezervlerinin %73'üne sahiptir. Eskişehir ve Bandırma önemli bor yataklarıdır."
+    },
+    {
+        "id": "q-07",
+        "type": "multiple-choice",
+        "category": "administrative",
+        "difficulty": "easy",
+        "question": "Türkiye'nin en kalabalık şehri hangisidir?",
+        "options": [
+            "Ankara",
+            "İzmir",
+            "İstanbul",
+            "Bursa"
+        ],
+        "correctAnswer": "İstanbul",
+        "explanation": "İstanbul 15+ milyon nüfusu ile Türkiye'nin en kalabalık şehri ve ekonomik merkezidir."
+    },
+    {
+        "id": "q-08",
+        "type": "multiple-choice",
+        "category": "administrative",
+        "difficulty": "medium",
+        "question": "Türkiye'nin yüzölçümü en büyük ili hangisidir?",
+        "options": [
+            "Erzurum",
+            "Sivas",
+            "Konya",
+            "Ankara"
+        ],
+        "correctAnswer": "Konya",
+        "explanation": "Konya Türkiye'nin yüzölçümü en büyük ilidir. Aynı zamanda 'tahıl ambarı' olarak bilinir."
+    },
+    {
+        "id": "q-09",
+        "type": "multiple-choice",
+        "category": "economic",
+        "difficulty": "medium",
+        "question": "Türkiye'nin en büyük demir madeni hangi ilde bulunur?",
+        "options": [
+            "Malatya",
+            "Elazığ",
+            "Sivas",
+            "Erzurum"
+        ],
+        "correctAnswer": "Sivas",
+        "explanation": "Divriği (Sivas) Türkiye'nin en büyük demir madenidir. UNESCO Dünya Mirası: Divriği Ulu Camii."
+    },
+    {
+        "id": "q-10",
+        "type": "multiple-choice",
+        "category": "physical",
+        "difficulty": "hard",
+        "question": "Aşağıdakilerden hangisi VOLKANİK kökenli bir dağ DEĞİLDİR?",
+        "options": [
+            "Ağrı Dağı",
+            "Erciyes Dağı",
+            "Hasan Dağı",
+            "Uludağ"
+        ],
+        "correctAnswer": "Uludağ",
+        "explanation": "Uludağ tektonik kökenli bir dağdır. Ağrı, Erciyes, Hasan ve Süphan dağları volkanik kökenlidir."
+    },
+    {
+        "id": "q-11",
+        "type": "multiple-choice",
+        "category": "administrative",
+        "difficulty": "easy",
+        "question": "19 Mayıs 1919'da Atatürk'ün Kurtuluş Savaşı'nı başlattığı şehir hangisidir?",
+        "options": [
+            "Ankara",
+            "İstanbul",
+            "Samsun",
+            "Erzurum"
+        ],
+        "correctAnswer": "Samsun",
+        "explanation": "Atatürk 19 Mayıs 1919'da Samsun'a çıkarak Kurtuluş Savaşı'nı başlatmıştır."
+    },
+    {
+        "id": "q-12",
+        "type": "multiple-choice",
+        "category": "economic",
+        "difficulty": "medium",
+        "question": "Türkiye'de jeotermal enerji üretimi en yoğun hangi bölgede yapılır?",
+        "options": [
+            "Marmara Bölgesi",
+            "Ege Bölgesi",
+            "Akdeniz Bölgesi",
+            "İç Anadolu Bölgesi"
+        ],
+        "correctAnswer": "Ege Bölgesi",
+        "explanation": "Denizli-Aydın hattı Türkiye'nin en verimli jeotermal bölgesidir. Türkiye bu alanda dünya 4.südür."
+    },
+    {
+        "id": "q-13",
+        "type": "multiple-choice",
+        "category": "physical",
+        "difficulty": "medium",
+        "question": "Karadeniz Bölgesi'nin en yüksek dağı hangisidir?",
+        "options": [
+            "Ilgaz Dağları",
+            "Kaçkar Dağları",
+            "Köroğlu Dağları",
+            "Küre Dağları"
+        ],
+        "correctAnswer": "Kaçkar Dağları",
+        "explanation": "Kaçkar Dağları 3937 m ile Karadeniz Bölgesi'nin en yüksek noktasıdır. Buzul gölleri ile ünlüdür."
+    },
+    {
+        "id": "q-14",
+        "type": "multiple-choice",
+        "category": "administrative",
+        "difficulty": "hard",
+        "question": "Osmanlı Devleti'nin ilk başkenti hangi şehirdir?",
+        "options": [
+            "İstanbul",
+            "Edirne",
+            "Bursa",
+            "İznik"
+        ],
+        "correctAnswer": "Bursa",
+        "explanation": "Bursa, Osmanlı'nın ilk başkentidir (1326-1365). Sonra Edirne, ardından İstanbul başkent olmuştur."
+    },
+    {
+        "id": "q-15",
+        "type": "multiple-choice",
+        "category": "economic",
+        "difficulty": "easy",
+        "question": "UNESCO Gastronomi Şehri unvanına sahip, baklavasıyla dünyaca ünlü şehir hangisidir?",
+        "options": [
+            "Adana",
+            "Hatay",
+            "Gaziantep",
+            "Şanlıurfa"
+        ],
+        "correctAnswer": "Gaziantep",
+        "explanation": "Gaziantep UNESCO Gastronomi Şehri'dir. Baklavası ve Antep fıstığı dünyaca ünlüdür."
+    }
+]

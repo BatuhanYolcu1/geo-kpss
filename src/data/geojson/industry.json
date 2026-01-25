@@ -1,0 +1,365 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-01",
+                "name": "İstanbul Sanayi Bölgesi",
+                "nameEn": "Istanbul Industrial Zone",
+                "type": "Çoklu Sanayi",
+                "category": "economic",
+                "sector": "Tekstil/Otomotiv/Gıda/Makine",
+                "region": "Marmara",
+                "kpssNote": "Türkiye'nin EN BÜYÜK sanayi merkezi. Tüm sektörlerde üretim. TOSB, İMES OSB. Endüstriyel çeşitlilik."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0000,
+                    41.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-02",
+                "name": "Kocaeli Otomotiv Vadisi",
+                "nameEn": "Kocaeli Automotive Valley",
+                "type": "Otomotiv",
+                "category": "economic",
+                "sector": "Otomotiv",
+                "region": "Marmara",
+                "kpssNote": "Türkiye'nin OTOMOTİV BAŞKENTİ. Ford, Hyundai, Honda fabrikaları. İzmit-Gebze aksı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.9000,
+                    40.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-03",
+                "name": "Bursa Otomotiv-Tekstil Bölgesi",
+                "nameEn": "Bursa Automotive-Textile Region",
+                "type": "Otomotiv/Tekstil",
+                "category": "economic",
+                "sector": "Otomotiv/Tekstil",
+                "region": "Marmara",
+                "kpssNote": "Renault, Tofaş (Fiat) fabrikaları. Tekstil geleneği. Türkiye'nin 4. büyük sanayi şehri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0000,
+                    40.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-04",
+                "name": "Karabük Demir-Çelik",
+                "nameEn": "Karabuk Iron and Steel",
+                "type": "Demir-Çelik",
+                "category": "economic",
+                "sector": "Demir-Çelik",
+                "region": "Karadeniz",
+                "kpssNote": "Türkiye'nin İLK demir-çelik fabrikası (1939). Zonguldak kömürü yakınında kuruldu. KARDEMİR."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.6333,
+                    41.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-05",
+                "name": "Ereğli Demir-Çelik (ERDEMİR)",
+                "nameEn": "Eregli Iron and Steel",
+                "type": "Demir-Çelik",
+                "category": "economic",
+                "sector": "Demir-Çelik",
+                "region": "Karadeniz",
+                "kpssNote": "Türkiye'nin EN BÜYÜK demir-çelik tesisi. Karadeniz Ereğli (Zonguldak). Yassı çelik üretimi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.4167,
+                    41.2833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-06",
+                "name": "İskenderun Demir-Çelik (İSDEMİR)",
+                "nameEn": "Iskenderun Iron and Steel",
+                "type": "Demir-Çelik",
+                "category": "economic",
+                "sector": "Demir-Çelik",
+                "region": "Akdeniz",
+                "kpssNote": "Hatay'da. İthal cevher kullanır (liman avantajı). Uzun çelik ürünleri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.1667,
+                    36.5833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-07",
+                "name": "Aliağa Petrokimya",
+                "nameEn": "Aliaga Petrochemical",
+                "type": "Petrokimya",
+                "category": "economic",
+                "sector": "Petrokimya/Rafineri",
+                "region": "Ege",
+                "kpssNote": "İzmir Aliağa'da TÜPRAŞ Rafinerisi. Petrokimya kümesi. Gemi söküm tersaneleri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.9667,
+                    38.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-08",
+                "name": "Kırıkkale Petrokimya-Silah",
+                "nameEn": "Kirikkale Arms-Petrochemical",
+                "type": "Petrokimya/Savunma",
+                "category": "economic",
+                "sector": "Petrokimya/Silah Sanayi",
+                "region": "İç Anadolu",
+                "kpssNote": "TÜPRAŞ Rafinerisi. MKE silah fabrikaları. Savunma sanayi. Stratejik konum."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.5333,
+                    39.8500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-09",
+                "name": "Batman Rafinerisi",
+                "nameEn": "Batman Refinery",
+                "type": "Petrol Rafinerisi",
+                "category": "economic",
+                "sector": "Petrol",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Türkiye'nin İLK petrol rafinerisi (1955). Güneydoğu petrol sahaları. Türkiye'nin tek yerli petrolü."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.1333,
+                    37.8833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-10",
+                "name": "Gaziantep Tekstil-Gıda",
+                "nameEn": "Gaziantep Textile-Food",
+                "type": "Tekstil/Gıda",
+                "category": "economic",
+                "sector": "Tekstil/Gıda",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Halı, kilim üretimi (dünya lideri). Baklava, antep fıstığı işleme. Türkiye'nin 6. büyük şehri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.3667,
+                    37.0667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-11",
+                "name": "Denizli Tekstil",
+                "nameEn": "Denizli Textile",
+                "type": "Tekstil",
+                "category": "economic",
+                "sector": "Tekstil/Ev Tekstili",
+                "region": "Ege",
+                "kpssNote": "Havlu ve bornoz üretiminde dünya lideri. Ev tekstili ihracatı. Pamukkale yakını."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0833,
+                    37.7833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-12",
+                "name": "Kayseri Tekstil-Mobilya",
+                "nameEn": "Kayseri Textile-Furniture",
+                "type": "Tekstil/Mobilya",
+                "category": "economic",
+                "sector": "Tekstil/Mobilya",
+                "region": "İç Anadolu",
+                "kpssNote": "Anadolu'nun sanayi kenti. Mobilya üretim üssü. Tekstil geleneği. OSB'ler."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.4833,
+                    38.7333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-13",
+                "name": "Ankara Savunma Sanayi",
+                "nameEn": "Ankara Defense Industry",
+                "type": "Savunma Sanayi",
+                "category": "economic",
+                "sector": "Savunma/Havacılık",
+                "region": "İç Anadolu",
+                "kpssNote": "ASELSAN, TAI (Tusaş), ROKETSAN. Türkiye'nin savunma sanayi merkezi. ODTÜ Teknokent."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.8500,
+                    39.9000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-14",
+                "name": "Eskişehir Havacılık",
+                "nameEn": "Eskisehir Aviation",
+                "type": "Havacılık",
+                "category": "economic",
+                "sector": "Havacılık/Demiryolu",
+                "region": "İç Anadolu",
+                "kpssNote": "Türk Hava Kuvvetleri 1. Ana Jet Üssü. Tülomsaş demiryolu fabrikası. Seramik sanayi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5167,
+                    39.7667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-15",
+                "name": "Adana Tekstil-Gıda",
+                "nameEn": "Adana Textile-Food",
+                "type": "Tekstil/Gıda",
+                "category": "economic",
+                "sector": "Tekstil/Gıda",
+                "region": "Akdeniz",
+                "kpssNote": "Çukurova pamuğu ile tekstil. Sanayi kentine dönüşüm. Belediye sanayi geleneği."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.3167,
+                    37.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-16",
+                "name": "Mersin Serbest Bölgesi",
+                "nameEn": "Mersin Free Zone",
+                "type": "Serbest Bölge",
+                "category": "economic",
+                "sector": "Lojistik/İhracat",
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin en büyük konteyner limanı. Akdeniz'e açılan kapı. Serbest ticaret bölgesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.6333,
+                    36.7833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-17",
+                "name": "Seydişehir Alüminyum (ETİ)",
+                "nameEn": "Seydisehir Aluminum",
+                "type": "Alüminyum",
+                "category": "economic",
+                "sector": "Metalurji",
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin TEK birincil alüminyum tesisi. Konya Seydişehir. Boksit madeni yakınında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.8500,
+                    37.4167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ind-18",
+                "name": "Bolu-Düzce Orman Sanayi",
+                "nameEn": "Bolu-Duzce Forestry Industry",
+                "type": "Orman Ürünleri",
+                "category": "economic",
+                "sector": "Ağaç/Mobilya",
+                "region": "Karadeniz",
+                "kpssNote": "Orman zenginliği. Kereste, sunta, MDF üretimi. Mobilya sektörünün hammadde kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.6000,
+                    40.7000
+                ]
+            }
+        }
+    ]
+}

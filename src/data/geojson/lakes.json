@@ -1,0 +1,545 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-01",
+                "name": "Van Gölü",
+                "nameEn": "Lake Van",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 3713,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Türkiye'nin EN BÜYÜK gölü (3713 km²). DÜNYANIN EN BÜYÜK SODALI gölü. Gideğeni yok, volkanizma kapattı. Van kedisi ve İnci kefali."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.0000,
+                    38.6000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-02",
+                "name": "Tuz Gölü",
+                "nameEn": "Salt Lake",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 1500,
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin 2. büyük gölü. EN TUZLU göl. Kapalı havza. Yazın büyük kısmı kurur. Tuz üretimi yapılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.4000,
+                    38.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-03",
+                "name": "Beyşehir Gölü",
+                "nameEn": "Lake Beysehir",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 656,
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin EN BÜYÜK TATLISU gölü. Konya'da. Göller Yöresi'nde. Suyu tarım için kullanılır. Milli park."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.5000,
+                    37.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-04",
+                "name": "Eğirdir Gölü",
+                "nameEn": "Lake Egirdir",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 468,
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin 4. büyük gölü. TATLISU. Isparta'da. Göller Yöresi'nde. Kerevit yetiştiriciliği."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.8500,
+                    37.8833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-05",
+                "name": "İznik Gölü",
+                "nameEn": "Lake Iznik",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 313,
+                "region": "Marmara",
+                "kpssNote": "Marmara'nın EN BÜYÜK gölü. TATLISU. Bursa'da. 325 İznik Konsili burada. Zeytin ve üzüm bağları."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.5333,
+                    40.4333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-06",
+                "name": "Burdur Gölü",
+                "nameEn": "Lake Burdur",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 200,
+                "region": "Akdeniz",
+                "kpssNote": "Göller Yöresi'nde. ACISU. Dibe Ördeği (podiceps) koruma alanı. Su seviyesi hızla düşüyor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.1667,
+                    37.7167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-07",
+                "name": "Acıgöl (Afyon)",
+                "nameEn": "Lake Acigol",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 80,
+                "region": "Ege",
+                "kpssNote": "Afyon-Denizli sınırında. Tuzlu ve acı su. Kapalı havza. Sodyum sülfat üretimi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.0000,
+                    38.1000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-08",
+                "name": "Salda Gölü",
+                "nameEn": "Lake Salda",
+                "type": "Karstik Göl",
+                "category": "physical",
+                "area": 45,
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin EN DERİN gölü (184m). 'Türkiye'nin Maldivleri'. Burdur'da. Beyaz kumullar. NASA Mars benzeri yapı araştırması."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.6667,
+                    37.5333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-09",
+                "name": "Sapanca Gölü",
+                "nameEn": "Lake Sapanca",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 47,
+                "region": "Marmara",
+                "kpssNote": "Sakarya-Kocaeli sınırında. TATLISU. İstanbul'un su kaynağı. Kuzey Anadolu Fay Hattı üzerinde."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.2500,
+                    40.7167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-10",
+                "name": "Manyas Gölü (Kuş Gölü)",
+                "nameEn": "Lake Manyas",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 166,
+                "region": "Marmara",
+                "kpssNote": "Balıkesir'de. Kuş Cenneti Milli Parkı. Türkiye'nin İLK MİLLİ PARKI. 266 kuş türü. Ramsar Alanı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.0000,
+                    40.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-11",
+                "name": "Ulubat Gölü",
+                "nameEn": "Lake Ulubat",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 135,
+                "region": "Marmara",
+                "kpssNote": "Bursa'da. TATLISU. Nilüfer Çayı ile beslenir. Ramsar Alanı. Su zambakları."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.6000,
+                    40.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-12",
+                "name": "Eber Gölü",
+                "nameEn": "Lake Eber",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 126,
+                "region": "Ege",
+                "kpssNote": "Afyon'da. Akarçay ile beslenir. Suyu TATLIYDI, şimdi tuzlulaşıyor. Sazlıklar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.7500,
+                    38.6000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-13",
+                "name": "Akşehir Gölü",
+                "nameEn": "Lake Aksehir",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 353,
+                "region": "İç Anadolu",
+                "kpssNote": "Konya'da. Akarçay havzası. Suyu TUZLU. Su seviyesi düşüyor, göl küçülüyor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.4167,
+                    38.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-14",
+                "name": "Hazar Gölü",
+                "nameEn": "Lake Hazar",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 86,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Elazığ'da. TATLISU. Dicle Nehri burada doğar (gideğen). Doğu Anadolu Fay Hattı üzerinde. Kamp ve su sporları."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.4167,
+                    38.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-15",
+                "name": "Çıldır Gölü",
+                "nameEn": "Lake Cildir",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 123,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Ardahan'da. Türkiye'nin en büyük 7. gölü. TATLISU. Kışın tamamen donar. Atlı kızak etkinlikleri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.3333,
+                    41.0500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-16",
+                "name": "Tortum Gölü",
+                "nameEn": "Lake Tortum",
+                "type": "Heyelan Set Gölü",
+                "category": "physical",
+                "area": 8,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Erzurum'da. HEYELAN SET GÖLÜ örneği. Tortum Şelalesi (48m) gideğeninde. Türkiye'nin en yüksek şelalelerinden."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.5500,
+                    40.3333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-17",
+                "name": "Abant Gölü",
+                "nameEn": "Lake Abant",
+                "type": "Heyelan Set Gölü",
+                "category": "physical",
+                "area": 1.2,
+                "region": "Karadeniz",
+                "kpssNote": "Bolu'da. HEYеLAN SET GÖLÜ. Tabiat Parkı. Dört mevsim turizm. Alabalık."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.6000,
+                    40.6000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-18",
+                "name": "Sera Gölü",
+                "nameEn": "Lake Sera",
+                "type": "Heyelan Set Gölü",
+                "category": "physical",
+                "area": 0.5,
+                "region": "Karadeniz",
+                "kpssNote": "Trabzon'da. HEYELAN SET GÖLÜ. Sera Gölü Tabiat Parkı. Botanik turizm. Yeşil alan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.6500,
+                    40.9667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-19",
+                "name": "Uzungöl",
+                "nameEn": "Uzungol",
+                "type": "Heyelan Set Gölü",
+                "category": "physical",
+                "area": 0.5,
+                "region": "Karadeniz",
+                "kpssNote": "Trabzon Çaykara'da. HEYELAN SET GÖLÜ. Türkiye'nin en popüler doğa turizm noktalarından. Fotoğraf cenneti."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.2833,
+                    40.6167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-20",
+                "name": "Nemrut Krater Gölü",
+                "nameEn": "Nemrut Crater Lake",
+                "type": "Volkanik Krater Gölü",
+                "category": "physical",
+                "area": 12,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Bitlis Nemrut Dağı kraterinde. VOLKANİK KRATER GÖLÜ. Dünyanın en büyük 2. krater gölü. Sıcak ve soğuk göller bir arada."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.2333,
+                    38.6333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-21",
+                "name": "Köyceğiz Gölü",
+                "nameEn": "Lake Koycegiz",
+                "type": "Lagün (Kıyı Set) Göl",
+                "category": "physical",
+                "area": 52,
+                "region": "Ege",
+                "kpssNote": "Muğla'da. Dalyan Kanalı ile bağlı. KIYI SET GÖLÜ. Caretta caretta kaplumbağaları. Dalyan çamur banyoları."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.6833,
+                    36.9500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-22",
+                "name": "Bafa Gölü",
+                "nameEn": "Lake Bafa",
+                "type": "Lagün (Kıyı Set) Göl",
+                "category": "physical",
+                "area": 60,
+                "region": "Ege",
+                "kpssNote": "Aydın-Muğla sınırında. Eskiden deniz körfeziydi, KIYI SET GÖLÜ oldu. Latmos Dağları, manastırlar. Herakleia antik kenti."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.5000,
+                    37.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-23",
+                "name": "Küçükçekmece Gölü",
+                "nameEn": "Lake Kucukcekmece",
+                "type": "Lagün (Kıyı Set) Göl",
+                "category": "physical",
+                "area": 15,
+                "region": "Marmara",
+                "kpssNote": "İstanbul'da. KIYI SET (lagün) gölü. Şehirleşme nedeniyle kirlendi. Prehistorik yerleşim izleri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.7500,
+                    41.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-24",
+                "name": "Büyükçekmece Gölü",
+                "nameEn": "Lake Buyukcekmece",
+                "type": "Lagün (Kıyı Set) Göl",
+                "category": "physical",
+                "area": 28,
+                "region": "Marmara",
+                "kpssNote": "İstanbul'da. KIYI SET gölü. Mimar Sinan köprüsü (450+ yaşında). İstanbul'a içme suyu sağlar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.5833,
+                    41.0333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-25",
+                "name": "Nazik Gölü",
+                "nameEn": "Lake Nazik",
+                "type": "Tektonik Göl",
+                "category": "physical",
+                "area": 45,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Bitlis-Muş sınırında. TATLISU. Balıkçılık. Yakınlarında Ahlat Selçuklu mezar taşları."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.5500,
+                    38.9833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-26",
+                "name": "Karagöl (Artvin)",
+                "nameEn": "Lake Karagol",
+                "type": "Buzul Sirk Gölü",
+                "category": "physical",
+                "area": 0.35,
+                "region": "Karadeniz",
+                "kpssNote": "Artvin Borçka'da. BUZUL (SİRK) GÖLÜ. Karaçam ormanları içinde. Türkiye'nin en güzel göl manzaralarından."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.6500,
+                    41.3833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "lake-27",
+                "name": "Balık Gölü (Ağrı)",
+                "nameEn": "Lake Balik",
+                "type": "Buzul Sirk Gölü",
+                "category": "physical",
+                "area": 4.2,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Ağrı Taşlıçay'da. BUZUL ÇUKURU (SİRK) GÖLÜ. 2241m yükseklikte. Soğuk su, serin yaz."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.4167,
+                    39.6167
+                ]
+            }
+        }
+    ]
+}

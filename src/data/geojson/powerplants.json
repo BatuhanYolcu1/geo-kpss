@@ -1,0 +1,485 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-01",
+                "name": "Atatürk Barajı HES",
+                "nameEn": "Ataturk Dam HPP",
+                "type": "Hidroelektrik",
+                "category": "economic",
+                "capacity": 2400,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Türkiye'nin EN BÜYÜK barajı ve HES'i (2400 MW). GAP'ın kalbi. Fırat üzerinde. Dünyanın en büyük barajlarından."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.3333,
+                    37.4667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-02",
+                "name": "Keban Barajı HES",
+                "nameEn": "Keban Dam HPP",
+                "type": "Hidroelektrik",
+                "category": "economic",
+                "capacity": 1330,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Fırat'ın ilk büyük barajı (1974). Karasu-Murat birleşim noktası. Elazığ'da. Türkiye'nin 3. büyük HES'i."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.7500,
+                    38.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-03",
+                "name": "Karakaya Barajı HES",
+                "nameEn": "Karakaya Dam HPP",
+                "type": "Hidroelektrik",
+                "category": "economic",
+                "capacity": 1800,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Fırat üzerinde (1987). Diyarbakır-Malatya sınırı. Türkiye'nin 2. büyük HES'i."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.0000,
+                    38.4167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-04",
+                "name": "Ilısu Barajı HES",
+                "nameEn": "Ilisu Dam HPP",
+                "type": "Hidroelektrik",
+                "category": "economic",
+                "capacity": 1200,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Dicle üzerinde en büyük baraj (2020). Mardin-Şırnak sınırı. Hasankeyf antik kenti su altında kaldı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.0000,
+                    37.4500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-05",
+                "name": "Deriner Barajı HES",
+                "nameEn": "Deriner Dam HPP",
+                "type": "Hidroelektrik",
+                "category": "economic",
+                "capacity": 670,
+                "region": "Karadeniz",
+                "kpssNote": "Çoruh üzerinde. Türkiye'nin EN YÜKSEK barajı (249m). Artvin'de. Çift eğrilikli beton kemer."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.8333,
+                    41.1000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-06",
+                "name": "Oymapınar Barajı HES",
+                "nameEn": "Oymapinar Dam HPP",
+                "type": "Hidroelektrik",
+                "category": "economic",
+                "capacity": 540,
+                "region": "Akdeniz",
+                "kpssNote": "Manavgat Çayı üzerinde. Antalya'da. Turkuaz renkli baraj gölü. Turizm ve enerji."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.4667,
+                    36.9833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-07",
+                "name": "Hirfanlı Barajı HES",
+                "nameEn": "Hirfanli Dam HPP",
+                "type": "Hidroelektrik",
+                "category": "economic",
+                "capacity": 128,
+                "region": "İç Anadolu",
+                "kpssNote": "Kızılırmak üzerinde ilk büyük baraj (1959). Kırşehir'de. Tarımsal sulama."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.5167,
+                    39.1667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-08",
+                "name": "Afşin-Elbistan A Termik Santrali",
+                "nameEn": "Afsin-Elbistan A Thermal PP",
+                "type": "Termik (Linyit)",
+                "category": "economic",
+                "capacity": 1355,
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin EN BÜYÜK termik santrali. Linyitle çalışır. Kahramanmaraş Elbistan'da."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.7500,
+                    38.2667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-09",
+                "name": "Afşin-Elbistan B Termik Santrali",
+                "nameEn": "Afsin-Elbistan B Thermal PP",
+                "type": "Termik (Linyit)",
+                "category": "economic",
+                "capacity": 1440,
+                "region": "Akdeniz",
+                "kpssNote": "A santraline ek olarak yapıldı. Türkiye'nin en büyük linyit havzası üstünde."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.7833,
+                    38.2833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-10",
+                "name": "Soma Termik Santrali",
+                "nameEn": "Soma Thermal PP",
+                "type": "Termik (Linyit)",
+                "category": "economic",
+                "capacity": 990,
+                "region": "Ege",
+                "kpssNote": "Manisa Soma'da linyit yakıtlı. Batı Anadolu'nun en büyük termik santrali."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.6167,
+                    39.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-11",
+                "name": "Yatağan Termik Santrali",
+                "nameEn": "Yatagan Thermal PP",
+                "type": "Termik (Linyit)",
+                "category": "economic",
+                "capacity": 630,
+                "region": "Ege",
+                "kpssNote": "Muğla Yatağan'da. Linyitle çalışır. Yeniköy ve Kemerköy santralleri de yakınında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.1333,
+                    37.3333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-12",
+                "name": "Tunçbilek Termik Santrali",
+                "nameEn": "Tuncbilek Thermal PP",
+                "type": "Termik (Linyit)",
+                "category": "economic",
+                "capacity": 429,
+                "region": "Ege",
+                "kpssNote": "Kütahya Tavşanlı'da. Linyit yakıtlı. Seyitömer santrali de yakınında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.5000,
+                    39.5500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-13",
+                "name": "Çatalağzı Termik Santrali",
+                "nameEn": "Catalagzi Thermal PP",
+                "type": "Termik (Taşkömürü)",
+                "category": "economic",
+                "capacity": 300,
+                "region": "Karadeniz",
+                "kpssNote": "Zonguldak'ta. Türkiye'nin TEK TAŞKÖMÜRÜ yakıtlı büyük termik santrali."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.8500,
+                    41.4333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-14",
+                "name": "Hamitabat Doğalgaz Santrali",
+                "nameEn": "Hamitabat NGCC PP",
+                "type": "Doğalgaz",
+                "category": "economic",
+                "capacity": 1155,
+                "region": "Marmara",
+                "kpssNote": "Kırklareli'nde. Türkiye'nin İLK büyük doğalgaz santrali (1985)."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.3333,
+                    41.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-15",
+                "name": "Ambarlı Doğalgaz Santrali",
+                "nameEn": "Ambarli NGCC PP",
+                "type": "Doğalgaz",
+                "category": "economic",
+                "capacity": 1350,
+                "region": "Marmara",
+                "kpssNote": "İstanbul Avcılar'da. Marmara Denizi kıyısında. Fuel-oil ve doğalgaz."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.6833,
+                    40.9833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-16",
+                "name": "Akkuyu Nükleer Santrali",
+                "nameEn": "Akkuyu Nuclear PP",
+                "type": "Nükleer",
+                "category": "economic",
+                "capacity": 4800,
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin İLK nükleer santrali (yapım aşamasında). Mersin Gülnar'da. 4 reaktör. Rusya ortaklığı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.5167,
+                    36.1500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-17",
+                "name": "Sinop Nükleer Santrali",
+                "nameEn": "Sinop Nuclear PP",
+                "type": "Nükleer",
+                "category": "economic",
+                "capacity": 4480,
+                "region": "Karadeniz",
+                "kpssNote": "Türkiye'nin 2. planlanan nükleer santrali. Sinop İnceburun'da. Japonya ortaklığı (askıda)."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.9667,
+                    42.0333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-18",
+                "name": "Belen RES (Rüzgar Enerjisi)",
+                "nameEn": "Belen Wind Farm",
+                "type": "Rüzgar",
+                "category": "economic",
+                "capacity": 168,
+                "region": "Akdeniz",
+                "kpssNote": "Hatay Belen'de. Belen Geçidi güçlü rüzgar koridoru. Türkiye'nin ilk büyük RES'lerinden."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.4833,
+                    36.4833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-19",
+                "name": "Çeşme-Alaçatı RES",
+                "nameEn": "Cesme-Alacati Wind Farm",
+                "type": "Rüzgar",
+                "category": "economic",
+                "capacity": 90,
+                "region": "Ege",
+                "kpssNote": "İzmir Çeşme'de. Ege kıyısında güçlü rüzgar. Türkiye'nin rüzgar enerjisi merkezi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.3167,
+                    38.2833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-20",
+                "name": "Bandırma RES",
+                "nameEn": "Bandirma Wind Farm",
+                "type": "Rüzgar",
+                "category": "economic",
+                "capacity": 135,
+                "region": "Marmara",
+                "kpssNote": "Balıkesir Bandırma'da. Marmara Denizi kıyısı. Önemli RES kapasitesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.9667,
+                    40.3500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-21",
+                "name": "Karapınar GES (Güneş Enerjisi)",
+                "nameEn": "Karapinar Solar Farm",
+                "type": "Güneş",
+                "category": "economic",
+                "capacity": 1000,
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin EN BÜYÜK güneş enerjisi santrali. Konya Karapınar'da. 1000 MW kapasiteli. KALYON GES."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.5500,
+                    37.7167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-22",
+                "name": "Ceyhan Enerji İhtisas Bölgesi",
+                "nameEn": "Ceyhan Energy Hub",
+                "type": "Petrol/Doğalgaz Terminal",
+                "category": "economic",
+                "capacity": 0,
+                "region": "Akdeniz",
+                "kpssNote": "Adana Ceyhan'da enerji terminali. BTC ve Kerkük-Yumurtalık petrol boru hatlarının bitiş noktası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.8167,
+                    36.9333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-23",
+                "name": "TANAP Doğalgaz Boru Hattı",
+                "nameEn": "TANAP Pipeline",
+                "type": "Doğalgaz Boru Hattı",
+                "category": "economic",
+                "capacity": 16,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Trans-Anadolu Doğalgaz Boru Hattı. Azerbaycan gazını Türkiye ve Avrupa'ya taşır. 2018'de açıldı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.0000,
+                    40.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "power-24",
+                "name": "BTC Petrol Boru Hattı",
+                "nameEn": "BTC Pipeline",
+                "type": "Petrol Boru Hattı",
+                "category": "economic",
+                "capacity": 0,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Bakü-Tiflis-Ceyhan hattı. Hazar petrolünü Akdeniz'e taşır. 1768 km. 2006'da açıldı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.5000,
+                    40.0000
+                ]
+            }
+        }
+    ]
+}

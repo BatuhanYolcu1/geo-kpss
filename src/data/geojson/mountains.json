@@ -1,0 +1,805 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-01",
+                "name": "Ağrı Dağı",
+                "nameEn": "Mount Ararat",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 5137,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Türkiye'nin EN YÜKSEK dağı (5137m). Volkanik kökenli. Nuh'un gemisi efsanesi. Ağrı-Iğdır sınırında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2983,
+                    39.7019
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-02",
+                "name": "Süphan Dağı",
+                "nameEn": "Mount Suphan",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 4058,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Türkiye'nin 2. en yüksek volkanik dağı. Bitlis'te. Van Gölü'nün kuzeyinde."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.8333,
+                    38.9167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-03",
+                "name": "Kaçkar Dağları",
+                "nameEn": "Kackar Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3937,
+                "region": "Karadeniz",
+                "kpssNote": "Doğu Karadeniz'in en yüksek dağları. Buzul gölleri var. Rize-Artvin sınırında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.1500,
+                    40.8333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-04",
+                "name": "Erciyes Dağı",
+                "nameEn": "Mount Erciyes",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 3917,
+                "region": "İç Anadolu",
+                "kpssNote": "İç Anadolu'nun en yüksek dağı. Kayseri'de. Kayak merkezi. Stratovolkan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.4500,
+                    38.5333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-05",
+                "name": "Demavend Dağı (Cilo)",
+                "nameEn": "Cilo Mountain",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 4135,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Hakkari Dağları'nın en yüksek zirvesi. Güneydoğu Toroslar'da. Buzullar var."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.0333,
+                    37.4833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-06",
+                "name": "Uludağ",
+                "nameEn": "Mount Uludag",
+                "type": "Kırık Dağ (Horst)",
+                "category": "physical",
+                "elevation": 2543,
+                "region": "Marmara",
+                "kpssNote": "Marmara Bölgesi'nin EN YÜKSEK dağı. Bursa'da. Önemli kayak merkezi. Milli park."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.2167,
+                    40.1000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-07",
+                "name": "Nemrut Dağı (Bitlis)",
+                "nameEn": "Mount Nemrut (Bitlis)",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 2948,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Bitlis'te volkanik dağ. Krater gölü var. Van Gölü'nün batısında. Aktif volkan değil."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.2333,
+                    38.6500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-08",
+                "name": "Nemrut Dağı (Adıyaman)",
+                "nameEn": "Mount Nemrut (Adiyaman)",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2134,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "UNESCO Dünya Mirası. Kommagene Krallığı dev heykelleri. Adıyaman'da. EN ÇOK ZİYARET EDİLEN."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.7500,
+                    37.9833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-09",
+                "name": "Hasandağı",
+                "nameEn": "Mount Hasan",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 3268,
+                "region": "İç Anadolu",
+                "kpssNote": "Aksaray'da çift tepeli volkan. Kapadokya'nın oluşumunda etkili. Kayak merkezi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.1667,
+                    38.1333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-10",
+                "name": "Tendürek Dağı",
+                "nameEn": "Mount Tendurek",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 3533,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Ağrı-Van arasında volkanik dağ. Aktif volkan belirtileri. Solfatar çıkışları var."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.8667,
+                    39.3500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-11",
+                "name": "Ilgaz Dağları",
+                "nameEn": "Ilgaz Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2587,
+                "region": "Karadeniz",
+                "kpssNote": "Kuzey Anadolu Dağları'nın bir parçası. Çankırı-Kastamonu sınırında. Milli park ve kayak merkezi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.7167,
+                    41.0667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-12",
+                "name": "Küre Dağları",
+                "nameEn": "Kure Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2019,
+                "region": "Karadeniz",
+                "kpssNote": "Batı Karadeniz'de. Bartın-Kastamonu sınırında. Milli park. Kanyon ve mağaralar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.0000,
+                    41.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-13",
+                "name": "Köroğlu Dağları",
+                "nameEn": "Koroglu Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2499,
+                "region": "Karadeniz",
+                "kpssNote": "Bolu ve çevresinde. Kuzey Anadolu Dağları'nın batı bölümü. Yedigöller Milli Parkı burada."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.9000,
+                    40.7000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-14",
+                "name": "Canik Dağları",
+                "nameEn": "Canik Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2062,
+                "region": "Karadeniz",
+                "kpssNote": "Samsun-Ordu-Giresun'un güneyinde. Kuzey Anadolu Dağları'nın orta bölümü."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.0000,
+                    40.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-15",
+                "name": "Giresun Dağları",
+                "nameEn": "Giresun Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3107,
+                "region": "Karadeniz",
+                "kpssNote": "Giresun'un güneyinde. Kuzey Anadolu Dağları. Fındık tarımının üst sınırı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.4000,
+                    40.4500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-16",
+                "name": "Kazdağı (İda)",
+                "nameEn": "Mount Ida",
+                "type": "Kırık Dağ (Horst)",
+                "category": "physical",
+                "elevation": 1774,
+                "region": "Marmara",
+                "kpssNote": "Balıkesir-Çanakkale sınırında. Milli park. Mitolojide Paris'in Elması. Truva Savaşı efsanesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.8833,
+                    39.7000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-17",
+                "name": "Bey Dağları",
+                "nameEn": "Bey Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3086,
+                "region": "Akdeniz",
+                "kpssNote": "Antalya'nın batısında. Batı Toroslar'ın bir parçası. Termessos antik kenti yamaçlarında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5000,
+                    36.8333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-18",
+                "name": "Bolkar Dağları",
+                "nameEn": "Bolkar Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3524,
+                "region": "Akdeniz",
+                "kpssNote": "Orta Toroslar'da. Niğde-Mersin sınırında. Medetsiz Tepesi en yüksek zirvesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.5667,
+                    37.4333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-19",
+                "name": "Aladağlar",
+                "nameEn": "Ala Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3756,
+                "region": "Akdeniz",
+                "kpssNote": "Orta Toroslar'ın en yüksek bölümü. Demirkazık zirvesi. Milli park. Dağcılık merkezi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.1667,
+                    37.8333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-20",
+                "name": "Nur Dağları (Amanoslar)",
+                "nameEn": "Amanos Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2240,
+                "region": "Akdeniz",
+                "kpssNote": "Hatay-Adana sınırında. Belen Geçidi burada. Suriye sınırına kadar uzanır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.2500,
+                    36.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-21",
+                "name": "Tahtalı Dağı (Olympos)",
+                "nameEn": "Mount Tahtali",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2365,
+                "region": "Akdeniz",
+                "kpssNote": "Antalya Kemer'de. Teleferik ile çıkılabilir. Antik adı Olympos. Türkiye'nin en ünlü kayalık kıyılarından."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.4667,
+                    36.5333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-22",
+                "name": "Bozdağlar",
+                "nameEn": "Bozdaglar",
+                "type": "Kırık Dağ (Horst)",
+                "category": "physical",
+                "elevation": 2159,
+                "region": "Ege",
+                "kpssNote": "İzmir Ödemiş'in güneyinde. Horst yapısı. Gediz ve Küçük Menderes arasında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.1000,
+                    38.3500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-23",
+                "name": "Aydın Dağları",
+                "nameEn": "Aydin Mountains",
+                "type": "Kırık Dağ (Horst)",
+                "category": "physical",
+                "elevation": 1834,
+                "region": "Ege",
+                "kpssNote": "Büyük Menderes'in kuzeyinde. Horst yapısı. Ege fay sistemi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.8500,
+                    37.9000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-24",
+                "name": "Menteşe Dağları",
+                "nameEn": "Mentese Mountains",
+                "type": "Kırık Dağ (Horst)",
+                "category": "physical",
+                "elevation": 1500,
+                "region": "Ege",
+                "kpssNote": "Muğla çevresinde. Graben-horst sisteminin bir parçası. Güneybatı Anadolu."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.3667,
+                    37.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-25",
+                "name": "Yunt Dağı",
+                "nameEn": "Yunt Mountain",
+                "type": "Kırık Dağ (Horst)",
+                "category": "physical",
+                "elevation": 1076,
+                "region": "Ege",
+                "kpssNote": "Manisa'nın kuzeyinde. Bakırçay Grabeni'nin güneyinde."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.4333,
+                    39.1500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-26",
+                "name": "Madra Dağı",
+                "nameEn": "Madra Mountain",
+                "type": "Kırık Dağ (Horst)",
+                "category": "physical",
+                "elevation": 1344,
+                "region": "Ege",
+                "kpssNote": "Balıkesir'in güneyinde. Bakırçay Grabeni'nin kuzeyinde. Kozak Yaylası eteklerinde."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.2500,
+                    39.4500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-27",
+                "name": "Honaz Dağı",
+                "nameEn": "Mount Honaz",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2528,
+                "region": "Ege",
+                "kpssNote": "Denizli'nin güneyinde. Ege'nin en yüksek dağlarından. Milli park."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.2667,
+                    37.7000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-28",
+                "name": "Murat Dağı",
+                "nameEn": "Murat Mountain",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 2312,
+                "region": "Ege",
+                "kpssNote": "Uşak-Kütahya sınırında. Gediz Nehri'nin kaynağı. Termal kaynaklar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.6333,
+                    38.9667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-29",
+                "name": "Yıldız Dağları",
+                "nameEn": "Yildiz (Istranca) Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 1031,
+                "region": "Marmara",
+                "kpssNote": "Trakya'nın tek dağlık bölgesi. Kırklareli ve Edirne'de. Avrupa yakasının en yüksek noktaları."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.6667,
+                    41.8333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-30",
+                "name": "Karacadağ (İç Anadolu)",
+                "nameEn": "Karacadag (Central)",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 1957,
+                "region": "İç Anadolu",
+                "kpssNote": "Karaman'da volkanik dağ. İç Anadolu'nun güneyinde."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.2167,
+                    37.1000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-31",
+                "name": "Karacadağ (Güneydoğu)",
+                "nameEn": "Karacadag (Southeast)",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 1919,
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Diyarbakır-Şanlıurfa sınırında. Bazalt lavlarından oluşmuş. Güneydoğu'nun en yüksek noktası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.8333,
+                    37.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-32",
+                "name": "Melendiz Dağları",
+                "nameEn": "Melendiz Mountains",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 2963,
+                "region": "İç Anadolu",
+                "kpssNote": "Niğde'de volkanik dağ kütlesi. Kapadokya'nın oluşumunda etkili."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.4833,
+                    38.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-33",
+                "name": "Sultan Dağları",
+                "nameEn": "Sultan Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2610,
+                "region": "Akdeniz",
+                "kpssNote": "Isparta-Afyon-Konya sınırında. Göller Yöresi'nin doğusunda."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.0000,
+                    38.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-34",
+                "name": "Eğribaba Tepesi",
+                "nameEn": "Egribaba Peak",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 3176,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Bingöl Dağları'nın en yüksek noktası. Karasu (Batı Fırat) Nehri'nin kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.5000,
+                    39.1667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-35",
+                "name": "Munzur Dağları",
+                "nameEn": "Munzur Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3462,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Tunceli'de. Milli park. Munzur Vadisi'nin çevresi. Endemik bitki türleri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.2500,
+                    39.3333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-36",
+                "name": "Mercan Dağları",
+                "nameEn": "Mercan Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3369,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Erzincan-Tunceli sınırında. Buzul gölleri var. Murat Nehri'nin kaynağına yakın."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.5833,
+                    39.3500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-37",
+                "name": "Palandöken Dağı",
+                "nameEn": "Mount Palandoken",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3176,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Erzurum'da önemli kayak merkezi. Kış sporları tesisleri. Doğu'nun en ünlü kayak merkezi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.2333,
+                    39.8833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-38",
+                "name": "Allahüekber Dağları",
+                "nameEn": "Allahuekber Mountains",
+                "type": "Volkanik Dağ",
+                "category": "physical",
+                "elevation": 3120,
+                "region": "Doğu Anadolu",
+                "kpssNote": "Kars-Erzurum sınırında. 1. Dünya Savaşı Sarıkamış Harekâtı. Şehitlik anıtı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.4167,
+                    40.2500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-39",
+                "name": "Akdağlar",
+                "nameEn": "Akdaglar",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3016,
+                "region": "Akdeniz",
+                "kpssNote": "Antalya-Burdur sınırında. Batı Toroslar'ın bir parçası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.1333,
+                    36.9167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-40",
+                "name": "Dedegöl Dağları",
+                "nameEn": "Dedegol Mountains",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 2980,
+                "region": "Akdeniz",
+                "kpssNote": "Isparta'da. Eğirdir Gölü'nün doğusunda. Batı Toroslar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.0000,
+                    37.6667
+                ]
+            }
+        }
+    ]
+}

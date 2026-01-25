@@ -1,0 +1,785 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-01",
+                "name": "Zonguldak Taşkömürü Havzası",
+                "nameEn": "Zonguldak Hard Coal Basin",
+                "type": "Taşkömürü",
+                "category": "economic",
+                "mineral": "Taşkömürü",
+                "region": "Karadeniz",
+                "kpssNote": "Türkiye'nin TEK taşkömürü havzası. Kozlu, Kilimli, Ereğli. Demir-çelik sanayisinde kullanılır. 1848'den beri işletiliyor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.7833,
+                    41.4500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-02",
+                "name": "Afşin-Elbistan Linyit Havzası",
+                "nameEn": "Afsin-Elbistan Lignite Basin",
+                "type": "Linyit",
+                "category": "economic",
+                "mineral": "Linyit",
+                "region": "Akdeniz",
+                "kpssNote": "Türkiye'nin EN BÜYÜK linyit rezervi. Termik santrallerle elektrik üretimi. Kahramanmaraş'ta."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.7500,
+                    38.2667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-03",
+                "name": "Soma Linyit Havzası",
+                "nameEn": "Soma Lignite Basin",
+                "type": "Linyit",
+                "category": "economic",
+                "mineral": "Linyit",
+                "region": "Ege",
+                "kpssNote": "Manisa Soma'da önemli linyit yatağı. Termik santrallerle enerji üretimi. Kalori değeri yüksek."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.6167,
+                    39.1833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-04",
+                "name": "Tunçbilek-Seyitömer Linyit Havzası",
+                "nameEn": "Tuncbilek Lignite Basin",
+                "type": "Linyit",
+                "category": "economic",
+                "mineral": "Linyit",
+                "region": "Ege",
+                "kpssNote": "Kütahya'da linyit yatakları. Seyitömer ve Tunçbilek termik santralleri burada."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.5000,
+                    39.5500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-05",
+                "name": "Yatağan Linyit Havzası",
+                "nameEn": "Yatagan Lignite Basin",
+                "type": "Linyit",
+                "category": "economic",
+                "mineral": "Linyit",
+                "region": "Ege",
+                "kpssNote": "Muğla Yatağan'da termik santral. Yeniköy ve Kemerköy santralleri de yakınında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.1333,
+                    37.3333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-06",
+                "name": "Beypazarı Linyit Havzası",
+                "nameEn": "Beypazari Lignite Basin",
+                "type": "Linyit",
+                "category": "economic",
+                "mineral": "Linyit",
+                "region": "İç Anadolu",
+                "kpssNote": "Ankara Beypazarı'nda linyit yatağı. Orta Anadolu'nun önemli enerji kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.9167,
+                    40.1667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-07",
+                "name": "Divriği Demir Madeni",
+                "nameEn": "Divrigi Iron Mine",
+                "type": "Demir",
+                "category": "economic",
+                "mineral": "Demir",
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin EN BÜYÜK demir madeni. Sivas Divriği'de. UNESCO Dünya Mirası: Divriği Ulu Camii."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.1167,
+                    39.3667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-08",
+                "name": "Hekimhan Demir Madeni",
+                "nameEn": "Hekimhan Iron Mine",
+                "type": "Demir",
+                "category": "economic",
+                "mineral": "Demir",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Malatya Hekimhan'da demir cevheri. Divriği ile birlikte Türkiye'nin en önemli demir kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.9333,
+                    38.8167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-09",
+                "name": "Hasançelebi Demir Madeni",
+                "nameEn": "Hasancelebi Iron Mine",
+                "type": "Demir",
+                "category": "economic",
+                "mineral": "Demir",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Malatya'da demir yatağı. Hekimhan bölgesinin bir parçası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.0333,
+                    38.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-10",
+                "name": "Eymir Demir Madeni",
+                "nameEn": "Eymir Iron Mine",
+                "type": "Demir",
+                "category": "economic",
+                "mineral": "Demir",
+                "region": "Marmara",
+                "kpssNote": "Balıkesir'de demir cevheri yatağı. Batı Anadolu'nun demir kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.1500,
+                    39.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-11",
+                "name": "Eskişehir Bor Madeni (Kırka)",
+                "nameEn": "Eskisehir Boron Mine",
+                "type": "Bor",
+                "category": "economic",
+                "mineral": "Bor",
+                "region": "İç Anadolu",
+                "kpssNote": "Dünya'nın EN ZENGİN bor cevheri. Türkiye dünya bor rezervinin %73'üne sahip. ETİ Maden işletiyor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5206,
+                    39.2833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-12",
+                "name": "Bigadiç Bor Madeni",
+                "nameEn": "Bigadic Boron Mine",
+                "type": "Bor",
+                "category": "economic",
+                "mineral": "Bor",
+                "region": "Marmara",
+                "kpssNote": "Balıkesir Bigadiç'te bor yatağı. Cam, seramik, deterjan sanayisinde kullanılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.1333,
+                    39.3833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-13",
+                "name": "Emet Bor Madeni",
+                "nameEn": "Emet Boron Mine",
+                "type": "Bor",
+                "category": "economic",
+                "mineral": "Bor",
+                "region": "Ege",
+                "kpssNote": "Kütahya Emet'te bor yatağı. Türkiye'nin önemli bor üretim merkezlerinden."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.2500,
+                    39.3333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-14",
+                "name": "Kestelek Bor Madeni",
+                "nameEn": "Kestelek Boron Mine",
+                "type": "Bor",
+                "category": "economic",
+                "mineral": "Bor",
+                "region": "Marmara",
+                "kpssNote": "Bursa'da bor yatağı. Marmara Bölgesi'nin bor kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0000,
+                    40.0000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-15",
+                "name": "Guleman Krom Madeni",
+                "nameEn": "Guleman Chrome Mine",
+                "type": "Krom",
+                "category": "economic",
+                "mineral": "Krom",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Elazığ Guleman'da krom yatağı. Türkiye'nin EN ÖNEMLİ krom üretim merkezi. Paslanmaz çelik yapımında kullanılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.2333,
+                    38.6667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-16",
+                "name": "Fethiye-Köyceğiz Krom Madeni",
+                "nameEn": "Fethiye Chrome Mine",
+                "type": "Krom",
+                "category": "economic",
+                "mineral": "Krom",
+                "region": "Ege",
+                "kpssNote": "Muğla'da krom yatağı. Türkiye dünya krom üretiminde üst sıralarda."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.1167,
+                    36.6500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-17",
+                "name": "Harmancık Krom Madeni",
+                "nameEn": "Harmancik Chrome Mine",
+                "type": "Krom",
+                "category": "economic",
+                "mineral": "Krom",
+                "region": "Marmara",
+                "kpssNote": "Bursa Harmancık'ta krom yatağı. Marmara Bölgesi'nin krom kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.1333,
+                    39.6667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-18",
+                "name": "Aladağ Krom Madeni",
+                "nameEn": "Aladag Chrome Mine",
+                "type": "Krom",
+                "category": "economic",
+                "mineral": "Krom",
+                "region": "Akdeniz",
+                "kpssNote": "Adana Aladağ'da krom yatağı. Toroslar'ın güney yamaçlarında."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.3833,
+                    37.5500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-19",
+                "name": "Küre Bakır Madeni",
+                "nameEn": "Kure Copper Mine",
+                "type": "Bakır",
+                "category": "economic",
+                "mineral": "Bakır",
+                "region": "Karadeniz",
+                "kpssNote": "Kastamonu Küre'de tarihi bakır madeni. OSMANLI DÖNEMİNDEN beri işletiliyor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.7167,
+                    41.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-20",
+                "name": "Murgul Bakır Madeni",
+                "nameEn": "Murgul Copper Mine",
+                "type": "Bakır",
+                "category": "economic",
+                "mineral": "Bakır",
+                "region": "Karadeniz",
+                "kpssNote": "Artvin Murgul'da büyük bakır yatağı. Karadeniz'in en önemli bakır kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.6500,
+                    41.2667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-21",
+                "name": "Ergani Bakır Madeni",
+                "nameEn": "Ergani Copper Mine",
+                "type": "Bakır",
+                "category": "economic",
+                "mineral": "Bakır",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Diyarbakır Ergani'de tarihi bakır madeni. Güneydoğu'nun önemli maden sahası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.7667,
+                    38.2667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-22",
+                "name": "Çayeli Bakır Madeni",
+                "nameEn": "Cayeli Copper Mine",
+                "type": "Bakır",
+                "category": "economic",
+                "mineral": "Bakır",
+                "region": "Karadeniz",
+                "kpssNote": "Rize Çayeli'de bakır-çinko madeni. Doğu Karadeniz'in maden merkezi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.7333,
+                    41.0833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-23",
+                "name": "Seydişehir Boksit Madeni",
+                "nameEn": "Seydisehir Bauxite Mine",
+                "type": "Boksit",
+                "category": "economic",
+                "mineral": "Boksit (Alüminyum)",
+                "region": "İç Anadolu",
+                "kpssNote": "Konya Seydişehir'de alüminyum hammaddesi. ETİ Alüminyum tesisleri burada. Türkiye'nin en önemli boksit yatağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.8500,
+                    37.4167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-24",
+                "name": "Akseki Boksit Madeni",
+                "nameEn": "Akseki Bauxite Mine",
+                "type": "Boksit",
+                "category": "economic",
+                "mineral": "Boksit (Alüminyum)",
+                "region": "Akdeniz",
+                "kpssNote": "Antalya Akseki'de boksit yatağı. Toroslar'da oluşmuş."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.7833,
+                    37.0500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-25",
+                "name": "Keban Kurşun-Çinko Madeni",
+                "nameEn": "Keban Lead-Zinc Mine",
+                "type": "Kurşun-Çinko",
+                "category": "economic",
+                "mineral": "Kurşun-Çinko",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Elazığ Keban'da kurşun-çinko yatağı. Akü yapımı ve mühimmat sanayisinde kullanılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.7500,
+                    38.8000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-26",
+                "name": "Balya Kurşun Madeni",
+                "nameEn": "Balya Lead Mine",
+                "type": "Kurşun-Çinko",
+                "category": "economic",
+                "mineral": "Kurşun",
+                "region": "Marmara",
+                "kpssNote": "Balıkesir Balya'da kurşun madeni. Tarihi maden işletmesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.5833,
+                    39.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-27",
+                "name": "Ovacık Altın Madeni",
+                "nameEn": "Ovacik Gold Mine",
+                "type": "Altın",
+                "category": "economic",
+                "mineral": "Altın",
+                "region": "Ege",
+                "kpssNote": "İzmir Bergama'da altın madeni. Türkiye'nin İLK büyük çaplı altın işletmesi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.1833,
+                    39.1167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-28",
+                "name": "Gümüşhane Gümüş-Altın Madeni",
+                "nameEn": "Gumushane Silver-Gold Mine",
+                "type": "Gümüş",
+                "category": "economic",
+                "mineral": "Gümüş-Altın",
+                "region": "Karadeniz",
+                "kpssNote": "Gümüşhane adını gümüş madeninden alır. Tarihi maden şehri."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.4667,
+                    40.4500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-29",
+                "name": "Tuz Gölü Tuz Üretimi",
+                "nameEn": "Salt Lake Salt Production",
+                "type": "Tuz",
+                "category": "economic",
+                "mineral": "Tuz",
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin EN BÜYÜK tuz kaynağı. Konya-Ankara-Aksaray arasında. Kıyılarda tuz üretimi yapılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.4000,
+                    38.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-30",
+                "name": "Çankırı Kaya Tuzu",
+                "nameEn": "Cankiri Rock Salt",
+                "type": "Tuz",
+                "category": "economic",
+                "mineral": "Kaya Tuzu",
+                "region": "İç Anadolu",
+                "kpssNote": "Çankırı'da kaya tuzu yatağı. Yeraltından çıkarılır. Osmanlı'dan beri işletiliyor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.6167,
+                    40.6000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-31",
+                "name": "Çamaltı Tuzlası",
+                "nameEn": "Camalti Salt Works",
+                "type": "Tuz",
+                "category": "economic",
+                "mineral": "Deniz Tuzu",
+                "region": "Ege",
+                "kpssNote": "İzmir'de deniz tuzu üretimi. Türkiye'nin en büyük deniz tuzlası."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.8333,
+                    38.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-32",
+                "name": "Keçiborlu Kükürt Madeni",
+                "nameEn": "Keciborlu Sulfur Mine",
+                "type": "Kükürt",
+                "category": "economic",
+                "mineral": "Kükürt",
+                "region": "Akdeniz",
+                "kpssNote": "Isparta Keçiborlu'da kükürt yatağı. Gübre ve kimya sanayisinde kullanılır. Türkiye'nin en önemli kükürt kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.9833,
+                    37.9500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-33",
+                "name": "Mazıdağı Fosfat Madeni",
+                "nameEn": "Mazidagi Phosphate Mine",
+                "type": "Fosfat",
+                "category": "economic",
+                "mineral": "Fosfat",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Mardin Mazıdağı'nda fosfat yatağı. Türkiye'nin EN ÖNEMLİ fosfat rezervi. Gübre üretiminde kullanılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.4833,
+                    37.4667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-34",
+                "name": "Afyon Mermer Ocakları",
+                "nameEn": "Afyon Marble Quarries",
+                "type": "Mermer",
+                "category": "economic",
+                "mineral": "Mermer",
+                "region": "Ege",
+                "kpssNote": "Afyonkarahisar'da kaliteli mermer yatakları. 'Afyon Şekeri' mermeri dünyaca ünlü."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5333,
+                    38.7500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-35",
+                "name": "Marmara Adası Mermeri",
+                "nameEn": "Marmara Island Marble",
+                "type": "Mermer",
+                "category": "economic",
+                "mineral": "Mermer",
+                "region": "Marmara",
+                "kpssNote": "Balıkesir Marmara Adası'nda beyaz mermer. Roma döneminden beri çıkarılıyor. Ada adını aldı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.5833,
+                    40.6167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-36",
+                "name": "Tavas Manganez Madeni",
+                "nameEn": "Tavas Manganese Mine",
+                "type": "Manganez",
+                "category": "economic",
+                "mineral": "Manganez",
+                "region": "Ege",
+                "kpssNote": "Denizli Tavas'ta manganez yatağı. Demir-çelik sanayisinde kullanılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0667,
+                    37.5667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-37",
+                "name": "Uludağ Volfram (Tungsten) Madeni",
+                "nameEn": "Uludag Tungsten Mine",
+                "type": "Volfram",
+                "category": "economic",
+                "mineral": "Volfram (Tungsten)",
+                "region": "Marmara",
+                "kpssNote": "Bursa Uludağ'da volfram yatağı. Ampul teli ve özel çelik yapımında kullanılır. Türkiye'nin tek önemli volfram kaynağı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.1167,
+                    40.1167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-38",
+                "name": "Ödemiş Cıva Madeni",
+                "nameEn": "Odemis Mercury Mine",
+                "type": "Cıva",
+                "category": "economic",
+                "mineral": "Cıva",
+                "region": "Ege",
+                "kpssNote": "İzmir Ödemiş'te cıva yatağı. Termometre ve boya sanayisinde kullanılırdı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.9667,
+                    38.2167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mine-39",
+                "name": "Alanya Barit Madeni",
+                "nameEn": "Alanya Barite Mine",
+                "type": "Barit",
+                "category": "economic",
+                "mineral": "Barit",
+                "region": "Akdeniz",
+                "kpssNote": "Antalya Alanya'da barit yatağı. Petrol sondajlarında ve boya sanayisinde kullanılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.0000,
+                    36.5500
+                ]
+            }
+        }
+    ]
+}

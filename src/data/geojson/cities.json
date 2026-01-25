@@ -1,0 +1,1625 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-01",
+        "name": "Adana",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 2274106,
+        "region": "Akdeniz",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Türkiye'nin 5. büyük şehri. PAMUK ÜRETİMİNDE LİDER. Seyhan-Ceyhan nehirleri. Çukurova (Türkiye'nin en verimli ovası). Seyhan Barajı ilk büyük sulama barajı. Akdeniz iklimi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.3308,
+          37.0017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-02",
+        "name": "Adıyaman",
+        "type": "İl",
+        "category": "administrative",
+        "population": 635169,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Karasal iklim",
+        "kpssNote": "Nemrut Dağı UNESCO Dünya Mirası. Atatürk Barajı gölü kıyısında."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.2786,
+          37.7648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-03",
+        "name": "Afyonkarahisar",
+        "type": "İl",
+        "category": "administrative",
+        "population": 747555,
+        "region": "Ege",
+        "climate": "Karasal iklim",
+        "kpssNote": "Mermer ve termal turizm merkezi. Haşhaş (afyon) üretiminde önemli. 30 Ağustos Zafer Bayramı burada kutlandı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.5387,
+          38.7507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-04",
+        "name": "Ağrı",
+        "type": "İl",
+        "category": "administrative",
+        "population": 510626,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Türkiye'nin en yüksek dağı Ağrı Dağı (5137 m) burada. İshak Paşa Sarayı Doğubayazıt'ta."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.0503,
+          39.7191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-05",
+        "name": "Amasya",
+        "type": "İl",
+        "category": "administrative",
+        "population": 337800,
+        "region": "Karadeniz",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Yeşilırmak vadisinde. Pontus Kral Mezarları. Amasya Genelgesi burada yayınlandı (22 Haziran 1919)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.8333,
+          40.6500
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-06",
+        "name": "Ankara",
+        "type": "Başkent",
+        "category": "administrative",
+        "population": 5747325,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "TÜRKİYE CUMHURİYETİ BAŞKENTİ (13 Ekim 1923). Anıtkabir. Step iklimi. Savunma sanayi merkezi (ASELSAN, TAI). Türkiye'nin 2. kalabalık şehri. Yüzölçümü en büyük 2. il."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8597,
+          39.9334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-07",
+        "name": "Antalya",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 2619832,
+        "region": "Akdeniz",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "TÜRKİYE'NİN TURİZM BAŞKENTİ. En çok turist çeken il. SERA TARIMI LİDERİ. Manavgat Şelalesi. Köprülü Kanyon. Akdeniz iklimi. Muz, portakal, domates."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.7133,
+          36.8969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-08",
+        "name": "Artvin",
+        "type": "İl",
+        "category": "administrative",
+        "population": 170875,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "Çoruh Nehri vadisinde. Doğa turizmi ve rafting merkezi. Borçka, Muratlı barajları."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.8183,
+          41.1828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-09",
+        "name": "Aydın",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1134031,
+        "region": "Ege",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "İncir ve zeytin üretiminde Türkiye birincisi. Büyük Menderes vadisi. Efes, Afrodisias antik kentleri."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8456,
+          37.8560
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-10",
+        "name": "Balıkesir",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1240285,
+        "region": "Marmara",
+        "climate": "Marmara iklimi",
+        "kpssNote": "Hem Marmara hem Ege Denizi kıyısı. Bandırma limanı önemli. Bor madeni Bigadiç'te."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8826,
+          39.6484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-11",
+        "name": "Bilecik",
+        "type": "İl",
+        "category": "administrative",
+        "population": 228673,
+        "region": "Marmara",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Osmanlı Devleti'nin kuruluş yeri Söğüt ilçesi burada. Sakarya Nehri geçer."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.9833,
+          40.0500
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-12",
+        "name": "Bingöl",
+        "type": "İl",
+        "category": "administrative",
+        "population": 282556,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Karlıova üçlü kavşağı (Kuzey Anadolu, Doğu Anadolu fay hatlarının kesişimi). Murat Nehri kaynağı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.4980,
+          38.8854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-13",
+        "name": "Bitlis",
+        "type": "İl",
+        "category": "administrative",
+        "population": 353988,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Van Gölü kıyısında. Nemrut Krater Gölü burada. Tatvan iskelesi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.1095,
+          38.4006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-14",
+        "name": "Bolu",
+        "type": "İl",
+        "category": "administrative",
+        "population": 316126,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi (geçiş)",
+        "kpssNote": "Abant Gölü doğal güzellik. Kış turizmi Kartalkaya. Bolu Dağı tüneli TEM otoyolunda."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.6061,
+          40.7356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-15",
+        "name": "Burdur",
+        "type": "İl",
+        "category": "administrative",
+        "population": 273716,
+        "region": "Akdeniz",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Burdur Gölü (tektonik tuzlu göl). Göller Yöresi'nin önemli ili. Sagalassos antik kenti."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.2903,
+          37.7203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-16",
+        "name": "Bursa",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 3147818,
+        "region": "Marmara",
+        "climate": "Marmara iklimi",
+        "kpssNote": "OSMANLI'NIN İLK BAŞKENTİ (1326-1365). Uludağ (2543m, HORST). Otomotiv sanayi (TOFAŞ, Renault). Türkiye'nin 4. kalabalık şehri. Şeftali, kestane üretimi. Termal turizm."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0610,
+          40.1885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-17",
+        "name": "Çanakkale",
+        "type": "İl",
+        "category": "administrative",
+        "population": 559383,
+        "region": "Marmara",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Çanakkale Boğazı. Gelibolu Yarımadası Tarihi Milli Parkı. Truva antik kenti UNESCO listesinde."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.4142,
+          40.1553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-18",
+        "name": "Çankırı",
+        "type": "İl",
+        "category": "administrative",
+        "population": 195789,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Kaya tuzu madenleri. Ilgaz Dağı Milli Parkı sınırında. Kızılırmak geçer."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.6153,
+          40.6000
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-19",
+        "name": "Çorum",
+        "type": "İl",
+        "category": "administrative",
+        "population": 530864,
+        "region": "Karadeniz",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Hattuşaş (Boğazköy) HİTİT BAŞKENTİ UNESCO Dünya Mirası. Çorum leblebisi meşhur."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.9556,
+          40.5489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-20",
+        "name": "Denizli",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1056332,
+        "region": "Ege",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Pamukkale travertenleri UNESCO Dünya Mirası. Tekstil sanayi merkezi. Hierapolis antik kenti."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0875,
+          37.7765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-21",
+        "name": "Diyarbakır",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1804880,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Diyarbakır Surları UNESCO Dünya Mirası. Dicle Nehri kenarında. Karacadağ bazalt platosu."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.2170,
+          37.9144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-22",
+        "name": "Edirne",
+        "type": "İl",
+        "category": "administrative",
+        "population": 413903,
+        "region": "Marmara",
+        "climate": "Karadeniz-Akdeniz geçiş",
+        "kpssNote": "OSMANLI'NIN 2. BAŞKENTİ (1365-1453). Selimiye Camii UNESCO (Mimar Sinan başyapıtı). Meriç-Tunca-Arda nehirleri. Kırkpınar yağlı güreşleri. Türkiye'nin en batı ili."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.5556,
+          41.6772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-23",
+        "name": "Elazığ",
+        "type": "İl",
+        "category": "administrative",
+        "population": 591497,
+        "region": "Doğu Anadolu",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Keban Barajı (ilk büyük baraj). Fırat Üniversitesi. Harput tarihi ilçe."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.2264,
+          38.6810
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-24",
+        "name": "Erzincan",
+        "type": "İl",
+        "category": "administrative",
+        "population": 238930,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Kuzey Anadolu Fay Hattı üzerinde. 1939 depreminde ağır hasar. Fırat Nehri geçer."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.4917,
+          39.7500
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-25",
+        "name": "Erzurum",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 749754,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Doğu Anadolu'nun en büyük şehri. Palandöken kayak merkezi. Çifte Minareli Medrese. Erzurum Kongresi (1919)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.2769,
+          39.9000
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-26",
+        "name": "Eskişehir",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 906617,
+        "region": "İç Anadolu",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Lületaşı (Eskişehir taşı) dünya rezervinin büyük kısmı. Porsuk Çayı. Anadolu Üniversitesi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.5206,
+          39.7767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-27",
+        "name": "Gaziantep",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 2154051,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Yarı kurak Akdeniz",
+        "kpssNote": "UNESCO GASTRONOMİ ŞEHRİ. Antep fıstığı/baklavası dünyaca ünlü. Zeugma Mozaik Müzesi. Halı ihracatında lider. Türkiye'nin 6. kalabalık şehri. Sanayi merkezi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.3833,
+          37.0667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-28",
+        "name": "Giresun",
+        "type": "İl",
+        "category": "administrative",
+        "population": 453912,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "FINDIK ÜRETİMİNDE Türkiye 1. sıra. Giresun ile birlikte dünya liderı. Boztepe manzarası. Perşembe Yayla. Çamburnu doğal bitki örtüsü. Kiraz festivali."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.3895,
+          40.9175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-29",
+        "name": "Gümüşhane",
+        "type": "İl",
+        "category": "administrative",
+        "population": 151449,
+        "region": "Karadeniz",
+        "climate": "Karasal iklim",
+        "kpssNote": "Zigana tüneli. Karaca Mağarası. Gümüş ve kurşun madenleri tarihte önemli."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.4603,
+          40.4386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-30",
+        "name": "Hakkari",
+        "type": "İl",
+        "category": "administrative",
+        "population": 280991,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Türkiye'nin en doğusundaki il. Zap Suyu (Dicle'nin kolu). Cilo Dağları Milli Parkı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.7408,
+          37.5744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-31",
+        "name": "Hatay",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1686043,
+        "region": "Akdeniz",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "1939'da Türkiye'ye katıldı. Antakya, Samandağ. UNESCO Gastronomi Şehri adayı. Asi Nehri."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.1667,
+          36.2000
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-32",
+        "name": "Isparta",
+        "type": "İl",
+        "category": "administrative",
+        "population": 445325,
+        "region": "Akdeniz",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "GÜL YAĞI ÜRETİMİNDE DÜNYA LİDERİ (%70). GÖLLER YÖRESİ. Eğirdir Gölü (Türkiye'nin 4. büyük, tatlı su). Lavanta tarlaları. Yarı karasal iklim."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.5519,
+          37.7648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-33",
+        "name": "Mersin (İçel)",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1916432,
+        "region": "Akdeniz",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "TÜRKİYE'NİN EN BÜYÜK LİMANI. SERBEST BÖLGE. MUZ ÜRETİMİNDE LİDER. Tarsus (Aziz Pavlus). Akdeniz iklimi. Göksu deltası. Turunçgil ihracatı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.6415,
+          36.8000
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-34",
+        "name": "İstanbul",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 15907951,
+        "region": "Marmara",
+        "climate": "Akdeniz-Karadeniz geçiş",
+        "kpssNote": "TÜRKİYE'NİN EN KALABALIK ŞEHRİ (~16 milyon). İKİ KITADA TEK ŞEHİR. İstanbul Boğazı (30 km). Tarihi Yarımada UNESCO. Türkiye ekonomisinin %30'u. Sanayi, finans, turizm merkezi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9784,
+          41.0082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-35",
+        "name": "İzmir",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 4462056,
+        "region": "Ege",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Türkiye'nin 3. BÜYÜK şehri. Ege'nin merkezi. Aliağa rafinerisi/petrokimya. İZMİR Fuarı. Efes UNESCO. 9 Eylül kurtuluş. Üzüm, incir, zeytin. Gediz/Küçük Menderes deltaları."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.1428,
+          38.4192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-36",
+        "name": "Kars",
+        "type": "İl",
+        "category": "administrative",
+        "population": 285410,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Ani Harabeleri UNESCO Dünya Mirası. Sarıkamış kış turizmi. Kaşar peyniri meşhur."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.0975,
+          40.6167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-37",
+        "name": "Kastamonu",
+        "type": "İl",
+        "category": "administrative",
+        "population": 383373,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi (geçiş)",
+        "kpssNote": "İlk şapka burada giyildi (1925). Ilgaz Dağı Milli Parkı. Küre Dağları UNESCO Jeoparkı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.7764,
+          41.3887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-38",
+        "name": "Kayseri",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1441523,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "ERCİYES DAĞI (3917m, SÖNMÜŞ VOLKAN). Mobilya/tekstil sanayi. Pastırma-sucuk. Sultan Sazlığı kuş cenneti. Kızılırmak geçer. Kapadokya'ya yakın."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4833,
+          38.7312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-39",
+        "name": "Kırklareli",
+        "type": "İl",
+        "category": "administrative",
+        "population": 369347,
+        "region": "Marmara",
+        "climate": "Karadeniz-Akdeniz geçiş",
+        "kpssNote": "Trakya'nın kuzeyinde. Yıldız Dağları. Longoz ormanları (Türkiye'nin en geniş)."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.2261,
+          41.7333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-40",
+        "name": "Kırşehir",
+        "type": "İl",
+        "category": "administrative",
+        "population": 244519,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Ahi Evran'ın şehri (Ahilik merkezi). Kızılırmak geçer. Mucur halıları ünlü."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.1667,
+          39.1500
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-41",
+        "name": "Kocaeli",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 2079072,
+        "region": "Marmara",
+        "climate": "Marmara iklimi",
+        "kpssNote": "Türkiye'nin en önemli sanayi bölgesi. TÜPRAŞ rafinerisi. İzmit Körfezi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.9167,
+          40.7656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-42",
+        "name": "Konya",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 2296347,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "TÜRKİYE'NİN YÜZÖLÇÜMÜ EN BÜYÜK İLİ. TAHIL AMBARI (buğday, arpa). Tuz Gölü. Mevlana Türbesi. Step iklimi. Çatalhöyük (UNESCO, 9000 yıllık). Karapınar rüzgar santrali."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.4833,
+          37.8667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-43",
+        "name": "Kütahya",
+        "type": "İl",
+        "category": "administrative",
+        "population": 579085,
+        "region": "Ege",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Türk çini sanatı merkezi. Dumlupınar Savaşı burada yapıldı. Termal kaplıcalar."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.9833,
+          39.4167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-44",
+        "name": "Malatya",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 812580,
+        "region": "Doğu Anadolu",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "KAYISI ÜRETİMİNDE DÜNYA LİDERİ. Arslantepe UNESCO Mirası. Karakaya Barajı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.3167,
+          38.3500
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-45",
+        "name": "Manisa",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1450616,
+        "region": "Ege",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Üzüm ve kuru üzüm üretiminde lider. Mesir Macunu festivali. Gediz vadisi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.4289,
+          38.6191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-46",
+        "name": "Kahramanmaraş",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1177436,
+        "region": "Akdeniz",
+        "climate": "Akdeniz-karasal geçiş",
+        "kpssNote": "Maraş dondurması dünyaca ünlü (salep ve keçi sütü). 12 Şubat 1920 kurtuluş tarihi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.9372,
+          37.5858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-47",
+        "name": "Mardin",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 862757,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Taş evleriyle UNESCO geçici listesinde. Mezopotamya ovası manzarası. Midyat gümüş işlemeciliği. Süryani kültürü."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.7347,
+          37.3212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-48",
+        "name": "Muğla",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1021141,
+        "region": "Ege",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Bodrum, Marmaris, Fethiye turizm merkezleri. Dalaman Havalimanı. Kaunos, Knidos antik kentleri."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.3665,
+          37.2153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-49",
+        "name": "Muş",
+        "type": "İl",
+        "category": "administrative",
+        "population": 407992,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Muş Ovası Türkiye'nin en geniş ovalarından. Murat Nehri geçer. Alparslan Üniversitesi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.4910,
+          38.7432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-50",
+        "name": "Nevşehir",
+        "type": "İl",
+        "category": "administrative",
+        "population": 310011,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "KAPADOKYA (Göreme) UNESCO Dünya Mirası. Peri bacaları. Yeraltı şehirleri. Balon turizmi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.7239,
+          38.6244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-51",
+        "name": "Niğde",
+        "type": "İl",
+        "category": "administrative",
+        "population": 362861,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Aladağlar Milli Parkı. Patates üretiminde önemli. Hasan Dağı volkanik."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.6939,
+          37.9667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-52",
+        "name": "Ordu",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 771932,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "FINDIK ÜRETİMİNDE TÜRKİYE VE DÜNYA BİRİNCİSİ. Boztepe teleferik. Fatsa, Ünye ilçeleri."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8794,
+          40.9862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-53",
+        "name": "Rize",
+        "type": "İl",
+        "category": "administrative",
+        "population": 344016,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "ÇAY ÜRETİMİNDE TÜRKİYE BİRİNCİSİ. Türkiye'nin en çok yağış alan ili. Ayder Yaylası. Kaçkar Dağları Milli Parkı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.5236,
+          41.0201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-54",
+        "name": "Sakarya",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1060876,
+        "region": "Marmara",
+        "climate": "Karadeniz-Marmara geçiş",
+        "kpssNote": "Sakarya Meydan Muharebesi (1921). Sapanca Gölü. Fındık üretiminde önemli."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4034,
+          40.7569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-55",
+        "name": "Samsun",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1371274,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "KIZILIRMAK DELTASI (UNESCO Biyosfer). Türkiye'nin tütün merkezi. Bafra-Çarşamba ovaları. Karadeniz'in en büyük limanı. 19 Mayıs (Atatürk'ün Samsun'a çıkışı). Bafra ovası tütün."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.3300,
+          41.2867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-56",
+        "name": "Siirt",
+        "type": "İl",
+        "category": "administrative",
+        "population": 331980,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Karasal iklim",
+        "kpssNote": "Tillo ilçesi tarihi. Siirt battaniyesi geleneksel el sanatı. Botan Vadisi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.9458,
+          37.9333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-57",
+        "name": "Sinop",
+        "type": "İl",
+        "category": "administrative",
+        "population": 218408,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "Türkiye'nin en kuzey noktası İnceburun. Tarihi Sinop Cezaevi. 1853 Sinop Baskını."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.1531,
+          42.0231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-58",
+        "name": "Sivas",
+        "type": "İl",
+        "category": "administrative",
+        "population": 638956,
+        "region": "İç Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Sivas Kongresi (4-11 Eylül 1919). Divriği Ulu Camii UNESCO Mirası. Kangal balıklı kaplıca."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.0150,
+          39.7477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-59",
+        "name": "Tekirdağ",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1113989,
+        "region": "Marmara",
+        "climate": "Akdeniz-Karadeniz geçiş",
+        "kpssNote": "Türkiye'nin en kaliteli ayçiçeği üretimi. Rakı fabrikaları. Şarköy bağları."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5111,
+          41.0000
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-60",
+        "name": "Tokat",
+        "type": "İl",
+        "category": "administrative",
+        "population": 612747,
+        "region": "Karadeniz",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Yeşilırmak vadisinde. Ballıca Mağarası. Tokat kebabı ve bağ bozumu festivali."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.5544,
+          40.3167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-61",
+        "name": "Trabzon",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 816684,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "FINDIK ÜRETİMİNDE TÜRKİYE LİDERİ (DÜNYA'NIN %70'İ). Sürmene bıçağı. Uzungöl turizmi. Deniz-dağ turizmi. Trabzon limanı. Çay üretimi. Sümela Manastırı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.7300,
+          41.0015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-62",
+        "name": "Tunceli",
+        "type": "İl",
+        "category": "administrative",
+        "population": 84660,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "TÜRKİYE'NİN EN AZ NÜFUSLU İLİ. Munzur Vadisi Milli Parkı. Fırat'ın kolu Munzur Çayı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.5481,
+          39.1079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-63",
+        "name": "Şanlıurfa",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 2143020,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "GÖBEKLİTEPE (DÜNYANIN EN ESKİ TAPINAĞI, 12.000 yıl) UNESCO. HARRAN ev-arı kovan evler. Balıklıgöl efsanesi. GAP'la pamuk üretimi arttı. Gaziantep'ten sonra en kalabalık G.Doğu ili."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.7939,
+          37.1674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-64",
+        "name": "Uşak",
+        "type": "İl",
+        "category": "administrative",
+        "population": 373852,
+        "region": "Ege",
+        "climate": "Yarı karasal iklim",
+        "kpssNote": "Uşak halısı geleneksel el sanatı. Tekstil sanayi. Ulubey kanyonu."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.4058,
+          38.6823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-65",
+        "name": "Van",
+        "type": "Büyükşehir",
+        "category": "administrative",
+        "population": 1136757,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Van Gölü TÜRKİYE'NİN EN BÜYÜK GÖLÜ (3713 km²). Akdamar Kilisesi. Van kedisi. Urartu kalesi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.3800,
+          38.4891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-66",
+        "name": "Yozgat",
+        "type": "İl",
+        "category": "administrative",
+        "population": 418650,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Çamlık Milli Parkı Türkiye'nin ilk milli parkı. Kızılırmak geçer. Çekerek ilçesi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.8044,
+          39.8181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-67",
+        "name": "Zonguldak",
+        "type": "İl",
+        "category": "administrative",
+        "population": 596892,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "TÜRKİYE'NİN EN ÖNEMLİ TAŞ KÖMÜRÜ HAVZASİ. Ereğli Demir-Çelik. Kozlu, Kilimli madenleri."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.7983,
+          41.4564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-68",
+        "name": "Aksaray",
+        "type": "İl",
+        "category": "administrative",
+        "population": 423505,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Ihlara Vadisi. Hasan Dağı volkanik koni. Tuz Gölü'ne komşu. Selçuklu kervansarayları."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.0294,
+          38.3687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-69",
+        "name": "Bayburt",
+        "type": "İl",
+        "category": "administrative",
+        "population": 84843,
+        "region": "Karadeniz",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Türkiye'nin en az nüfuslulardan. Çoruh Nehri vadisinde. Bayburt Kalesi tarihi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.2244,
+          40.2552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-70",
+        "name": "Karaman",
+        "type": "İl",
+        "category": "administrative",
+        "population": 258838,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Karamanoğlu Mehmet Bey Türkçe'yi resmi dil ilan etti (1277). Meke Gölü krater gölü."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.2150,
+          37.1759
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-71",
+        "name": "Kırıkkale",
+        "type": "İl",
+        "category": "administrative",
+        "population": 288749,
+        "region": "İç Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "MKE Silah Fabrikası. Kızılırmak üzerinde. Ankara'ya yakın sanayi şehri."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.5150,
+          39.8468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-72",
+        "name": "Batman",
+        "type": "İl",
+        "category": "administrative",
+        "population": 622860,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Türkiye'nin ilk petrol rafinerisi (1955). Dicle Nehri kenarında. Hasankeyf antik kenti."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.1322,
+          37.8812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-73",
+        "name": "Şırnak",
+        "type": "İl",
+        "category": "administrative",
+        "population": 557605,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Karasal iklim",
+        "kpssNote": "Cudi Dağı. Silopi sınır kapısı. Habur Sınır Kapısı Türkiye'nin en yoğun kara sınır kapısı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.4611,
+          37.5164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-74",
+        "name": "Bartın",
+        "type": "İl",
+        "category": "administrative",
+        "population": 198999,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi",
+        "kpssNote": "Amasra tarihi liman kasabası. Küre Dağları UNESCO Jeopark. Bartın Çayı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.3375,
+          41.6344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-75",
+        "name": "Ardahan",
+        "type": "İl",
+        "category": "administrative",
+        "population": 98335,
+        "region": "Doğu Anadolu",
+        "climate": "Sert karasal iklim",
+        "kpssNote": "Çıldır Gölü. Türkiye'nin en soğuk illerinden. Ardahan peyniri ünlü."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.7022,
+          41.1105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-76",
+        "name": "Iğdır",
+        "type": "İl",
+        "category": "administrative",
+        "population": 203594,
+        "region": "Doğu Anadolu",
+        "climate": "Yarı kurak karasal iklim",
+        "kpssNote": "Ağrı Dağı manzarası. Türkiye'nin en doğusunda. Kayısı üretimi önemli. Aras Nehri sınırı."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.0450,
+          39.9237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-77",
+        "name": "Yalova",
+        "type": "İl",
+        "category": "administrative",
+        "population": 296333,
+        "region": "Marmara",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Türkiye'nin en küçük yüzölçümlü illerinden. Termal kaplıcaları. Atatürk'ün çiftliği."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.2758,
+          40.6550
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-78",
+        "name": "Karabük",
+        "type": "İl",
+        "category": "administrative",
+        "population": 248014,
+        "region": "Karadeniz",
+        "climate": "Karadeniz iklimi (geçiş)",
+        "kpssNote": "Türkiye'nin ilk demir-çelik fabrikası (1939). Safranbolu UNESCO Dünya Mirası evleri."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6269,
+          41.2061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-79",
+        "name": "Kilis",
+        "type": "İl",
+        "category": "administrative",
+        "population": 146915,
+        "region": "Güneydoğu Anadolu",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Suriye sınırında. Türkiye'nin yüzölçümü en küçük illerinden. Zeytin ve üzüm üretimi."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1150,
+          36.7184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-80",
+        "name": "Osmaniye",
+        "type": "İl",
+        "category": "administrative",
+        "population": 559405,
+        "region": "Akdeniz",
+        "climate": "Akdeniz iklimi",
+        "kpssNote": "Karatepe-Aslantaş Milli Parkı. Geç Hitit dönemi eserleri. Toprak Kale."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.2478,
+          37.0742
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city-81",
+        "name": "Düzce",
+        "type": "İl",
+        "category": "administrative",
+        "population": 400658,
+        "region": "Karadeniz",
+        "climate": "Karadeniz-Marmara geçiş",
+        "kpssNote": "1999 depreminden sonra il oldu. Fındık üretiminde önemli. Gölyaka gölü."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.1565,
+          40.8438
+        ]
+      }
+    }
+  ]
+}
