@@ -43,9 +43,19 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
         <div className="flex items-center justify-center min-h-screen pt-20 pb-8 px-4">
             <div className="w-full max-w-2xl">
                 {/* Question Card */}
-                <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-2xl p-8 mb-6">
-                    <div className="text-xs text-indigo-400 uppercase tracking-wide mb-2">
-                        {question.category} • {question.difficulty}
+                <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-2xl p-8 mb-6 shadow-xl">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${question.category === 'physical' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+                                question.category === 'economic' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
+                                    'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
+                            }`}>
+                            {question.category === 'physical' ? 'Fiziki Coğrafya' :
+                                question.category === 'economic' ? 'Ekonomik Coğrafya' : 'Genel Karma'}
+                        </div>
+                        <div className="px-2 py-0.5 rounded bg-slate-700/50 text-slate-400 text-[10px] font-bold uppercase tracking-wider">
+                            {question.difficulty === 'easy' ? 'Kolay' :
+                                question.difficulty === 'medium' ? 'Orta' : 'Zor'}
+                        </div>
                     </div>
                     <h2 className="text-xl md:text-2xl font-bold text-white leading-relaxed">
                         {question.text}

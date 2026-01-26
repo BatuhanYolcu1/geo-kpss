@@ -19,7 +19,7 @@ export default function NoteContent({ section }: NoteContentProps) {
     const renderAtlasButton = () => {
         if (!section.atlasLink) return null;
 
-        let href = '/atlas';
+        const href = '/atlas';
         const params = new URLSearchParams();
 
         if (section.atlasLink.layerId) params.append('layer', section.atlasLink.layerId);
@@ -38,7 +38,7 @@ export default function NoteContent({ section }: NoteContentProps) {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/20 group no-underline"
             >
                 <MapIcon size={20} className="group-hover:rotate-12 transition-transform" />
-                <span>Bu Konuyu Atlas'ta Gör</span>
+                <span>Bu Konuyu Atlas&apos;ta Gör</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
         );

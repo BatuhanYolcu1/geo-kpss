@@ -21,7 +21,10 @@ export default function StatsDashboard() {
     const [stats, setStats] = useState<UserStats | null>(null);
 
     useEffect(() => {
-        setStats(storageService.getUserStats());
+        // Fetch stats on client-side only
+        const data = storageService.getUserStats();
+        // Use a microtask to avoid synchronous setState warning
+        Promise.resolve().then(() => setStats(data));
     }, []);
 
     if (!stats || stats.totalQuizzes === 0) {

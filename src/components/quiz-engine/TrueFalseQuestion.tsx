@@ -50,7 +50,7 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
                         {question.category} • {question.difficulty}
                     </div>
                     <h2 className="text-xl md:text-2xl font-bold text-white leading-relaxed">
-                        "{question.statement}"
+                        &quot;{question.statement}&quot;
                     </h2>
                 </div>
 

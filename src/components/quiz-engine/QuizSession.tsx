@@ -13,7 +13,7 @@ import {
     CheckCircle,
     XCircle
 } from 'lucide-react';
-import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion } from '@/types/quiz';
+import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion, MultipleChoiceQuestion as MCQuestionType } from '@/types/quiz';
 import { getRandomQuestions, getQuestionsByType } from '@/data/mock-quiz-data';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import TrueFalseQuestion from './TrueFalseQuestion';
@@ -21,7 +21,7 @@ import MatchingQuestion from './MatchingQuestion';
 import { storageService } from '@/lib/storage';
 
 // Dynamic import for map component
-const MapQuestion = dynamic(() => import('./MapQuestion'), {
+const MapQuizComponent = dynamic(() => import('./MapQuestion'), {
     ssr: false,
     loading: () => <div className="w-full h-full bg-slate-900 flex items-center justify-center text-white">Harita yükleniyor...</div>
 });
@@ -44,25 +44,47 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
     const [isCompleted, setIsCompleted] = useState(false);
     const [showFeedback, setShowFeedback] = useState(false);
     const [lastResult, setLastResult] = useState<{ isCorrect: boolean; points: number; explanation?: string } | null>(null);
-    const [startTime] = useState<number>(Date.now());
+    const [startTime] = useState<number>(() => Date.now());
     const [categoryResults, setCategoryResults] = useState<Record<string, { total: number; correct: number }>>({});
 
     // Initialize questions
     useEffect(() => {
         const questionType = mode === 'map' ? 'map_pinpoint' : mode;
-        const count = mode === 'map' ? 10 : mode === 'matching' ? 5 : 15;
+        let count = mode === 'map' ? 10 : mode === 'matching' ? 5 : 15;
 
-        let loadedQuestions = getRandomQuestions(count, questionType as QuizQuestion['type']);
-
-        // Apply sub-category filter if provided (only for map mode)
-        if (mode === 'map' && subCategory) {
-            const allMapQuestions = getQuestionsByType('map_pinpoint') as MapQuestion[];
-            const filtered = allMapQuestions.filter(q => q.category === subCategory || q.subCategory === subCategory);
-            // Shuffle and slice
-            loadedQuestions = [...filtered].sort(() => Math.random() - 0.5).slice(0, count);
+        // Handle "Standard KPSS" count (18 questions)
+        if (mode === 'multiple_choice' && subCategory === 'standard_kpss') {
+            count = 18;
         }
 
-        setQuestions(loadedQuestions);
+        let loadedQuestions: QuizQuestion[] = [];
+
+        if (mode === 'map') {
+            const allMapQuestions = getQuestionsByType('map_pinpoint') as MapQuestion[];
+            const filtered = subCategory
+                ? allMapQuestions.filter(q => q.category === subCategory || q.subCategory === subCategory)
+                : allMapQuestions;
+            loadedQuestions = [...filtered].sort(() => Math.random() - 0.5).slice(0, count);
+        } else if (mode === 'multiple_choice') {
+            const allMCQuestions = getQuestionsByType('multiple_choice') as MCQuestionType[];
+
+            if (subCategory === 'standard_kpss') {
+                // KPSS Distribution: ~6 Physical, ~10 Economic, ~2 Mixed
+                const phys = allMCQuestions.filter(q => q.category === 'physical').sort(() => Math.random() - 0.5).slice(0, 6);
+                const econ = allMCQuestions.filter(q => q.category === 'economic').sort(() => Math.random() - 0.5).slice(0, 10);
+                const mixed = allMCQuestions.filter(q => q.category === 'mixed').sort(() => Math.random() - 0.5).slice(0, 2);
+                loadedQuestions = [...phys, ...econ, ...mixed].sort(() => Math.random() - 0.5);
+            } else {
+                const filtered = subCategory
+                    ? allMCQuestions.filter(q => q.category === subCategory)
+                    : allMCQuestions;
+                loadedQuestions = [...filtered].sort(() => Math.random() - 0.5).slice(0, count);
+            }
+        } else {
+            loadedQuestions = getRandomQuestions(count, questionType as QuizQuestion['type']);
+        }
+
+        Promise.resolve().then(() => setQuestions(loadedQuestions));
     }, [mode, subCategory]);
 
     const currentQuestion = questions[currentIndex];
@@ -202,7 +224,7 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
         switch (currentQuestion.type) {
             case 'map_pinpoint':
                 return (
-                    <MapQuestion
+                    <MapQuizComponent
                         key={currentQuestion.id}
                         question={currentQuestion}
                         onAnswer={handleAnswer}
@@ -265,6 +287,14 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                             <span className="font-bold text-orange-400">{streak}x</span>
                         </div>
                     )}
+                </div>
+
+                {/* Progress Bar (Visible on larger screens) */}
+                <div className="hidden md:flex flex-1 max-w-md mx-8 bg-slate-800/50 h-2 rounded-full overflow-hidden border border-slate-700/50">
+                    <div
+                        className="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 transition-all duration-500"
+                        style={{ width: `${((currentIndex + (showFeedback ? 1 : 0)) / questions.length) * 100}%` }}
+                    />
                 </div>
 
                 {/* Right - Progress & End */}

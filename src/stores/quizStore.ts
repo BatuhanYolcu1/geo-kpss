@@ -151,15 +151,20 @@ export const useQuizStore = create<QuizState>((set, get) => ({
     },
 }));
 
+import citiesData from '@/data/geojson/cities.json';
+import lakesData from '@/data/geojson/lakes.json';
+import mountainsData from '@/data/geojson/mountains.json';
+
+// ... (other imports)
+
 // Helper to build quiz locations from GeoJSON data
 export function buildQuizLocations(): QuizLocation[] {
     const locations: QuizLocation[] = [];
 
-    // Import data dynamically to avoid circular dependencies
     const datasets = [
-        { data: require('@/data/geojson/cities.json'), category: 'cities' },
-        { data: require('@/data/geojson/lakes.json'), category: 'lakes' },
-        { data: require('@/data/geojson/mountains.json'), category: 'mountains' },
+        { data: citiesData, category: 'cities' },
+        { data: lakesData, category: 'lakes' },
+        { data: mountainsData, category: 'mountains' },
     ];
 
     for (const { data, category } of datasets) {

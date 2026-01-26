@@ -75,11 +75,14 @@ export default function QuizPage() {
     const [selectedMode, setSelectedMode] = useState<QuizMode | null>(null);
     const [selectedSubCategory, setSelectedSubCategory] = useState<string | undefined>(undefined);
     const [showMapFilters, setShowMapFilters] = useState(false);
+    const [showMCQFilters, setShowMCQFilters] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
 
     const handleSelectMode = (mode: QuizMode) => {
         if (mode === 'map') {
             setShowMapFilters(true);
+        } else if (mode === 'multiple_choice') {
+            setShowMCQFilters(true);
         } else {
             setSelectedMode(mode);
             setIsPlaying(true);
@@ -91,6 +94,13 @@ export default function QuizPage() {
         setSelectedSubCategory(subCat);
         setIsPlaying(true);
         setShowMapFilters(false);
+    };
+
+    const startMCQuiz = (subCat?: string) => {
+        setSelectedMode('multiple_choice');
+        setSelectedSubCategory(subCat);
+        setIsPlaying(true);
+        setShowMCQFilters(false);
     };
 
     const handleEndQuiz = () => {
@@ -264,6 +274,118 @@ export default function QuizPage() {
                         <button
                             onClick={() => setShowMapFilters(false)}
                             className="w-full py-3 text-slate-400 hover:text-white transition-colors text-sm font-medium"
+                        >
+                            Vazgeç
+                        </button>
+                    </div>
+                </div>
+            )}
+            {/* MCQ Category Filter Modal */}
+            {showMCQFilters && (
+                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all">
+                    <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-popup">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-2xl font-bold flex items-center gap-2">
+                                <Brain className="text-indigo-400" />
+                                Deneme Sınavları
+                            </h2>
+                            <button
+                                onClick={() => setShowMCQFilters(false)}
+                                className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                            >
+                                <X size={20} className="text-slate-400" />
+                            </button>
+                        </div>
+
+                        <p className="text-slate-400 mb-6">
+                            Sınav formatını veya odaklanmak istediğiniz konuyu seçin:
+                        </p>
+
+                        <div className="space-y-3 mb-8">
+                            {[
+                                { id: 'standard_kpss', label: 'Standart KPSS Denemesi', sub: 'Tam 18 Soru • Karma Dağılım', icon: <Trophy size={18} />, color: 'bg-gradient-to-br from-amber-500 to-orange-600' },
+                                { id: 'physical', label: 'Fiziki Coğrafya', sub: 'Dağlar, İklim, Yer Şekilleri', icon: <Map size={18} />, color: 'bg-emerald-500' },
+                                { id: 'economic', label: 'Beşeri & Ekonomik', sub: 'Nüfus, Sanayi, Madenler', icon: <Zap size={18} />, color: 'bg-amber-500' },
+                                { id: undefined, label: 'Genel Karma Sınav', sub: '15 Soruluk Rastgele Karışım', icon: <Sparkles size={18} />, color: 'bg-indigo-500' },
+                            ].map((cat) => (
+                                <button
+                                    key={cat.label}
+                                    onClick={() => startMCQuiz(cat.id)}
+                                    className="w-full p-4 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-xl flex items-center justify-between group transition-all"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className={`w-10 h-10 rounded-lg ${cat.color} flex items-center justify-center text-white`}>
+                                            {cat.icon}
+                                        </div>
+                                        <div className="text-left">
+                                            <div className="font-bold">{cat.label}</div>
+                                            <div className="text-xs text-slate-500">{cat.sub}</div>
+                                        </div>
+                                    </div>
+                                    <ChevronRight size={18} className="text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+                                </button>
+                            ))}
+                        </div>
+
+                        <button
+                            onClick={() => setShowMCQFilters(false)}
+                            className="w-full py-3 text-slate-400 hover:text-white transition-colors text-sm font-medium"
+                        >
+                            Vazgeç
+                        </button>
+                    </div>
+                </div>
+            )}
+            {/* MCQ Category Filter Modal */}
+            {showMCQFilters && (
+                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all">
+                    <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-popup">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-2xl font-bold flex items-center gap-2">
+                                <Brain className="text-emerald-400" />
+                                Deneme Sınavları
+                            </h2>
+                            <button
+                                onClick={() => setShowMCQFilters(false)}
+                                className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                            >
+                                <X size={20} className="text-slate-400" />
+                            </button>
+                        </div>
+
+                        <p className="text-slate-400 mb-6 font-medium">
+                            Sınav formatını veya odaklanmak istediğiniz konuyu seçin:
+                        </p>
+
+                        <div className="space-y-3 mb-8">
+                            {[
+                                { id: 'standard_kpss', label: 'Standart KPSS Denemesi', sub: 'Tam 18 Soru • Karma Dağılım', icon: <Trophy size={18} />, color: 'bg-gradient-to-br from-indigo-500 to-emerald-500' },
+                                { id: 'physical', label: 'Fiziki Coğrafya', sub: 'Dağlar, İklim, Yer Şekilleri', icon: <Map size={18} />, color: 'bg-emerald-500' },
+                                { id: 'economic', label: 'Beşeri & Ekonomik', sub: 'Nüfus, Sanayi, Madenler', icon: <Zap size={18} />, color: 'bg-amber-500' },
+                                { id: undefined, label: 'Genel Karma Sınav', sub: '15 Soruluk Rastgele Karışım', icon: <Sparkles size={18} />, color: 'bg-indigo-500' },
+                            ].map((cat) => (
+                                <button
+                                    key={cat.label}
+                                    onClick={() => startMCQuiz(cat.id)}
+                                    className="w-full p-4 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 rounded-xl flex items-center justify-between group transition-all"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className={`w-10 h-10 rounded-lg ${cat.color} flex items-center justify-center text-white scale-110 shadow-lg`}>
+                                            {cat.icon}
+                                        </div>
+                                        <div className="text-left">
+                                            <div className="font-bold text-white group-hover:text-emerald-400 transition-colors">{cat.label}</div>
+                                            <div className="text-xs text-slate-500">{cat.sub}</div>
+                                        </div>
+                                    </div>
+                                    <ChevronRight size={18} className="text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+                                </button>
+                            ))}
+                        </div>
+
+                        <button
+                            onClick={() => setShowMCQFilters(false)}
+                            className="w-full py-3 text-slate-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest"
                         >
                             Vazgeç
                         </button>

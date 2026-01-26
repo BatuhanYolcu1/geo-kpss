@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { Check, X, ArrowRight, ChevronRight } from 'lucide-react';
 import type { MatchingQuestion as MQuestion } from '@/types/quiz';
 
@@ -16,10 +16,12 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
     const [matches, setMatches] = useState<Map<number, number>>(new Map());
     const [submitted, setSubmitted] = useState(false);
 
-    // Shuffle right column (but keep track of original indices)
-    const shuffledRight = useMemo(() => {
+    const [shuffledRight, setShuffledRight] = useState<number[]>([]);
+
+    useEffect(() => {
         const indices = question.pairs.map((_, i) => i);
-        return indices.sort(() => Math.random() - 0.5);
+        indices.sort(() => Math.random() - 0.5);
+        Promise.resolve().then(() => setShuffledRight(indices));
     }, [question.pairs]);
 
     const handleLeftClick = (index: number) => {

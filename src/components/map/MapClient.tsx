@@ -229,7 +229,7 @@ export default function MapClient() {
             const layerInfo = layerDataMap[layerParam];
             if (layerInfo) {
                 const geojsonData = layerInfo.data as GeoJSON.FeatureCollection;
-                const feature = geojsonData.features.find(f => (f.properties as any).id === focusParam);
+                const feature = geojsonData.features.find(f => (f.properties as Record<string, string>).id === focusParam);
                 if (feature && feature.geometry.type === 'Point') {
                     const coords = feature.geometry.coordinates as [number, number];
                     setSelectedFeature(feature.properties as GeoFeatureProperties);

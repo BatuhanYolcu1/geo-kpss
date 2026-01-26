@@ -166,7 +166,7 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                                     Öğrenme Molası
                                 </div>
                                 <p className="text-xs text-slate-300 leading-relaxed italic">
-                                    "{question.didYouKnow}"
+                                    &quot;{question.didYouKnow}&quot;
                                 </p>
                             </div>
                         )}

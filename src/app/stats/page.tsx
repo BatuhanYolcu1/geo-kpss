@@ -20,7 +20,7 @@ export default function StatsPage() {
                             className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-4 group"
                         >
                             <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-                            Ana Sayfa'ya Dön
+                            Ana Sayfa&apos;ya Dön
                         </Link>
                         <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-indigo-200 to-purple-200 bg-clip-text text-transparent flex items-center gap-3">
                             <BarChart3 size={32} className="text-indigo-400" />
