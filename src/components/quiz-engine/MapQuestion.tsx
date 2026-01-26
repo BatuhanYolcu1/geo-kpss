@@ -125,10 +125,12 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 )}
             </MapContainer>
 
-            {/* Question HUD - Slim Floating Capsule on the Right Stack */}
-            {!answered && (
-                <div className="absolute top-28 right-8 z-[1000] w-auto max-w-sm pointer-events-none">
-                    <div className="bg-slate-950 rounded-[1.5rem] px-5 py-3 border-2 border-slate-800 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)] ring-1 ring-white/5 flex items-center gap-4 relative overflow-hidden animate-slide-up pointer-events-auto">
+            {/* Right Side UI Stack (HUD & Results) */}
+            <div className="fixed top-28 right-8 z-[1001] flex flex-col gap-4 pointer-events-none w-auto max-w-sm">
+
+                {/* Question HUD - Slim Capsule */}
+                {!answered && (
+                    <div className="bg-slate-950 rounded-[1.5rem] px-5 py-3 border-2 border-slate-800 shadow-2xl ring-1 ring-white/5 flex items-center gap-4 relative overflow-hidden animate-slide-up pointer-events-auto">
                         <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-indigo-500 to-purple-600" />
                         <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center shrink-0 shadow-lg">
                             <Navigation size={22} className="text-white rotate-45" />
@@ -162,80 +164,73 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                             )}
                         </div>
                     </div>
-                </div>
-            )}
+                )}
 
-            {/* Result Modal - Stacked below HUD on the Right */}
-            {showFeedback && result && (
-                <div className="fixed top-28 right-8 z-[1001] w-auto max-w-[280px] animate-modal-enter">
-                    <div className="bg-slate-950 border-2 border-white/20 rounded-[2rem] p-6 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                        <div
-                            className="absolute top-0 left-0 right-0 h-2"
-                            style={{ backgroundColor: getRatingColor(result.rating) }}
-                        />
+                {/* Result Modal - Integrated Stack */}
+                {showFeedback && result && (
+                    <div className="w-auto max-w-[280px] animate-modal-enter pointer-events-auto">
+                        <div className="bg-slate-950 border-2 border-white/20 rounded-[2rem] p-6 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                            <div
+                                className="absolute top-0 left-0 right-0 h-1.5"
+                                style={{ backgroundColor: getRatingColor(result.rating) }}
+                            />
 
-                        <div
-                            className="w-20 h-20 mx-auto mb-6 rounded-3xl flex items-center justify-center shadow-2xl relative"
-                            style={{ backgroundColor: getRatingColor(result.rating), transform: 'rotate(2deg)' }}
-                        >
-                            <div className="absolute inset-0 bg-white/20 rounded-3xl animate-pulse" />
-                            {result.rating === 'perfect' && <Sparkles size={40} className="text-white relative z-10" />}
-                            {result.rating === 'great' && <Trophy size={40} className="text-white relative z-10" />}
-                            {result.rating === 'good' && <MapPin size={40} className="text-white relative z-10" />}
-                            {result.rating === 'miss' && <Navigation size={40} className="text-white relative z-10" />}
-                        </div>
-
-                        <h2 className="text-4xl font-black text-center text-white mb-4 tracking-tighter uppercase italic">
-                            {result.rating === 'perfect' && 'KUSURSUZ!'}
-                            {result.rating === 'great' && 'HARİKA!'}
-                            {result.rating === 'good' && 'BAŞARILI!'}
-                            {result.rating === 'miss' && 'ÜZGÜNÜM!'}
-                        </h2>
-
-                        <div className="bg-white/10 rounded-3xl p-6 mb-6 border border-white/10 text-center">
-                            <p className="text-slate-200 text-lg font-bold leading-tight">
-                                <span className="text-indigo-400 block mb-1 text-xs uppercase tracking-[0.2em] font-black">HEDEF NOKTA</span>
-                                <span className="text-2xl text-white font-black">{question.targetName}</span>
-                                <div className="h-px w-12 bg-white/10 mx-auto my-3" />
-                                <span className="text-3xl font-black block" style={{ color: getRatingColor(result.rating) }}>
-                                    {result.distance.toFixed(1)} <span className="text-sm">km</span>
-                                </span>
-                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">HEDEFTEN UZAKTAYDIN</span>
-                            </p>
-                        </div>
-
-                        {result.points > 0 && (
-                            <div className="text-center mb-8 flex flex-col items-center">
-                                <div className="flex items-center gap-3 bg-emerald-500/10 px-6 py-2 rounded-full border border-emerald-500/30">
-                                    <span className="text-4xl font-black text-emerald-400">+{result.points}</span>
-                                    <span className="text-emerald-400/70 font-black text-sm uppercase tracking-widest">PUAN</span>
-                                </div>
+                            <div
+                                className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center shadow-2xl relative"
+                                style={{ backgroundColor: getRatingColor(result.rating), transform: 'rotate(2deg)' }}
+                            >
+                                <div className="absolute inset-0 bg-white/10 rounded-2xl animate-pulse" />
+                                {result.rating === 'perfect' && <Sparkles size={32} className="text-white relative z-10" />}
+                                {result.rating === 'great' && <Trophy size={32} className="text-white relative z-10" />}
+                                {result.rating === 'good' && <MapPin size={32} className="text-white relative z-10" />}
+                                {result.rating === 'miss' && <Navigation size={32} className="text-white relative z-10" />}
                             </div>
-                        )}
 
-                        {/* Updated Did You Know Section */}
-                        {question.didYouKnow && (
-                            <div className="mb-8 p-5 rounded-3xl bg-indigo-500/20 border border-indigo-500/30">
-                                <div className="text-xs uppercase tracking-[0.2em] font-black text-indigo-300 mb-2 flex items-center gap-2">
-                                    <Sparkles size={14} />
-                                    BİLİYOR MUYDUNUZ?
-                                </div>
-                                <p className="text-sm text-slate-100 leading-relaxed font-bold italic">
-                                    &quot;{question.didYouKnow}&quot;
+                            <h2 className="text-2xl font-black text-center text-white mb-3 tracking-tighter uppercase italic">
+                                {result.rating === 'perfect' && 'KUSURSUZ!'}
+                                {result.rating === 'great' && 'HARİKA!'}
+                                {result.rating === 'good' && 'BAŞARILI!'}
+                                {result.rating === 'miss' && 'ÜZGÜNÜM!'}
+                            </h2>
+
+                            <div className="bg-white/5 rounded-3xl p-4 mb-4 border border-white/10 text-center">
+                                <p className="text-slate-200 text-sm font-bold leading-tight">
+                                    <span className="text-indigo-400 block mb-1 text-[8px] uppercase tracking-[0.2em] font-black">MESAFE</span>
+                                    <span className="text-2xl font-black block" style={{ color: getRatingColor(result.rating) }}>
+                                        {result.distance.toFixed(1)} <span className="text-xs">km</span>
+                                    </span>
                                 </p>
                             </div>
-                        )}
 
-                        <button
-                            onClick={onNext}
-                            className="w-full py-5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] text-white rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 shadow-2xl group border-t border-white/20"
-                        >
-                            SIRADAKİ SORU
-                            <ChevronRight size={28} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                            {result.points > 0 && (
+                                <div className="text-center mb-5 flex flex-col items-center">
+                                    <div className="flex items-center gap-2 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/30">
+                                        <span className="text-2xl font-black text-emerald-400">+{result.points}</span>
+                                        <span className="text-emerald-400/70 font-black text-[9px] uppercase tracking-widest">PUAN</span>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Slim Did You Know Section */}
+                            {question.didYouKnow && (
+                                <div className="mb-6 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
+                                    <p className="text-xs text-slate-200 leading-relaxed font-bold italic">
+                                        &quot;{question.didYouKnow}&quot;
+                                    </p>
+                                </div>
+                            )}
+
+                            <button
+                                onClick={onNext}
+                                className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] text-white rounded-xl font-black text-sm transition-all flex items-center justify-center gap-2 shadow-xl border-t border-white/20"
+                            >
+                                SIRADAKİ
+                                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
