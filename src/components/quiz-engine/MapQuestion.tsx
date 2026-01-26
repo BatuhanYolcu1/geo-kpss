@@ -85,8 +85,11 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 maxZoom={MAX_ZOOM}
                 maxBounds={TURKEY_BOUNDS}
                 maxBoundsViscosity={1.0}
-                className="w-full h-full cursor-crosshair"
+                className="w-full h-full cursor-crosshair bg-[#f1f5f9]"
                 zoomControl={false}
+                fadeAnimation={false}
+                zoomAnimation={true}
+                markerZoomAnimation={true}
             >
                 <TileLayer url={BLIND_MAP_TILE.url} attribution={BLIND_MAP_TILE.attribution} />
 
@@ -131,59 +134,59 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
             {/* Result Modal - Integrated with the new design language */}
             {showFeedback && result && (
                 <div className="fixed bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-[1001] w-[calc(100%-2rem)] max-w-sm animate-modal-enter">
-                    <div className="glass-premium rounded-[2rem] p-8 border-white/10 shadow-3xl relative overflow-hidden">
+                    <div className="bg-slate-900 border-2 border-white/20 rounded-[2.5rem] p-8 shadow-[0_32px_64px_rgba(0,0,0,0.6)] relative overflow-hidden">
                         <div
-                            className="absolute top-0 left-0 right-0 h-1.5"
+                            className="absolute top-0 left-0 right-0 h-2"
                             style={{ backgroundColor: getRatingColor(result.rating) }}
                         />
 
                         <div
-                            className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center shadow-xl rotate-3"
-                            style={{ backgroundColor: getRatingColor(result.rating) + '20', borderColor: getRatingColor(result.rating), borderWidth: 2 }}
+                            className="w-20 h-20 mx-auto mb-6 rounded-3xl flex items-center justify-center shadow-2xl relative"
+                            style={{ backgroundColor: getRatingColor(result.rating), transform: 'rotate(2deg)' }}
                         >
-                            {result.rating === 'perfect' && <Sparkles size={32} className="text-emerald-400" />}
-                            {result.rating === 'great' && <Trophy size={32} className="text-amber-400" />}
-                            {result.rating === 'good' && <MapPin size={32} className="text-indigo-400" />}
-                            {result.rating === 'miss' && <Navigation size={32} className="text-rose-400" />}
+                            <div className="absolute inset-0 bg-white/20 rounded-3xl animate-pulse" />
+                            {result.rating === 'perfect' && <Sparkles size={40} className="text-white relative z-10" />}
+                            {result.rating === 'great' && <Trophy size={40} className="text-white relative z-10" />}
+                            {result.rating === 'good' && <MapPin size={40} className="text-white relative z-10" />}
+                            {result.rating === 'miss' && <Navigation size={40} className="text-white relative z-10" />}
                         </div>
 
-                        <h2 className="text-3xl font-black text-center text-white mb-2 tracking-tight">
+                        <h2 className="text-4xl font-black text-center text-white mb-4 tracking-tighter uppercase italic">
                             {result.rating === 'perfect' && 'KUSURSUZ!'}
                             {result.rating === 'great' && 'HARİKA!'}
                             {result.rating === 'good' && 'BAŞARILI!'}
                             {result.rating === 'miss' && 'ÜZGÜNÜM!'}
                         </h2>
 
-                        <div className="bg-white/5 rounded-2xl p-4 mb-6 border border-white/5 text-center">
-                            <p className="text-slate-400 text-sm font-medium">
-                                <span className="text-white font-black">{question.targetName}</span> noktasından
-                                <br />
-                                <span className="text-2xl font-black" style={{ color: getRatingColor(result.rating) }}>
-                                    {result.distance.toFixed(1)} km
+                        <div className="bg-white/10 rounded-3xl p-6 mb-6 border border-white/10 text-center">
+                            <p className="text-slate-200 text-lg font-bold leading-tight">
+                                <span className="text-indigo-400 block mb-1 text-xs uppercase tracking-[0.2em] font-black">HEDEF NOKTA</span>
+                                <span className="text-2xl text-white font-black">{question.targetName}</span>
+                                <div className="h-px w-12 bg-white/10 mx-auto my-3" />
+                                <span className="text-3xl font-black block" style={{ color: getRatingColor(result.rating) }}>
+                                    {result.distance.toFixed(1)} <span className="text-sm">km</span>
                                 </span>
-                                <br />
-                                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-none">UZAKTAYDIN</span>
+                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">HEDEFTEN UZAKTAYDIN</span>
                             </p>
                         </div>
 
                         {result.points > 0 && (
-                            <div className="text-center mb-6 flex flex-col items-center">
-                                <span className="text-[10px] font-black uppercase tracking-[0.3em] mb-1" style={{ color: getRatingColor(result.rating) }}>KAZANILAN</span>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-4xl font-black text-white">+{result.points}</span>
-                                    <span className="text-slate-400 font-bold">PUAN</span>
+                            <div className="text-center mb-8 flex flex-col items-center">
+                                <div className="flex items-center gap-3 bg-emerald-500/10 px-6 py-2 rounded-full border border-emerald-500/30">
+                                    <span className="text-4xl font-black text-emerald-400">+{result.points}</span>
+                                    <span className="text-emerald-400/70 font-black text-sm uppercase tracking-widest">PUAN</span>
                                 </div>
                             </div>
                         )}
 
                         {/* Updated Did You Know Section */}
                         {question.didYouKnow && (
-                            <div className="mb-8 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
-                                <div className="text-[10px] uppercase tracking-[0.2em] font-black text-indigo-400 mb-2 flex items-center gap-2">
-                                    <Sparkles size={12} />
+                            <div className="mb-8 p-5 rounded-3xl bg-indigo-500/20 border border-indigo-500/30">
+                                <div className="text-xs uppercase tracking-[0.2em] font-black text-indigo-300 mb-2 flex items-center gap-2">
+                                    <Sparkles size={14} />
                                     BİLİYOR MUYDUNUZ?
                                 </div>
-                                <p className="text-sm text-slate-300 leading-relaxed font-medium italic">
+                                <p className="text-sm text-slate-100 leading-relaxed font-bold italic">
                                     &quot;{question.didYouKnow}&quot;
                                 </p>
                             </div>
@@ -191,10 +194,10 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
 
                         <button
                             onClick={onNext}
-                            className="w-full py-5 bg-white text-slate-950 hover:bg-slate-100 rounded-2xl font-black transition-all flex items-center justify-center gap-3 shadow-xl group"
+                            className="w-full py-5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] text-white rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 shadow-2xl group border-t border-white/20"
                         >
                             SIRADAKİ SORU
-                            <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                            <ChevronRight size={28} className="group-hover:translate-x-1 transition-transform" />
                         </button>
                     </div>
                 </div>
