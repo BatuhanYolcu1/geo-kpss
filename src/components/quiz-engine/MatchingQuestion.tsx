@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Check, X, ArrowRight, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Check, X, ArrowRight, ChevronRight, Trophy, Sparkles } from 'lucide-react';
 import type { MatchingQuestion as MQuestion } from '@/types/quiz';
 
 interface Props {
@@ -14,203 +14,186 @@ interface Props {
 export default function MatchingQuestion({ question, onAnswer, onNext, disabled }: Props) {
     const [selectedLeft, setSelectedLeft] = useState<number | null>(null);
     const [matches, setMatches] = useState<Map<number, number>>(new Map());
+    const [wrongSelection, setWrongSelection] = useState<number | null>(null);
+    const [correctSelection, setCorrectSelection] = useState<number | null>(null);
     const [submitted, setSubmitted] = useState(false);
+    const [shuffledRight, setShuffledRight] = useState<{ id: number, text: string }[]>([]);
 
-    const [shuffledRight, setShuffledRight] = useState<number[]>([]);
+    // Audio Context for feedback sounds
+    const audioCtx = useRef<AudioContext | null>(null);
+
+    const playSound = (frequency: number, type: OscillatorType, duration: number) => {
+        try {
+            if (!audioCtx.current) {
+                audioCtx.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+            }
+            const osc = audioCtx.current.createOscillator();
+            const gain = audioCtx.current.createGain();
+
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, audioCtx.current.currentTime);
+
+            gain.gain.setValueAtTime(0.1, audioCtx.current.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.current.currentTime + duration);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.current.destination);
+
+            osc.start();
+            osc.stop(audioCtx.current.currentTime + duration);
+        } catch (e) {
+            console.warn('Audio feedback failed', e);
+        }
+    };
+
+    const playSuccessSound = () => {
+        playSound(523.25, 'sine', 0.1); // C5
+        setTimeout(() => playSound(659.25, 'sine', 0.15), 50); // E5
+    };
+
+    const playErrorSound = () => {
+        playSound(220, 'sawtooth', 0.2); // A3
+    };
 
     useEffect(() => {
-        const indices = question.pairs.map((_, i) => i);
-        indices.sort(() => Math.random() - 0.5);
-        Promise.resolve().then(() => setShuffledRight(indices));
+        const rightItems = question.pairs.map((p, i) => ({ id: i, text: p.right }));
+        rightItems.sort(() => Math.random() - 0.5);
+        setShuffledRight(rightItems);
     }, [question.pairs]);
 
     const handleLeftClick = (index: number) => {
-        if (disabled || submitted) return;
+        if (disabled || submitted || matches.has(index)) return;
         setSelectedLeft(selectedLeft === index ? null : index);
+        setWrongSelection(null);
     };
 
-    const handleRightClick = (shuffledIndex: number) => {
-        if (disabled || submitted || selectedLeft === null) return;
+    const handleRightClick = (rightItem: { id: number, text: string }) => {
+        if (disabled || submitted || selectedLeft === null || matches.has(selectedLeft)) return;
 
-        const rightIndex = shuffledRight[shuffledIndex];
+        // Instant validation
+        if (selectedLeft === rightItem.id) {
+            // Correct match
+            const newMatches = new Map(matches);
+            newMatches.set(selectedLeft, rightItem.id);
+            setMatches(newMatches);
+            setCorrectSelection(rightItem.id);
+            playSuccessSound();
 
-        // Create new match
-        const newMatches = new Map(matches);
+            setTimeout(() => {
+                setCorrectSelection(null);
+                setSelectedLeft(null);
 
-        // Remove any existing match with this left or right
-        for (const [left, right] of newMatches.entries()) {
-            if (left === selectedLeft || right === rightIndex) {
-                newMatches.delete(left);
-            }
+                // Final check
+                if (newMatches.size === question.pairs.length) {
+                    setSubmitted(true);
+                    onAnswer(true, question.points, 'Tebrikler! Tüm eşleşmeler doğru.');
+                }
+            }, 600);
+        } else {
+            // Wrong match
+            setWrongSelection(rightItem.id);
+            playErrorSound();
+            setTimeout(() => setWrongSelection(null), 500);
         }
-
-        newMatches.set(selectedLeft, rightIndex);
-        setMatches(newMatches);
-        setSelectedLeft(null);
-
-        // Auto-submit when all pairs are matched
-        if (newMatches.size === question.pairs.length) {
-            setTimeout(() => submitAnswer(newMatches), 300);
-        }
-    };
-
-    const submitAnswer = (finalMatches: Map<number, number>) => {
-        setSubmitted(true);
-
-        let correctCount = 0;
-        for (const [leftIdx, rightIdx] of finalMatches.entries()) {
-            if (leftIdx === rightIdx) {
-                correctCount++;
-            }
-        }
-
-        const isAllCorrect = correctCount === question.pairs.length;
-        const points = isAllCorrect ? question.points : Math.floor((correctCount / question.pairs.length) * question.points);
-
-        onAnswer(isAllCorrect, points, `${correctCount}/${question.pairs.length} eşleşme doğru.`);
-    };
-
-    // Check if a left item is correctly matched (only after submission)
-    const isLeftCorrect = (index: number) => {
-        if (!submitted) return null;
-        if (!matches.has(index)) return false;
-        return matches.get(index) === index;
-    };
-
-    // Get the left item that matched with this right item
-    const getMatchedLeftForRight = (rightIndex: number): number | null => {
-        for (const [left, right] of matches.entries()) {
-            if (right === rightIndex) return left;
-        }
-        return null;
-    };
-
-    const getLeftStyle = (index: number) => {
-        const correct = isLeftCorrect(index);
-
-        if (submitted) {
-            if (correct === true) {
-                return 'bg-green-500/20 border-green-500';
-            } else if (correct === false) {
-                return 'bg-red-500/20 border-red-500';
-            }
-        }
-
-        if (selectedLeft === index) {
-            return 'bg-indigo-500/30 border-indigo-500 ring-2 ring-indigo-500/50';
-        }
-
-        if (matches.has(index)) {
-            return 'bg-emerald-500/20 border-emerald-500/50';
-        }
-
-        return 'bg-slate-800/50 border-slate-700 hover:border-indigo-500/50';
-    };
-
-    const getRightStyle = (shuffledIndex: number) => {
-        const rightIndex = shuffledRight[shuffledIndex];
-        const matchedLeft = getMatchedLeftForRight(rightIndex);
-        const isMatched = matchedLeft !== null;
-
-        if (submitted && isMatched) {
-            const isCorrect = matchedLeft === rightIndex;
-            return isCorrect
-                ? 'bg-green-500/20 border-green-500'
-                : 'bg-red-500/20 border-red-500';
-        }
-
-        if (isMatched) {
-            return 'bg-emerald-500/20 border-emerald-500/50';
-        }
-
-        return 'bg-slate-800/50 border-slate-700 hover:border-rose-500/50';
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen pt-20 pb-8 px-4">
-            <div className="w-full max-w-4xl">
-                {/* Instruction */}
-                <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-2xl p-6 mb-6 text-center">
-                    <div className="text-xs text-rose-400 uppercase tracking-wide mb-2">
-                        {question.category} • Eşleştirme
+        <div className="flex items-center justify-center min-h-screen pt-20 pb-8 px-4 bg-slate-950/20">
+            <div className="w-full max-w-4xl animate-slide-up">
+                {/* Header Section */}
+                <div className="glass-premium rounded-3xl p-8 mb-8 text-center relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-rose-500" />
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                        <Sparkles size={16} className="text-amber-400 animate-pulse" />
+                        <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
+                            {question.category} • PREMIUM EŞLEŞTİRME
+                        </span>
                     </div>
-                    <h2 className="text-xl font-bold text-white">
+                    <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
                         {question.instruction}
                     </h2>
-                    <p className="text-sm text-slate-400 mt-2">
-                        Soldaki öğeyi seçin, sonra sağdaki eşini tıklayın
-                    </p>
+                    <div className="flex items-center justify-center gap-4 text-slate-400 text-sm">
+                        <div className="flex items-center gap-1.5">
+                            <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                            <span>Terim Seç</span>
+                        </div>
+                        <ArrowRight size={14} />
+                        <div className="flex items-center gap-1.5">
+                            <div className="w-2 h-2 rounded-full bg-rose-500" />
+                            <span>Eşini Bul</span>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Matching Grid */}
-                <div className="grid grid-cols-2 gap-6">
-                    {/* Left Column */}
-                    <div className="space-y-3">
-                        <div className="text-xs text-slate-500 uppercase tracking-wide mb-2 text-center">Terim</div>
+                {/* Matching Area */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+                    {/* Left Column (Terms) */}
+                    <div className="space-y-4">
+                        <h3 className="text-center text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">SOL SÜTUN: TERİMLER</h3>
                         {question.pairs.map((pair, index) => {
-                            const correct = isLeftCorrect(index);
+                            const isSelected = selectedLeft === index;
+                            const isMatched = matches.has(index);
                             return (
                                 <button
                                     key={`left-${index}`}
                                     onClick={() => handleLeftClick(index)}
-                                    disabled={disabled || submitted}
+                                    disabled={disabled || submitted || isMatched}
                                     className={`
-                                        w-full p-4 rounded-xl border-2 transition-all duration-200 text-left
-                                        ${getLeftStyle(index)}
-                                        ${disabled || submitted ? 'cursor-default' : 'cursor-pointer'}
+                                        w-full p-5 rounded-2xl border-2 transition-all duration-300 text-left relative overflow-hidden group
+                                        ${isMatched
+                                            ? 'glass-premium border-emerald-500/50 opacity-60 scale-[0.98]'
+                                            : isSelected
+                                                ? 'bg-indigo-600 border-indigo-400 shadow-[0_0_20px_rgba(79,70,229,0.4)] translate-x-2'
+                                                : 'glass-premium border-white/5 hover:border-white/20 hover:bg-white/5'
+                                        }
+                                        ${correctSelection === index ? 'animate-pulse-success border-green-500' : ''}
                                     `}
                                 >
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-white font-medium">{pair.left}</span>
-                                        <div className="flex items-center gap-2">
-                                            {matches.has(index) && !submitted && (
-                                                <ArrowRight size={18} className="text-emerald-400" />
-                                            )}
-                                            {submitted && correct === true && (
-                                                <Check size={18} className="text-green-400" />
-                                            )}
-                                            {submitted && correct === false && (
-                                                <X size={18} className="text-red-400" />
-                                            )}
-                                        </div>
+                                    <div className="flex items-center justify-between relative z-10">
+                                        <span className={`font-bold text-lg ${isMatched ? 'text-emerald-400' : 'text-white'}`}>
+                                            {pair.left}
+                                        </span>
+                                        {isMatched && <Check size={20} className="text-emerald-400" />}
                                     </div>
-                                    {/* Show correct answer if wrong */}
-                                    {submitted && correct === false && (
-                                        <div className="mt-2 pt-2 border-t border-slate-700 text-sm">
-                                            <span className="text-slate-500">Doğru eşleşme: </span>
-                                            <span className="text-green-400 font-medium">{pair.right}</span>
-                                        </div>
+                                    {isSelected && !isMatched && (
+                                        <div className="absolute right-0 top-0 bottom-0 w-1 bg-white animate-pulse" />
                                     )}
                                 </button>
                             );
                         })}
                     </div>
 
-                    {/* Right Column */}
-                    <div className="space-y-3">
-                        <div className="text-xs text-slate-500 uppercase tracking-wide mb-2 text-center">Eşleşme</div>
-                        {shuffledRight.map((originalIndex, shuffledIndex) => {
-                            const matchedLeft = getMatchedLeftForRight(originalIndex);
-                            const isCorrect = submitted && matchedLeft === originalIndex;
+                    {/* Right Column (Matches) */}
+                    <div className="space-y-4">
+                        <h3 className="text-center text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">SAĞ SÜTUN: EŞLEŞMELER</h3>
+                        {shuffledRight.map((item, idx) => {
+                            const isAlreadyMatched = Array.from(matches.values()).includes(item.id);
+                            const isBeingValidated = correctSelection === item.id;
+                            const isWrong = wrongSelection === item.id;
 
                             return (
                                 <button
-                                    key={`right-${shuffledIndex}`}
-                                    onClick={() => handleRightClick(shuffledIndex)}
-                                    disabled={disabled || submitted || selectedLeft === null}
+                                    key={`right-${idx}`}
+                                    onClick={() => handleRightClick(item)}
+                                    disabled={disabled || submitted || isAlreadyMatched || selectedLeft === null}
                                     className={`
-                                        w-full p-4 rounded-xl border-2 transition-all duration-200 text-left
-                                        ${getRightStyle(shuffledIndex)}
-                                        ${disabled || submitted || selectedLeft === null ? 'cursor-default' : 'cursor-pointer'}
+                                        w-full p-5 rounded-2xl border-2 transition-all duration-300 text-left group
+                                        ${isAlreadyMatched
+                                            ? 'glass-premium border-emerald-500/50 opacity-60'
+                                            : selectedLeft !== null
+                                                ? 'glass-premium border-rose-500/20 hover:border-rose-500/50 cursor-pointer hover:bg-rose-500/5'
+                                                : 'glass-premium border-white/5 opacity-40 cursor-default'
+                                        }
+                                        ${isBeingValidated ? 'animate-pulse-success border-green-500 bg-green-500/10' : ''}
+                                        ${isWrong ? 'animate-shake border-red-500 bg-red-500/10' : ''}
                                     `}
                                 >
                                     <div className="flex items-center justify-between">
-                                        <span className="text-white font-medium">
-                                            {question.pairs[originalIndex].right}
+                                        <span className={`font-bold text-lg ${isAlreadyMatched ? 'text-emerald-400' : 'text-slate-200 group-hover:text-white'}`}>
+                                            {item.text}
                                         </span>
-                                        {isCorrect && (
-                                            <Check size={18} className="text-green-400" />
-                                        )}
+                                        {isAlreadyMatched && <Check size={20} className="text-emerald-400" />}
+                                        {isWrong && <X size={20} className="text-red-500" />}
                                     </div>
                                 </button>
                             );
@@ -218,41 +201,42 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                     </div>
                 </div>
 
-                {/* Match Counter */}
-                <div className="text-center mt-6">
-                    <span className="text-slate-400">
-                        {matches.size} / {question.pairs.length} eşleşme
+                {/* Progress Visual */}
+                <div className="mt-12 flex flex-col items-center gap-4">
+                    <div className="flex gap-2">
+                        {question.pairs.map((_, i) => (
+                            <div
+                                key={i}
+                                className={`h-2 rounded-full transition-all duration-500 ${i < matches.size ? 'w-8 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]' : 'w-4 bg-slate-800'
+                                    }`}
+                            />
+                        ))}
+                    </div>
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                        {matches.size} / {question.pairs.length} TAMAMLANDI
                     </span>
                 </div>
 
-                {/* Results Summary (shown after submission) */}
+                {/* Completion Modal */}
                 {submitted && (
-                    <div className="mt-6 space-y-6">
-                        <div className="p-4 bg-slate-800/50 rounded-xl border border-slate-700 animate-slide-up">
-                            <h3 className="text-sm font-semibold text-slate-300 mb-3">Doğru Eşleşmeler:</h3>
-                            <div className="grid grid-cols-2 gap-2">
-                                {question.pairs.map((pair, index) => (
-                                    <div key={index} className="flex items-center gap-2 text-sm">
-                                        <span className="text-emerald-400">✓</span>
-                                        <span className="text-white">{pair.left}</span>
-                                        <ArrowRight size={14} className="text-slate-500" />
-                                        <span className="text-emerald-400">{pair.right}</span>
-                                    </div>
-                                ))}
+                    <div className="mt-8 animate-popup text-center">
+                        <div className="glass-premium rounded-3xl p-8 border-emerald-500/30">
+                            <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Trophy className="text-emerald-400" size={32} />
                             </div>
+                            <h3 className="text-2xl font-black text-white mb-2">Harika İş!</h3>
+                            <p className="text-slate-400 mb-6">Mükemmel bir hızla tüm terimleri doğru eşleştirdin.</p>
+                            <button
+                                onClick={onNext}
+                                className="w-full py-5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-2xl font-black text-white transition-all shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 group"
+                            >
+                                SONRAKİ SORU
+                                <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                            </button>
                         </div>
-
-                        <button
-                            onClick={onNext}
-                            className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-xl shadow-indigo-500/20"
-                        >
-                            Sonraki Soru
-                            <ChevronRight size={20} />
-                        </button>
                     </div>
                 )}
             </div>
         </div>
     );
 }
-
