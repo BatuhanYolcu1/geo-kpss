@@ -110,3 +110,18 @@ export interface UserStats {
     categoryPerformance: Record<string, { totalAnswers: number; correctAnswers: number; accuracy: number }>;
     recentActivity: QuizResult[];
 }
+// Study Module Types
+export interface StudyTopic {
+    id: string;
+    title: string;
+    content: string; // Markdown supported
+    keyFacts: string[]; // "Önemli Bilgiler" or "KPSS Tips"
+    relatedCoordinates?: { lat: number; lng: number; zoom?: number };
+}
+
+export interface StudyCategory {
+    id: string;
+    title: string;
+    icon: string; // Lucide icon name
+    topics: StudyTopic[];
+}

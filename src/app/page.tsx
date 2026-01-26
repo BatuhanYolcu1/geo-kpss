@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Map, Brain, BarChart3, Sparkles, ChevronRight, Compass, Globe2 } from 'lucide-react';
+import { Map, Brain, BarChart3, Sparkles, ChevronRight, Compass, Globe2, BookOpen, TrendingUp } from 'lucide-react';
 
 const modules = [
   {
@@ -22,7 +22,18 @@ const modules = [
     color: 'from-emerald-500 to-teal-600',
     shadowColor: 'shadow-emerald-500/25',
     active: true,
-    stats: '50+ Soru',
+    stats: '100+ Soru',
+  },
+  {
+    id: 'study',
+    title: 'Ders Notları',
+    description: 'KPSS coğrafya konularını kapsamlı notlar ve harita desteğiyle çalışın.',
+    icon: BookOpen,
+    href: '/study',
+    color: 'from-rose-500 to-pink-600',
+    shadowColor: 'shadow-rose-500/25',
+    active: true,
+    stats: '6 Ana Kategori',
   },
   {
     id: 'stats',
