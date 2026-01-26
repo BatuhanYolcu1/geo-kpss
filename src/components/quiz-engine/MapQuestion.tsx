@@ -125,25 +125,25 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 )}
             </MapContainer>
 
-            {/* Question HUD - Refined with Deep Black Theme and High Readability */}
+            {/* Question HUD - Slim Floating Capsule on the Right Stack */}
             {!answered && (
-                <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[1000] w-[calc(100%-2rem)] max-w-sm px-4 pointer-events-none">
-                    <div className="bg-slate-950 rounded-[2.5rem] p-7 border-2 border-slate-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,1)] ring-1 ring-white/5 flex items-center gap-6 relative overflow-hidden animate-slide-up pointer-events-auto">
-                        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600" />
-                        <div className="w-16 h-16 rounded-3xl bg-indigo-500 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
-                            <Navigation size={34} className="text-white rotate-45" />
+                <div className="absolute top-28 right-8 z-[1000] w-auto max-w-sm pointer-events-none">
+                    <div className="bg-slate-950 rounded-[1.5rem] px-5 py-3 border-2 border-slate-800 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)] ring-1 ring-white/5 flex items-center gap-4 relative overflow-hidden animate-slide-up pointer-events-auto">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-indigo-500 to-purple-600" />
+                        <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center shrink-0 shadow-lg">
+                            <Navigation size={22} className="text-white rotate-45" />
                         </div>
-                        <div className="flex-1">
-                            <div className="text-[11px] font-black text-indigo-400 uppercase tracking-[0.25em] mb-1.5">HARİTADA BULUN</div>
-                            <div className="text-3xl font-black text-white tracking-tighter leading-tight mb-2 drop-shadow-md">
+                        <div className="pr-2">
+                            <div className="text-[9px] font-black text-indigo-400 uppercase tracking-[0.2em] leading-none mb-1">HARİTADA BULUN</div>
+                            <div className="text-xl font-black text-white tracking-tighter leading-none mb-1.5">
                                 {question.targetName}
                             </div>
 
                             {question.hint && (
-                                <div className="mt-2">
+                                <div>
                                     {showHint ? (
-                                        <p className="text-sm text-slate-100 font-bold animate-fade-in flex items-center gap-2">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                                        <p className="text-[11px] text-slate-300 font-bold animate-fade-in flex items-center gap-1.5 whitespace-nowrap">
+                                            <div className="w-1 h-1 rounded-full bg-indigo-400" />
                                             {question.hint}
                                         </p>
                                     ) : (
@@ -152,9 +152,9 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                                                 e.stopPropagation();
                                                 setShowHint(true);
                                             }}
-                                            className="group flex items-center gap-2 text-xs font-black text-white/90 bg-white/5 hover:bg-indigo-500 hover:text-white px-4 py-2 rounded-2xl transition-all border border-white/10 active:scale-95"
+                                            className="group flex items-center gap-1.5 text-[9px] font-black text-indigo-300 hover:text-white transition-colors"
                                         >
-                                            <Sparkles size={14} className="text-amber-400 group-hover:text-white" />
+                                            <Sparkles size={10} className="text-amber-400" />
                                             İPUCU GÖSTER
                                         </button>
                                     )}
@@ -165,10 +165,10 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 </div>
             )}
 
-            {/* Result Modal - Integrated with High Contrast Dark Theme */}
+            {/* Result Modal - Stacked below HUD on the Right */}
             {showFeedback && result && (
-                <div className="fixed bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-[1001] w-[calc(100%-2rem)] max-w-sm animate-modal-enter">
-                    <div className="bg-slate-950/95 border-2 border-white/30 rounded-[2.5rem] p-8 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                <div className="fixed top-28 right-8 z-[1001] w-auto max-w-[280px] animate-modal-enter">
+                    <div className="bg-slate-950 border-2 border-white/20 rounded-[2rem] p-6 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div
                             className="absolute top-0 left-0 right-0 h-2"
                             style={{ backgroundColor: getRatingColor(result.rating) }}
