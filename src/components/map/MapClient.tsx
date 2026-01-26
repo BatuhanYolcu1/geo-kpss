@@ -201,7 +201,54 @@ export default function MapClient() {
     const [selectedFeature, setSelectedFeature] = React.useState<GeoFeatureProperties | null>(null);
     const [selectedPosition, setSelectedPosition] = React.useState<{ lat: number; lng: number } | null>(null);
     const [popupScreenPos, setPopupScreenPos] = React.useState<{ x: number; y: number } | null>(null);
-    const [flyToTarget, setFlyToTarget] = React.useState<{ lat: number; lng: number } | null>(null);
+    const [flyToTarget, setFlyToTarget] = React.useState<{ lat: number; lng: number; zoom?: number } | null>(null);
+
+    // Deep Linking from URL Params
+    const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    const toggleLayer = useLayerStore(state => state.toggleLayer);
+
+    React.useEffect(() => {
+        if (!searchParams) return;
+
+        const layerParam = searchParams.get('layer');
+        const focusParam = searchParams.get('focus');
+        const latParam = searchParams.get('lat');
+        const lngParam = searchParams.get('lng');
+        const zoomParam = searchParams.get('zoom');
+
+        // 1. Handle Layer Toggle
+        if (layerParam) {
+            const layer = layers.find(l => l.id === layerParam);
+            if (layer && !layer.visible) {
+                toggleLayer(layerParam);
+            }
+        }
+
+        // 2. Handle Focus/Popup
+        if (focusParam && layerParam) {
+            const layerInfo = layerDataMap[layerParam];
+            if (layerInfo) {
+                const geojsonData = layerInfo.data as GeoJSON.FeatureCollection;
+                const feature = geojsonData.features.find(f => (f.properties as any).id === focusParam);
+                if (feature && feature.geometry.type === 'Point') {
+                    const coords = feature.geometry.coordinates as [number, number];
+                    setSelectedFeature(feature.properties as GeoFeatureProperties);
+                    setSelectedPosition({ lat: coords[1], lng: coords[0] });
+                    setFlyToTarget({ lat: coords[1], lng: coords[0], zoom: 12 });
+                }
+            }
+        }
+
+        // 3. Handle Direct Coordinates
+        if (latParam && lngParam && !focusParam) {
+            const lat = parseFloat(latParam);
+            const lng = parseFloat(lngParam);
+            const zoom = zoomParam ? parseFloat(zoomParam) : 10;
+            if (!isNaN(lat) && !isNaN(lng)) {
+                setFlyToTarget({ lat, lng, zoom });
+            }
+        }
+    }, [searchParams, layers, toggleLayer]);
 
     const activeLayers = layers.filter((l) => l.visible);
 
@@ -230,7 +277,7 @@ export default function MapClient() {
 
     // Handle search result selection
     const handleSearchSelect = useCallback((result: { lat: number; lng: number }) => {
-        setFlyToTarget({ lat: result.lat, lng: result.lng });
+        setFlyToTarget({ lat: result.lat, lng: result.lng, zoom: 10 });
         // Reset flyTo after animation
         setTimeout(() => setFlyToTarget(null), 2000);
     }, []);

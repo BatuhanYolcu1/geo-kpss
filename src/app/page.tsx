@@ -29,7 +29,7 @@ const modules = [
     title: 'Ders Notları',
     description: 'KPSS coğrafya konularını kapsamlı notlar ve harita desteğiyle çalışın.',
     icon: BookOpen,
-    href: '/study',
+    href: '/notes',
     color: 'from-rose-500 to-pink-600',
     shadowColor: 'shadow-rose-500/25',
     active: true,
