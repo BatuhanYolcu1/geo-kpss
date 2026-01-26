@@ -158,6 +158,19 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                             </div>
                         )}
 
+                        {/* Öğrenme Molası (Did you know?) */}
+                        {question.didYouKnow && (
+                            <div className="mb-5 p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20">
+                                <div className="text-[10px] uppercase tracking-wider font-bold text-indigo-400 mb-1 flex items-center gap-1">
+                                    <Trophy size={10} />
+                                    Öğrenme Molası
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed italic">
+                                    "{question.didYouKnow}"
+                                </p>
+                            </div>
+                        )}
+
                         <button
                             onClick={onNext}
                             className="w-full py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-xl font-bold transition-all flex items-center justify-center gap-2 text-sm"

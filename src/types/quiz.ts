@@ -23,6 +23,8 @@ export interface MapQuestion extends BaseQuestion {
     targetLat: number;
     targetLng: number;
     hint?: string;
+    subCategory?: string; // e.g., 'mine', 'lake', 'unesco'
+    didYouKnow?: string; // Short educational snippet
 }
 
 // Multiple Choice Question - Classic A/B/C/D/E

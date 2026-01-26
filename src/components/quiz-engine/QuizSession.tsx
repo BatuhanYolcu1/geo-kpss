@@ -13,8 +13,8 @@ import {
     CheckCircle,
     XCircle
 } from 'lucide-react';
-import type { QuizMode, QuizQuestion, QuizAnswer } from '@/types/quiz';
-import { getRandomQuestions } from '@/data/mock-quiz-data';
+import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion } from '@/types/quiz';
+import { getRandomQuestions, getQuestionsByType } from '@/data/mock-quiz-data';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import TrueFalseQuestion from './TrueFalseQuestion';
 import MatchingQuestion from './MatchingQuestion';
@@ -28,10 +28,11 @@ const MapQuestion = dynamic(() => import('./MapQuestion'), {
 
 interface QuizSessionProps {
     mode: QuizMode;
+    subCategory?: string;
     onEnd: () => void;
 }
 
-export default function QuizSession({ mode, onEnd }: QuizSessionProps) {
+export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionProps) {
     const [questions, setQuestions] = useState<QuizQuestion[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -50,9 +51,19 @@ export default function QuizSession({ mode, onEnd }: QuizSessionProps) {
     useEffect(() => {
         const questionType = mode === 'map' ? 'map_pinpoint' : mode;
         const count = mode === 'map' ? 10 : mode === 'matching' ? 5 : 15;
-        const loadedQuestions = getRandomQuestions(count, questionType as QuizQuestion['type']);
+
+        let loadedQuestions = getRandomQuestions(count, questionType as QuizQuestion['type']);
+
+        // Apply sub-category filter if provided (only for map mode)
+        if (mode === 'map' && subCategory) {
+            const allMapQuestions = getQuestionsByType('map_pinpoint') as MapQuestion[];
+            const filtered = allMapQuestions.filter(q => q.category === subCategory || q.subCategory === subCategory);
+            // Shuffle and slice
+            loadedQuestions = [...filtered].sort(() => Math.random() - 0.5).slice(0, count);
+        }
+
         setQuestions(loadedQuestions);
-    }, [mode]);
+    }, [mode, subCategory]);
 
     const currentQuestion = questions[currentIndex];
 

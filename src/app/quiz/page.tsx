@@ -11,7 +11,8 @@ import {
     ChevronRight,
     Trophy,
     Sparkles,
-    Zap
+    Zap,
+    X
 } from 'lucide-react';
 import type { QuizMode } from '@/types/quiz';
 import QuizSession from '@/components/quiz-engine/QuizSession';
@@ -72,21 +73,35 @@ const quizModes: QuizModeCard[] = [
 
 export default function QuizPage() {
     const [selectedMode, setSelectedMode] = useState<QuizMode | null>(null);
+    const [selectedSubCategory, setSelectedSubCategory] = useState<string | undefined>(undefined);
+    const [showMapFilters, setShowMapFilters] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
 
     const handleSelectMode = (mode: QuizMode) => {
-        setSelectedMode(mode);
+        if (mode === 'map') {
+            setShowMapFilters(true);
+        } else {
+            setSelectedMode(mode);
+            setIsPlaying(true);
+        }
+    };
+
+    const startMapQuiz = (subCat?: string) => {
+        setSelectedMode('map');
+        setSelectedSubCategory(subCat);
         setIsPlaying(true);
+        setShowMapFilters(false);
     };
 
     const handleEndQuiz = () => {
         setIsPlaying(false);
         setSelectedMode(null);
+        setSelectedSubCategory(undefined);
     };
 
     // If playing, show QuizSession
     if (isPlaying && selectedMode) {
-        return <QuizSession mode={selectedMode} onEnd={handleEndQuiz} />;
+        return <QuizSession mode={selectedMode} subCategory={selectedSubCategory} onEnd={handleEndQuiz} />;
     }
 
     // Quiz Lobby
@@ -197,10 +212,64 @@ export default function QuizPage() {
                 {/* Footer Info */}
                 <div className="text-center">
                     <p className="text-slate-500 text-sm">
-                        Toplam <span className="text-emerald-400 font-medium">27+ soru</span> • 4 farklı mod
+                        Toplam <span className="text-emerald-400 font-medium">100+ soru</span> • 4 farklı mod
                     </p>
                 </div>
             </div>
+
+            {/* Map Category Filter Modal */}
+            {showMapFilters && (
+                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all">
+                    <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-popup">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-2xl font-bold flex items-center gap-2">
+                                <Map className="text-indigo-400" />
+                                Harita Modu
+                            </h2>
+                            <button
+                                onClick={() => setShowMapFilters(false)}
+                                className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                            >
+                                <X size={20} className="text-slate-400" />
+                            </button>
+                        </div>
+
+                        <p className="text-slate-400 mb-6">
+                            Hangi alanda harita bilginizi test etmek istersiniz?
+                        </p>
+
+                        <div className="space-y-3 mb-8">
+                            {[
+                                { id: undefined, label: 'Karma Sınav', icon: <Sparkles size={18} />, color: 'bg-indigo-500' },
+                                { id: 'physical', label: 'Fiziki Özellikler', icon: <Map size={18} />, color: 'bg-emerald-500' },
+                                { id: 'economy', label: 'Ekonomik Coğrafya', icon: <Zap size={18} />, color: 'bg-amber-500' },
+                                { id: 'culture', label: 'Kültür & Turizm', icon: <Trophy size={18} />, color: 'bg-rose-500' },
+                            ].map((cat) => (
+                                <button
+                                    key={cat.label}
+                                    onClick={() => startMapQuiz(cat.id)}
+                                    className="w-full p-4 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-xl flex items-center justify-between group transition-all"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className={`w-8 h-8 rounded-lg ${cat.color} flex items-center justify-center`}>
+                                            {cat.icon}
+                                        </div>
+                                        <span className="font-medium">{cat.label}</span>
+                                    </div>
+                                    <ChevronRight size={18} className="text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+                                </button>
+                            ))}
+                        </div>
+
+                        <button
+                            onClick={() => setShowMapFilters(false)}
+                            className="w-full py-3 text-slate-400 hover:text-white transition-colors text-sm font-medium"
+                        >
+                            Vazgeç
+                        </button>
+                    </div>
+                </div>
+            )}
         </main>
     );
 }
