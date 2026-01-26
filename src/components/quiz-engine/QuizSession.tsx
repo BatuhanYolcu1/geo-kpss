@@ -195,6 +195,7 @@ export default function QuizSession({ mode, onEnd }: QuizSessionProps) {
                         key={currentQuestion.id}
                         question={currentQuestion}
                         onAnswer={handleAnswer}
+                        onNext={handleNext}
                         showFeedback={showFeedback}
                     />
                 );

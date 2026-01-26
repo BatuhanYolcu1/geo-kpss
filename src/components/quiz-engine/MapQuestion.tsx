@@ -45,10 +45,11 @@ function ClickHandler({ onMapClick }: { onMapClick: (lat: number, lng: number) =
 interface Props {
     question: MQType;
     onAnswer: (isCorrect: boolean, points: number, explanation?: string) => void;
+    onNext: () => void;
     showFeedback: boolean;
 }
 
-export default function MapQuestion({ question, onAnswer, showFeedback }: Props) {
+export default function MapQuestion({ question, onAnswer, onNext, showFeedback }: Props) {
     const [userClick, setUserClick] = useState<{ lat: number; lng: number } | null>(null);
     const [result, setResult] = useState<{ distance: number; points: number; rating: 'perfect' | 'great' | 'good' | 'miss' } | null>(null);
     const [answered, setAnswered] = useState(false);
@@ -156,6 +157,13 @@ export default function MapQuestion({ question, onAnswer, showFeedback }: Props)
                                 <span className="text-slate-400 ml-2">puan</span>
                             </div>
                         )}
+
+                        <button
+                            onClick={onNext}
+                            className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-xl font-bold transition-all flex items-center justify-center gap-2"
+                        >
+                            Devam Et <ChevronRight size={20} />
+                        </button>
                     </div>
                 </div>
             )}
