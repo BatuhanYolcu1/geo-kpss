@@ -60,6 +60,7 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
     const [userClick, setUserClick] = useState<{ lat: number; lng: number } | null>(null);
     const [result, setResult] = useState<{ distance: number; points: number; rating: 'perfect' | 'great' | 'good' | 'miss' } | null>(null);
     const [answered, setAnswered] = useState(false);
+    const [showHint, setShowHint] = useState(false);
 
     const handleMapClick = useCallback((lat: number, lng: number) => {
         if (answered) return;
@@ -129,9 +130,28 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                         </div>
                         <div>
                             <div className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-1">HARİTADA BULUN</div>
-                            <div className="text-2xl font-black text-white tracking-tight leading-none mb-1">{question.targetName}</div>
+                            <div className="text-2xl font-black text-white tracking-tight leading-none mb-2">{question.targetName}</div>
+
                             {question.hint && (
-                                <p className="text-sm text-slate-300 font-bold">İpucu: {question.hint}</p>
+                                <div className="mt-1">
+                                    {showHint ? (
+                                        <p className="text-sm text-slate-100 font-bold animate-fade-in flex items-center gap-1.5">
+                                            <Sparkles size={12} className="text-indigo-400" />
+                                            {question.hint}
+                                        </p>
+                                    ) : (
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setShowHint(true);
+                                            }}
+                                            className="text-[10px] font-black bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 border border-white/10"
+                                        >
+                                            <Sparkles size={10} className="text-amber-400" />
+                                            İPUCU AL
+                                        </button>
+                                    )}
+                                </div>
                             )}
                         </div>
                     </div>
