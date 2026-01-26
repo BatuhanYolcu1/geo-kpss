@@ -111,8 +111,8 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
 
             {/* Question HUD - Refined with Glass Premium */}
             {!answered && (
-                <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[1000] w-full max-w-sm px-4">
-                    <div className="glass-premium rounded-3xl p-6 border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-5 relative overflow-hidden animate-slide-up">
+                <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[1000] w-full max-w-sm px-4 pointer-events-none">
+                    <div className="glass-premium rounded-3xl p-6 border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-5 relative overflow-hidden animate-slide-up pointer-events-auto">
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600" />
                         <div className="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center shrink-0">
                             <Navigation size={28} className="text-indigo-400 rotate-45" />

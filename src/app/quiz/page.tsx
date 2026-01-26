@@ -193,20 +193,6 @@ export default function QuizPage() {
                                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
                                     {mode.description}
                                 </p>
-
-                                {/* Stats */}
-                                <div className="flex items-center gap-4">
-                                    <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-700/50 rounded-lg">
-                                        <Zap size={14} className="text-amber-400" />
-                                        <span className="text-xs text-slate-300">{mode.questionCount} Soru</span>
-                                    </div>
-                                    {mode.enabled && (
-                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 rounded-lg">
-                                            <Trophy size={14} className="text-emerald-400" />
-                                            <span className="text-xs text-emerald-400">Hazır</span>
-                                        </div>
-                                    )}
-                                </div>
                             </div>
 
                             {/* Coming Soon */}

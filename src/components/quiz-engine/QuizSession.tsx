@@ -234,7 +234,7 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
     };
 
     return (
-        <main className={`relative w-full ${mode === 'map' ? 'h-screen' : 'min-h-screen bg-slate-950'} overflow-hidden`}>
+        <main className={`relative w-full ${mode === 'map' ? 'h-screen overflow-hidden' : 'min-h-screen bg-slate-950 overflow-auto shadow-[0_0_100px_rgba(0,0,0,0.5)]'}`}>
             {/* Header - Premium Navigation */}
             <div className="fixed top-0 left-0 right-0 z-[1000] p-4 flex flex-col gap-2">
                 <div className="flex items-center justify-between gap-4">
@@ -297,7 +297,7 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
             </div>
 
             {/* Content Area */}
-            <div className="relative z-10">
+            <div className={`${mode === 'map' ? 'h-full w-full absolute inset-0 pt-0' : 'relative pt-24 pb-12'} z-10`}>
                 {renderQuestion()}
             </div>
 
@@ -343,8 +343,8 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                         <button
                             onClick={handleNext}
                             className={`w-full py-5 rounded-[1.25rem] font-black text-white transition-all flex items-center justify-center gap-3 shadow-xl group ${lastResult.isCorrect
-                                    ? 'bg-gradient-to-r from-emerald-500 to-teal-600 shadow-emerald-500/20 hover:scale-[1.02]'
-                                    : 'bg-slate-800 hover:bg-slate-700'
+                                ? 'bg-gradient-to-r from-emerald-500 to-teal-600 shadow-emerald-500/20 hover:scale-[1.02]'
+                                : 'bg-slate-800 hover:bg-slate-700'
                                 }`}
                         >
                             {currentIndex + 1 < questions.length ? (
