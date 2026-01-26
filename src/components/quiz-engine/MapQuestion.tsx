@@ -120,49 +120,49 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 </div>
             )}
 
-            {/* Result Modal */}
+            {/* Result Modal - Repositioned to bottom right for map visibility */}
             {showFeedback && result && (
-                <div className="fixed inset-0 z-[1001] flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                    <div className="bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl p-6 max-w-sm mx-4 animate-popup">
+                <div className="fixed bottom-6 right-6 z-[1001] w-full max-w-[280px] animate-in slide-in-from-bottom-4 duration-300">
+                    <div className="bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-2xl p-5 shadow-2xl">
                         <div
-                            className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
+                            className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center"
                             style={{ backgroundColor: getRatingColor(result.rating) + '20', borderColor: getRatingColor(result.rating), borderWidth: 2 }}
                         >
-                            {result.rating === 'perfect' && <span className="text-3xl">🎯</span>}
-                            {result.rating === 'great' && <span className="text-3xl">🌟</span>}
-                            {result.rating === 'good' && <span className="text-3xl">👍</span>}
-                            {result.rating === 'miss' && <span className="text-3xl">😅</span>}
+                            {result.rating === 'perfect' && <span className="text-2xl">🎯</span>}
+                            {result.rating === 'great' && <span className="text-2xl">🌟</span>}
+                            {result.rating === 'good' && <span className="text-2xl">👍</span>}
+                            {result.rating === 'miss' && <span className="text-2xl">😅</span>}
                         </div>
 
-                        <h2 className="text-2xl font-bold text-center text-white mb-2">
+                        <h2 className="text-xl font-bold text-center text-white mb-1">
                             {result.rating === 'perfect' && 'Mükemmel!'}
                             {result.rating === 'great' && 'Harika!'}
                             {result.rating === 'good' && 'İyi!'}
                             {result.rating === 'miss' && 'Kaçırdın!'}
                         </h2>
 
-                        <p className="text-center text-slate-400 mb-4">
+                        <p className="text-center text-slate-400 text-sm mb-3">
                             <span className="font-bold text-white">{question.targetName}</span>
                             <br />
-                            Fark: <span className="font-bold" style={{ color: getRatingColor(result.rating) }}>
+                            Mesafe: <span className="font-bold" style={{ color: getRatingColor(result.rating) }}>
                                 {result.distance.toFixed(1)} km
                             </span>
                         </p>
 
                         {result.points > 0 && (
-                            <div className="text-center mb-6">
-                                <span className="text-3xl font-bold" style={{ color: getRatingColor(result.rating) }}>
+                            <div className="text-center mb-4">
+                                <span className="text-2xl font-bold" style={{ color: getRatingColor(result.rating) }}>
                                     +{result.points}
                                 </span>
-                                <span className="text-slate-400 ml-2">puan</span>
+                                <span className="text-slate-400 text-xs ml-1">puan</span>
                             </div>
                         )}
 
                         <button
                             onClick={onNext}
-                            className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-xl font-bold transition-all flex items-center justify-center gap-2"
+                            className="w-full py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-xl font-bold transition-all flex items-center justify-center gap-2 text-sm"
                         >
-                            Devam Et <ChevronRight size={20} />
+                            Sıradaki Soru <ChevronRight size={16} />
                         </button>
                     </div>
                 </div>
