@@ -88,17 +88,22 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 maxBoundsViscosity={1.0}
                 className="w-full h-full cursor-crosshair bg-[#f1f5f9]"
                 zoomControl={false}
-                fadeAnimation={true}
+                fadeAnimation={false}
                 zoomAnimation={true}
                 markerZoomAnimation={true}
-                wheelPxPerZoomLevel={60}
+                wheelPxPerZoomLevel={70}
+                zoomSnap={0.1}
+                zoomDelta={1}
+                preferCanvas={true}
+                inertia={true}
             >
                 <TileLayer
                     url={BLIND_MAP_TILE.url}
                     attribution={BLIND_MAP_TILE.attribution}
-                    updateWhenZooming={true}
+                    updateWhenZooming={false}
                     updateWhenIdle={false}
-                    keepBuffer={8}
+                    keepBuffer={12}
+                    noWrap={true}
                 />
 
                 {!answered && <ClickHandler onMapClick={handleMapClick} />}
@@ -120,23 +125,25 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 )}
             </MapContainer>
 
-            {/* Question HUD - Refined with High Contrast Dark Theme */}
+            {/* Question HUD - Refined with Deep Black Theme and High Readability */}
             {!answered && (
-                <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[1000] w-full max-w-sm px-4 pointer-events-none">
-                    <div className="bg-slate-950/95 rounded-3xl p-6 border-2 border-indigo-500/50 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex items-center gap-5 relative overflow-hidden animate-slide-up pointer-events-auto">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600" />
-                        <div className="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center shrink-0">
-                            <Navigation size={28} className="text-white rotate-45" />
+                <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[1000] w-[calc(100%-2rem)] max-w-sm px-4 pointer-events-none">
+                    <div className="bg-slate-950 rounded-[2.5rem] p-7 border-2 border-slate-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,1)] ring-1 ring-white/5 flex items-center gap-6 relative overflow-hidden animate-slide-up pointer-events-auto">
+                        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600" />
+                        <div className="w-16 h-16 rounded-3xl bg-indigo-500 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
+                            <Navigation size={34} className="text-white rotate-45" />
                         </div>
-                        <div>
-                            <div className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-1">HARİTADA BULUN</div>
-                            <div className="text-2xl font-black text-white tracking-tight leading-none mb-2">{question.targetName}</div>
+                        <div className="flex-1">
+                            <div className="text-[11px] font-black text-indigo-400 uppercase tracking-[0.25em] mb-1.5">HARİTADA BULUN</div>
+                            <div className="text-3xl font-black text-white tracking-tighter leading-tight mb-2 drop-shadow-md">
+                                {question.targetName}
+                            </div>
 
                             {question.hint && (
-                                <div className="mt-1">
+                                <div className="mt-2">
                                     {showHint ? (
-                                        <p className="text-sm text-slate-100 font-bold animate-fade-in flex items-center gap-1.5">
-                                            <Sparkles size={12} className="text-indigo-400" />
+                                        <p className="text-sm text-slate-100 font-bold animate-fade-in flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
                                             {question.hint}
                                         </p>
                                     ) : (
@@ -145,10 +152,10 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                                                 e.stopPropagation();
                                                 setShowHint(true);
                                             }}
-                                            className="text-[10px] font-black bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 border border-white/10"
+                                            className="group flex items-center gap-2 text-xs font-black text-white/90 bg-white/5 hover:bg-indigo-500 hover:text-white px-4 py-2 rounded-2xl transition-all border border-white/10 active:scale-95"
                                         >
-                                            <Sparkles size={10} className="text-amber-400" />
-                                            İPUCU AL
+                                            <Sparkles size={14} className="text-amber-400 group-hover:text-white" />
+                                            İPUCU GÖSTER
                                         </button>
                                     )}
                                 </div>
