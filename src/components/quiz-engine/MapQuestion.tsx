@@ -87,11 +87,18 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 maxBoundsViscosity={1.0}
                 className="w-full h-full cursor-crosshair bg-[#f1f5f9]"
                 zoomControl={false}
-                fadeAnimation={false}
+                fadeAnimation={true}
                 zoomAnimation={true}
                 markerZoomAnimation={true}
+                wheelPxPerZoomLevel={60}
             >
-                <TileLayer url={BLIND_MAP_TILE.url} attribution={BLIND_MAP_TILE.attribution} />
+                <TileLayer
+                    url={BLIND_MAP_TILE.url}
+                    attribution={BLIND_MAP_TILE.attribution}
+                    updateWhenZooming={true}
+                    updateWhenIdle={false}
+                    keepBuffer={8}
+                />
 
                 {!answered && <ClickHandler onMapClick={handleMapClick} />}
 
@@ -112,29 +119,29 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 )}
             </MapContainer>
 
-            {/* Question HUD - Refined with Glass Premium */}
+            {/* Question HUD - Refined with High Contrast Dark Theme */}
             {!answered && (
                 <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[1000] w-full max-w-sm px-4 pointer-events-none">
-                    <div className="glass-premium rounded-3xl p-6 border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-5 relative overflow-hidden animate-slide-up pointer-events-auto">
+                    <div className="bg-slate-950/95 rounded-3xl p-6 border-2 border-indigo-500/50 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex items-center gap-5 relative overflow-hidden animate-slide-up pointer-events-auto">
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600" />
                         <div className="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center shrink-0">
-                            <Navigation size={28} className="text-indigo-400 rotate-45" />
+                            <Navigation size={28} className="text-white rotate-45" />
                         </div>
                         <div>
-                            <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-1">HARİTADA BULUN</div>
-                            <div className="text-2xl font-black text-white tracking-tight">{question.targetName}</div>
+                            <div className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-1">HARİTADA BULUN</div>
+                            <div className="text-2xl font-black text-white tracking-tight leading-none mb-1">{question.targetName}</div>
                             {question.hint && (
-                                <p className="text-xs text-indigo-400/80 font-medium mt-1">İpucu: {question.hint}</p>
+                                <p className="text-sm text-slate-300 font-bold">İpucu: {question.hint}</p>
                             )}
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* Result Modal - Integrated with the new design language */}
+            {/* Result Modal - Integrated with High Contrast Dark Theme */}
             {showFeedback && result && (
                 <div className="fixed bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-[1001] w-[calc(100%-2rem)] max-w-sm animate-modal-enter">
-                    <div className="bg-slate-900 border-2 border-white/20 rounded-[2.5rem] p-8 shadow-[0_32px_64px_rgba(0,0,0,0.6)] relative overflow-hidden">
+                    <div className="bg-slate-950/95 border-2 border-white/30 rounded-[2.5rem] p-8 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
                         <div
                             className="absolute top-0 left-0 right-0 h-2"
                             style={{ backgroundColor: getRatingColor(result.rating) }}
