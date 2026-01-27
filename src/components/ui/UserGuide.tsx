@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import Link from 'next/link';
 import {
     Layers,
     BookOpen,
@@ -34,20 +33,27 @@ export default function UserGuide() {
 
             <div className="grid lg:grid-cols-12 gap-6 min-h-[600px]">
                 {/* Step 1: Atlas (Large Bento Card) */}
-                <div className="lg:col-span-8 group relative overflow-hidden rounded-[3rem] bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 transition-all duration-700">
+                <Link
+                    href="/atlas"
+                    className="lg:col-span-8 group relative overflow-hidden rounded-[3rem] bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 transition-all duration-700 block text-left"
+                >
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                     <div className="relative z-10 p-12 h-full flex flex-col justify-between">
                         <div>
-                            <div className="w-16 h-16 rounded-2xl bg-indigo-500 flex items-center justify-center text-white mb-8 shadow-[0_0_30px_rgba(79,70,229,0.4)]">
+                            <div className="w-16 h-16 rounded-2xl bg-indigo-500 flex items-center justify-center text-white mb-8 shadow-[0_0_30px_rgba(79,70,229,0.4)] group-hover:scale-110 transition-transform duration-500">
                                 <Layers size={32} strokeWidth={2.5} />
                             </div>
                             <h3 className="text-4xl font-black text-white mb-4 tracking-tighter">
                                 01. Katmanları Aktif Edin
                             </h3>
-                            <p className="text-slate-400 text-xl font-medium max-w-md leading-relaxed">
-                                Sol paneldeki <span className="text-white">Katman Kontrolü</span> üzerinden dağları, ovaları, madenleri veya antik kentleri saniyeler içinde haritaya dökün.
+                            <p className="text-slate-400 text-xl font-medium max-w-md leading-relaxed mb-8">
+                                Sol paneldeki <span className="text-white font-bold">Katman Kontrolü</span> üzerinden dağları, ovaları, madenleri veya antik kentleri saniyeler içinde haritaya dökün.
                             </p>
+
+                            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white text-sm font-black group-hover:bg-indigo-500 transition-colors">
+                                ATLASI KEŞFET <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                            </div>
                         </div>
 
                         <div className="mt-12 flex items-center gap-6">
@@ -66,25 +72,32 @@ export default function UserGuide() {
 
                     {/* Decorative Element */}
                     <div className="absolute bottom-[-10%] right-[-5%] w-2/3 h-2/3 bg-indigo-500/10 blur-[80px] rounded-full group-hover:scale-110 transition-transform duration-700" />
-                </div>
+                </Link>
 
                 {/* Step 2: Notes (Tall Bento Card) */}
-                <div className="lg:col-span-4 group relative overflow-hidden rounded-[3rem] bg-slate-900/40 border border-white/5 hover:border-rose-500/30 transition-all duration-700">
+                <Link
+                    href="/notes"
+                    className="lg:col-span-4 group relative overflow-hidden rounded-[3rem] bg-slate-900/40 border border-white/5 hover:border-rose-500/30 transition-all duration-700 block text-left"
+                >
                     <div className="absolute inset-0 bg-gradient-to-t from-rose-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                     <div className="relative z-10 p-12 h-full flex flex-col justify-between">
-                        <div className="w-16 h-16 rounded-2xl bg-rose-500 flex items-center justify-center text-white mb-8 shadow-[0_0_30px_rgba(244,63,94,0.4)]">
+                        <div className="w-16 h-16 rounded-2xl bg-rose-500 flex items-center justify-center text-white mb-8 shadow-[0_0_30px_rgba(244,63,94,0.4)] group-hover:scale-110 transition-transform duration-500">
                             <BookOpen size={32} strokeWidth={2.5} />
                         </div>
                         <div>
                             <h3 className="text-4xl font-black text-white mb-4 tracking-tighter">
                                 02. Noktalara <br /> Odaklanın
                             </h3>
-                            <p className="text-slate-400 text-lg font-medium leading-relaxed">
+                            <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8">
                                 Her marker bir bilgi hazinesidir. <br />
                                 <span className="text-white italic">"Bu yer neden önemli?"</span> <br />
-                                sorusunun cevabını, o konuma tıklayarak KPSS formatındaki özel notlarla öğrenin.
+                                sorusunun cevabını özel notlarla öğrenin.
                             </p>
+
+                            <div className="inline-flex items-center gap-2 text-rose-400 text-sm font-black group-hover:text-white transition-colors">
+                                NOTLARA GİT <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                            </div>
                         </div>
 
                         <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
@@ -92,28 +105,31 @@ export default function UserGuide() {
                             <MousePointer2 className="text-white animate-bounce" size={20} />
                         </div>
                     </div>
-                </div>
+                </Link>
 
                 {/* Step 3: Quiz (Wide Bento Card) */}
-                <div className="lg:col-span-12 group relative overflow-hidden rounded-[3rem] bg-slate-900/40 border border-white/5 hover:border-amber-500/30 transition-all duration-700">
+                <Link
+                    href="/quiz"
+                    className="lg:col-span-12 group relative overflow-hidden rounded-[3rem] bg-slate-900/40 border border-white/5 hover:border-amber-500/30 transition-all duration-700 block text-left"
+                >
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                     <div className="relative z-10 p-12 md:flex items-center justify-between gap-12">
                         <div className="flex-1">
-                            <div className="w-16 h-16 rounded-2xl bg-amber-500 flex items-center justify-center text-white mb-8 shadow-[0_0_30px_rgba(245,158,11,0.4)]">
+                            <div className="w-16 h-16 rounded-2xl bg-amber-500 flex items-center justify-center text-white mb-8 shadow-[0_0_30px_rgba(245,158,11,0.4)] group-hover:scale-110 transition-transform duration-500">
                                 <Zap size={32} strokeWidth={2.5} />
                             </div>
                             <h3 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter">
                                 03. Görsel Hafıza ile Test Edin
                             </h3>
                             <p className="text-slate-400 text-xl font-medium max-w-2xl leading-relaxed">
-                                Sadece şıkları işaretlemeyin! <span className="text-white">Pinpoint Modu</span> ile size sorulan yeri haritadan bulun. Görsel hafızanız geliştikçe başarı oranınızın arttığını göreceksiniz.
+                                Sadece şıkları işaretlemeyin! <span className="text-white font-bold">Pinpoint Modu</span> ile size sorulan yeri haritadan bulun. Görsel hafızanız geliştikçe başarınızın arttığını görün.
                             </p>
                         </div>
 
                         <div className="mt-8 md:mt-0 flex flex-col items-center gap-4">
-                            <div className="px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white font-black flex items-center gap-3 hover:bg-white/10 transition-colors cursor-pointer group/btn">
-                                HEMEN BAŞLA <ChevronRight className="group-hover/btn:translate-x-1 transition-transform" />
+                            <div className="px-10 py-5 rounded-full bg-amber-500 text-slate-900 font-black flex items-center gap-3 hover:bg-amber-600 transition-all duration-300 transform group-hover:scale-105 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+                                HEMEN BAŞLA <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                             </div>
                             <div className="flex items-center gap-2">
                                 <Trophy size={16} className="text-amber-500" />
@@ -121,7 +137,7 @@ export default function UserGuide() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
 
             {/* Bottom Slogan */}
