@@ -21,6 +21,9 @@ export interface NoteSection {
     atlasLink?: AtlasLink;
     mnemonics?: Mnemonic[];
     warnings?: string[];
+    teacherNotes?: string[];
+    examAnalysis?: string;
+    keyPoints?: string[];
 }
 
 export interface NoteUnit {
