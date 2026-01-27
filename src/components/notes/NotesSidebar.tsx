@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronRight, BookOpen, Mountain, CloudRain, Users, TrendingUp } from 'lucide-react';
 import { NoteUnit } from '@/types/notes';
-import { useNotesStore } from '@/stores/notesStore';
 
 interface NotesSidebarProps {
     units: NoteUnit[];
+    activeSectionId: string | null;
+    onSelectSection: (id: string | null) => void;
 }
 
-export default function NotesSidebar({ units }: NotesSidebarProps) {
-    const { activeSectionId, setActiveSection, getProgress, completedSectionIds } = useNotesStore();
+export default function NotesSidebar({ units, activeSectionId, onSelectSection }: NotesSidebarProps) {
     const [expandedUnits, setExpandedUnits] = useState<Record<string, boolean>>({
         [units[0]?.id]: true
     });
@@ -47,7 +47,7 @@ export default function NotesSidebar({ units }: NotesSidebarProps) {
                 <div className="space-y-4">
                     {/* General Overview Button */}
                     <button
-                        onClick={() => setActiveSection(null)}
+                        onClick={() => onSelectSection(null)}
                         className={`
                             w-full flex items-center justify-between p-3 rounded-xl transition-all
                             ${activeSectionId === null
@@ -81,16 +81,7 @@ export default function NotesSidebar({ units }: NotesSidebarProps) {
                                             {getIcon(unit.icon)}
                                         </div>
                                         <div className="flex flex-col items-start">
-                                            <span className="font-bold text-sm text-left">{unit.title}</span>
-                                            <div className="flex items-center gap-1.5 mt-0.5">
-                                                <div className="w-12 h-1 bg-slate-700 rounded-full overflow-hidden">
-                                                    <div
-                                                        className="h-full bg-emerald-500 transition-all duration-500"
-                                                        style={{ width: `${getProgress(unit.sections)}%` }}
-                                                    />
-                                                </div>
-                                                <span className="text-[10px] text-slate-500 font-bold">{getProgress(unit.sections)}%</span>
-                                            </div>
+                                            <span className="font-bold text-sm text-center">{unit.title}</span>
                                         </div>
                                     </div>
                                     {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
@@ -101,7 +92,7 @@ export default function NotesSidebar({ units }: NotesSidebarProps) {
                                         {unit.sections.map((section) => (
                                             <button
                                                 key={section.id}
-                                                onClick={() => setActiveSection(section.id)}
+                                                onClick={() => onSelectSection(section.id)}
                                                 className={`
                                                     w-full text-left p-2.5 rounded-lg text-sm transition-all flex items-center justify-between
                                                     ${activeSectionId === section.id
@@ -110,9 +101,6 @@ export default function NotesSidebar({ units }: NotesSidebarProps) {
                                                 `}
                                             >
                                                 <span>{section.title}</span>
-                                                {completedSectionIds.includes(section.id) && (
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                                                )}
                                             </button>
                                         ))}
                                     </div>

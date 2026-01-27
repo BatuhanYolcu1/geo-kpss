@@ -17,15 +17,14 @@ export interface Mnemonic {
 export interface NoteSection {
     id: string;
     title: string;
-    slug: string; // Added for URL-friendly routing
-    content: string; // Markdown/HTML supported
+    slug: string;
+    content: string;
     atlasLink?: AtlasLink;
     mnemonics?: Mnemonic[];
     warnings?: string[];
     teacherNotes?: string[];
     examAnalysis?: string;
     keyPoints?: string[];
-    isCompleted?: boolean;
 }
 
 export interface NoteUnit {

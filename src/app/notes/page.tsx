@@ -4,12 +4,11 @@ import { useState, useEffect } from 'react';
 import { curriculum } from '@/data/curriculum';
 import NotesSidebar from '@/components/notes/NotesSidebar';
 import NoteContent from '@/components/notes/NoteContent';
-import { useNotesStore } from '@/stores/notesStore';
 import { Home, Menu, X, ArrowLeft, BookOpen, ChevronRight, Mountain, CloudRain, TrendingUp, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 export default function NotesPage() {
-    const { activeSectionId, setActiveSection } = useNotesStore();
+    const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     // Find current section
@@ -18,7 +17,7 @@ export default function NotesPage() {
         .find(s => s.id === activeSectionId) || null;
 
     const handleSelectSection = (id: string | null) => {
-        setActiveSection(id);
+        setActiveSectionId(id);
         setIsSidebarOpen(false); // Close on mobile
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -29,6 +28,8 @@ export default function NotesPage() {
             <div className="hidden lg:block w-80 flex-shrink-0">
                 <NotesSidebar
                     units={curriculum}
+                    activeSectionId={activeSectionId}
+                    onSelectSection={handleSelectSection}
                 />
             </div>
 
@@ -42,6 +43,8 @@ export default function NotesPage() {
                     <div className="absolute inset-y-0 left-0 w-80 bg-slate-900 border-r border-slate-700 animate-in slide-in-from-left duration-300">
                         <NotesSidebar
                             units={curriculum}
+                            activeSectionId={activeSectionId}
+                            onSelectSection={handleSelectSection}
                         />
                     </div>
                 </div>

@@ -15,18 +15,13 @@ import { NoteSection } from '@/types/notes';
 import MnemonicCard from './MnemonicCard';
 import ExamAlert from './ExamAlert';
 import Link from 'next/link';
-import { useNotesStore } from '@/stores/notesStore';
 
 interface NoteContentProps {
     section: NoteSection | null;
 }
 
 export default function NoteContent({ section }: NoteContentProps) {
-    const { markAsRead, completedSectionIds } = useNotesStore();
-
     if (!section) return null;
-
-    const isRead = completedSectionIds.includes(section.id);
 
     const renderAtlasButton = () => {
         if (!section.atlasLink) return null;
@@ -62,12 +57,6 @@ export default function NoteContent({ section }: NoteContentProps) {
                     <div className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-[10px] font-black uppercase tracking-widest">
                         KPSS 2026 MÜFREDATI
                     </div>
-                    {isRead && (
-                        <div className="flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-500 text-[10px] font-black uppercase tracking-widest">
-                            <Check size={12} />
-                            TAMAMLANDI
-                        </div>
-                    )}
                 </div>
                 <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
                     {section.title}
@@ -141,21 +130,8 @@ export default function NoteContent({ section }: NoteContentProps) {
                 </div>
             )}
 
-            {/* Action Area: Mark as Read & Atlas */}
+            {/* Action Area: Atlas Integration */}
             <div className="mt-20 flex flex-col items-center gap-12 py-16 border-t border-slate-800">
-                {!isRead ? (
-                    <button
-                        onClick={() => markAsRead(section.id)}
-                        className="w-full max-w-sm py-5 bg-white text-slate-950 rounded-2xl font-black text-lg hover:bg-slate-200 transition-all shadow-xl shadow-white/5 active:scale-95 flex items-center justify-center gap-3"
-                    >
-                        KONUYU BİTİRDİM <CheckCircle size={24} />
-                    </button>
-                ) : (
-                    <div className="flex items-center gap-3 text-emerald-500 font-black text-lg bg-emerald-500/10 px-8 py-4 rounded-2xl border border-emerald-500/30">
-                        <CheckCircle2 size={24} /> BU KONU ÇALIŞILDI
-                    </div>
-                )}
-
                 <div className="text-center">
                     <p className="text-slate-500 font-bold mb-6 text-sm tracking-widest uppercase">HARİTA ENTEGRASYONU</p>
                     {renderAtlasButton()}
