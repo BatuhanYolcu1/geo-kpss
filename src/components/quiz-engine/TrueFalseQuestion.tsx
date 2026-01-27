@@ -101,7 +101,6 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
                         <div className="text-center">
                             <span className={`block text-3xl font-black tracking-tighter ${selectedAnswer === null ? 'text-emerald-400' : question.isTrue ? 'text-white' : 'text-slate-600'
                                 }`}>DOĞRU</span>
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1 block">DOĞRU</span>
                         </div>
                     </button>
 
@@ -128,7 +127,6 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
                         <div className="text-center">
                             <span className={`block text-3xl font-black tracking-tighter ${selectedAnswer === null ? 'text-rose-400' : !question.isTrue ? 'text-white' : 'text-slate-600'
                                 }`}>YANLIŞ</span>
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1 block">YANLIŞ</span>
                         </div>
                     </button>
                 </div>
