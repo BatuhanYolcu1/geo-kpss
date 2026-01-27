@@ -422,6 +422,63 @@
         {
             "type": "Feature",
             "properties": {
+                "id": "unesco-19",
+                "name": "Divriği Ulu Camii ve Darüşşifası",
+                "nameEn": "Great Mosque and Hospital of Divrigi",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "İç Anadolu",
+                "kpssNote": "Sivas'ta. Anadolu Selçuklu dönemine ait 'Anadolu'nun El Hamrası' olarak bilinen taş işçiliği zirvesidir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.1233,
+                    39.3736
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-20",
+                "name": "İstanbul'un Tarihi Alanları",
+                "nameEn": "Historic Areas of Istanbul",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Marmara",
+                "kpssNote": "Sultanahmet, Süleymaniye, Zeyrek ve İstanbul Surlarını kapsayan devasa bir miras alanıdır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.9784,
+                    41.0082
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-21",
+                "name": "Anadolu'nun Ortaçağ Dönemi Ahşap Hipostil Camileri",
+                "nameEn": "Wooden Hypostyle Mosques of Medieval Anatolia",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Karma",
+                "kpssNote": "Türkiye'nin 21. UNESCO mirası (2023). Eşrefoğlu(Beyşehir), Arslanhane(Ankara), Afyon Ulu Camii gibi 5 ahşap direkli camiyi kapsar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.7303,
+                    37.6833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "id": "park-05",
                 "name": "Küre Dağları Milli Parkı",
                 "nameEn": "Kure Mountains National Park",
@@ -435,6 +492,82 @@
                 "coordinates": [
                     33.0117,
                     41.7611
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-06",
+                "name": "Yozgat Çamlığı Milli Parkı",
+                "nameEn": "Yozgat Pine Grove National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "İç Anadolu",
+                "kpssNote": "Türkiye'nin İLAN EDİLEN İLK MİLLİ PARKIDIR (1958). Kafkas Çamı türlerini barındırır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.8083,
+                    39.8139
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-07",
+                "name": "Kazdağları Milli Parkı",
+                "nameEn": "Mount Ida National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Ege",
+                "kpssNote": "Balıkesir'de. Mitolojik ismi İda Dağı'dır. Alplerden sonra dünyanın en yüksek oksijen oranına sahip yerlerinden biridir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.8500,
+                    39.7000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-08",
+                "name": "Altınbeşik Mağarası Milli Parkı",
+                "nameEn": "Altinbesik Cave National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Akdeniz",
+                "kpssNote": "Antalya İbradı'da. Dünyanın üçüncü, Türkiye'nin en büyük yer altı gölü mağarasına sahiptir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.6333,
+                    37.1167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-09",
+                "name": "Sarıkamış-Allahuekber Dağları Milli Parkı",
+                "nameEn": "Sarikamis-Allahuekber Mountains National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Kars-Erzurum. Tarihi önemi (Sarıkamış Harekatı) ve Sarıçam ormanlarıyla bilinen şehitlik alanıdır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.5833,
+                    40.3333
                 ]
             }
         }
