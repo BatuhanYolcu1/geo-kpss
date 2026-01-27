@@ -171,7 +171,7 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                             <Trophy size={48} className="text-white" />
                         </div>
 
-                        <h1 className="text-4xl font-black mb-2 tracking-tight">Efsanevi Finish!</h1>
+                        <h1 className="text-4xl font-black mb-2 tracking-tight">TEBRİKLER!</h1>
                         <p className="text-slate-400 mb-10 font-medium">Coğrafya uzmanlığına bir adım daha yaklaştın.</p>
 
                         <div className="grid grid-cols-2 gap-6 mb-10">

@@ -164,7 +164,7 @@ export const multipleChoiceQuestions: MultipleChoiceQuestion[] = [
 ];
 
 // ===========================================
-// TRUE/FALSE QUESTIONS (20 Questions)
+// DOĞRU/YANLIŞ SORULARI (20 Soru)
 // ===========================================
 export const trueFalseQuestions: TrueFalseQuestion[] = [
     { id: 'tf-001', type: 'true_false', category: 'lakes', difficulty: 'easy', points: 30, statement: 'Van Gölü Türkiye\'nin en büyük gölüdür.', isTrue: true, explanation: 'Doğru! Van Gölü 3713 km² ile Türkiye\'nin en büyük gölüdür.' },
