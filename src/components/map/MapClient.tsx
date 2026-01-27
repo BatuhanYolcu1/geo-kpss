@@ -276,11 +276,45 @@ export default function MapClient() {
     }, [closePopup]);
 
     // Handle search result selection
-    const handleSearchSelect = useCallback((result: { lat: number; lng: number }) => {
-        setFlyToTarget({ lat: result.lat, lng: result.lng, zoom: 10 });
+    const handleSearchSelect = useCallback((result: any) => {
+        // 1. Ensure the layer is visible
+        const layer = layers.find(l => l.id === result.category);
+        if (layer && !layer.visible) {
+            toggleLayer(result.category);
+        }
+
+        // 2. Set flyTo target
+        setFlyToTarget({ lat: result.lat, lng: result.lng, zoom: 12 });
+
+        // 3. Set selected feature for popup and marking
+        // We look for the full feature properties in our data mapping
+        const layerInfo = layerDataMap[result.category];
+        if (layerInfo) {
+            const geojsonData = layerInfo.data as GeoJSON.FeatureCollection;
+            const feature = geojsonData.features.find(f =>
+                (f.properties as Record<string, string>).id === result.id ||
+                (f.properties as Record<string, string>).name === result.name
+            );
+
+            if (feature) {
+                setSelectedFeature(feature.properties as GeoFeatureProperties);
+                setSelectedPosition({ lat: result.lat, lng: result.lng });
+            } else {
+                // Fallback to basic search result data if feature not found in geojson
+                setSelectedFeature({
+                    id: result.id,
+                    name: result.name,
+                    type: result.type,
+                    category: result.category,
+                    region: result.region
+                } as GeoFeatureProperties);
+                setSelectedPosition({ lat: result.lat, lng: result.lng });
+            }
+        }
+
         // Reset flyTo after animation
         setTimeout(() => setFlyToTarget(null), 2000);
-    }, []);
+    }, [layers, toggleLayer]);
 
     const tileLayer = darkMode ? TILE_LAYERS.dark : TILE_LAYERS.default;
 
@@ -369,6 +403,26 @@ export default function MapClient() {
                 })}
 
                 <GeoNoteMarkers />
+
+                {/* Selection Marker Highlight (Pulse) */}
+                {selectedPosition && (
+                    <Marker
+                        position={[selectedPosition.lat, selectedPosition.lng]}
+                        icon={L.divIcon({
+                            className: 'selection-highlight',
+                            html: `
+                                <div class="relative flex items-center justify-center">
+                                    <div class="absolute w-12 h-12 bg-white/40 rounded-full animate-ping"></div>
+                                    <div class="absolute w-8 h-8 bg-indigo-400/40 rounded-full animate-pulse"></div>
+                                    <div class="w-3 h-3 bg-white border-2 border-indigo-500 rounded-full shadow-lg relative z-10"></div>
+                                </div>
+                            `,
+                            iconSize: [48, 48],
+                            iconAnchor: [24, 24],
+                        })}
+                        zIndexOffset={1000}
+                    />
+                )}
             </MapContainer>
 
             <LayerControl />
