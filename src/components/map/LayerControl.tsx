@@ -18,6 +18,8 @@ import {
     Moon,
     Sun,
     MapPin,
+    Palmtree,
+    Camera,
 } from 'lucide-react';
 import { useLayerStore } from '@/stores/layerStore';
 import { useUserStore } from '@/stores/userStore';
@@ -36,6 +38,8 @@ const iconMap: Record<string, React.ReactNode> = {
     wheat: <Wheat size={20} />,
     factory: <Factory size={20} />,
     zap: <Zap size={20} />,
+    palmtree: <Palmtree size={20} />,
+    camera: <Camera size={20} />,
 };
 
 const categoryConfig: Record<LayerCategory, { name: string; description: string; icon: React.ReactNode; color: string }> = {
@@ -56,6 +60,12 @@ const categoryConfig: Record<LayerCategory, { name: string; description: string;
         description: 'İller ve coğrafi bölgeler',
         icon: <Building2 size={22} />,
         color: '#7c3aed',
+    },
+    tourism: {
+        name: 'UNESCO ve Turizm',
+        description: 'Dünya mirasları ve milli parklar',
+        icon: <Camera size={22} />,
+        color: '#e11d48',
     },
 };
 
@@ -175,6 +185,7 @@ export default function LayerControl() {
     const physicalLayers = layers.filter((l) => l.category === 'physical');
     const economicLayers = layers.filter((l) => l.category === 'economic');
     const administrativeLayers = layers.filter((l) => l.category === 'administrative');
+    const tourismLayers = layers.filter((l) => l.category === 'tourism');
 
     const totalActive = layers.filter((l) => l.visible).length;
 
@@ -225,6 +236,7 @@ export default function LayerControl() {
                     <CategorySection category="physical" layers={physicalLayers} />
                     <CategorySection category="economic" layers={economicLayers} />
                     <CategorySection category="administrative" layers={administrativeLayers} />
+                    <CategorySection category="tourism" layers={tourismLayers} />
                 </div>
 
                 {/* Alt Kısım - Tema Değiştirici */}

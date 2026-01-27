@@ -140,6 +140,33 @@ const defaultLayers: LayerConfig[] = [
             { label: 'İl Merkezi', color: '#7c3aed', shape: 'circle' },
         ],
     },
+
+    // Tourism Layers
+    {
+        id: 'unesco-sites',
+        name: 'UNESCO Mirasları',
+        nameEn: 'UNESCO World Heritage',
+        category: 'tourism',
+        icon: 'palmtree',
+        color: '#e11d48', // rose-600
+        visible: false,
+        legendItems: [
+            { label: 'Kültürel Miras', color: '#e11d48', shape: 'circle' },
+            { label: 'Karma Miras', color: '#be123c', shape: 'circle' },
+        ],
+    },
+    {
+        id: 'national-parks',
+        name: 'Milli Parklar',
+        nameEn: 'National Parks',
+        category: 'tourism',
+        icon: 'map',
+        color: '#15803d', // green-700
+        visible: false,
+        legendItems: [
+            { label: 'Milli Park', color: '#15803d', shape: 'polygon' },
+        ],
+    },
 ];
 
 export const useLayerStore = create<LayerStore>()(

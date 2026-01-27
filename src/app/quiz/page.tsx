@@ -239,7 +239,7 @@ export default function QuizPage() {
                                 { id: undefined, label: 'Karma Sınav', icon: <Sparkles size={18} />, color: 'bg-indigo-500' },
                                 { id: 'physical', label: 'Fiziki Özellikler', icon: <Map size={18} />, color: 'bg-emerald-500' },
                                 { id: 'economy', label: 'Ekonomik Coğrafya', icon: <Zap size={18} />, color: 'bg-amber-500' },
-                                { id: 'culture', label: 'Kültür & Turizm', icon: <Trophy size={18} />, color: 'bg-rose-500' },
+                                { id: 'tourism', label: 'Kültür & Turizm', icon: <Trophy size={18} />, color: 'bg-rose-500' },
                             ].map((cat) => (
                                 <button
                                     key={cat.label}

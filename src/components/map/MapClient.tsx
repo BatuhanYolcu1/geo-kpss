@@ -34,6 +34,7 @@ import plainsData from '@/data/geojson/plains.json';
 import plateausData from '@/data/geojson/plateaus.json';
 import industryData from '@/data/geojson/industry.json';
 import agricultureData from '@/data/geojson/agriculture.json';
+import tourismData from '@/data/geojson/tourism.json';
 
 // Fix Leaflet default icon issue
 delete (L.Icon.Default.prototype as unknown as { _getIconUrl?: unknown })._getIconUrl;
@@ -75,6 +76,8 @@ const layerDataMap: Record<string, { data: unknown; type: 'point' | 'line' | 'po
     plateaus: { data: plateausData, type: 'point' },
     industry: { data: industryData, type: 'point' },
     agriculture: { data: agricultureData, type: 'point' },
+    'unesco-sites': { data: tourismData, type: 'point' },
+    'national-parks': { data: tourismData, type: 'point' },
 };
 
 // Layer color mapping
@@ -89,6 +92,8 @@ const layerColorMap: Record<string, string> = {
     plateaus: '#d97706',
     industry: '#475569',
     agriculture: '#15803d',
+    'unesco-sites': '#e11d48',
+    'national-parks': '#15803d',
 };
 
 // Map event handler
@@ -361,6 +366,10 @@ export default function MapClient() {
                             if (geometry.type !== 'Point') return null;
                             const coords = geometry.coordinates as [number, number];
                             const props = feature.properties as GeoFeatureProperties;
+
+                            // Specific filtering for shared datasets (like tourism)
+                            if (layer.id === 'unesco-sites' && !props.type.includes('UNESCO')) return null;
+                            if (layer.id === 'national-parks' && !props.type.includes('Milli Park')) return null;
 
                             // Region filter
                             if (!matchesRegionFilter(props.region, selectedRegions)) return null;

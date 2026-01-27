@@ -11,6 +11,7 @@ const defaultQuizStats: QuizStats = {
         physical: { correct: 0, total: 0 },
         economic: { correct: 0, total: 0 },
         administrative: { correct: 0, total: 0 },
+        tourism: { correct: 0, total: 0 },
     },
 };
 

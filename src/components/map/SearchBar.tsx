@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import { Search, X, MapPin, Mountain, Waves, Droplets, Building2, Pickaxe, Zap, Wheat, Factory } from 'lucide-react';
+import { Search, X, MapPin, Mountain, Waves, Droplets, Building2, Pickaxe, Zap, Wheat, Factory, Palmtree, Trees, Camera } from 'lucide-react';
 
 // Import all data
 import citiesData from '@/data/geojson/cities.json';
@@ -14,6 +14,7 @@ import plainsData from '@/data/geojson/plains.json';
 import plateausData from '@/data/geojson/plateaus.json';
 import agricultureData from '@/data/geojson/agriculture.json';
 import industryData from '@/data/geojson/industry.json';
+import tourismData from '@/data/geojson/tourism.json';
 
 interface SearchResult {
     id: string;
@@ -40,6 +41,8 @@ const categoryIcons: Record<string, React.ReactNode> = {
     plateaus: <MapPin size={16} className="text-amber-500" />,
     agriculture: <Wheat size={16} className="text-green-600" />,
     industry: <Factory size={16} className="text-slate-600" />,
+    'unesco-sites': <Camera size={16} className="text-rose-500" />,
+    'national-parks': <Trees size={16} className="text-green-700" />,
 };
 
 // Build search index from all data
@@ -57,14 +60,18 @@ function buildSearchIndex(): SearchResult[] {
         { data: plateausData, category: 'plateaus' },
         { data: agricultureData, category: 'agriculture' },
         { data: industryData, category: 'industry' },
+        { data: tourismData, category: 'unesco-sites', filter: (p: any) => p.type.includes('UNESCO') },
+        { data: tourismData, category: 'national-parks', filter: (p: any) => p.type.includes('Milli Park') },
     ];
 
-    for (const { data, category } of datasets) {
+    for (const { data, category, filter } of datasets) {
         const features = (data as { features: Array<{ properties: Record<string, unknown>; geometry: { type: string; coordinates: number[] | number[][] } }> }).features;
 
         for (const feature of features) {
             const props = feature.properties;
             const geom = feature.geometry;
+
+            if (filter && !filter(props)) continue;
 
             let lat = 0, lng = 0;
             if (geom.type === 'Point') {

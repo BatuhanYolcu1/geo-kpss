@@ -37,7 +37,7 @@ export interface GeoFeatureCollection {
 }
 
 // ===== Layer System Types =====
-export type LayerCategory = 'physical' | 'economic' | 'administrative';
+export type LayerCategory = 'physical' | 'economic' | 'administrative' | 'tourism';
 
 export interface LayerConfig {
     id: string;

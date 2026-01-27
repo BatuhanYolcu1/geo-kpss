@@ -1,0 +1,442 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-01",
+                "name": "Göbeklitepe",
+                "nameEn": "Gobeklitepe",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Şanlıurfa'da. İnsanlık tarihinin bilinen EN ESKİ kült yapılar topluluğu. 'Tarihin Sıfır Noktası'."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.9224,
+                    37.2232
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-02",
+                "name": "Efes Antik Kenti",
+                "nameEn": "Ephesus",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Ege",
+                "kpssNote": "İzmir Selçuk'ta. Hadrian Tapınağı, Celsus Kütüphanesi ve Meryem Ana Evi ile ünlü dev dev antik kent."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.3414,
+                    37.9484
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-03",
+                "name": "Ani Arkeolojik Alanı",
+                "nameEn": "Archaeological Site of Ani",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Kars'ta. '1001 Kilise Şehri' olarak bilinir. İpek Yolu üzerindeki önemli bir ortaçağ yerleşimidir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.5714,
+                    40.5100
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-04",
+                "name": "Hattuşa",
+                "nameEn": "Hattusha",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "İç Anadolu",
+                "kpssNote": "Çorum Bogazkale'de. Hitit İmparatorluğu'nun başkenti. Yazılıkaya açık hava tapınağı ile meşhurdur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.6167,
+                    40.0167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-05",
+                "name": "Nemrut Dağı",
+                "nameEn": "Mount Nemrut",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Adıyaman'da. Kommagene Krallığı'na ait dev heykeller ve tümülüs. 'Güneşin Doğuşunun ve Batışının En Güzel İzlendiği Yer'."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.7236,
+                    37.9814
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-06",
+                "name": "Pamukkale-Hierapolis",
+                "nameEn": "Hierapolis-Pamukkale",
+                "type": "UNESCO Dünya Mirası (Karma)",
+                "category": "tourism",
+                "region": "Ege",
+                "kpssNote": "Denizli'de hem doğal (travertenler) hem kültürel (Hierapolis antik kenti) miras olan KARMA yapı."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.1272,
+                    37.9261
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-07",
+                "name": "Kapadokya ve Göreme",
+                "nameEn": "Goreme National Park and Cappadocia",
+                "type": "UNESCO Dünya Mirası (Karma)",
+                "category": "tourism",
+                "region": "İç Anadolu",
+                "kpssNote": "Nevşehir'de. Peri bacaları, yer altı şehirleri ve kaya kiliseleri. Türkiye'deki KARMA miraslardan biridir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.8703,
+                    38.6431
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-08",
+                "name": "Truva Antik Kenti",
+                "nameEn": "Archaeological Site of Troy",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Marmara",
+                "kpssNote": "Çanakkale'de. Homeros'un İlyada destanına konu olan antik kent. 9 katmanlı yerleşim izi taşır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.2383,
+                    39.9575
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-09",
+                "name": "Safranbolu Şehri",
+                "nameEn": "City of Safranbolu",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Karadeniz",
+                "kpssNote": "Karabük'te. Geleneksel Türk mimarisini yansıtan evleri ve tarihi dokusuyla bir 'açık hava müzesi'dir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.6833,
+                    41.2500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-10",
+                "name": "Selimiye Camii",
+                "nameEn": "Selimiye Mosque Complex",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Marmara",
+                "kpssNote": "Edirne'de. Mimar Sinan'ın 'Ustalık Eserim' dediği Osmanlı mimarisinin zirve noktasıdır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.5594,
+                    41.6781
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-11",
+                "name": "Çatalhöyük",
+                "nameEn": "Neolithic Site of Catalhoyuk",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "İç Anadolu",
+                "kpssNote": "Konya'da. Yerleşik hayata geçiş, tarım ve topluluk yaşamının en önemli Neolitik yerleşimidir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.8278,
+                    37.6675
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-12",
+                "name": "Bergama Çok Katmanlı Miras",
+                "nameEn": "Pergamon Context",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Ege",
+                "kpssNote": "İzmir'de. Helenistik mimarinin en dik tiyatrosuna, kütüphanesine ve Asklepion (Antik hastane) sağlık merkezine sahiptir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.1839,
+                    39.1328
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-13",
+                "name": "Bursa ve Cumalıkızık",
+                "nameEn": "Bursa and Cumalikizik",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Marmara",
+                "kpssNote": "Osmanlı Devleti'nin doğduğu bölgedir. Cumalıkızık vakıf köyü ve Bursa Hanlar Bölgesi'ni kapsar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.1706,
+                    40.1764
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-14",
+                "name": "Diyarbakır Kalesi ve Hevsel",
+                "nameEn": "Diyarbakir Fortress and Hevsel Gardens",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Güneydoğu Anadolu",
+                "kpssNote": "Surları ve Dicle kıyısındaki kadim tarım alanı Hevsel Bahçeleri ile çok katmanlı bir kültürel yapıdır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.2372,
+                    37.9125
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-15",
+                "name": "Aphrodisias",
+                "nameEn": "Aphrodisias",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Ege",
+                "kpssNote": "Aydın Karacasu'da. Antik çağın en önemli heykel okullarından birine sahip şehir yerleşimidir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.7236,
+                    37.7139
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-16",
+                "name": "Xanthos-Letoon",
+                "nameEn": "Xanthos-Letoon",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Akdeniz",
+                "kpssNote": "Antalya ve Muğla sınırında. Likya Birliği'nin başkenti Xanthos ve kutsal merkezi Letoon'u kapsar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.3175,
+                    36.3567
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-17",
+                "name": "Arslantepe Höyüğü",
+                "nameEn": "Arslantepe Mound",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Malatya'da. Devlet yapısının ortaya çıktığı, dünyanın bilinen en eski kerpiç sarayına sahip duraktır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.3586,
+                    38.3817
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "unesco-18",
+                "name": "Gordion",
+                "nameEn": "Gordion",
+                "type": "UNESCO Dünya Mirası",
+                "category": "tourism",
+                "region": "İç Anadolu",
+                "kpssNote": "Ankara Polatlı'da. Frigya'nın başkenti. Midas Tümülüsü ile ünlüdür. Türkiye'nin 20. UNESCO mirasıdır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.2592,
+                    39.6517
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-01",
+                "name": "Ilgaz Dağı Milli Parkı",
+                "nameEn": "Ilgaz Mountain National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Karadeniz",
+                "kpssNote": "Kastamonu-Çankırı sınırında. Orman varlığı, yaban hayatı ve kayak merkeziyle ünlüdür."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.7431,
+                    41.0772
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-02",
+                "name": "Yedigöller Milli Parkı",
+                "nameEn": "Yedigoller National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Karadeniz",
+                "kpssNote": "Bolu'da. Heyelan set göllerinden oluşur. Özellikle sonbahar renkleri ve bitki çeşitliliğiyle büyüleyicidir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.7514,
+                    40.9419
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-03",
+                "name": "Munzur Vadisi Milli Parkı",
+                "nameEn": "Munzur Valley National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Tunceli'de. Munzur Gözeleri, akarsu florası ve endemik türlerle Türkiye'nin en büyük milli parklarından biridir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.3667,
+                    39.4333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-04",
+                "name": "Aladağlar Milli Parkı",
+                "nameEn": "Aladaglar National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Akdeniz",
+                "kpssNote": "Niğde-Kayseri-Adana sınırında. 'Torosların Zirvesi'. Dağcılık, Kapuzbaşı şelaleleri ve buzul gölleri meşhurdur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.1239,
+                    37.7811
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "park-05",
+                "name": "Küre Dağları Milli Parkı",
+                "nameEn": "Kure Mountains National Park",
+                "type": "Milli Park",
+                "category": "tourism",
+                "region": "Karadeniz",
+                "kpssNote": "Bartın-Kastamonu sınırında. Kanyonlar, mağaralar ve 'Avrupa'nın Sıcak Noktaları'ndan biridir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.0117,
+                    41.7611
+                ]
+            }
+        }
+    ]
+}
