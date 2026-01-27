@@ -66,10 +66,6 @@ export default function DashboardPage() {
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left Column: Hero Content */}
           <div className="space-y-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl">
-              <Sparkles size={16} className="text-indigo-400" />
-              <span className="text-xs font-black text-indigo-400 uppercase tracking-[0.2em]">Yapay Zeka Destekli Hazırlık</span>
-            </div>
 
             <div className="space-y-4">
               <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter">
