@@ -2,6 +2,72 @@ import { NoteUnit } from '@/types/notes';
 
 export const lectureNotes: NoteUnit[] = [
     {
+        id: 'unit-00',
+        title: 'Türkiye\'nin Coğrafi Konumu',
+        icon: 'Globe',
+        sections: [
+            {
+                id: 'matematik-konum',
+                title: 'Matematik (Mutlak) Konum',
+                content: `Türkiye, 36°-42° Kuzey enlemleri ile 26°-45° Doğu boylamları arasında yer alır.
+
+### Enlemin Etkileri (Kuzey Yarım Küre)
+- Güneyden kuzeye gidildikçe güneş ışınlarının geliş açısı küçülür.
+- Gölge boyları uzar.
+- Sıcaklıklar genelde azalır (Denizellik hariç).
+- Gece-gündüz süre farkı artır.
+- Çizgisel hız azalır, yerçekimi artar.
+
+### Boylamın Etkileri
+- Türkiye en doğusu ile en batısı arasında 19 boylam farkı vardır (19 x 4 = 76 dakika).
+- Aynı anda tek yerel saat kullanılır (2016'dan beri sadece Iğdır - 45° Doğu ayarı).`,
+                atlasLink: { coords: { lat: 39.0, lng: 35.0, zoom: 5 } },
+                mnemonics: [
+                    {
+                        title: 'Enlem Sonuçları (G-K Yönü)',
+                        text: 'Sıcaklık Azalır, Gölge Uzar, Çizgisel Hız Azalır.'
+                    }
+                ],
+                warnings: [
+                    'Türkiye\'de güneş ışınları hiçbir zaman 90 derece ile gelmez, bu yüzden gölge boyu asla sıfır olmaz (Dönenceler dışındayız).',
+                    'Aynı boylam üzerindeki noktalarda sadece yerel saat and öğle vakti aynıdır. Gündüz süresi sadece ekinokslarda aynıdır.'
+                ],
+                teacherNotes: [
+                    'Soru bankalarında "Hangisi enlemle açıklanamaz?" sorularında genelde cevap "Özel Konum" (Yükselti, Denizellik) ile ilgilidir. Karadeniz\'in kışın Doğu Anadolu\'dan sıcak olması enleme terstir.',
+                    'Türkiye orta kuşaktadır; bu yüzden 4 mevmid belirgin yaşanır, Cephe yağışları görülür ve Batı rüzgarları eser.'
+                ],
+                examAnalysis: 'ÖSYM, Türkiye\'nin koordinatlarını direkt sormak yerine, kuzeye gidildikçe değişen özellikleri sormayı çok sever. 21 Haziran ve 21 Aralık tarihlerindeki gündüz sürelerini mutlaka bilin.',
+                keyPoints: [
+                    '36-42 Kuzey / 26-45 Doğu',
+                    'Dönenceler dışındayız (Gölge yönü hep Kuzey)',
+                    '4 mevsim belirgin yaşanır (Orta Kuşak)',
+                    'Doğu-Batı 76 dk zaman farkı'
+                ]
+            },
+            {
+                id: 'ozel-konum',
+                title: 'Özel (Göreceli) Konum',
+                content: `Türkiye'nin diğer ülkelere, denizlere, kıtalara ve yer şekillerine göre olan konumudur.
+
+### Temel Özellikler
+- Üç tarafı denizlerle çevrili bir yarımadadır.
+- Ortalama yükseltisi fazladır (1132 m) ve batıdan doğuya artar.
+- Jeopolitik konumu çok önemlidir (Sınır komşuları, Boğazlar).
+- Farklı iklimlerin aynı anda yaşanabilmesini sağlar.`,
+                teacherNotes: [
+                    '"Aynı anda farklı mevsim özelliklerinin yaşanması" Özel Konumdur. "Dört mevsimin belirgin yaşanması" Matematik Konumdur. Bu ikisini karıştırmak puan kaybettirir!'
+                ],
+                examAnalysis: 'Transit taşımacılık ve enerji koridoru olma özelliği (TANAP vb.) jeopolitik konum başlığı altında sıkça sorulur.',
+                keyPoints: [
+                    'Asya-Avrupa köprüsü',
+                    'Boğazlara sahibiz',
+                    'Yükselti Batıdan Doğuya artar',
+                    'Stratejik yeraltı kaynakları'
+                ]
+            }
+        ]
+    },
+    {
         id: 'unit-01',
         title: 'Türkiye\'nin Yer Şekilleri',
         icon: 'Mountain',
@@ -9,122 +75,199 @@ export const lectureNotes: NoteUnit[] = [
             {
                 id: 'daglar',
                 title: 'Dağlar ve Oluşumları',
-                content: `Türkiye'nin yer şekilleri oldukça çeşitlidir. Dağlarımız oluşumlarına göre üç temel gruba ayrılır.
+                content: `Türkiye'nin dağları oluşumlarına göre üç gruptur: Kıvrımlı, Kırıklı ve Volkanik.
 
 ### 1. Kıvrımlı Dağlar
-Levha hareketleri sonucu tortul tabakaların esnekliği nedeniyle kıvrılarak yükselmesiyle oluşur. Karadeniz ve Akdeniz'deki sıradağlarımız bu tiptir.
-- **Kuzey Anadolu Dağları:** Yıldız, Küre, Canik, Rize, Kaçkar.
-- **Toroslar:** Bey Dağları, Bolkar, Aladağlar, Binboğa.
+Alp-Himalaya kıvrım sisteminin parçasıdır. Karadeniz (Kuzey Anadolu Dağları) ve Akdeniz (Toroslar) kıyılarında yaygındır.
 
 ### 2. Kırıklı Dağlar (Horst-Graben)
-Sertleşmiş tabakaların kırılmasıyla oluşur. Ege Bölgesi'ndeki dağlarımızın çoğu bu şekilde oluşmuştur. Yükselen kısımlara **Horst**, çöken kısımlara **Graben** denir.
+Ege'de yaygındır. Madra, Yunt, Bozdağlar, Aydın, Menteşe. Amanoslar (Nur Dağları) Akdeniz'deki tek kırıklı dağdır.
 
 ### 3. Volkanik Dağlar
-Magmanın yeryüzüne çıkması veya yüzeye yakın yerlerde soğumasıyla oluşur.
-- **İç Anadolu:** Erciyes, Hasan, Melendiz, Karadağ, Karacadağ.
-- **Doğu Anadolu:** Ağrı, Tendürek, Süphan, Nemrut.`,
+Daha çok fay hatlarını takip ederler. İç Anadolu ve Doğu Anadolu'da hatlar şeklinde uzanırlar.`,
                 atlasLink: { layerId: 'mountains' },
                 mnemonics: [
                     {
-                        title: 'Ege Kırıklı Dağlar (KUZEYDEN GÜNEYE)',
-                        text: 'KAZ - MADRA - YUNT - BOZDAĞLAR - AYDIN - MENTEŞE (Kod: KazMa Yunt Boz Aydın Menteşe)'
-                    },
-                    {
-                        title: 'İç Anadolu Volkanik Dağları',
-                        text: 'KEK-HASAN (Karacadağ, Erciyes, Karadağ, Hasan, Melendiz)'
+                        title: 'Ege Kırıklı Dağlar',
+                        text: 'KAZ - MADRA - YUNT - BOZDAĞLAR - AYDIN - MENTEŞE'
                     }
                 ],
                 warnings: [
-                    'Menteşe Dağları Ege\'de olmasına rağmen kıyıya paralel uzanır! Bu durum yağış artışına sebep olur.',
-                    'Güneydoğu Anadolu\'daki Karacadağ, yayvan yapılı (kalkan) tek volkanımızdır.'
+                    'Menteşe Dağları kıyıya paraleldir, diğerleri diktir.',
+                    'Ağrı Dağı en yüksek volkanik dağımızdır.'
                 ],
                 teacherNotes: [
-                    'Karadeniz ve Akdeniz\'de dağların kıyıya paralel uzanması; kıyı ile iç kesim ulaşımını zorlaştırır, geçitlere ihtiyaç duyulur.',
-                    'Ege\'de dağların dik uzanması kıyının çok girintili çıkıntılı (enine kıyı) olmasına yol açar.'
+                    'Kıyıya paralel uzanan dağlarda; kıyı ile iç kesim arası fark fazladır, nem içeri giremez.'
                 ],
-                examAnalysis: 'KPSS\'de son 10 yılda dağların uzanış yönünün iklim ve ulaşıma etkileri 4 kez sorulmuştur. Özellikle Menteşe ve Nur Dağları\'nın istisnai durumuna dikkat edin.',
+                examAnalysis: 'Dağların uzanış yönünün ekonomik sonuçları (Ulaşım maliyeti gibi) çok sık sorulur.',
                 keyPoints: [
-                    'En yüksek zirve: Ağrı Dağı',
-                    'Kırıklı dağlar en çok Ege\'dedir',
-                    'Karacadağ kalkan volkandır',
-                    'Dağlar genelde Doğu-Batı uzanır'
+                    'Genç ve engebeli bir ülkeyiz',
+                    'Kırıklı dağlar depremle ilişkilidir',
+                    'Ege hariç kıyıya paralel uzanış'
                 ]
             },
             {
-                id: 'ovalar',
-                title: 'Ovalar ve Deltalar',
-                content: `Türkiye'nin ovaları oluşumlarına göre tektonik, karstik ve delta ovaları olarak ayrılır.
+                id: 'platolar',
+                title: 'Platolar ve Yaylalar',
+                content: `Akarsular tarafından derince yarılmış yüksek düzlüklerdir. Türkiye ekonomisinde yerleri büyüktür.
 
-### Delta Ovaları
-Akarsuların taşıdıkları alüvyonları denizin sığ olduğu kıyılarda biriktirmesiyle oluşur.
-- **Ege:** Dikili, Menemen, Selçuk, Balat.
-- **Akdeniz:** Çukurova (En büyük), Silifke.
-- **Karadeniz:** Bafra, Çarşamba.
-
-### Karstik Ovalar (Polye)
-Kireçtaşının erimesiyle oluşan ovalardır. Akdeniz'in batısında (Teke-Taşeli çevresi) yaygındır.`,
-                atlasLink: { layerId: 'plains', focus: 'plain-01' },
+### Önemli Platolar
+- **Aşınım Platoları:** Çatalca-Kocaeli.
+- **Karstik Platolar:** Teke ve Taşeli.
+- **Volkanik (Lav) Platolar:** Erzurum-Kars-Ardahan.
+- **Tabaka Düzlüğü Platoları:** Haymana, Cihanbeyli, Obruk, Bozok, Uzunyayla.`,
+                atlasLink: { layerId: 'plateaus' },
                 mnemonics: [
                     {
-                        title: 'Karstik Ovalar (Kod: TAKKEM)',
-                        text: 'Tefenni, Acıpayam, Korkuteli, Kestel, Elmalı, Muğla'
+                        title: 'İç Anadolu Platoları',
+                        text: 'H-O-B-U-C (Haymana, Obruk, Bozok, Uzunyayla, Cihanbeyli)'
                     }
                 ],
-                warnings: [
-                    'Delta oluşumu için kıyıda gel-git etkisinin az olması ve kıyının sığ (Kıta sahanlığının geniş) olması şarttır.',
-                    'Marmara Bölgesi\'nde aktif delta oluşumu çok azdır (Çatalca-Kocaeli sığlık olmasına rağmen akıntı fazladır).'
-                ],
                 teacherNotes: [
-                    'Delta ovaları tarımsal verimin en yüksek olduğu, sanayi bitkilerinin yoğunlaştığı yerlerdir.',
-                    'Tektonik ovalar fay hatları üzerindedir, deprem riski yüksektir.'
+                    'Erzurum-Kars platosu üzerinde Çernezyom (Kara Topraklar) vardır. Dünyanın en verimli toprağıdır ama iklimden dolayı tarım yapılamaz, hayvancılık yapılır.'
                 ],
-                examAnalysis: 'ÖSYM delta ve karstik ovaları her 2-3 yılda bir mutlaka soruyor. Delta isimleri ile nehirleri eşleştirme sorularına hazır olun.',
                 keyPoints: [
-                    'En büyük delta: Çukurova',
-                    'Karstik ovalar Akdeniz\'dedir',
-                    'Tektonik ovalar en yaygın olanıdır',
-                    'Ovalar genelde tarım merkezidir'
+                    'Teke-Taşeli: Karstik / Arıcılık',
+                    'Erzurum-Kars: Lav / Büyükbaş',
+                    'Çatalca-Kocaeli: Sanayi / Ulaşım',
+                    'İç Anadolu: Tahıl / Küçükbaş'
+                ]
+            },
+            {
+                id: 'akarsular',
+                title: 'Akarsular ve Özellikleri',
+                content: `Türkiye akarsuları genel olarak; akış hızları yüksek, boyları kısa ve rejimleri düzensizdir (Karadeniz hariç).
+
+### Önemli Akarsular
+- **Dicle ve Fırat:** En çok su taşıyan, enerji potansiyeli en yüksek.
+- **Kızılırmak:** Türkiye sınırları içindeki en uzun kol.
+- **Meriç:** Bulgaristan'dan doğar, sınır çizer.`,
+                atlasLink: { layerId: 'rivers' },
+                warnings: [
+                    'Akarsularımız ulaşıma elverişli değildir (Eğimden dolayı). Sadece Bartın Çayı\'nda ağız kısmında taşımacılık yapılır.'
+                ],
+                keyPoints: [
+                    'Denge profiline ulaşmamışlardır',
+                    'HES potansiyelleri yüksektir',
+                    'Rejimleri genelde düzensizdir'
+                ]
+            },
+            {
+                id: 'goller',
+                title: 'Göller ve Oluşumları',
+                content: `Türkiye göl bakımından çok zengin değildir ancak oluşum çeşitliliği fazladır.
+
+### Oluşumlarına Göre Göller
+- **Tektonik:** Tuz, Manyas, Ulubat, İznik, Sapanca, Eğirdir, Beyşehir.
+- **Karstik:** Salda, Castellane, Avlan, Söğüt.
+- **Karma Oluşum:** Van Gölü (Tektonik + Volkanik Set), Eğirdir.`,
+                atlasLink: { layerId: 'lakes' },
+                keyPoints: [
+                    'En büyük: Van Gölü',
+                    'En sığ: Tuz Gölü',
+                    'En çok göl: Göller Yöresi (Akdeniz)'
                 ]
             }
         ]
     },
     {
         id: 'unit-02',
-        title: 'İklim ve Bitki Örtüsü',
+        title: 'Türkiye\'nin İklimi',
         icon: 'CloudRain',
         sections: [
             {
-                id: 'iklim-tipleri',
-                title: 'Türkiye\'de İklim Tipleri',
-                content: `Türkiye'de üç ana iklim tipi görülür:
+                id: 'sicaklik',
+                title: 'Sıcaklık ve Etki Eden Faktörler',
+                content: `Türkiye'de sıcaklık dağılışını etkileyen en temel faktörler Enlem, Denizellik, Yükselti ve Bakı'dır.
 
-### 1. Akdeniz İklimi
-Yazlar sıcak ve kurak, kışlar ılık ve yağışlıdır. En çok yağış KIŞIN düşer. Karakteristik bitki örtüsü **Maki**'dir (Zeytin, zakkum, defne).
+### Temel Prensipler
+- **Enlem:** Güneyden kuzeye gidildikçe sıcaklık azalır.
+- **Yükselti:** Batıdan doğuya gidildikçe sıcaklık azalır (Her 200m'de 1°C).
+- **Bakı:** Dağların güney yamaçları daha sıcaktır.
+- **Denizellik:** Kıyı bölgelerde nemden dolayı sıcaklık farkı azdır.`,
+                teacherNotes: [
+                    'Kışın Karadeniz kıyılarının İç Anadolu\'dan sıcak olması Enleme TERS, Denizelliğe UYGUN bir durumdur.'
+                ],
+                keyPoints: [
+                    'En yüksek sıcaklıklar: GDA (Yazın)',
+                    'En düşük sıcaklıklar: DA (Kışın)',
+                    'Bakı yönümüz hep GÜNEY'
+                ]
+            },
+            {
+                id: 'basinc-ruzgarlar',
+                title: 'Basınç Merkezleri ve Rüzgarlar',
+                content: `Türkiye'yi etkileyen 4 ana basınç merkezi vardır: İzlanda (Alçak), Sibirya (Yüksek), Basra (Alçak) ve Asor (Yüksek).
 
-### 2. Karadeniz İklimi
-Her mevsim yağışlıdır. En çok yağış SONBAHAR'da düşer. Bitki örtüsü **Orman**'dır. Nemlilikten dolayı güneşlenme süresi en azdır.
-
-### 3. Karasal İklim
-Yazlar sıcak ve kurak, kışlar soğuk ve kar yağışlıdır. İkiye ayrılır:
-- **İç Anadolu Tipi:** En çok yağış İlkbahar (Konveksiyonel). Bitki örtüsü Bozkır.
-- **Sert Karasal (Erzurum-Kars):** En çok yağış Yaz. Bitki örtüsü Çayır.`,
-                atlasLink: { coords: { lat: 38.0, lng: 32.0, zoom: 6 } },
+### Yerel Rüzgarlar
+- **Kaypçak (Kodlama):** Karayel, Yıldız, Poyraz (Kuzeyden - Soğuk); Lodos, Kıble, Samyeli (Güneyden - Sıcak).`,
                 mnemonics: [
                     {
-                        title: 'Yağış Rejimi "e" Kuralı',
-                        text: 'Haritaya küçük bir "e" harfi çizin: İç Anadolu (İlkbahar) -> Karadeniz (Sonbahar) -> Ege/Akdeniz (Kış) -> Erzurum/Kars (Yaz)'
+                        title: 'Yerel Rüzgarlar "KAYIPSAKAL"',
+                        text: 'Karayel, Yıldız, Poyraz -- Samyeli, Kıble, Lodos'
                     }
                 ],
-                teacherNotes: [
-                    'İklim sorularında "bağıl nem - maksimum nem" kavramlarına dikkat! Karadeniz\'de bağıl nem hep yüksektir.',
-                    'Erzurum-Kars\'ın yaz yağışı almasının sebebi yüksek enlem ve yükseltidir.'
+                warnings: [
+                    'Lodos, kışın karların hızla erimesine ve soba zehirlenmelerine yol açar.'
                 ],
-                examAnalysis: 'Sıcaklık ve yağış grafiği verip iklim tipini sormak klasik bir KPSS sorusudur. Karasal iklim ile Sert Karasal iklimin yağış zamanını karıştırmayın.',
                 keyPoints: [
-                    'Maki tahrip edilirse Garig oluşur',
-                    'Orman üst sınırı en yüksek Doğu Anadolu',
-                    'Türkiyenin en yağışlı ili: Rize',
-                    'En kurak yer: Iğdır ve Tuz Gölü çevresi'
+                    'Sibirya: Kışın dondurucu soğuk',
+                    'Basra: Yazın kavurucu sıcak',
+                    'Batı rüzgarları kuşağındayız'
+                ]
+            },
+            {
+                id: 'iklim-tipleri',
+                title: 'İklim Tipleri ve Bitki Örtüsü',
+                content: `Türkiye'de görülen 4 ana iklim ve bitki örtüsü:
+
+### 1. Akdeniz İklimi
+En çok yağış KIŞ. Bitki örtüsü MAKİ (Zeytin, Defne, Keçiboynuzu).
+### 2. Karadeniz İklimi
+Her mevsim yağışlı. En çok yağış SONBAHAR. Bitki örtüsü ORMAN.
+### 3. Step (Bozkır) İklimi
+En çok yağış İLKBAHAR. Bitki örtüsü BOZKIR.
+### 4. Sert Karasal İklim
+Erzurum-Kars. En çok yağış YAZ. Bitki örtüsü ÇAYIR.`,
+                mnemonics: [
+                    {
+                        title: 'Yağış Rejimi (E kuralı)',
+                        text: 'İç Anadolu (İ) -> Karadeniz (S) -> Akdeniz (K) -> E-Kars (Y)'
+                    }
+                ],
+                keyPoints: [
+                    'Bitki çeşitliliği en fazla olan ülke',
+                    'Maki tahrip edilirse Garig olur'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'unit-03',
+        title: 'Nüfus ve Yerleşme',
+        icon: 'Users',
+        sections: [
+            {
+                id: 'nufus-dagilisi',
+                title: 'Nüfusun Dağılımını Etkileyen Faktörler',
+                content: `Türkiye'de nüfus dağılışı dengesizdir.
+
+### Yoğun Nüfuslu Yerler
+- **Marmara:** Çatalca-Kocaeli (Sanayi-Ulaşım).
+- **Akdeniz:** Çukurova, Antalya.
+- **GDA:** Gaziantep (Sanayi).
+
+### Seyrek Nüfuslu Yerler
+- **Doğu Anadolu:** Hakkari (Yer şekilleri).
+- **Akdeniz:** Teke ve Taşeli (Karstik arazi).
+- **İç Anadolu:** Tuz Gölü çevresi (Kuraklık).`,
+                teacherNotes: [
+                    'Nüfusun dağılışında yer şekilleri genelde belirleyici rol oynar.'
+                ],
+                keyPoints: [
+                    'Nüfusun çoğu Batıdadır',
+                    'Hizmet sektörü 1. sıradadır',
+                    'Nüfus artış hızı azalmaktadır'
                 ]
             }
         ]
@@ -135,40 +278,122 @@ Yazlar sıcak ve kurak, kışlar soğuk ve kar yağışlıdır. İkiye ayrılır
         icon: 'TrendingUp',
         sections: [
             {
-                id: 'madenler',
-                title: 'Madenler ve Enerji Kaynakları',
-                content: `Türkiye maden çeşitliliği bakımından dünyada 10. sıradadır.
+                id: 'tarim-hayvancilik',
+                title: 'Tarım ve Hayvancılık',
+                content: `Türkiye bir tarım ülkesinden sanayileşen bir ülkeye dönüşmektedir.
 
-### Stratejik Madenler
-- **Bor:** Dünya rezervinin %73'ü Türkiye'dedir. Kullanım alanı çok geniştir (Jet yakıtı, cam, gübre). **İşletme:** Bandırma ve Kırka.
-- **Demir:** Ağır sanayinin temelidir. **Yerler:** Sivas-Divriği, Malatya-Hekimhan.
-- **Krom:** Paslanmaz çelik yapımında kullanılır. **Yerler:** Elazığ-Guleman, Muğla-Fethiye.
-- **Mermer:** İhracat gelirimizde 1. sıradadır. **Yerler:** Afyon, Marmara Adası.`,
-                atlasLink: { layerId: 'mines' },
+### Tarım Ürünleri
+- **Kış Ilıklığı İsteyenler:** Zeytin, Turunçgil, Muz, Çay, Fındık.
+- **Devlet Kontrolünde Olanlar:** Pirinç (Hastalık), Kenevir (Uyuşturucu), Haşhaş (Uyuşturucu), Tütün (Kalite), Şeker Pancarı (Kota).
+
+### Hayvancılık
+- **Küçükbaş:** İç Anadolu ve GDA.
+- **Büyükbaş (Mera):** Erzurum-Kars.
+- **Büyükbaş (Ahır):** Marmara ve Ege (Tüketiciye yakınlık).
+- **Kümes Hayvancılığı:** Marmara (Tüketiciye yakınlık).`,
                 mnemonics: [
                     {
-                        title: 'Bor Çıkarım Yerleri',
-                        text: 'BEKEB (Bandırma, Emet, Kırka, Emet, Bigadiç)'
-                    },
+                        title: 'Devlet Kontrolündeki Ürünler',
+                        text: 'PiKe HaT-Ş (Pirinç, Kenevir, Haşhaş, Tütün, Şeker Pancarı)'
+                    }
+                ],
+                teacherNotes: [
+                    'Büyükbaş ahır hayvancılığında iklimin etkisi yoktur, tamamen pazar (nüfus) odaklıdır.'
+                ],
+                keyPoints: [
+                    'GAP ile Şanlıurfa pamukta 1. sıradadır',
+                    'Fındık ve Kayısı ihracatında dünya 1.siyiz',
+                    'Zeytin üretiminde Ege 1. sıradadır'
+                ]
+            },
+            {
+                id: 'madenler-enerji',
+                title: 'Madenler ve Enerji Kaynakları',
+                content: `Maden çeşitliliği bakımından zengin bir ülkeyiz.
+
+### Önemli Madenler
+- **Bor:** Dünya rezervi lideriyiz.
+- **Demir:** Sivas-Divriği, Malatya-Hekimhan.
+- **Bakır:** Kastamonu-Küre, Artvin-Murgul.
+
+### Enerji Kaynakları
+- **Yenilenebilir:** Hidroelektrik (Fırat/Dicle), Rüzgar (Ege), Jeotermal (Denizli-Sarayköy), Güneş (GDA/İç Anadolu).
+- **Fosil:** Linyit (Yaygın), Taşkömürü (Zonguldak), Petrol (Batman), Doğalgaz (Kırklareli-Hamitabat).`,
+                mnemonics: [
                     {
                         title: 'Bakır Çıkarım (KADER)',
                         text: 'Kastamonu, Artvin, Diyarbakır, Elazığ, Rize'
                     }
                 ],
-                warnings: [
-                    'Bakır madeni Rize-Çayeli ve Artvin-Murgul\'da çıkarılır ancak SAMSUN\'da işlenir (Ulaşım ve Liman avantajı).',
-                    'Alüminyum (Boksit) en çok Konya-Seydişehir\'de bulunur.'
-                ],
                 teacherNotes: [
-                    'Madenlerin yerini öğrenirken çıkarım yeri (ocak) ile işleme yerini (fabrika) ayırt etmeniz istenir. Fabrikanın orada olma sebebi Genelde Ham maddeye yakınlık veya Ulaşımdır.',
-                    'Linyit ile elektrik üreten santrallere Termik Santral denir.'
+                    'Taşkömürü 1. jeolojik zamanda, Linyit 3. jeolojik zamanda oluşmuştur.'
                 ],
-                examAnalysis: 'Madenler her yıl 1-2 soru getirir. Özellikle Bor, Demir ve Bakır vazgeçilmezdir. İşleme tesislerinin neden orada kurulduğu (Ulaşım vs Ham madde) sorgulanır.',
                 keyPoints: [
-                    'Rezervi en çok: Linyit',
-                    'İhracat 1.si: Mermer',
-                    'Taşkömürü sadece Zonguldak\'ta',
-                    'Bor işletmeleri: Bandırma ve Kırka'
+                    'Jeotermal enerji sadece Ege\'de',
+                    'En çok elektrik üretimi Doğalgaz/İthal Kömür/Barajlar arasındadır',
+                    'Nükleer santral Mersin-Akkuyu\'da inşa halindedir'
+                ]
+            },
+            {
+                id: 'sanayi-ulasim',
+                title: 'Sanayi, Ulaşım ve Ticaret',
+                content: `Sanayi tesisleri genelde ulaşım ve pazara yakın yerlerde toplanmıştır.
+
+### Önemli Sanayi Kolları
+- **Otomotiv:** Marmara ve Ege (İhracat lideri).
+- **Demir-Çelik:** Karabük-Ereğli (Enerjiye yakınlık), İskenderun (Ulaşım).
+- **Petrol Rafinerileri:** İzmit (İpraş), İzmir (Aliağa), Batman (Hammadde), Kırıkkale (Orta Anadolu).
+
+### Ulaşım Tipleri
+- **En Fazla Kullanılan:** Karayolu (Yolcu ve yük).
+- **En Ucuz:** Denizyolu (Uluslararası ticaret).`,
+                keyPoints: [
+                    'Otomotiv en çok döviz getiren sektördür',
+                    'İhracatta 1. pazarımız Almanya\'dır',
+                    'İthalatta 1. pazarımız genelde Çin veya Rusya\'dır'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'unit-05',
+        title: 'Bölgeler ve Bölgesel Projeler',
+        icon: 'Map',
+        sections: [
+            {
+                id: 'bolgesel-projeler',
+                title: 'Bölgesel Kalkınma Projeleri',
+                content: `Bölgeler arası gelişmişlik farkını azaltmak için uygulanan projelerdir.
+
+### Önemli Projeler
+- **GAP (Güneydoğu Anadolu Projesi):** En büyük proje. Sulama ve enerji odaklıdır. Pamuk üretimini zirveye taşımıştır.
+- **DAP (Doğu Anadolu Projesi):** Hayvancılık odaklıdır.
+- **DOKAP (Doğu Karadeniz Projesi):** Yaylacılık ve ulaşım odaklıdır.
+- **ZBK (Zonguldak-Bartın-Karabük):** Sanayi ve madencilik odaklıdır.`,
+                examAnalysis: 'GAP\'ın bitmesiyle bölgede değişen şeyler (Tarım ürünü çeşitliliği, Sanayi artışı, Göçün azalması) çok sık sorulur.',
+                keyPoints: [
+                    'GAP ile nadas alanları azalmıştır',
+                    'Yeşilırmak Havzası (YHGP) kirliliği önleme amaçlıdır',
+                    'KOP (Konya Ovası Projesi) sulama amaçlıdır'
+                ]
+            },
+            {
+                id: 'dogal-afetler',
+                title: 'Türkiye\'de Doğal Afetler',
+                content: `Türkiye bir afetler ülkesidir.
+
+### Afet Türleri
+- **Deprem:** En çok can ve mal kaybına yol açan afet. (KAF, DAF, BAF hatları).
+- **Heyelan:** En çok Karadeniz\'de (Yağış ve killi toprak).
+- **Erozyon:** En çok İç Anadolu ve GDA (Bitki örtüsü azlığı).
+- **Çığ:** En çok Doğu Anadolu (Yükselti ve eğim).`,
+                warnings: [
+                    'Heyelan ve Erozyon farkına dikkat! Heyelan anlık kütle hareketidir, Erozyon yavaş toprak süpürülmesidir.'
+                ],
+                keyPoints: [
+                    'Türkiye bir deprem ülkesidir',
+                    'Ağaçlandırma erozyonu önler ama heyelanı önleyemeyebilir',
+                    'En çok orman yangını Akdeniz ve Ege\'dedir'
                 ]
             }
         ]
