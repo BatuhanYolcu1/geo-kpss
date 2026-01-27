@@ -21,7 +21,6 @@ export const useUserStore = create<UserStore>()(
             notes: [],
             quizHistory: [],
             quizStats: defaultQuizStats,
-            darkMode: false,
             sidebarOpen: true,
 
             addNote: (noteData) => {
@@ -87,15 +86,6 @@ export const useUserStore = create<UserStore>()(
                 });
             },
 
-            toggleDarkMode: () => {
-                set((state) => {
-                    const newDarkMode = !state.darkMode;
-                    if (typeof document !== 'undefined') {
-                        document.documentElement.classList.toggle('dark', newDarkMode);
-                    }
-                    return { darkMode: newDarkMode };
-                });
-            },
 
             toggleSidebar: () => {
                 set((state) => ({
@@ -105,12 +95,6 @@ export const useUserStore = create<UserStore>()(
         }),
         {
             name: 'geo-kpss-user',
-            onRehydrateStorage: () => (state) => {
-                // Apply dark mode on rehydrate
-                if (state?.darkMode && typeof document !== 'undefined') {
-                    document.documentElement.classList.add('dark');
-                }
-            },
         }
     )
 );

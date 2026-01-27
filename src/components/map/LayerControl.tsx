@@ -179,8 +179,6 @@ export default function LayerControl() {
     const layers = useLayerStore((state) => state.layers);
     const sidebarOpen = useUserStore((state) => state.sidebarOpen);
     const toggleSidebar = useUserStore((state) => state.toggleSidebar);
-    const darkMode = useUserStore((state) => state.darkMode);
-    const toggleDarkMode = useUserStore((state) => state.toggleDarkMode);
 
     const physicalLayers = layers.filter((l) => l.category === 'physical');
     const economicLayers = layers.filter((l) => l.category === 'economic');
@@ -239,19 +237,6 @@ export default function LayerControl() {
                     <CategorySection category="tourism" layers={tourismLayers} />
                 </div>
 
-                {/* Alt Kısım - Tema Değiştirici */}
-                <div className="p-4 border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900">
-                    <div className="flex items-center justify-between px-2">
-                        <span className="text-base font-semibold text-gray-700 dark:text-slate-300">Tema</span>
-                        <button
-                            onClick={toggleDarkMode}
-                            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white transition-colors font-medium"
-                        >
-                            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-                            <span className="text-sm">{darkMode ? 'Açık Mod' : 'Koyu Mod'}</span>
-                        </button>
-                    </div>
-                </div>
             </aside>
 
             {/* Menü Kapalıyken Açma Butonu */}

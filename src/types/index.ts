@@ -129,13 +129,11 @@ export interface UserStore {
     notes: GeoNote[];
     quizHistory: QuizSession[];
     quizStats: QuizStats;
-    darkMode: boolean;
     sidebarOpen: boolean;
     addNote: (note: Omit<GeoNote, 'id' | 'createdAt'>) => void;
     updateNote: (id: string, text: string) => void;
     deleteNote: (id: string) => void;
     addQuizSession: (session: QuizSession) => void;
-    toggleDarkMode: () => void;
     toggleSidebar: () => void;
 }
 

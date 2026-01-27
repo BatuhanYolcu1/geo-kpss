@@ -18,10 +18,8 @@ const MapWithNoSSR = dynamic(() => import('./MapClient'), {
 });
 
 export default function MapEngine() {
-    const darkMode = useUserStore((state) => state.darkMode);
-
     return (
-        <div className={`map-container ${darkMode ? 'dark' : ''}`}>
+        <div className="map-container">
             <MapWithNoSSR />
         </div>
     );

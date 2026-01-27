@@ -199,7 +199,6 @@ function matchesRegionFilter(featureRegion: string | undefined, selectedRegions:
 export default function MapClient() {
     const mapRef = useRef<L.Map>(null);
     const layers = useLayerStore((state) => state.layers);
-    const darkMode = useUserStore((state) => state.darkMode);
     const selectedRegions = useRegionStore((state) => state.selectedRegions);
 
     const [contextMenu, setContextMenu] = React.useState<{ x: number; y: number; lat: number; lng: number } | null>(null);
@@ -321,7 +320,7 @@ export default function MapClient() {
         setTimeout(() => setFlyToTarget(null), 2000);
     }, [layers, toggleLayer]);
 
-    const tileLayer = darkMode ? TILE_LAYERS.dark : TILE_LAYERS.default;
+    const tileLayer = TILE_LAYERS.default;
 
     return (
         <>
