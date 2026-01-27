@@ -1,175 +1,166 @@
 import Link from 'next/link';
-import { Map, Brain, BarChart3, Sparkles, ChevronRight, Compass, Globe2, BookOpen, TrendingUp } from 'lucide-react';
+import { Map, Brain, BookOpen, Sparkles, ChevronRight, Compass, Globe2, Layers, Zap, Target } from 'lucide-react';
 
 const modules = [
   {
     id: 'atlas',
     title: 'İnteraktif Atlas',
-    description: 'Türkiye coğrafyasını katmanlı haritalarla keşfedin. Dağlar, göller, nehirler, şehirler ve daha fazlası.',
+    description: 'Türkiye coğrafyasını katmanlı haritalarla keşfedin. Dağlar, göller, nehirler ve şehirler parmaklarınızın ucunda.',
     icon: Map,
     href: '/atlas',
-    color: 'from-indigo-500 to-purple-600',
-    shadowColor: 'shadow-indigo-500/25',
-    active: true,
-    stats: '229+ Coğrafi Özellik',
+    color: 'from-[#4F46E5] to-[#7C3AED]',
+    accentColor: 'text-indigo-400',
+    stats: '229+ Özellik',
+    tag: 'KEŞFET'
   },
   {
     id: 'quiz',
     title: 'Quiz Modu',
-    description: 'KPSS coğrafya bilginizi interaktif sorularla test edin ve güçlendirin.',
+    description: 'KPSS formatındaki interaktif sorularla bilginizi test edin. Harita üzerinde yer belirleme ve eşleştirme.',
     icon: Brain,
     href: '/quiz',
-    color: 'from-emerald-500 to-teal-600',
-    shadowColor: 'shadow-emerald-500/25',
-    active: true,
+    color: 'from-[#10B981] to-[#059669]',
+    accentColor: 'text-emerald-400',
     stats: '100+ Soru',
+    tag: 'TEST ET'
   },
   {
     id: 'study',
     title: 'Ders Notları',
-    description: 'KPSS coğrafya konularını kapsamlı notlar ve harita desteğiyle çalışın.',
+    description: 'Zenginleştirilmiş içerik, özel kodlamalar ve ÖSYM analizleri ile hazırlanan kapsamlı çalışma modülü.',
     icon: BookOpen,
     href: '/notes',
-    color: 'from-rose-500 to-pink-600',
-    shadowColor: 'shadow-rose-500/25',
-    active: true,
-    stats: '6 Ana Kategori',
-  },
-  {
-    id: 'stats',
-    title: 'İstatistiklerim',
-    description: 'Çalışma ilerlemenizi takip edin, güçlü ve zayıf yönlerinizi keşfedin.',
-    icon: BarChart3,
-    href: '/stats',
-    color: 'from-amber-500 to-orange-600',
-    shadowColor: 'shadow-amber-500/25',
-    active: true,
-    stats: 'En Başarılı: -',
+    color: 'from-[#F43F5E] to-[#E11D48]',
+    accentColor: 'text-rose-400',
+    stats: 'Full Müfredat',
+    tag: 'ÇALIŞ'
   },
 ];
 
 export default function DashboardPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-      {/* Background Effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-3xl" />
+    <main className="min-h-screen bg-[#050505] text-slate-200 overflow-hidden font-sans">
+      {/* Dynamic Background */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-16">
-        {/* Hero Section */}
-        <header className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-6">
-            <Sparkles size={16} className="text-indigo-400" />
-            <span className="text-sm font-medium text-indigo-300">KPSS Coğrafya Hazırlık Platformu</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-32">
+        {/* Navigation Header */}
+        <nav className="absolute top-8 left-6 right-6 flex justify-between items-center bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-3xl">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
+              <Globe2 size={18} className="text-white" />
+            </div>
+            <span className="font-black text-xl tracking-tighter text-white">GEO-KPSS</span>
+          </div>
+          <div className="flex gap-4">
+            <div className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-400 mr-4">
+              <Link href="/atlas" className="hover:text-white transition-colors">ATLAS</Link>
+              <Link href="/quiz" className="hover:text-white transition-colors">QUIZ</Link>
+              <Link href="/notes" className="hover:text-white transition-colors">NOTLAR</Link>
+            </div>
+            <button className="px-5 py-2.5 bg-white text-black rounded-2xl font-black text-sm hover:bg-slate-200 transition-all shadow-xl shadow-white/5">
+              KAYIT OL
+            </button>
+          </div>
+        </nav>
+
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Left Column: Hero Content */}
+          <div className="space-y-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl">
+              <Sparkles size={16} className="text-indigo-400" />
+              <span className="text-xs font-black text-indigo-400 uppercase tracking-[0.2em]">Yapay Zeka Destekli Hazırlık</span>
+            </div>
+
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter">
+                COĞRAFYAYI <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-rose-400">YAŞAYARAK</span> <br />
+                ÖĞRENİN.
+              </h1>
+              <p className="text-xl text-slate-400 font-medium leading-relaxed max-w-xl">
+                Statik kitapları unutun. İnteraktif haritalar, akıllı quizler ve zenginleştirilmiş notlarla KPSS 2026'ya en profesyonel şekilde hazırlanın.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-10">
+              <div className="space-y-1">
+                <div className="text-3xl font-black text-white flex items-center gap-2">
+                  <Target className="text-emerald-500" size={24} /> 100%
+                </div>
+                <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Müfredat Uyumu</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-3xl font-black text-white flex items-center gap-2">
+                  <Layers className="text-indigo-500" size={24} /> 12+
+                </div>
+                <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Harita Katmanı</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-3xl font-black text-white flex items-center gap-2">
+                  <Zap className="text-amber-500" size={24} /> 10ms
+                </div>
+                <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Render Hızı</div>
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-indigo-200 to-purple-200 bg-clip-text text-transparent">
-            Geo-KPSS
-          </h1>
+          {/* Right Column: Module Preview Grid */}
+          <div className="grid gap-6 py-10">
+            {modules.map((module) => {
+              const Icon = module.icon;
+              return (
+                <Link
+                  key={module.id}
+                  href={module.href}
+                  className="group relative flex items-center p-8 rounded-[2.5rem] bg-slate-900/40 border border-white/5 hover:border-white/10 transition-all duration-500 hover:bg-slate-900/60 overflow-hidden shadow-2xl"
+                >
+                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${module.color} opacity-[0.03] group-hover:opacity-10 transition-opacity blur-2xl translate-x-10 -translate-y-10`} />
 
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Türkiye coğrafyasını interaktif haritalar ve quizlerle öğrenin.
-            <br />
-            <span className="text-indigo-400">Çalışma modülünüzü seçin.</span>
-          </p>
-
-          {/* Stats */}
-          <div className="flex items-center justify-center gap-8 mt-10">
-            <div className="flex items-center gap-2 text-slate-400">
-              <Globe2 size={20} className="text-indigo-400" />
-              <span>81 İl</span>
-            </div>
-            <div className="h-4 w-px bg-slate-700" />
-            <div className="flex items-center gap-2 text-slate-400">
-              <Compass size={20} className="text-emerald-400" />
-              <span>7 Bölge</span>
-            </div>
-            <div className="h-4 w-px bg-slate-700" />
-            <div className="flex items-center gap-2 text-slate-400">
-              <Map size={20} className="text-purple-400" />
-              <span>10 Katman</span>
-            </div>
-          </div>
-        </header>
-
-        {/* Module Grid */}
-        <section className="grid md:grid-cols-3 gap-6">
-          {modules.map((module) => {
-            const Icon = module.icon;
-            const isDisabled = !module.active;
-
-            return (
-              <Link
-                key={module.id}
-                href={isDisabled ? '#' : module.href}
-                className={`
-                  group relative overflow-hidden rounded-2xl p-6 transition-all duration-300
-                  ${isDisabled
-                    ? 'bg-slate-800/30 cursor-not-allowed opacity-60'
-                    : `bg-slate-800/50 hover:bg-slate-800/80 hover:scale-[1.02] hover:shadow-2xl ${module.shadowColor}`
-                  }
-                  border border-slate-700/50
-                `}
-              >
-                {/* Gradient Overlay */}
-                {!isDisabled && (
-                  <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                )}
-
-                {/* Icon */}
-                <div className={`
-                  w-14 h-14 rounded-xl flex items-center justify-center mb-4
-                  bg-gradient-to-br ${module.color}
-                  ${isDisabled ? 'grayscale' : ''}
-                `}>
-                  <Icon size={28} className="text-white" />
-                </div>
-
-                {/* Content */}
-                <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  {module.title}
-                  {!isDisabled && (
-                    <ChevronRight size={18} className="text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  )}
-                </h2>
-
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  {module.description}
-                </p>
-
-                {/* Stats Badge */}
-                <div className={`
-                  inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-medium
-                  ${isDisabled
-                    ? 'bg-slate-700/50 text-slate-500'
-                    : 'bg-slate-700/50 text-slate-300'}
-                `}>
-                  {module.stats}
-                </div>
-
-                {/* Coming Soon Badge */}
-                {isDisabled && (
-                  <div className="absolute top-4 right-4 px-2 py-1 bg-slate-700 rounded text-xs text-slate-400">
-                    Yakında
+                  <div className={`w-16 h-16 rounded-3xl bg-gradient-to-br ${module.color} flex items-center justify-center text-white shadow-2xl group-hover:scale-110 transition-transform duration-500 shrink-0`}>
+                    <Icon size={32} strokeWidth={2.5} />
                   </div>
-                )}
-              </Link>
-            );
-          })}
-        </section>
 
-        {/* Footer */}
-        <footer className="text-center mt-16 pt-8 border-t border-slate-800">
-          <p className="text-slate-500 text-sm">
-            KPSS Coğrafya sınavına hazırlanmak için tasarlandı.
-            <br />
-            <span className="text-slate-600">229+ coğrafi özellik • Güncel veri</span>
-          </p>
-        </footer>
+                  <div className="ml-8 pr-10">
+                    <div className={`text-[10px] font-black uppercase tracking-[0.3em] mb-2 ${module.accentColor}`}>
+                      {module.tag}
+                    </div>
+                    <h3 className="text-2xl font-black text-white mb-2 leading-none">{module.title}</h3>
+                    <p className="text-slate-400 text-sm font-medium leading-snug">{module.description}</p>
+
+                    <div className="mt-4 flex items-center gap-3">
+                      <div className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-slate-500 border border-white/5">
+                        {module.stats}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500">
+                    <ChevronRight size={32} className="text-white" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Floating Accent Elements */}
+        <div className="fixed bottom-10 left-10 hidden xl:block">
+          <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-4 rounded-[2rem] border border-white/10">
+            <div className="flex -space-x-3">
+              {[1, 2, 3].map(i => (
+                <div key={i} className="w-10 h-10 rounded-full border-2 border-[#050505] bg-slate-800 flex items-center justify-center text-[10px] font-black">USER</div>
+              ))}
+            </div>
+            <div className="text-xs font-bold text-slate-300">
+              <span className="text-indigo-400">1,240+</span> aday <br /> çalışmaya başladı.
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );
