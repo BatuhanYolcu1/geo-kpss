@@ -1,23 +1,24 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { lectureNotes } from '@/data/notes-content';
+import { curriculum } from '@/data/curriculum';
 import NotesSidebar from '@/components/notes/NotesSidebar';
 import NoteContent from '@/components/notes/NoteContent';
-import { Home, Menu, X, ArrowLeft, BookOpen, ChevronRight, Mountain, CloudRain, TrendingUp } from 'lucide-react';
+import { useNotesStore } from '@/stores/notesStore';
+import { Home, Menu, X, ArrowLeft, BookOpen, ChevronRight, Mountain, CloudRain, TrendingUp, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 export default function NotesPage() {
-    const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
+    const { activeSectionId, setActiveSection } = useNotesStore();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     // Find current section
-    const currentSection = lectureNotes
+    const currentSection = curriculum
         .flatMap(u => u.sections)
         .find(s => s.id === activeSectionId) || null;
 
     const handleSelectSection = (id: string | null) => {
-        setActiveSectionId(id);
+        setActiveSection(id);
         setIsSidebarOpen(false); // Close on mobile
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -27,9 +28,7 @@ export default function NotesPage() {
             {/* Desktop Sidebar */}
             <div className="hidden lg:block w-80 flex-shrink-0">
                 <NotesSidebar
-                    units={lectureNotes}
-                    activeSectionId={activeSectionId}
-                    onSelectSection={handleSelectSection}
+                    units={curriculum}
                 />
             </div>
 
@@ -42,9 +41,7 @@ export default function NotesPage() {
                     />
                     <div className="absolute inset-y-0 left-0 w-80 bg-slate-900 border-r border-slate-700 animate-in slide-in-from-left duration-300">
                         <NotesSidebar
-                            units={lectureNotes}
-                            activeSectionId={activeSectionId}
-                            onSelectSection={handleSelectSection}
+                            units={curriculum}
                         />
                     </div>
                 </div>
@@ -98,14 +95,14 @@ export default function NotesPage() {
                                 </header>
 
                                 <div className="grid md:grid-cols-2 gap-6">
-                                    {lectureNotes.map((unit) => (
+                                    {curriculum.map((unit) => (
                                         <div
                                             key={unit.id}
                                             className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 hover:border-indigo-500/30 transition-all group"
                                         >
                                             <div className="flex items-center gap-4 mb-6">
                                                 <div className="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all">
-                                                    {unit.icon === 'Mountain' ? <Mountain size={24} /> : <CloudRain size={24} />}
+                                                    {unit.icon === 'Mountain' ? <Mountain size={24} /> : unit.icon === 'Globe' ? <Globe size={24} /> : <CloudRain size={24} />}
                                                 </div>
                                                 <h2 className="text-2xl font-bold text-white leading-tight">
                                                     {unit.title}
