@@ -47,7 +47,6 @@ export interface LayerConfig {
     subcategory?: string;
     icon: string;
     color: string;
-    opacity: number;
     visible: boolean;
     legendItems?: LegendItem[];
 }
@@ -122,7 +121,6 @@ export interface LayerStore {
     layers: LayerConfig[];
     activeLayerIds: string[];
     toggleLayer: (layerId: string) => void;
-    setLayerOpacity: (layerId: string, opacity: number) => void;
     setAllLayersVisibility: (category: LayerCategory, visible: boolean) => void;
     getActiveLayers: () => LayerConfig[];
 }

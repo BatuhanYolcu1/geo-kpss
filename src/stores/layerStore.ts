@@ -12,7 +12,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'physical',
         icon: 'mountain',
         color: '#b45309', // geo-mountain (amber-700)
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Volkanik Dağ', color: '#dc2626', shape: 'circle' }, // geo-volcano
@@ -26,7 +25,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'physical',
         icon: 'square',
         color: '#059669', // geo-plain (emerald-600)
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Ova', color: '#059669', shape: 'polygon' },
@@ -39,7 +37,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'physical',
         icon: 'layers',
         color: '#d97706', // amber-600
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Plato', color: '#d97706', shape: 'polygon' },
@@ -52,7 +49,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'physical',
         icon: 'waves',
         color: '#0ea5e9', // geo-water (sky-500)
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Akarsu', color: '#0ea5e9', shape: 'line' },
@@ -65,7 +61,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'physical',
         icon: 'droplets',
         color: '#0284c7', // geo-water-dark (sky-600)
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Tatlı Su Gölü', color: '#0ea5e9', shape: 'polygon' },
@@ -81,7 +76,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'economic',
         icon: 'pickaxe',
         color: '#64748b', // geo-mine (slate-500)
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Demir', color: '#374151', shape: 'circle' },
@@ -97,7 +91,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'economic',
         icon: 'wheat',
         color: '#059669', // geo-plain (emerald-600)
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Tahıl', color: '#eab308', shape: 'polygon' },
@@ -112,7 +105,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'economic',
         icon: 'factory',
         color: '#475569', // slate-600
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Organize Sanayi', color: '#475569', shape: 'polygon' },
@@ -125,7 +117,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'economic',
         icon: 'zap',
         color: '#eab308', // geo-energy (yellow-500)
-        opacity: 1,
         visible: false,
         legendItems: [
             { label: 'Hidroelektrik', color: '#0ea5e9', shape: 'circle' },
@@ -143,7 +134,6 @@ const defaultLayers: LayerConfig[] = [
         category: 'administrative',
         icon: 'building-2',
         color: '#7c3aed', // geo-city (violet-600)
-        opacity: 0.85,
         visible: true,
         legendItems: [
             { label: 'Büyükşehir', color: '#6d28d9', shape: 'circle' },
@@ -175,13 +165,6 @@ export const useLayerStore = create<LayerStore>()(
                 });
             },
 
-            setLayerOpacity: (layerId: string, opacity: number) => {
-                set((state) => ({
-                    layers: state.layers.map((l) =>
-                        l.id === layerId ? { ...l, opacity } : l
-                    ),
-                }));
-            },
 
             setAllLayersVisibility: (category: LayerCategory, visible: boolean) => {
                 set((state) => {

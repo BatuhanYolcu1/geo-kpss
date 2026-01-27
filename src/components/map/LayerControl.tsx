@@ -62,10 +62,9 @@ const categoryConfig: Record<LayerCategory, { name: string; description: string;
 interface LayerItemProps {
     layer: LayerConfig;
     onToggle: () => void;
-    onOpacityChange: (opacity: number) => void;
 }
 
-function LayerItem({ layer, onToggle, onOpacityChange }: LayerItemProps) {
+function LayerItem({ layer, onToggle }: LayerItemProps) {
     return (
         <div className="mb-2">
             <button
@@ -103,27 +102,6 @@ function LayerItem({ layer, onToggle, onOpacityChange }: LayerItemProps) {
                     )}
                 </div>
             </button>
-
-            {/* Opaklık Ayarı */}
-            {layer.visible && (
-                <div className="px-4 py-3 ml-14 bg-gray-100 dark:bg-slate-800/50 rounded-lg mt-1">
-                    <div className="flex items-center gap-3">
-                        <span className="text-sm font-semibold text-gray-700 dark:text-slate-300 w-20">Opaklık</span>
-                        <input
-                            type="range"
-                            min="0.1"
-                            max="1"
-                            step="0.1"
-                            value={layer.opacity}
-                            onChange={(e) => onOpacityChange(parseFloat(e.target.value))}
-                            className="opacity-slider flex-1"
-                        />
-                        <span className="text-sm font-bold text-gray-900 dark:text-white w-12 text-right">
-                            %{Math.round(layer.opacity * 100)}
-                        </span>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
@@ -136,7 +114,6 @@ interface CategorySectionProps {
 function CategorySection({ category, layers }: CategorySectionProps) {
     const [isExpanded, setIsExpanded] = useState(true);
     const toggleLayer = useLayerStore((state) => state.toggleLayer);
-    const setLayerOpacity = useLayerStore((state) => state.setLayerOpacity);
 
     const config = categoryConfig[category];
     const activeCount = layers.filter((l) => l.visible).length;
@@ -180,7 +157,6 @@ function CategorySection({ category, layers }: CategorySectionProps) {
                             key={layer.id}
                             layer={layer}
                             onToggle={() => toggleLayer(layer.id)}
-                            onOpacityChange={(opacity) => setLayerOpacity(layer.id, opacity)}
                         />
                     ))}
                 </div>

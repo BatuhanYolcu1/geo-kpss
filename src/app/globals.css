@@ -120,29 +120,6 @@ body {
   background: #475569;
 }
 
-/* Opacity slider styling */
-.opacity-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 6px;
-  background: #e2e8f0;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.opacity-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  background: #6366f1;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.dark .opacity-slider {
-  background: #334155;
-}
 
 /* Leaflet Popup Customization */
 .leaflet-popup-content-wrapper {

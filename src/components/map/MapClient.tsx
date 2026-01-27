@@ -370,7 +370,7 @@ export default function MapClient() {
                                     key={props.id}
                                     position={[coords[1], coords[0]]}
                                     icon={createCustomIcon(color, 22)}
-                                    opacity={layer.opacity}
+                                    opacity={1}
                                     eventHandlers={{
                                         click: (e) => {
                                             e.originalEvent.stopPropagation();
@@ -387,7 +387,7 @@ export default function MapClient() {
                             <GeoJSON
                                 key={layer.id}
                                 data={geojsonData}
-                                style={() => ({ ...getFeatureStyle(layer.id), opacity: layer.opacity })}
+                                style={() => ({ ...getFeatureStyle(layer.id), opacity: 1 })}
                                 onEachFeature={(feature, leafletLayer) => {
                                     const props = feature.properties as GeoFeatureProperties;
                                     leafletLayer.on('click', (e) => {
