@@ -56,15 +56,10 @@ export default function DashboardPage() {
             </div>
             <span className="font-black text-xl tracking-tighter text-white">GEO-KPSS</span>
           </div>
-          <div className="flex gap-4">
-            <div className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-400 mr-4">
-              <Link href="/atlas" className="hover:text-white transition-colors">ATLAS</Link>
-              <Link href="/quiz" className="hover:text-white transition-colors">QUIZ</Link>
-              <Link href="/notes" className="hover:text-white transition-colors">NOTLAR</Link>
-            </div>
-            <button className="px-5 py-2.5 bg-white text-black rounded-2xl font-black text-sm hover:bg-slate-200 transition-all shadow-xl shadow-white/5">
-              KAYIT OL
-            </button>
+          <div className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-400">
+            <Link href="/atlas" className="hover:text-white transition-colors">ATLAS</Link>
+            <Link href="/quiz" className="hover:text-white transition-colors">QUIZ</Link>
+            <Link href="/notes" className="hover:text-white transition-colors">NOTLAR</Link>
           </div>
         </nav>
 
@@ -148,19 +143,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Floating Accent Elements */}
-        <div className="fixed bottom-10 left-10 hidden xl:block">
-          <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-4 rounded-[2rem] border border-white/10">
-            <div className="flex -space-x-3">
-              {[1, 2, 3].map(i => (
-                <div key={i} className="w-10 h-10 rounded-full border-2 border-[#050505] bg-slate-800 flex items-center justify-center text-[10px] font-black">USER</div>
-              ))}
-            </div>
-            <div className="text-xs font-bold text-slate-300">
-              <span className="text-indigo-400">1,240+</span> aday <br /> çalışmaya başladı.
-            </div>
-          </div>
-        </div>
       </div>
     </main>
   );
