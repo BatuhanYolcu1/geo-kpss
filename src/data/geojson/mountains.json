@@ -800,6 +800,66 @@
                     37.6667
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-41",
+                "name": "Batı Toroslar",
+                "nameEn": "Western Taurus",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3086,
+                "region": "Akdeniz",
+                "kpssNote": "Antalya çevresini yay gibi kuşatır. Bey Dağları, Geyik Dağları ve Sultan Dağları'nı kapsar. Karstik yer şekilleri yaygındır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5000,
+                    37.2000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-42",
+                "name": "Orta Toroslar",
+                "nameEn": "Central Taurus",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 3756,
+                "region": "Akdeniz",
+                "kpssNote": "Toroslar'ın en yüksek ve en geniş kısmıdır. Bolkar, Aladağlar ve Tahtalı Dağları'nı kapsar. Çukurova'yı İç Anadolu'dan ayırır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.0000,
+                    37.5000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "mountain-43",
+                "name": "Güneydoğu Toroslar",
+                "nameEn": "Southeastern Taurus",
+                "type": "Kıvrım Dağ",
+                "category": "physical",
+                "elevation": 4135,
+                "region": "Doğu Anadolu",
+                "kpssNote": "İskenderun Körfezi'nden Hakkari'ye kadar uzanır. Malatya, Genç, Bitlis ve Cilo (Buzul) Dağları'nı kapsar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.5000,
+                    38.2000
+                ]
+            }
         }
     ]
 }
