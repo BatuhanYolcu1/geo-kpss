@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Map, Brain, BookOpen, Sparkles, ChevronRight, Compass, Globe2, Layers, Zap, Target } from 'lucide-react';
+import UserGuide from '@/components/ui/UserGuide';
 
 const modules = [
   {
@@ -63,80 +64,85 @@ export default function DashboardPage() {
           </div>
         </nav>
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left Column: Hero Content */}
-          <div className="space-y-10">
-
-            <div className="space-y-4">
-              <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter">
-                COĞRAFYAYI <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-rose-400">YAŞAYARAK</span> <br />
-                ÖĞRENİN.
-              </h1>
-              <p className="text-xl text-slate-400 font-medium leading-relaxed max-w-xl">
-                Statik kitapları unutun. İnteraktif haritalar, akıllı quizler ve zenginleştirilmiş notlarla KPSS 2026'ya en profesyonel şekilde hazırlanın.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-10">
-              <div className="space-y-1">
-                <div className="text-3xl font-black text-white flex items-center gap-2">
-                  <Target className="text-emerald-500" size={24} /> 100%
-                </div>
-                <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Müfredat Uyumu</div>
+        <div className="space-y-32">
+          {/* Main Hero & Guide Section */}
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* Left Column: Hero Content */}
+            <div className="space-y-10">
+              <div className="space-y-4">
+                <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter">
+                  COĞRAFYAYI <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-rose-400">YAŞAYARAK</span> <br />
+                  ÖĞRENİN.
+                </h1>
+                <p className="text-xl text-slate-400 font-medium leading-relaxed max-w-xl">
+                  Statik kitapları unutun. İnteraktif haritalar, akıllı quizler ve zenginleştirilmiş notlarla KPSS 2026'ya en profesyonel şekilde hazırlanın.
+                </p>
               </div>
-              <div className="space-y-1">
-                <div className="text-3xl font-black text-white flex items-center gap-2">
-                  <Layers className="text-indigo-500" size={24} /> 12+
-                </div>
-                <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Harita Katmanı</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-3xl font-black text-white flex items-center gap-2">
-                  <Zap className="text-amber-500" size={24} /> 10ms
-                </div>
-                <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Render Hızı</div>
-              </div>
-            </div>
-          </div>
 
-          {/* Right Column: Module Preview Grid */}
-          <div className="grid gap-6 py-10">
-            {modules.map((module) => {
-              const Icon = module.icon;
-              return (
-                <Link
-                  key={module.id}
-                  href={module.href}
-                  className="group relative flex items-center p-8 rounded-[2.5rem] bg-slate-900/40 border border-white/5 hover:border-white/10 transition-all duration-500 hover:bg-slate-900/60 overflow-hidden shadow-2xl"
-                >
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${module.color} opacity-[0.03] group-hover:opacity-10 transition-opacity blur-2xl translate-x-10 -translate-y-10`} />
-
-                  <div className={`w-16 h-16 rounded-3xl bg-gradient-to-br ${module.color} flex items-center justify-center text-white shadow-2xl group-hover:scale-110 transition-transform duration-500 shrink-0`}>
-                    <Icon size={32} strokeWidth={2.5} />
+              <div className="flex flex-wrap gap-10">
+                <div className="space-y-1">
+                  <div className="text-3xl font-black text-white flex items-center gap-2">
+                    <Target className="text-emerald-500" size={24} /> 100%
                   </div>
+                  <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Müfredat Uyumu</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-3xl font-black text-white flex items-center gap-2">
+                    <Layers className="text-indigo-500" size={24} /> 12+
+                  </div>
+                  <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Harita Katmanı</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-3xl font-black text-white flex items-center gap-2">
+                    <Zap className="text-amber-500" size={24} /> 10ms
+                  </div>
+                  <div className="text-xs font-black text-slate-500 uppercase tracking-widest">Render Hızı</div>
+                </div>
+              </div>
+            </div>
 
-                  <div className="ml-8 pr-10">
-                    <div className={`text-[10px] font-black uppercase tracking-[0.3em] mb-2 ${module.accentColor}`}>
-                      {module.tag}
+            {/* Right Column: Module Preview Grid */}
+            <div className="grid gap-6">
+              {modules.map((module) => {
+                const Icon = module.icon;
+                return (
+                  <Link
+                    key={module.id}
+                    href={module.href}
+                    className="group relative flex items-center p-8 rounded-[2.5rem] bg-slate-900/40 border border-white/5 hover:border-white/10 transition-all duration-500 hover:bg-slate-900/60 overflow-hidden shadow-2xl"
+                  >
+                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${module.color} opacity-[0.03] group-hover:opacity-10 transition-opacity blur-2xl translate-x-10 -translate-y-10`} />
+
+                    <div className={`w-16 h-16 rounded-3xl bg-gradient-to-br ${module.color} flex items-center justify-center text-white shadow-2xl group-hover:scale-110 transition-transform duration-500 shrink-0`}>
+                      <Icon size={32} strokeWidth={2.5} />
                     </div>
-                    <h3 className="text-2xl font-black text-white mb-2 leading-none">{module.title}</h3>
-                    <p className="text-slate-400 text-sm font-medium leading-snug">{module.description}</p>
 
-                    <div className="mt-4 flex items-center gap-3">
-                      <div className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-slate-500 border border-white/5">
-                        {module.stats}
+                    <div className="ml-8 pr-10">
+                      <div className={`text-[10px] font-black uppercase tracking-[0.3em] mb-2 ${module.accentColor}`}>
+                        {module.tag}
+                      </div>
+                      <h3 className="text-2xl font-black text-white mb-2 leading-none">{module.title}</h3>
+                      <p className="text-slate-400 text-sm font-medium leading-snug">{module.description}</p>
+
+                      <div className="mt-4 flex items-center gap-3">
+                        <div className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-slate-500 border border-white/5">
+                          {module.stats}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500">
-                    <ChevronRight size={32} className="text-white" />
-                  </div>
-                </Link>
-              );
-            })}
+                    <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500">
+                      <ChevronRight size={32} className="text-white" />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
+
+          {/* User Guide Section */}
+          <UserGuide />
         </div>
 
       </div>
