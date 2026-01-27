@@ -6,8 +6,8 @@ import { NoteUnit, NoteSection } from '@/types/notes';
 
 interface NotesSidebarProps {
     units: NoteUnit[];
-    activeSectionId: string;
-    onSelectSection: (sectionId: string) => void;
+    activeSectionId: string | null;
+    onSelectSection: (sectionId: string | null) => void;
 }
 
 export default function NotesSidebar({ units, activeSectionId, onSelectSection }: NotesSidebarProps) {
@@ -43,7 +43,25 @@ export default function NotesSidebar({ units, activeSectionId, onSelectSection }
             </div>
 
             <nav className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-                <div className="space-y-2">
+                <div className="space-y-4">
+                    {/* General Overview Button */}
+                    <button
+                        onClick={() => onSelectSection(null)}
+                        className={`
+                            w-full flex items-center gap-3 p-3 rounded-xl transition-all
+                            ${activeSectionId === null
+                                ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20'
+                                : 'text-slate-400 hover:bg-slate-800/50 hover:text-white'}
+                        `}
+                    >
+                        <div className={`p-2 rounded-lg ${activeSectionId === null ? 'bg-white/20' : 'bg-slate-700/50'}`}>
+                            <TrendingUp size={18} />
+                        </div>
+                        <span className="font-bold text-sm">Müfredat Özeti</span>
+                    </button>
+
+                    <div className="h-px bg-slate-800/50 mx-2" />
+
                     {units.map((unit) => {
                         const isExpanded = expandedUnits[unit.id];
                         return (

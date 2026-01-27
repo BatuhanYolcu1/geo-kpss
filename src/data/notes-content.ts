@@ -78,5 +78,59 @@ Yazlar sıcak ve kurak, kışlar soğuk ve kar yağışlıdır. Bitki örtüsü 
                 ]
             }
         ]
+    },
+    {
+        id: 'unit-03',
+        title: 'Beşeri Coğrafya',
+        icon: 'Users',
+        sections: [
+            {
+                id: 'nufus',
+                title: 'Nüfus ve Yerleşme',
+                content: `Türkiye nüfusu kıyı bölgelerde ve büyük şehirlerde toplanmıştır. İç kesimlerde nüfus yoğunluğu azdır.
+
+### Yerleşme Tipleri
+Türkiye'de yerleşmeler dokularına göre toplu ve dağınık olarak ayrılır. Karadeniz'de dağınık, diğer bölgelerde toplu yerleşme yaygındır.`,
+                atlasLink: { coords: { lat: 41.0, lng: 29.0, zoom: 7 } },
+                warnings: [
+                    'Nüfus yoğunluğu en fazla olan bölge Marmara, en az olan bölge ise Karadeniz (veya Doğu Anadolu - güncel verilere göre Tunceli ili bazında düşüktür) bölgesidir.'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'unit-04',
+        title: 'Ekonomik Coğrafya',
+        icon: 'TrendingUp',
+        sections: [
+            {
+                id: 'madenler',
+                title: 'Madenler ve Enerji Kaynakları',
+                content: `Türkiye maden çeşitliliği bakımından zengindir. Bor, mermer, krom gibi madenlerde dünya çapında öneme sahibiz.
+
+### Önemli Madenler
+- **Bor:** Dünya rezervinin %73'ü Türkiye'dedir (Eskişehir, Kütahya, Balıkesir).
+- **Demir:** Sivas (Divriği) ve Malatya (Hekimhan).
+- **Linyit:** En yaygın madenimizdir (En çok Afşin-Elbistan).`,
+                atlasLink: { layerId: 'mines' },
+                mnemonics: [
+                    {
+                        title: 'Bor Çıkarım Yerleri',
+                        text: 'BEKEB (Bandırma, Emet, Kırka, Emet, Bigadiç)'
+                    }
+                ]
+            },
+            {
+                id: 'tarim-hayvancilik',
+                title: 'Tarım ve Hayvancılık',
+                content: `Türkiye'de tarımsal verim modern yöntemlerle (intansif) artmaktadır.
+
+### Önemli Ürünler
+- **Fındık/Çay:** Karadeniz.
+- **Pamuk:** Şanlıurfa (GAP sonrası).
+- **Zeytin:** Ege ve Marmara.`,
+                atlasLink: { layerId: 'agriculture' }
+            }
+        ]
     }
 ];

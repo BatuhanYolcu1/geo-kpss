@@ -11,10 +11,11 @@ import MnemonicBox from './MnemonicBox';
 import Link from 'next/link';
 
 interface NoteContentProps {
-    section: NoteSection;
+    section: NoteSection | null;
 }
 
 export default function NoteContent({ section }: NoteContentProps) {
+    if (!section) return null;
 
     const renderAtlasButton = () => {
         if (!section.atlasLink) return null;
