@@ -360,6 +360,425 @@
                     40.2000
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-19",
+                "name": "Silifke Ovası",
+                "nameEn": "Silifke Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "area": 250,
+                "region": "Akdeniz",
+                "kpssNote": "Göksu Nehri'nin deltasıdır. Mersin'de yer alır. Çilek ve pirinç tarımı ile meşhurdur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.9500,
+                    36.3500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-20",
+                "name": "Tefenni Ovası",
+                "nameEn": "Tefenni Plain",
+                "type": "Karstik Ova (Polye)",
+                "category": "physical",
+                "region": "Akdeniz",
+                "kpssNote": "TAKKE kodlamasındaki 'T' harfidir. Göller Yöresi'nde bulunur. Karstik çökme sonucu oluşmuştur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.7833,
+                    37.3000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-21",
+                "name": "Acıpayam Ovası",
+                "nameEn": "Acipayam Plain",
+                "type": "Karstik Ova (Polye)",
+                "category": "physical",
+                "region": "Ege",
+                "kpssNote": "TAKKE kodlamasındaki 'A' harfidir. Denizli'de yer alır. Karstik oluşumlu verimli bir ovadır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.3500,
+                    37.4333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-22",
+                "name": "Korkuteli Ovası",
+                "nameEn": "Korkuteli Plain",
+                "type": "Karstik Ova (Polye)",
+                "category": "physical",
+                "region": "Akdeniz",
+                "kpssNote": "TAKKE kodlamasındaki ilk 'K' harfidir. Antalya'nın yayla kesiminde yer alır. Meyvecilik gelişmiştir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.2000,
+                    37.0667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-23",
+                "name": "Kestel Ovası",
+                "nameEn": "Kestel Plain",
+                "type": "Karstik Ova (Polye)",
+                "category": "physical",
+                "region": "Akdeniz",
+                "kpssNote": "TAKKE kodlamasındaki 'Ke' kısmıdır. Burdur ve çevresinde yer alan karstik bir polyedir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.1333,
+                    37.4500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-24",
+                "name": "Elmalı Ovası",
+                "nameEn": "Elmali Plain",
+                "type": "Karstik Ova (Polye)",
+                "category": "physical",
+                "region": "Akdeniz",
+                "kpssNote": "TAKKE kodlamasındaki 'E' harfidir. Antalya'da yer alır. Elma üretimi ve yayla turizmi ile bilinir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.9167,
+                    36.7333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-25",
+                "name": "Menemen Ovası",
+                "nameEn": "Menemen Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "region": "Ege",
+                "kpssNote": "Gediz Nehri'nin deltasıdır. İzmir'de yer alır. Sebzecilik ve pamuk tarımı yoğun yapılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.0667,
+                    38.6000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-26",
+                "name": "Suluova",
+                "nameEn": "Suluova Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "Karadeniz",
+                "kpssNote": "Amasya'da yer alır. Kuzey Anadolu Fay Hattı (KAF) üzerindeki çöküntü ovalarındandır. Şeker pancarı meşhurdur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.6500,
+                    40.8333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-27",
+                "name": "Merzifon Ovası",
+                "nameEn": "Merzifon Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "Karadeniz",
+                "kpssNote": "Amasya'nın batısında yer alan KAF kökenli bir ovadır. Ulaşım kavşak noktalarından biridir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.4667,
+                    40.8667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-28",
+                "name": "Niksar Ovası",
+                "nameEn": "Niksar Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "Karadeniz",
+                "kpssNote": "Tokat'ta Kelkit Çayı üzerinde yer alan KAF kökenli bir ovadır. Verimli alüvyonlarla kaplıdır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.9500,
+                    40.5833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-29",
+                "name": "Erbaa Ovası",
+                "nameEn": "Erbaa Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "Karadeniz",
+                "kpssNote": "Tokat'ta KAF üzerinde yer alır. Tütün ve yaprak (bağcılık) üretimi ile bilinir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.5667,
+                    40.6667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-30",
+                "name": "Eskişehir Ovası",
+                "nameEn": "Eskisehir Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "İç Anadolu",
+                "kpssNote": "Porsuk Çayı boyunca uzanan çöküntü ovasıdır. Tahıl, şeker pancarı ve endüstriyel tarım yapılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5167,
+                    39.7667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-31",
+                "name": "Aksaray Ovası",
+                "nameEn": "Aksaray Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "İç Anadolu",
+                "kpssNote": "Hasandağı volkanizması ve çökme sonucu oluşmuştur. Arpa ve buğday tarımı yaygındır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.0333,
+                    38.3667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-32",
+                "name": "Kayseri Ovası",
+                "nameEn": "Kayseri Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "İç Anadolu",
+                "kpssNote": "Erciyes Dağı'nın kuzeyinde yer alan yüksek bir ovadır. Tektonik-Volkanik karma bir yapısı vardır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.4833,
+                    38.7333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-33",
+                "name": "Selçuk Ovası",
+                "nameEn": "Selcuk Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "region": "Ege",
+                "kpssNote": "Küçük Menderes'in deltasıdır. Efes antik kenti buradadır. Nehrin getirdiği alüvyonlar limanı doldurmuştur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.3667,
+                    37.9500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-34",
+                "name": "Balat Ovası",
+                "nameEn": "Balat Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "region": "Ege",
+                "kpssNote": "Büyük Menderes'in deltasıdır. Milet antik kenti burada yer alır. Alüvyon birikimi ile oluşmuştur."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.3000,
+                    37.5500
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-35",
+                "name": "Dikili Ovası",
+                "nameEn": "Dikili Plain",
+                "type": "Delta Ovası",
+                "category": "physical",
+                "region": "Ege",
+                "kpssNote": "Bakırçay'ın deltasıdır. İzmir'in kuzeyinde yer alır. Verimli tarım topraklarına sahiptir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.8833,
+                    39.0667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-36",
+                "name": "Düzce Ovası",
+                "nameEn": "Duzce Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "Karadeniz",
+                "kpssNote": "KAF üzerinde yer alan geniş bir çöküntü ovasıdır. Batı Karadeniz'in en önemli tarım ve sanayi alanlarındandır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.1500,
+                    40.8333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-37",
+                "name": "Bolu Ovası",
+                "nameEn": "Bolu Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "Karadeniz",
+                "kpssNote": "KAF üzerinde yer alır. Alüvyal topraklarla kaplı verimli bir çöküntü ovasıdır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.6000,
+                    40.7333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-38",
+                "name": "Pasinler Ovası",
+                "nameEn": "Pasinler Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "Doğu Anadolu",
+                "kpssNote": "Erzurum'un doğusunda yer alır. Aras Nehri havzasındadır. Patates ve tahıl tarımı yapılır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.6833,
+                    39.9833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-39",
+                "name": "Çivril Ovası",
+                "nameEn": "Civril Plain",
+                "type": "Karstik Ova (Polye)",
+                "category": "physical",
+                "region": "Ege",
+                "kpssNote": "Denizli'nin kuzeydoğusundadır. Işıklı Gölü çevresinde yer alan karstik-tektonik karma bir ovadır."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.7500,
+                    38.3000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "plain-40",
+                "name": "Develi Ovası",
+                "nameEn": "Develi Plain",
+                "type": "Tektonik Ova",
+                "category": "physical",
+                "region": "İç Anadolu",
+                "kpssNote": "Kayseri'de Erciyes'in güneyinde yer alır. Sultan Sazlığı bu ovanın en çukur yerindedir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.4833,
+                    38.3833
+                ]
+            }
         }
     ]
 }
