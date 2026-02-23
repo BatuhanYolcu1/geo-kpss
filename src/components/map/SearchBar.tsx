@@ -60,8 +60,8 @@ function buildSearchIndex(): SearchResult[] {
         { data: plateausData, category: 'plateaus' },
         { data: agricultureData, category: 'agriculture' },
         { data: industryData, category: 'industry' },
-        { data: tourismData, category: 'unesco-sites', filter: (p: any) => p.type.includes('UNESCO') },
-        { data: tourismData, category: 'national-parks', filter: (p: any) => p.type.includes('Milli Park') },
+        { data: tourismData, category: 'unesco-sites', filter: (p: Record<string, unknown>) => (p.type as string)?.includes('UNESCO') },
+        { data: tourismData, category: 'national-parks', filter: (p: Record<string, unknown>) => (p.type as string)?.includes('Milli Park') },
     ];
 
     for (const { data, category, filter } of datasets) {

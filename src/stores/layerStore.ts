@@ -219,7 +219,7 @@ export const useLayerStore = create<LayerStore>()(
         {
             name: 'geo-kpss-layers',
             version: 2,
-            migrate: (persistedState: any, version: number) => {
+            migrate: (persistedState: unknown, version: number) => {
                 if (version < 2) {
                     // If old version, we need to ensure tourism layers are added
                     const state = persistedState as LayerStore;

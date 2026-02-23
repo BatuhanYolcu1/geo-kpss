@@ -26,7 +26,7 @@ export default function UserGuide() {
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-rose-400">Verimli Kullanırsınız?</span>
                 </h2>
                 <p className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
-                    Statik öğrenmeyi bir kenara bırakın. Geo-KPSS'nin etkileşimli dünyasında
+                    Statik öğrenmeyi bir kenara bırakın. Geo-KPSS&apos;nin etkileşimli dünyasında
                     başarıya ulaşmak için takip etmeniz gereken 3 altın adım.
                 </p>
             </div>
@@ -91,7 +91,7 @@ export default function UserGuide() {
                             </h3>
                             <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8">
                                 Her marker bir bilgi hazinesidir. <br />
-                                <span className="text-white italic">"Bu yer neden önemli?"</span> <br />
+                                <span className="text-white italic">&quot;Bu yer neden önemli?&quot;</span> <br />
                                 sorusunun cevabını özel notlarla öğrenin.
                             </p>
 
@@ -143,7 +143,7 @@ export default function UserGuide() {
             {/* Bottom Slogan */}
             <div className="mt-20 text-center">
                 <p className="text-slate-500 font-bold italic opacity-40 text-xl tracking-tight">
-                    "Çünkü coğrafya, bakarak değil dokunarak öğrenilir."
+                    &quot;Çünkü coğrafya, bakarak değil dokunarak öğrenilir.&quot;
                 </p>
             </div>
         </section>

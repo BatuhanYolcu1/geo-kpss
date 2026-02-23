@@ -280,6 +280,7 @@ export default function MapClient() {
     }, [closePopup]);
 
     // Handle search result selection
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleSearchSelect = useCallback((result: any) => {
         // 1. Ensure the layer is visible
         const layer = layers.find(l => l.id === result.category);

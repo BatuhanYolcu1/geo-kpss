@@ -47,10 +47,15 @@ export default function FlashcardsPage() {
     const { markCard, updateStreak, getCardBox, streakDays, totalReviewed, totalCorrect, cardProgress } =
         useFlashcardStore();
 
+    const [sessionCards, setSessionCards] = useState<Flashcard[]>([]);
+
     // Shuffle cards for the session
-    const sessionCards = useMemo(() => {
-        if (!selectedDeck) return [];
-        return [...selectedDeck.cards].sort(() => Math.random() - 0.5);
+    useEffect(() => {
+        if (!selectedDeck) {
+            setSessionCards([]);
+            return;
+        }
+        setSessionCards([...selectedDeck.cards].sort(() => Math.random() - 0.5));
     }, [selectedDeck]);
 
     const currentCard = sessionCards[currentIndex];

@@ -25,7 +25,7 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
     const playSound = (frequency: number, type: OscillatorType, duration: number) => {
         try {
             if (!audioCtx.current) {
-                audioCtx.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+                audioCtx.current = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
             }
             const osc = audioCtx.current.createOscillator();
             const gain = audioCtx.current.createGain();
@@ -58,6 +58,7 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
     useEffect(() => {
         const rightItems = question.pairs.map((p, i) => ({ id: i, text: p.right }));
         rightItems.sort(() => Math.random() - 0.5);
+        // eslint-disable-next-line
         setShuffledRight(rightItems);
     }, [question.pairs]);
 
