@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import MapEngine from '@/components/map/MapEngine';
 import Link from 'next/link';
 import { Home } from 'lucide-react';
+
+export const metadata: Metadata = {
+    title: 'İnteraktif Atlas',
+    description: 'Türkiye coğrafyasını 12+ katmanlı interaktif haritalarla keşfedin. Dağlar, göller, nehirler, madenler, şehirler ve daha fazlası.',
+};
 
 export default function AtlasPage() {
     return (
