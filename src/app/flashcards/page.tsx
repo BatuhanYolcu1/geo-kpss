@@ -1,0 +1,409 @@
+'use client';
+
+import { useState, useCallback, useMemo, useEffect } from 'react';
+import Link from 'next/link';
+import {
+    Home,
+    ChevronRight,
+    RotateCcw,
+    Check,
+    X,
+    Flame,
+    Brain,
+    Sparkles,
+    ArrowLeft,
+    ArrowRight,
+    Layers,
+    Trophy,
+    Mountain,
+    Globe,
+    CloudRain,
+    TrendingUp,
+    Landmark,
+    Waves
+} from 'lucide-react';
+import { flashcardDecks } from '@/data/flashcard-data';
+import { useFlashcardStore } from '@/stores/flashcardStore';
+import type { Flashcard, FlashcardCategory } from '@/types/flashcard';
+
+const iconMap: Record<string, React.ReactNode> = {
+    Globe: <Globe size={24} />,
+    Mountain: <Mountain size={24} />,
+    Waves: <Waves size={24} />,
+    CloudRain: <CloudRain size={24} />,
+    TrendingUp: <TrendingUp size={24} />,
+    Landmark: <Landmark size={24} />,
+};
+
+export default function FlashcardsPage() {
+    const [selectedDeck, setSelectedDeck] = useState<FlashcardCategory | null>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isFlipped, setIsFlipped] = useState(false);
+    const [sessionCorrect, setSessionCorrect] = useState(0);
+    const [sessionTotal, setSessionTotal] = useState(0);
+    const [showResult, setShowResult] = useState(false);
+    const [animDir, setAnimDir] = useState<'left' | 'right' | null>(null);
+
+    const { markCard, updateStreak, getCardBox, streakDays, totalReviewed, totalCorrect, cardProgress } =
+        useFlashcardStore();
+
+    // Shuffle cards for the session
+    const sessionCards = useMemo(() => {
+        if (!selectedDeck) return [];
+        return [...selectedDeck.cards].sort(() => Math.random() - 0.5);
+    }, [selectedDeck]);
+
+    const currentCard = sessionCards[currentIndex];
+
+    const handleFlip = useCallback(() => {
+        setIsFlipped((prev) => !prev);
+    }, []);
+
+    const handleAnswer = useCallback(
+        (correct: boolean) => {
+            if (!currentCard) return;
+
+            markCard(currentCard.id, correct);
+            updateStreak();
+            setSessionTotal((prev) => prev + 1);
+            if (correct) setSessionCorrect((prev) => prev + 1);
+
+            // Animate out
+            setAnimDir(correct ? 'right' : 'left');
+
+            setTimeout(() => {
+                if (currentIndex < sessionCards.length - 1) {
+                    setCurrentIndex((prev) => prev + 1);
+                    setIsFlipped(false);
+                    setAnimDir(null);
+                } else {
+                    setShowResult(true);
+                    setAnimDir(null);
+                }
+            }, 300);
+        },
+        [currentCard, currentIndex, sessionCards.length, markCard, updateStreak]
+    );
+
+    const handleRestart = () => {
+        setCurrentIndex(0);
+        setIsFlipped(false);
+        setSessionCorrect(0);
+        setSessionTotal(0);
+        setShowResult(false);
+        setAnimDir(null);
+    };
+
+    const handleBackToDecks = () => {
+        setSelectedDeck(null);
+        handleRestart();
+    };
+
+    // Keyboard controls
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            if (!selectedDeck || showResult) return;
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                handleFlip();
+            } else if (e.key === 'ArrowRight' && isFlipped) {
+                handleAnswer(true);
+            } else if (e.key === 'ArrowLeft' && isFlipped) {
+                handleAnswer(false);
+            }
+        };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+    }, [selectedDeck, showResult, isFlipped, handleFlip, handleAnswer]);
+
+    // Get mastery percentage for a deck
+    const getDeckMastery = (deck: FlashcardCategory) => {
+        const total = deck.cards.length;
+        if (total === 0) return 0;
+        const mastered = deck.cards.filter((c) => (cardProgress[c.id]?.box || 1) >= 4).length;
+        return Math.round((mastered / total) * 100);
+    };
+
+    // ===== RESULT SCREEN =====
+    if (showResult && selectedDeck) {
+        const accuracy = sessionTotal > 0 ? Math.round((sessionCorrect / sessionTotal) * 100) : 0;
+        const rating = accuracy >= 90 ? '🏆 Mükemmel!' : accuracy >= 70 ? '⭐ Harika!' : accuracy >= 50 ? '👍 İyi!' : '💪 Devam Et!';
+
+        return (
+            <main className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-6">
+                <div className="max-w-md w-full text-center space-y-8">
+                    <div className="text-6xl mb-4">{accuracy >= 90 ? '🎉' : accuracy >= 50 ? '✨' : '📚'}</div>
+                    <h1 className="text-3xl font-black">{rating}</h1>
+                    <p className="text-slate-400">
+                        {selectedDeck.title} destesini tamamladınız!
+                    </p>
+
+                    <div className="grid grid-cols-3 gap-4">
+                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+                            <div className="text-2xl font-black text-emerald-400">{sessionCorrect}</div>
+                            <div className="text-xs text-slate-500 font-bold">Doğru</div>
+                        </div>
+                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+                            <div className="text-2xl font-black text-rose-400">{sessionTotal - sessionCorrect}</div>
+                            <div className="text-xs text-slate-500 font-bold">Yanlış</div>
+                        </div>
+                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+                            <div className="text-2xl font-black text-indigo-400">%{accuracy}</div>
+                            <div className="text-xs text-slate-500 font-bold">Başarı</div>
+                        </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                        <button
+                            onClick={handleRestart}
+                            className="flex-1 py-4 bg-indigo-500 hover:bg-indigo-600 rounded-2xl font-bold text-lg transition-colors flex items-center justify-center gap-2"
+                        >
+                            <RotateCcw size={20} /> Tekrar
+                        </button>
+                        <button
+                            onClick={handleBackToDecks}
+                            className="flex-1 py-4 bg-slate-800 hover:bg-slate-700 rounded-2xl font-bold text-lg transition-colors"
+                        >
+                            Desteler
+                        </button>
+                    </div>
+                </div>
+            </main>
+        );
+    }
+
+    // ===== STUDY SESSION =====
+    if (selectedDeck && currentCard) {
+        const progress = ((currentIndex + 1) / sessionCards.length) * 100;
+        const cardBox = getCardBox(currentCard.id);
+
+        return (
+            <main className="min-h-screen bg-[#050505] text-white flex flex-col">
+                {/* Top Bar */}
+                <div className="px-6 py-4 flex items-center justify-between border-b border-slate-800/50">
+                    <button
+                        onClick={handleBackToDecks}
+                        className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                    >
+                        <ArrowLeft size={18} />
+                        <span className="text-sm font-medium">Geri</span>
+                    </button>
+                    <div className="text-sm font-bold text-slate-400">
+                        {currentIndex + 1} / {sessionCards.length}
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                        <Flame size={16} className="text-orange-400" />
+                        <span className="font-bold text-orange-400">{streakDays}</span>
+                    </div>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="h-1 bg-slate-900">
+                    <div
+                        className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
+
+                {/* Card Area */}
+                <div className="flex-1 flex items-center justify-center p-6">
+                    <div className="w-full max-w-lg" style={{ perspective: '1000px' }}>
+                        <div
+                            onClick={handleFlip}
+                            className={`relative w-full min-h-[360px] cursor-pointer transition-all duration-500 ${animDir === 'right'
+                                ? 'translate-x-[120%] opacity-0 rotate-6'
+                                : animDir === 'left'
+                                    ? '-translate-x-[120%] opacity-0 -rotate-6'
+                                    : ''
+                                }`}
+                            style={{
+                                transformStyle: 'preserve-3d',
+                                transform: `${isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'} ${animDir === 'right' ? 'translateX(120%) rotate(6deg)' : animDir === 'left' ? 'translateX(-120%) rotate(-6deg)' : ''}`,
+                                transition: 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
+                            }}
+                        >
+                            {/* Front */}
+                            <div
+                                className="absolute inset-0 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700/50 p-8 flex flex-col items-center justify-center text-center shadow-2xl"
+                                style={{ backfaceVisibility: 'hidden' }}
+                            >
+                                <div className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 ${currentCard.difficulty === 'easy'
+                                    ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                                    : currentCard.difficulty === 'medium'
+                                        ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
+                                        : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
+                                    }`}>
+                                    {currentCard.difficulty === 'easy' ? 'Kolay' : currentCard.difficulty === 'medium' ? 'Orta' : 'Zor'}
+                                </div>
+                                <p className="text-xl md:text-2xl font-bold leading-relaxed">
+                                    {currentCard.front}
+                                </p>
+                                <div className="mt-8 flex items-center gap-2 text-slate-500 text-sm">
+                                    <RotateCcw size={14} />
+                                    <span>Cevabı görmek için tıkla</span>
+                                </div>
+
+                                {/* Box indicator */}
+                                <div className="absolute bottom-4 right-4 flex gap-1">
+                                    {[1, 2, 3, 4, 5].map((b) => (
+                                        <div
+                                            key={b}
+                                            className={`w-2 h-2 rounded-full ${b <= cardBox ? 'bg-indigo-400' : 'bg-slate-700'}`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Back */}
+                            <div
+                                className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-950 to-slate-900 border border-indigo-500/20 p-8 flex flex-col items-center justify-center text-center shadow-2xl"
+                                style={{
+                                    backfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                }}
+                            >
+                                <div className="text-lg md:text-xl leading-relaxed whitespace-pre-line text-slate-200">
+                                    {currentCard.back}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="pb-8 px-6">
+                    {isFlipped ? (
+                        <div className="flex gap-4 max-w-lg mx-auto">
+                            <button
+                                onClick={() => handleAnswer(false)}
+                                className="flex-1 py-4 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 rounded-2xl font-bold text-rose-400 transition-all flex items-center justify-center gap-2"
+                            >
+                                <X size={20} /> Bilmedim
+                            </button>
+                            <button
+                                onClick={() => handleAnswer(true)}
+                                className="flex-1 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 rounded-2xl font-bold text-emerald-400 transition-all flex items-center justify-center gap-2"
+                            >
+                                <Check size={20} /> Bildim
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="text-center text-slate-500 text-sm">
+                            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs mr-1">Space</kbd> ile çevir •
+                            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs mx-1">←</kbd> Bilmedim •
+                            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs ml-1">→</kbd> Bildim
+                        </div>
+                    )}
+                </div>
+            </main>
+        );
+    }
+
+    // ===== DECK SELECTION =====
+    return (
+        <main className="min-h-screen bg-[#050505] text-white">
+            {/* Background */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-500/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/10 rounded-full blur-[120px]" />
+            </div>
+
+            <div className="relative z-10 max-w-5xl mx-auto px-6 py-12">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-12">
+                    <Link
+                        href="/"
+                        className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                    >
+                        <Home size={20} />
+                        <span>Ana Sayfa</span>
+                    </Link>
+
+                    <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full">
+                            <Flame size={16} className="text-orange-400" />
+                            <span className="text-sm font-bold text-orange-300">{streakDays} gün seri</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                            <Brain size={16} className="text-indigo-400" />
+                            <span className="text-sm font-bold text-indigo-300">{totalReviewed} tekrar</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Title */}
+                <div className="text-center mb-12">
+                    <h1 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent">
+                        Flashcard Çalışması
+                    </h1>
+                    <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                        Spaced Repetition sistemiyle etkili öğrenme. Kartları çevir, bilginizi test edin.
+                    </p>
+                </div>
+
+                {/* Overall Stats */}
+                {totalReviewed > 0 && (
+                    <div className="grid grid-cols-3 gap-4 mb-12 max-w-lg mx-auto">
+                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-center">
+                            <div className="text-2xl font-black text-white">{totalReviewed}</div>
+                            <div className="text-xs text-slate-500 font-bold">Toplam Tekrar</div>
+                        </div>
+                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-center">
+                            <div className="text-2xl font-black text-emerald-400">
+                                %{totalReviewed > 0 ? Math.round((totalCorrect / totalReviewed) * 100) : 0}
+                            </div>
+                            <div className="text-xs text-slate-500 font-bold">Başarı</div>
+                        </div>
+                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-center">
+                            <div className="text-2xl font-black text-orange-400">{streakDays}</div>
+                            <div className="text-xs text-slate-500 font-bold">Gün Serisi</div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Deck Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {flashcardDecks.map((deck) => {
+                        const mastery = getDeckMastery(deck);
+                        return (
+                            <button
+                                key={deck.id}
+                                onClick={() => setSelectedDeck(deck)}
+                                className="group relative overflow-hidden rounded-3xl bg-slate-900/40 border border-slate-800 hover:border-slate-600 p-6 text-left transition-all duration-300 hover:bg-slate-900/60 hover:scale-[1.02] shadow-xl"
+                            >
+                                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${deck.color} opacity-[0.05] group-hover:opacity-10 transition-opacity blur-2xl translate-x-8 -translate-y-8`} />
+
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${deck.color} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                                    {iconMap[deck.icon] || <Layers size={24} />}
+                                </div>
+
+                                <h3 className="text-lg font-bold text-white mb-1">{deck.title}</h3>
+                                <p className="text-sm text-slate-400 mb-4">
+                                    {deck.cards.length} kart
+                                </p>
+
+                                {/* Mastery Bar */}
+                                <div className="space-y-2">
+                                    <div className="flex justify-between text-xs">
+                                        <span className="text-slate-500 font-medium">Hakimiyet</span>
+                                        <span className="text-slate-400 font-bold">%{mastery}</span>
+                                    </div>
+                                    <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                        <div
+                                            className={`h-full bg-gradient-to-r ${deck.color} rounded-full transition-all duration-500`}
+                                            style={{ width: `${mastery}%` }}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <ChevronRight size={20} className="text-white" />
+                                </div>
+                            </button>
+                        );
+                    })}
+                </div>
+            </div>
+        </main>
+    );
+}

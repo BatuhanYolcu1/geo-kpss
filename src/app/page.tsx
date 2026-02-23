@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Map, Brain, BookOpen, Sparkles, ChevronRight, Compass, Globe2, Layers, Zap, Target } from 'lucide-react';
+import { Map, Brain, BookOpen, Sparkles, ChevronRight, Compass, Globe2, Layers, Zap, Target, BarChart3 } from 'lucide-react';
 import UserGuide from '@/components/ui/UserGuide';
 
 const modules = [
@@ -36,6 +36,17 @@ const modules = [
     stats: 'Full Müfredat',
     tag: 'ÇALIŞ'
   },
+  {
+    id: 'flashcards',
+    title: 'Flashcard',
+    description: 'Spaced repetition ile etkili öğrenme. Kartları çevir, bilgiyi pekiştir, hakimiyetini artır.',
+    icon: Sparkles,
+    href: '/flashcards',
+    color: 'from-[#8B5CF6] to-[#6D28D9]',
+    accentColor: 'text-violet-400',
+    stats: '35+ Kart',
+    tag: 'TEKRAR ET'
+  },
 ];
 
 export default function DashboardPage() {
@@ -61,6 +72,8 @@ export default function DashboardPage() {
             <Link href="/atlas" className="hover:text-white transition-colors">ATLAS</Link>
             <Link href="/quiz" className="hover:text-white transition-colors">QUIZ</Link>
             <Link href="/notes" className="hover:text-white transition-colors">NOTLAR</Link>
+            <Link href="/flashcards" className="hover:text-white transition-colors">FLASHCARD</Link>
+            <Link href="/stats" className="hover:text-white transition-colors flex items-center gap-1"><BarChart3 size={14} /></Link>
           </div>
         </nav>
 
