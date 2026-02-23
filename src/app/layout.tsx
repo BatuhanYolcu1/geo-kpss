@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import BottomNav from "@/components/ui/BottomNav";
 import "./globals.css";
 
 const inter = Inter({
@@ -122,7 +123,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} antialiased`}>
+        {children}
+        <BottomNav />
+      </body>
     </html>
   );
 }
