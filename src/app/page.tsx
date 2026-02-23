@@ -187,8 +187,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center bg-white/[0.03] backdrop-blur-2xl border border-white/[0.06] px-6 py-3.5 rounded-2xl shadow-2xl shadow-black/20">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 transition-shadow group-hover:scale-105 transition-transform">
-                <Globe2 size={20} className="text-white" />
+              <div className="w-10 h-10 bg-[#E30A17] rounded-full flex items-center justify-center overflow-hidden shadow-lg shadow-red-500/25 group-hover:shadow-red-500/40 transition-shadow group-hover:scale-105 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" className="w-[110%] h-[110%]">
+                  <g transform="translate(-1, 0)">
+                    <path fill="#FFF" d="M22.25 18c0-3.957-2.673-7.291-6.326-8.544 1.258-.605 2.66-.956 4.143-.956 5.21 0 9.434 4.254 9.434 9.5s-4.224 9.5-9.434 9.5c-1.483 0-2.885-.351-4.143-.956 3.653-1.253 6.326-4.587 6.326-8.544z" />
+                    <path fill="#FFF" d="M27.24 16.592l-4.249.49-.661 4.226-2.5-3.418-4.22.697 1.838-3.811-3.219-2.844 4.103 1.22 1.996-3.731 1.701 3.874z" />
+                  </g>
+                </svg>
               </div>
               <div>
                 <span className="font-black text-lg tracking-tight text-white">GEO-KPSS</span>
@@ -429,8 +434,13 @@ export default function HomePage() {
           {/* ═══════ FOOTER ═══════ */}
           <footer className="text-center pb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="w-6 h-6 bg-indigo-500 rounded-lg flex items-center justify-center">
-                <Globe2 size={14} className="text-white" />
+              <div className="w-6 h-6 bg-[#E30A17] rounded-full flex items-center justify-center overflow-hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" className="w-[120%] h-[120%]">
+                  <g transform="translate(-1, 0)">
+                    <path fill="#FFF" d="M22.25 18c0-3.957-2.673-7.291-6.326-8.544 1.258-.605 2.66-.956 4.143-.956 5.21 0 9.434 4.254 9.434 9.5s-4.224 9.5-9.434 9.5c-1.483 0-2.885-.351-4.143-.956 3.653-1.253 6.326-4.587 6.326-8.544z" />
+                    <path fill="#FFF" d="M27.24 16.592l-4.249.49-.661 4.226-2.5-3.418-4.22.697 1.838-3.811-3.219-2.844 4.103 1.22 1.996-3.731 1.701 3.874z" />
+                  </g>
+                </svg>
               </div>
               <span className="font-black text-sm text-slate-500">GEO-KPSS</span>
             </div>
