@@ -22,6 +22,7 @@ export const useUserStore = create<UserStore>()(
             quizHistory: [],
             quizStats: defaultQuizStats,
             sidebarOpen: true,
+            highlights: [],
 
             addNote: (noteData) => {
                 const note: GeoNote = {
@@ -90,6 +91,23 @@ export const useUserStore = create<UserStore>()(
             toggleSidebar: () => {
                 set((state) => ({
                     sidebarOpen: !state.sidebarOpen,
+                }));
+            },
+
+            addHighlight: (data) => {
+                const highlight = {
+                    id: `hl-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+                    createdAt: new Date().toISOString(),
+                    ...data,
+                };
+                set((state) => ({
+                    highlights: [...state.highlights, highlight],
+                }));
+            },
+
+            removeHighlight: (id) => {
+                set((state) => ({
+                    highlights: state.highlights.filter((h) => h.id !== id),
                 }));
             },
         }),

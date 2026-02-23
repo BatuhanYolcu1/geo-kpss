@@ -25,6 +25,12 @@ export interface NoteSection {
     teacherNotes?: string[];
     examAnalysis?: string;
     keyPoints?: string[];
+    inlineQuizzes?: {
+        question: string;
+        options: string[];
+        correctOptionIndex: number;
+        explanation?: string;
+    }[];
 }
 
 export interface NoteUnit {

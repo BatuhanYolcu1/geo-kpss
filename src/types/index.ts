@@ -125,16 +125,27 @@ export interface LayerStore {
     getActiveLayers: () => LayerConfig[];
 }
 
+export interface Highlight {
+    id: string;
+    sectionId: string;
+    text: string;
+    color: 'yellow' | 'green' | 'pink';
+    createdAt: string;
+}
+
 export interface UserStore {
     notes: GeoNote[];
     quizHistory: QuizSession[];
     quizStats: QuizStats;
     sidebarOpen: boolean;
+    highlights: Highlight[];
     addNote: (note: Omit<GeoNote, 'id' | 'createdAt'>) => void;
     updateNote: (id: string, text: string) => void;
     deleteNote: (id: string) => void;
     addQuizSession: (session: QuizSession) => void;
     toggleSidebar: () => void;
+    addHighlight: (highlight: Omit<Highlight, 'id' | 'createdAt'>) => void;
+    removeHighlight: (id: string) => void;
 }
 
 // ===== Map Types =====
