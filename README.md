@@ -76,7 +76,7 @@ npm install
 # Geliştirme sunucusunu başlatın
 npm run dev
 ```
-
+hızlı link : https://geo-kpss.vercel.app/
 Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
 
 ### Production Build
