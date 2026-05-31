@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/batuhan/Downloads/geo-kpss && git diff --quiet && git diff --staged --quiet || (git add . && git commit -m 'chore: auto-save Claude Code changes' && git push && echo 'Pushed to GitHub ✓')"
+          }
+        ]
+      }
+    ]
+  }
+}
