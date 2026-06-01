@@ -10,32 +10,38 @@ interface Props {
     disabled: boolean;
 }
 
+const categoryLabel: Record<string, string> = {
+    physical: 'Fiziki Coğrafya',
+    economic: 'Ekonomik Coğrafya',
+    regions: 'Coğrafi Bölgeler',
+    human: 'Nüfus & Yerleşme',
+    mixed: 'Karma',
+    tourism: 'Turizm',
+};
+
+const difficultyLabel: Record<string, string> = {
+    easy: 'Kolay',
+    medium: 'Orta Seviye',
+    hard: 'Zor',
+};
+
 export default function MultipleChoiceQuestion({ question, onAnswer, disabled }: Props) {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
     const handleSelect = (index: number) => {
         if (disabled || selectedIndex !== null) return;
-
         setSelectedIndex(index);
         const isCorrect = index === question.correctIndex;
-        const points = isCorrect ? question.points : 0;
-        onAnswer(isCorrect, points, question.explanation);
+        onAnswer(isCorrect, isCorrect ? question.points : 0, question.explanation);
     };
 
     const getOptionStyle = (index: number) => {
         if (selectedIndex === null) {
-            return 'glass-premium border-white/5 hover:border-indigo-500/50 hover:bg-white/5 hover:translate-x-1';
+            return 'bg-white border-[#abb4ac]/40 hover:border-[#386948]/50 hover:bg-[#f0f5ee] hover:translate-x-1';
         }
-
-        if (index === question.correctIndex) {
-            return 'bg-emerald-500/20 border-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.2)]';
-        }
-
-        if (index === selectedIndex && index !== question.correctIndex) {
-            return 'bg-rose-500/20 border-rose-500/50 animate-shake';
-        }
-
-        return 'glass-premium border-white/5 opacity-40 grayscale';
+        if (index === question.correctIndex) return 'bg-emerald-50 border-emerald-400 shadow-sm';
+        if (index === selectedIndex) return 'bg-rose-50 border-rose-400 animate-shake';
+        return 'bg-[#f0f5ee] border-[#abb4ac]/30 opacity-50';
     };
 
     const optionLabels = ['A', 'B', 'C', 'D', 'E'];
@@ -44,41 +50,37 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
         <div className="flex items-center justify-center min-h-screen pt-24 pb-12 px-4 bg-[#f7faf4]">
             <div className="w-full max-w-2xl animate-slide-up">
 
-                {/* Question Info & Card */}
-                <div className="relative mb-8 group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-
-                    <div className="relative glass-premium rounded-[2rem] p-8 md:p-10 border-white/10 shadow-3xl">
-                        {/* Tags */}
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="flex items-center gap-1.5 px-3 py-1 bg-indigo-500/10 rounded-full border border-indigo-500/20">
-                                <BookOpen size={12} className="text-indigo-400" />
-                                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">
-                                    {question.category === 'physical' ? 'Fiziki' : question.category === 'economic' ? 'Ekonomik' : 'Genel'} COĞRAFYA
-                                </span>
-                            </div>
-                            <div className="px-3 py-1 bg-white/5 rounded-full border border-white/10">
-                                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                                    {question.difficulty === 'easy' ? 'Kolay' : question.difficulty === 'medium' ? 'Orta' : 'Zor'} SEVİYE
-                                </span>
-                            </div>
+                {/* Question Card */}
+                <div className="bg-white rounded-3xl p-8 md:p-10 border border-[#abb4ac]/40 shadow-md mb-8">
+                    {/* Tags */}
+                    <div className="flex items-center gap-3 mb-6 flex-wrap">
+                        <div className="flex items-center gap-1.5 px-3 py-1 bg-[#386948]/10 rounded-full border border-[#386948]/20">
+                            <BookOpen size={12} className="text-[#386948]" />
+                            <span className="text-[10px] font-black text-[#386948] uppercase tracking-widest">
+                                {categoryLabel[question.category] ?? question.category}
+                            </span>
                         </div>
-
-                        {/* Question Text */}
-                        <div className="relative">
-                            <Sparkles size={24} className="absolute -top-6 -left-6 text-indigo-500/20" />
-                            <h2 className="text-2xl md:text-3xl font-black text-white leading-tight tracking-tight">
-                                {question.text}
-                            </h2>
+                        <div className="px-3 py-1 bg-[#f0f5ee] rounded-full border border-[#abb4ac]/40">
+                            <span className="text-[10px] font-black text-[#59615a] uppercase tracking-widest">
+                                {difficultyLabel[question.difficulty] ?? question.difficulty}
+                            </span>
                         </div>
+                    </div>
+
+                    {/* Question Text */}
+                    <div className="relative">
+                        <Sparkles size={20} className="absolute -top-4 -left-4 text-[#386948]/20" />
+                        <h2 className="text-xl md:text-2xl font-black text-[#2c342e] leading-tight tracking-tight">
+                            {question.text}
+                        </h2>
                     </div>
                 </div>
 
-                {/* Options Section */}
-                <div className="space-y-4">
-                    <div className="flex items-center gap-2 mb-2 ml-4">
-                        <Target size={14} className="text-slate-500" />
-                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">LÜTFEN BİR SEÇENEK BELİRLEYİN</span>
+                {/* Options */}
+                <div className="space-y-3">
+                    <div className="flex items-center gap-2 mb-3 ml-2">
+                        <Target size={13} className="text-[#747d75]" />
+                        <span className="text-[10px] font-black text-[#747d75] uppercase tracking-widest">LÜTFEN BİR SEÇENEK BELİRLEYİN</span>
                     </div>
 
                     {question.options.map((option, index) => (
@@ -86,46 +88,38 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
                             key={index}
                             onClick={() => handleSelect(index)}
                             disabled={disabled || selectedIndex !== null}
-                            className={`
-                                w-full flex items-center gap-5 p-5 rounded-2xl border-2 transition-all duration-300 relative group overflow-hidden
+                            className={`w-full flex items-center gap-4 p-4 rounded-2xl border-2 transition-all duration-200 text-left group
                                 ${getOptionStyle(index)}
-                                ${disabled || selectedIndex !== null ? 'cursor-default' : 'cursor-pointer'}
-                            `}
+                                ${disabled || selectedIndex !== null ? 'cursor-default' : 'cursor-pointer'}`}
                         >
-                            {/* Option Index Label */}
-                            <div className={`
-                                w-11 h-11 rounded-xl flex items-center justify-center font-black text-lg transition-all
+                            {/* Label */}
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-base shrink-0 transition-all
                                 ${selectedIndex === null
-                                    ? 'bg-white/5 text-slate-400 group-hover:bg-indigo-500 group-hover:text-white group-hover:rotate-3'
+                                    ? 'bg-[#f0f5ee] text-[#59615a] group-hover:bg-[#386948] group-hover:text-white'
                                     : index === question.correctIndex
-                                        ? 'bg-emerald-500 text-white animate-pulse-success'
+                                        ? 'bg-emerald-500 text-white'
                                         : index === selectedIndex
                                             ? 'bg-rose-500 text-white'
-                                            : 'bg-white/5 text-slate-600'
-                                }
-                            `}>
+                                            : 'bg-[#e9f0e8] text-[#747d75]'}`}>
                                 {optionLabels[index]}
                             </div>
 
-                            {/* Option Text */}
-                            <span className={`text-left font-bold text-lg flex-1 transition-colors ${selectedIndex !== null && index !== question.correctIndex && index !== selectedIndex
-                                    ? 'text-slate-600'
-                                    : 'text-white'
-                                }`}>
+                            {/* Text */}
+                            <span className={`font-semibold text-base flex-1 transition-colors
+                                ${selectedIndex !== null && index !== question.correctIndex && index !== selectedIndex
+                                    ? 'text-[#747d75]'
+                                    : 'text-[#2c342e]'}`}>
                                 {option}
                             </span>
 
-                            {/* Hover Decorative Element */}
                             {selectedIndex === null && (
-                                <div className="absolute right-4 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1">
-                                    <Sparkles size={16} className="text-indigo-400/50" />
-                                </div>
+                                <Sparkles size={14} className="text-[#386948]/30 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                             )}
                         </button>
                     ))}
                 </div>
 
-                <p className="mt-8 text-center text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+                <p className="mt-8 text-center text-[10px] font-bold text-[#747d75] uppercase tracking-widest">
                     DOĞRU CEVAP İÇİN +{question.points} PUAN KAZANACAKSINIZ
                 </p>
             </div>
