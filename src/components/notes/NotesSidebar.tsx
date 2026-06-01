@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown, ChevronRight, BookOpen, Mountain, CloudRain, Users, TrendingUp } from 'lucide-react';
+import { ChevronDown, ChevronRight, BookOpen, Mountain, CloudRain, Users, TrendingUp, Globe, Waves, Zap, Factory, MapPin, AlertTriangle } from 'lucide-react';
 import { NoteUnit } from '@/types/notes';
 
 interface NotesSidebarProps {
@@ -28,7 +28,12 @@ export default function NotesSidebar({ units, activeSectionId, onSelectSection }
             case 'CloudRain': return <CloudRain size={18} />;
             case 'Users': return <Users size={18} />;
             case 'TrendingUp': return <TrendingUp size={18} />;
-            case 'Globe': return <BookOpen size={18} />;
+            case 'Globe': return <Globe size={18} />;
+            case 'Waves': return <Waves size={18} />;
+            case 'Zap': return <Zap size={18} />;
+            case 'Factory': return <Factory size={18} />;
+            case 'MapPin': return <MapPin size={18} />;
+            case 'AlertTriangle': return <AlertTriangle size={18} />;
             default: return <BookOpen size={18} />;
         }
     };

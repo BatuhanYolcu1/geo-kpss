@@ -4,7 +4,20 @@ import { useState, useEffect } from 'react';
 import { curriculum } from '@/data/curriculum';
 import NotesSidebar from '@/components/notes/NotesSidebar';
 import NoteContent from '@/components/notes/NoteContent';
-import { Home, Menu, X, ArrowLeft, BookOpen, ChevronRight, Mountain, CloudRain, TrendingUp, Globe } from 'lucide-react';
+import { Home, Menu, X, ArrowLeft, BookOpen, ChevronRight, Mountain, CloudRain, TrendingUp, Globe, Waves, Zap, Factory, MapPin, AlertTriangle, Users } from 'lucide-react';
+
+const unitIconMap: Record<string, React.ReactNode> = {
+    Globe: <Globe size={24} />,
+    Mountain: <Mountain size={24} />,
+    CloudRain: <CloudRain size={24} />,
+    Users: <Users size={24} />,
+    TrendingUp: <TrendingUp size={24} />,
+    Zap: <Zap size={24} />,
+    Factory: <Factory size={24} />,
+    MapPin: <MapPin size={24} />,
+    Waves: <Waves size={24} />,
+    AlertTriangle: <AlertTriangle size={24} />,
+};
 import Link from 'next/link';
 
 export default function NotesPage() {
@@ -105,7 +118,7 @@ export default function NotesPage() {
                                         >
                                             <div className="flex items-center gap-4 mb-6">
                                                 <div className="w-12 h-12 bg-[#386948]/10 rounded-2xl flex items-center justify-center text-[#386948] group-hover:bg-[#386948] group-hover:text-white transition-all">
-                                                    {unit.icon === 'Mountain' ? <Mountain size={24} /> : unit.icon === 'Globe' ? <Globe size={24} /> : <CloudRain size={24} />}
+                                                    {unitIconMap[unit.icon] ?? <BookOpen size={24} />}
                                                 </div>
                                                 <h2 className="text-2xl font-bold text-[#2c342e] leading-tight">
                                                     {unit.title}

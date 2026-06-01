@@ -89,7 +89,7 @@ const modules = [
     iconBg: 'bg-emerald-100',
     iconColor: 'text-emerald-600',
     accent: 'border-emerald-200 hover:border-emerald-400',
-    badge: '120+ Soru',
+    badge: '239+ Soru',
     tag: 'TEST ET',
   },
   {
@@ -115,7 +115,7 @@ const modules = [
     iconBg: 'bg-violet-100',
     iconColor: 'text-violet-600',
     accent: 'border-violet-200 hover:border-violet-400',
-    badge: '35+ Kart',
+    badge: '80+ Kart',
     tag: 'TEKRAR ET',
   },
   {
@@ -143,8 +143,8 @@ const features = [
 const stats = [
   { icon: Target, value: 100, suffix: '%', label: 'Müfredat', color: 'text-emerald-600', bg: 'bg-emerald-50' },
   { icon: Layers, value: 12, suffix: '+', label: 'Katman', color: 'text-indigo-600', bg: 'bg-indigo-50' },
-  { icon: Brain, value: 120, suffix: '+', label: 'Soru', color: 'text-violet-600', bg: 'bg-violet-50' },
-  { icon: Star, value: 35, suffix: '+', label: 'Flashcard', color: 'text-amber-600', bg: 'bg-amber-50' },
+  { icon: Brain, value: 239, suffix: '+', label: 'Soru', color: 'text-violet-600', bg: 'bg-violet-50' },
+  { icon: Star, value: 80, suffix: '+', label: 'Flashcard', color: 'text-amber-600', bg: 'bg-amber-50' },
 ];
 
 // ─── MAIN PAGE ───────────────────────────────────────────────────

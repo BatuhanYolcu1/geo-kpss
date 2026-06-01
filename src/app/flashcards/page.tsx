@@ -20,7 +20,11 @@ import {
     CloudRain,
     TrendingUp,
     Landmark,
-    Waves
+    Waves,
+    MapPin,
+    Sprout,
+    Users,
+    AlertTriangle,
 } from 'lucide-react';
 import { flashcardDecks } from '@/data/flashcard-data';
 import { useFlashcardStore } from '@/stores/flashcardStore';
@@ -33,6 +37,10 @@ const iconMap: Record<string, React.ReactNode> = {
     CloudRain: <CloudRain size={24} />,
     TrendingUp: <TrendingUp size={24} />,
     Landmark: <Landmark size={24} />,
+    MapPin: <MapPin size={24} />,
+    Sprout: <Sprout size={24} />,
+    Users: <Users size={24} />,
+    AlertTriangle: <AlertTriangle size={24} />,
 };
 
 export default function FlashcardsPage() {
