@@ -17,19 +17,12 @@ import {
   Target,
   BarChart3,
   Zap,
+  Users,
   TrendingUp,
 } from 'lucide-react';
 
 // ─── ANIMATED COUNTER ───────────────────────────────────────────
-function AnimatedCounter({
-  target,
-  suffix = '',
-  duration = 2000,
-}: {
-  target: number;
-  suffix?: string;
-  duration?: number;
-}) {
+function AnimatedCounter({ target, suffix = '', duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -55,289 +48,314 @@ function AnimatedCounter({
     return () => observer.disconnect();
   }, [target, duration]);
 
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
+// ─── TURKEY MAP SVG ───────────────────────────────────────────
+function TurkeyMap() {
   return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
+    <div className="relative w-full">
+      {/* Card */}
+      <div className="relative bg-[#e9f0e8] rounded-3xl border border-[#abb4ac]/30 p-8 overflow-hidden">
+        {/* Topographic rings */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[70%] rounded-full border border-[#386948]/15" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[55%] rounded-full border border-[#386948]/15" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[40%] rounded-full border border-[#386948]/10" />
+        </div>
+
+        {/* Turkey SVG */}
+        <svg
+          viewBox="0 0 500 240"
+          className="relative w-full drop-shadow-[0_12px_28px_rgba(56,105,72,0.40)]"
+          aria-label="Türkiye Haritası"
+        >
+          <defs>
+            <linearGradient id="mapGrad" x1="10%" y1="0%" x2="90%" y2="100%">
+              <stop offset="0%" stopColor="#5ca877" />
+              <stop offset="55%" stopColor="#386948" />
+              <stop offset="100%" stopColor="#2a5539" />
+            </linearGradient>
+            <filter id="mapShadow" x="-5%" y="-10%" width="115%" height="130%">
+              <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#1e4028" floodOpacity="0.30" />
+            </filter>
+          </defs>
+          {/* Simplified Turkey outline — Thrace + Anatolia */}
+          <path
+            fill="url(#mapGrad)"
+            filter="url(#mapShadow)"
+            d="
+              M 18,96
+              L 28,78 L 44,66 L 60,60 L 76,56
+              L 92,52 L 110,46 L 128,41 L 148,37
+              L 168,34 L 188,32 L 208,31 L 228,30
+              L 248,30 L 268,32 L 288,35 L 308,39
+              L 328,44 L 348,50 L 366,58 L 382,68
+              L 395,80 L 403,94 L 406,108 L 404,122
+              L 398,133 L 388,141 L 374,147 L 358,149
+              L 342,147 L 328,142 L 315,146 L 302,152
+              L 287,156 L 270,158 L 252,158 L 234,155
+              L 218,150 L 203,148 L 188,151 L 172,154
+              L 155,153 L 138,148 L 120,140 L 102,132
+              L 84,124 L 64,116 L 44,108 L 28,102 Z
+            "
+          />
+          {/* Thrace protrusion (European side) */}
+          <path
+            fill="url(#mapGrad)"
+            filter="url(#mapShadow)"
+            d="
+              M 18,96 L 12,88 L 10,76 L 14,64
+              L 22,56 L 32,52 L 42,54 L 48,62
+              L 44,66 L 28,78 Z
+            "
+          />
+        </svg>
+
+        {/* Floating badge */}
+        <div className="absolute top-5 right-5 flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#abb4ac]/40 rounded-full px-3 py-1.5 shadow-sm">
+          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+          <span className="text-xs font-bold text-[#2c342e]">İnteraktif Harita</span>
+        </div>
+
+        {/* City dots */}
+        {[
+          { cx: 58, cy: 72, r: 3, label: 'İstanbul' },
+          { cx: 178, cy: 88, r: 2.5, label: 'Ankara' },
+          { cx: 108, cy: 108, r: 2, label: 'İzmir' },
+          { cx: 254, cy: 118, r: 2, label: 'Konya' },
+          { cx: 336, cy: 100, r: 2, label: 'Diyarbakır' },
+          { cx: 368, cy: 108, r: 2.5, label: 'Van' },
+        ].map(dot => (
+          <svg key={dot.label} className="absolute inset-0 w-full h-full" viewBox="0 0 500 240" style={{ pointerEvents: 'none' }}>
+            <circle cx={dot.cx} cy={dot.cy} r={dot.r + 3} fill="white" opacity="0.3" />
+            <circle cx={dot.cx} cy={dot.cy} r={dot.r} fill="white" opacity="0.9" />
+          </svg>
+        ))}
+      </div>
+    </div>
   );
 }
 
-// ─── MODULE DATA ────────────────────────────────────────────────
-const modules = [
+// ─── FEATURE CARDS ───────────────────────────────────────────
+const features = [
   {
-    id: 'atlas',
-    title: 'İnteraktif Atlas',
-    description: 'Katmanlı haritalarla Türkiye coğrafyasını keşfet. Dağlar, göller, madenler ve daha fazlası.',
     icon: Map,
-    href: '/atlas',
-    color: 'indigo',
-    iconBg: 'bg-indigo-100',
-    iconColor: 'text-indigo-600',
-    accent: 'border-indigo-200 hover:border-indigo-400',
-    badge: '229+ Özellik',
-    tag: 'KEŞFET',
-    featured: true,
+    title: 'İnteraktif Haritalar',
+    desc: 'Katmanlar ile Türkiye\'nin fiziki ve beşeri coğrafyasını keşfet.',
+    iconBg: 'bg-[#386948]/10',
+    iconColor: 'text-[#386948]',
   },
   {
-    id: 'quiz',
-    title: 'Quiz Modu',
-    description: 'KPSS formatında 4 farklı soru tipiyle kendini sına.',
     icon: Brain,
-    href: '/quiz',
-    color: 'emerald',
+    title: 'Kapsamlı Soru Bankası',
+    desc: '239+ KPSS formatında soru, 4 farklı mod ile kendini test et.',
     iconBg: 'bg-emerald-100',
-    iconColor: 'text-emerald-600',
-    accent: 'border-emerald-200 hover:border-emerald-400',
-    badge: '239+ Soru',
-    tag: 'TEST ET',
+    iconColor: 'text-emerald-700',
   },
   {
-    id: 'notes',
-    title: 'Ders Notları',
-    description: 'Tam müfredat, kodlamalar ve analizler.',
-    icon: BookOpen,
-    href: '/notes',
-    color: 'rose',
-    iconBg: 'bg-rose-100',
-    iconColor: 'text-rose-600',
-    accent: 'border-rose-200 hover:border-rose-400',
-    badge: 'Full Müfredat',
-    tag: 'ÇALIŞ',
-  },
-  {
-    id: 'flashcards',
-    title: 'Flashcard',
-    description: 'Spaced repetition ile kalıcı öğrenme.',
-    icon: Sparkles,
-    href: '/flashcards',
-    color: 'violet',
-    iconBg: 'bg-violet-100',
-    iconColor: 'text-violet-600',
-    accent: 'border-violet-200 hover:border-violet-400',
-    badge: '80+ Kart',
-    tag: 'TEKRAR ET',
-  },
-  {
-    id: 'stats',
-    title: 'İstatistikler',
-    description: 'Quiz performansını analiz et.',
-    icon: BarChart3,
-    href: '/stats',
-    color: 'amber',
+    icon: TrendingUp,
+    title: 'Kişiselleştirilmiş Analiz',
+    desc: 'İstatistikler ile zayıf konularını bul ve öğrenme döngüsünü kapat.',
     iconBg: 'bg-amber-100',
-    iconColor: 'text-amber-600',
-    accent: 'border-amber-200 hover:border-amber-400',
-    badge: 'Gerçek Zamanlı',
-    tag: 'TAKİP ET',
+    iconColor: 'text-amber-700',
   },
 ];
 
-const features = [
-  { icon: MapPin, label: '12+ Harita Katmanı', desc: 'Dağlar, göller, madenler...', color: 'text-indigo-500', bg: 'bg-indigo-50' },
-  { icon: CheckCircle2, label: '4 Quiz Modu', desc: 'Harita, çoktan seçmeli, D/Y, eşleştirme', color: 'text-emerald-500', bg: 'bg-emerald-50' },
-  { icon: GraduationCap, label: 'KPSS Odaklı', desc: '2026 müfredatına %100 uyumlu', color: 'text-violet-500', bg: 'bg-violet-50' },
-  { icon: Clock, label: 'Spaced Repetition', desc: 'Leitner algoritması ile tekrar', color: 'text-rose-500', bg: 'bg-rose-50' },
+// ─── MODULE CARDS ───────────────────────────────────────────
+const modules = [
+  { id: 'atlas', title: 'İnteraktif Atlas', desc: 'Katmanlı haritalarla Türkiye coğrafyasını keşfet.', icon: Map, href: '/atlas', iconBg: 'bg-[#386948]/10', iconColor: 'text-[#386948]', accent: 'hover:border-[#386948]/40', badge: '229+ Özellik', tag: 'KEŞFET', featured: true },
+  { id: 'quiz', title: 'Quiz Modu', desc: 'KPSS formatında 4 farklı soru tipiyle kendini sına.', icon: Brain, href: '/quiz', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-700', accent: 'hover:border-emerald-400/60', badge: '239+ Soru', tag: 'TEST ET', featured: false },
+  { id: 'notes', title: 'Ders Notları', desc: 'Tam müfredat, kodlamalar ve analizler.', icon: BookOpen, href: '/notes', iconBg: 'bg-rose-100', iconColor: 'text-rose-600', accent: 'hover:border-rose-400/60', badge: 'Full Müfredat', tag: 'ÇALIŞ', featured: false },
+  { id: 'flashcards', title: 'Flashcard', desc: 'Spaced repetition ile kalıcı öğrenme.', icon: Sparkles, href: '/flashcards', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', accent: 'hover:border-violet-400/60', badge: '80+ Kart', tag: 'TEKRAR ET', featured: false },
+  { id: 'stats', title: 'İstatistikler', desc: 'Quiz performansını analiz et.', icon: BarChart3, href: '/stats', iconBg: 'bg-amber-100', iconColor: 'text-amber-600', accent: 'hover:border-amber-400/60', badge: 'Gerçek Zamanlı', tag: 'TAKİP ET', featured: false },
 ];
 
 const stats = [
-  { icon: Target, value: 100, suffix: '%', label: 'Müfredat', color: 'text-emerald-600', bg: 'bg-emerald-50' },
-  { icon: Layers, value: 12, suffix: '+', label: 'Katman', color: 'text-indigo-600', bg: 'bg-indigo-50' },
-  { icon: Brain, value: 239, suffix: '+', label: 'Soru', color: 'text-violet-600', bg: 'bg-violet-50' },
-  { icon: Star, value: 80, suffix: '+', label: 'Flashcard', color: 'text-amber-600', bg: 'bg-amber-50' },
+  { icon: Target, value: 100, suffix: '%', label: 'Müfredat', color: 'text-[#386948]', bg: 'bg-[#386948]/10' },
+  { icon: Layers, value: 12, suffix: '+', label: 'Katman', color: 'text-emerald-700', bg: 'bg-emerald-100' },
+  { icon: Brain, value: 239, suffix: '+', label: 'Soru', color: 'text-violet-600', bg: 'bg-violet-100' },
+  { icon: Star, value: 80, suffix: '+', label: 'Flashcard', color: 'text-amber-600', bg: 'bg-amber-100' },
 ];
 
-// ─── MAIN PAGE ───────────────────────────────────────────────────
+// ─── MAIN PAGE ───────────────────────────────────────────────
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] overflow-x-hidden">
 
-      {/* ── Subtle background blobs ── */}
+      {/* Subtle blobs */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-[700px] h-[700px] bg-[#b9efc5]/30 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-[#e9f0e8]/60 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-[#f0f5ee]/50 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#b9efc5]/25 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-[#e9f0e8]/50 rounded-full blur-3xl" />
       </div>
 
-      {/* ════════════ NAVIGATION ════════════ */}
+      {/* ═══ NAVIGATION ═══ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#abb4ac]/40">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-white border border-[#abb4ac]/40 flex items-center justify-center overflow-hidden shadow-sm group-hover:shadow-md transition-shadow shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-white border border-[#abb4ac]/40 flex items-center justify-center overflow-hidden shadow-sm shrink-0">
               <img src="/tr-circle-flag.svg" alt="Türkiye" className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="font-black text-base tracking-tight text-[#2c342e]">GEO-KPSS</span>
-              <div className="text-[9px] font-bold text-[#386948] tracking-[0.2em] uppercase leading-none">
-                KPSS 2026
-              </div>
+              <div className="text-[9px] font-bold text-[#386948] tracking-[0.2em] uppercase leading-none">KPSS 2026</div>
             </div>
           </Link>
 
-          {/* Nav links */}
           <div className="hidden lg:flex items-center gap-1">
             {[
-              { href: '/atlas', label: 'Atlas' },
-              { href: '/quiz', label: 'Quiz' },
-              { href: '/notes', label: 'Notlar' },
-              { href: '/flashcards', label: 'Flashcard' },
-              { href: '/stats', label: 'İstatistik' },
+              { href: '/', label: 'Ana Sayfa' },
+              { href: '/atlas', label: 'Haritalar' },
+              { href: '/notes', label: 'Özellikler' },
+              { href: '/quiz', label: 'Soru Bankası' },
             ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-lg transition-all duration-150"
-              >
+              <Link key={item.href} href={item.href}
+                className="px-4 py-2 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-lg transition-all duration-150">
                 {item.label}
               </Link>
             ))}
           </div>
 
-          {/* CTA */}
-          <Link
-            href="/quiz"
-            className="hidden md:flex items-center gap-2 px-5 py-2 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-xl text-sm font-bold shadow-sm shadow-[#386948]/20 hover:shadow-[#386948]/30 transition-all duration-150"
-          >
+          <Link href="/quiz"
+            className="hidden md:flex items-center gap-2 px-5 py-2 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-xl text-sm font-bold shadow-sm transition-all duration-150">
             Hemen Başla
             <ArrowRight size={14} />
           </Link>
         </div>
       </nav>
 
-      {/* ════════════ HERO ════════════ */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
+      {/* ═══ HERO — 2 sütun ═══ */}
+      <section className="pt-28 pb-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[520px]">
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b9efc5]/40 border border-[#386948]/20 rounded-full mb-8 animate-fade-in-up">
-            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-            <span className="text-xs font-bold text-[#386948] tracking-wide">2026 KPSS Müfredatına Tam Uyum</span>
+            {/* Sol — Metin */}
+            <div className="flex flex-col gap-7 animate-fade-in-up">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b9efc5]/40 border border-[#386948]/20 rounded-full w-fit">
+                <Star size={13} className="text-[#386948]" />
+                <span className="text-xs font-bold text-[#386948] tracking-wide">100K+ Aktif Kullanıcı</span>
+              </div>
+
+              {/* Başlık */}
+              <h1 className="text-5xl md:text-6xl font-black leading-[1.05] tracking-tight text-[#2c342e]">
+                Coğrafya Atlasını
+                <br />
+                <span className="text-[#386948]">Yeniden Keşfet</span>
+              </h1>
+
+              {/* Alt başlık */}
+              <p className="text-lg text-[#59615a] leading-relaxed max-w-lg">
+                Türkiye&apos;nin kapsamlı interaktif coğrafya platformu ile
+                KPSS hazırlığını üst seviyeye taşı.
+              </p>
+
+              {/* CTA */}
+              <div className="flex flex-wrap gap-3">
+                <Link href="/atlas"
+                  className="group flex items-center gap-2.5 px-7 py-3.5 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl text-base font-bold shadow-md shadow-[#386948]/20 hover:-translate-y-0.5 transition-all duration-200">
+                  <Map size={18} />
+                  Haritayı Keşfet
+                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link href="/quiz"
+                  className="flex items-center gap-2.5 px-7 py-3.5 bg-white border border-[#abb4ac]/60 hover:border-[#386948]/40 hover:bg-[#f0f5ee] text-[#2c342e] rounded-2xl text-base font-bold hover:-translate-y-0.5 transition-all duration-200">
+                  <Brain size={18} className="text-[#386948]" />
+                  Quiz&apos;e Başla
+                </Link>
+              </div>
+
+              {/* Mini stats */}
+              <div className="flex items-center gap-6 pt-2">
+                {[
+                  { value: '239+', label: 'Soru' },
+                  { value: '12+', label: 'Harita Katmanı' },
+                  { value: '10', label: 'Ünite' },
+                ].map(s => (
+                  <div key={s.label} className="flex flex-col">
+                    <span className="text-xl font-black text-[#386948]">{s.value}</span>
+                    <span className="text-xs text-[#747d75] font-medium">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sağ — Türkiye Haritası */}
+            <div className="animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
+              <TurkeyMap />
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* Title */}
-          <h1
-            className="text-5xl sm:text-6xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6 animate-fade-in-up"
-            style={{ animationDelay: '0.1s' }}
-          >
-            <span className="text-[#2c342e]">Coğrafyayı</span>
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#386948] to-[#2b5d3c] animate-gradient-x">
-              Yaşayarak
-            </span>
-            <br />
-            <span className="text-[#2c342e]">Öğren.</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            className="text-lg md:text-xl text-[#59615a] font-medium leading-relaxed max-w-2xl mx-auto mb-10 animate-fade-in-up"
-            style={{ animationDelay: '0.2s' }}
-          >
-            İnteraktif haritalar, akıllı quizler ve zenginleştirilmiş notlarla
-            KPSS 2026&apos;ya <span className="text-[#2c342e] font-bold">en etkili</span> şekilde hazırlanın.
-          </p>
-
-          {/* CTA Buttons */}
-          <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16 animate-fade-in-up"
-            style={{ animationDelay: '0.3s' }}
-          >
-            <Link
-              href="/atlas"
-              className="group flex items-center gap-2.5 px-7 py-3.5 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl text-base font-bold shadow-lg shadow-[#386948]/20 hover:shadow-xl hover:shadow-[#386948]/25 hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <Map size={18} />
-              Haritayı Keşfet
-              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="/quiz"
-              className="flex items-center gap-2.5 px-7 py-3.5 bg-white hover:bg-[#f0f5ee] border border-[#abb4ac]/40 hover:border-[#abb4ac]/70 text-[#2c342e] rounded-2xl text-base font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <Brain size={18} className="text-[#386948]" />
-              Quiz&apos;e Başla
-            </Link>
+      {/* ═══ 3 ÖZELLİK KARTI ═══ */}
+      <section className="py-12 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5">
+            {features.map((feat, i) => {
+              const Icon = feat.icon;
+              return (
+                <div key={feat.title}
+                  className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 animate-fade-in-up"
+                  style={{ animationDelay: `${0.1 + i * 0.1}s` }}>
+                  <div className={`w-11 h-11 ${feat.iconBg} rounded-xl flex items-center justify-center mb-4`}>
+                    <Icon size={22} className={feat.iconColor} />
+                  </div>
+                  <h3 className="font-bold text-[#2c342e] mb-2">{feat.title}</h3>
+                  <p className="text-sm text-[#59615a] leading-relaxed">{feat.desc}</p>
+                </div>
+              );
+            })}
           </div>
+        </div>
+      </section>
 
-          {/* ── Stats Bar ── */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto animate-fade-in-up"
-            style={{ animationDelay: '0.4s' }}
-          >
+      {/* ═══ STATS BAR ═══ */}
+      <section className="py-12 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
-              >
-                <div className={`w-8 h-8 ${stat.bg} rounded-lg flex items-center justify-center mx-auto mb-2`}>
-                  <stat.icon size={16} className={stat.color} />
+              <div key={stat.label}
+                className="bg-white border border-[#abb4ac]/40 rounded-2xl p-5 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                <div className={`w-9 h-9 ${stat.bg} rounded-xl flex items-center justify-center mx-auto mb-2.5`}>
+                  <stat.icon size={17} className={stat.color} />
                 </div>
                 <div className={`text-2xl font-black ${stat.color}`}>
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-[11px] font-semibold text-[#59615a] uppercase tracking-wider mt-0.5">
-                  {stat.label}
-                </div>
+                <div className="text-[11px] font-semibold text-[#747d75] uppercase tracking-wider mt-0.5">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ════════════ MODULES ════════════ */}
-      <section className="py-20 px-6 bg-[#f0f5ee]/70">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-[#2c342e] mb-3">
-              Tüm Araçlar, Tek Platform
-            </h2>
-            <p className="text-[#59615a] text-lg max-w-xl mx-auto">
-              KPSS Coğrafya hazırlığınız için ihtiyacınız olan her şey burada.
-            </p>
+      {/* ═══ MODÜLLER ═══ */}
+      <section className="py-16 px-6 bg-[#f0f5ee]/60">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-black text-[#2c342e] mb-3">Tüm Araçlar, Tek Platform</h2>
+            <p className="text-[#59615a] text-base max-w-xl mx-auto">KPSS Coğrafya hazırlığınız için ihtiyacınız olan her şey burada.</p>
           </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {modules.map((mod, i) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {modules.map((mod) => {
               const Icon = mod.icon;
-              const isLarge = mod.featured;
               return (
-                <Link
-                  key={mod.id}
-                  href={mod.href}
-                  className={`group bg-white border border-[#abb4ac]/40 hover:border-[#386948]/40 rounded-3xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4
-                    ${isLarge ? 'md:col-span-2' : ''}`}
-                >
-                  {/* Tag */}
+                <Link key={mod.id} href={mod.href}
+                  className={`group bg-white border border-[#abb4ac]/40 ${mod.accent} rounded-2xl p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col gap-4 ${mod.featured ? 'md:col-span-2' : ''}`}>
                   <div className="flex items-center justify-between">
-                    <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${mod.iconColor} ${mod.iconBg} px-2.5 py-1 rounded-full`}>
-                      {mod.tag}
-                    </span>
-                    <span className="text-[11px] font-bold text-[#59615a] bg-[#f0f5ee] border border-[#abb4ac]/40 px-2.5 py-1 rounded-full">
-                      {mod.badge}
-                    </span>
+                    <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${mod.iconColor} ${mod.iconBg} px-2.5 py-1 rounded-full`}>{mod.tag}</span>
+                    <span className="text-[11px] font-bold text-[#747d75] bg-[#f0f5ee] px-2.5 py-1 rounded-full">{mod.badge}</span>
                   </div>
-
-                  {/* Icon */}
-                  <div className={`w-12 h-12 ${mod.iconBg} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon size={24} className={mod.iconColor} />
+                  <div className={`w-11 h-11 ${mod.iconBg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
+                    <Icon size={22} className={mod.iconColor} />
                   </div>
-
-                  {/* Text */}
-                  <div className="flex-1">
-                    <h3 className={`${isLarge ? 'text-2xl' : 'text-lg'} font-black text-[#2c342e] mb-1.5`}>
-                      {mod.title}
-                    </h3>
-                    <p className="text-sm text-[#59615a] leading-relaxed">
-                      {mod.description}
-                    </p>
+                  <div>
+                    <h3 className="font-black text-[#2c342e] mb-1.5">{mod.title}</h3>
+                    <p className="text-sm text-[#59615a] leading-relaxed">{mod.desc}</p>
                   </div>
-
-                  {/* Arrow */}
-                  <div className={`flex items-center gap-1 text-sm font-bold ${mod.iconColor} opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200`}>
-                    Keşfet
-                    <ArrowRight size={14} />
+                  <div className={`flex items-center gap-1 text-sm font-bold ${mod.iconColor} opacity-0 group-hover:opacity-100 transition-opacity duration-200`}>
+                    Keşfet <ArrowRight size={14} />
                   </div>
                 </Link>
               );
@@ -346,52 +364,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════ FEATURES ════════════ */}
-      <section className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-[#2c342e] mb-3">Neden Geo-KPSS?</h2>
-            <p className="text-[#59615a] text-lg">Statik kitaplara veda et.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {features.map((feat) => (
-              <div
-                key={feat.label}
-                className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-              >
-                <div className={`w-11 h-11 ${feat.bg} rounded-xl flex items-center justify-center mb-4`}>
-                  <feat.icon size={20} className={feat.color} />
-                </div>
-                <h4 className="text-sm font-black text-[#2c342e] mb-1">{feat.label}</h4>
-                <p className="text-xs text-[#59615a] leading-relaxed">{feat.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════ CTA BANNER ════════════ */}
+      {/* ═══ CTA BANNER ═══ */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="relative overflow-hidden bg-gradient-to-br from-[#386948] to-[#2b5d3c] rounded-3xl p-12 text-center shadow-2xl shadow-[#386948]/20">
-            {/* Decorative blobs */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#b9efc5]/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
-
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#386948] via-[#2f5c40] to-[#2b5d3c] rounded-3xl p-12 text-center shadow-xl shadow-[#386948]/20">
+            <div className="absolute top-0 right-0 w-56 h-56 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10">
               <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
                 <GraduationCap size={28} className="text-white" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
-                KPSS 2026&apos;ya Hazır mısın?
-              </h2>
-              <p className="text-[#e8ffe9] mb-8 max-w-md mx-auto">
-                Binlerce aday Geo-KPSS ile çalışıyor. Hemen ücretsiz başla, farkı hisset.
-              </p>
-              <Link
-                href="/atlas"
-                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-[#386948] rounded-2xl font-black text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
-              >
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-3">KPSS 2026&apos;ya Hazır mısın?</h2>
+              <p className="text-[#b9efc5] mb-8 max-w-md mx-auto">Binlerce aday Geo-KPSS ile çalışıyor. Hemen ücretsiz başla.</p>
+              <Link href="/atlas"
+                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-[#386948] rounded-2xl font-black text-base hover:-translate-y-0.5 transition-all duration-200 shadow-md">
                 Ücretsiz Başla
                 <ArrowRight size={18} />
               </Link>
@@ -400,17 +385,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════ FOOTER ════════════ */}
+      {/* ═══ FOOTER ═══ */}
       <footer className="border-t border-[#abb4ac]/40 py-10 text-center px-6">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <div className="w-6 h-6 bg-white border border-[#abb4ac]/40 rounded-full overflow-hidden shadow-sm shrink-0">
+          <div className="w-6 h-6 bg-white border border-[#abb4ac]/30 rounded-full overflow-hidden shadow-sm shrink-0">
             <img src="/tr-circle-flag.svg" alt="Türkiye" className="w-full h-full object-cover" />
           </div>
-          <span className="font-black text-sm text-[#59615a]">GEO-KPSS</span>
+          <span className="font-black text-sm text-[#747d75]">GEO-KPSS</span>
         </div>
-        <p className="text-xs text-[#59615a]">
-          © 2026 Geo-KPSS · KPSS sınavına hazırlanan tüm adaylara başarılar
-        </p>
+        <p className="text-xs text-[#abb4ac]">© 2026 Geo-KPSS · KPSS sınavına hazırlanan tüm adaylara başarılar</p>
       </footer>
 
     </main>
