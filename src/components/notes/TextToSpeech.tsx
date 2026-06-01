@@ -113,21 +113,21 @@ export default function TextToSpeech({ contentHtml, title }: TextToSpeechProps) 
     if (!isSupported) return null;
 
     return (
-        <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-md p-2 px-3 rounded-2xl border border-slate-700/50 shadow-lg mb-8 relative">
-            <div className="flex items-center gap-2 text-indigo-400 mr-2 border-r border-slate-700/50 pr-4">
+        <div className="flex items-center gap-2 bg-white p-2 px-3 rounded-2xl border border-[#abb4ac]/40 shadow-sm mb-8 relative">
+            <div className="flex items-center gap-2 text-[#386948] mr-2 border-r border-[#abb4ac]/40 pr-4">
                 {isPlaying && !isPaused ? (
                     <Volume2 size={18} className="animate-pulse" />
                 ) : (
                     <Volume2 size={18} />
                 )}
-                <span className="text-sm font-bold hidden sm:inline">Sesli Okuma</span>
+                <span className="text-sm font-bold text-[#2c342e] hidden sm:inline">Sesli Okuma</span>
             </div>
 
             <button
                 onClick={handlePlayPause}
                 className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isPlaying && !isPaused
-                    ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
-                    : 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 hover:bg-indigo-400'
+                    ? 'bg-amber-100 text-amber-600 hover:bg-amber-200'
+                    : 'bg-[#386948] text-white shadow-sm shadow-[#386948]/30 hover:bg-[#2b5d3c]'
                     }`}
             >
                 {isLoading ? <Loader2 size={18} className="animate-spin" /> : (
@@ -138,7 +138,7 @@ export default function TextToSpeech({ contentHtml, title }: TextToSpeechProps) 
             {isPlaying && (
                 <button
                     onClick={handleStop}
-                    className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 flex items-center justify-center transition-all"
+                    className="w-10 h-10 rounded-xl bg-rose-50 text-rose-500 hover:bg-rose-100 flex items-center justify-center transition-all"
                 >
                     <Square size={16} className="fill-current" />
                 </button>
@@ -147,7 +147,9 @@ export default function TextToSpeech({ contentHtml, title }: TextToSpeechProps) 
             <div className="relative ml-auto">
                 <button
                     onClick={() => setShowSettings(!showSettings)}
-                    className={`px-3 h-10 rounded-xl flex items-center gap-2 text-sm font-bold transition-all border ${showSettings ? 'border-indigo-500 text-indigo-400 bg-indigo-500/10' : 'border-slate-700 text-slate-400 hover:bg-slate-800 hover:text-white'
+                    className={`px-3 h-10 rounded-xl flex items-center gap-2 text-sm font-bold transition-all border ${showSettings
+                        ? 'border-[#386948] text-[#386948] bg-[#b9efc5]/30'
+                        : 'border-[#abb4ac]/60 text-[#59615a] hover:bg-[#f0f5ee] hover:text-[#2c342e]'
                         }`}
                 >
                     <Settings2 size={16} />
@@ -155,12 +157,14 @@ export default function TextToSpeech({ contentHtml, title }: TextToSpeechProps) 
                 </button>
 
                 {showSettings && (
-                    <div className="absolute right-0 top-12 bg-slate-800 border border-slate-700 rounded-xl p-2 shadow-2xl flex flex-col gap-1 z-50 min-w-[120px]">
+                    <div className="absolute right-0 top-12 bg-white border border-[#abb4ac]/40 rounded-xl p-2 shadow-lg flex flex-col gap-1 z-50 min-w-[120px]">
                         {[0.75, 1, 1.25, 1.5, 2].map((s) => (
                             <button
                                 key={s}
                                 onClick={() => handleSpeedChange(s)}
-                                className={`px-4 py-2 text-sm font-bold rounded-lg text-left transition-colors ${speed === s ? 'bg-indigo-500/20 text-indigo-400' : 'text-slate-300 hover:bg-slate-700'
+                                className={`px-4 py-2 text-sm font-bold rounded-lg text-left transition-colors ${speed === s
+                                    ? 'bg-[#b9efc5]/40 text-[#386948]'
+                                    : 'text-[#2c342e] hover:bg-[#f0f5ee]'
                                     }`}
                             >
                                 {s}x

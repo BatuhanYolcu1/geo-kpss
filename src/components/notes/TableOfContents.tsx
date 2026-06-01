@@ -76,12 +76,12 @@ export default function TableOfContents({ contentHtml }: TableOfContentsProps) {
     if (headings.length === 0) return null;
 
     return (
-        <div className="hidden xl:block fixed top-32 right-8 w-64 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar p-6 bg-slate-900/50 backdrop-blur-md rounded-3xl border border-slate-700/50 shadow-2xl animate-in fade-in slide-in-from-right-8 duration-700">
-            <h4 className="text-sm font-black text-white uppercase tracking-widest flex items-center gap-2 mb-6">
-                <List size={16} className="text-indigo-400" />
+        <div className="hidden xl:block fixed top-32 right-8 w-64 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar p-5 bg-white/90 backdrop-blur-md rounded-2xl border border-[#abb4ac]/40 shadow-lg animate-in fade-in slide-in-from-right-8 duration-700">
+            <h4 className="text-xs font-black text-[#59615a] uppercase tracking-widest flex items-center gap-2 mb-4">
+                <List size={14} className="text-[#386948]" />
                 İÇİNDEKİLER
             </h4>
-            <nav className="flex flex-col gap-3">
+            <nav className="flex flex-col gap-2">
                 {headings.map((heading) => {
                     const isActive = activeId === heading.id;
                     return (
@@ -90,11 +90,11 @@ export default function TableOfContents({ contentHtml }: TableOfContentsProps) {
                             href={`#${heading.id}`}
                             onClick={(e) => scrollToHeading(e, heading.id)}
                             className={`
-                                text-sm transition-all duration-300 block line-clamp-2
-                                ${heading.level === 3 ? 'ml-4' : 'font-bold'}
+                                text-xs transition-all duration-200 block line-clamp-2 leading-snug
+                                ${heading.level === 3 ? 'ml-3' : 'font-semibold'}
                                 ${isActive
-                                    ? 'text-indigo-400 translate-x-1'
-                                    : 'text-slate-500 hover:text-slate-300'}
+                                    ? 'text-[#386948] translate-x-1'
+                                    : 'text-[#747d75] hover:text-[#2c342e]'}
                             `}
                         >
                             {heading.text}

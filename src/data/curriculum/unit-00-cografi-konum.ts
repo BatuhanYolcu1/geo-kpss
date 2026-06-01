@@ -13,9 +13,9 @@ export const unit00: NoteUnit = {
             
 Türkiye; **36° - 42° Kuzey Enlemleri** (Paralelleri) ile **26° - 45° Doğu Boylamları** (Meridyenleri) arasında yer alır.
 <br/>
-<div class="p-6 bg-slate-800/50 rounded-2xl border border-slate-700 my-6">
-    <h4 class="text-xl font-bold text-indigo-400 mb-4">Türkiye'nin Uç Noktaları</h4>
-    <ul class="list-disc list-inside space-y-2 text-slate-300">
+<div class="p-6 bg-[#f0f5ee] rounded-2xl border border-[#abb4ac] my-6">
+    <h4 class="text-xl font-bold text-[#386948] mb-4">Türkiye'nin Uç Noktaları</h4>
+    <ul class="list-disc list-inside space-y-2 text-[#2c342e]">
         <li><strong>En Kuzeyi:</strong> 42° Kuzey Paraleli - Sinop (İnceburun)</li>
         <li><strong>En Güneyi:</strong> 36° Kuzey Paraleli - Hatay (Beysun Köyü / Topraktutan)</li>
         <li><strong>En Doğusu:</strong> 45° Doğu Meridyeni - Iğdır (Dilucu)</li>
