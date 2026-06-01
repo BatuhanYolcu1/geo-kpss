@@ -77,11 +77,6 @@ function TurkeyMap() {
           />
         </div>
 
-        {/* Floating badge */}
-        <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#abb4ac]/40 rounded-full px-3 py-1.5 shadow-sm">
-          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-          <span className="text-xs font-bold text-[#2c342e]">İnteraktif Harita</span>
-        </div>
       </div>
     </div>
   );
