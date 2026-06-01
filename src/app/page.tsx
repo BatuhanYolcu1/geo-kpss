@@ -150,9 +150,9 @@ export default function HomePage() {
           <div className="hidden lg:flex items-center gap-1">
             {[
               { href: '/', label: 'Ana Sayfa' },
-              { href: '/atlas', label: 'Haritalar' },
-              { href: '/notes', label: 'Özellikler' },
-              { href: '/quiz', label: 'Soru Bankası' },
+              { href: '/atlas', label: 'İnteraktif Harita' },
+              { href: '/notes', label: 'Ders Notları' },
+              { href: '/quiz', label: 'Quiz' },
             ].map((item) => (
               <Link key={item.href} href={item.href}
                 className="px-4 py-2 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-lg transition-all duration-150">
