@@ -135,39 +135,39 @@ export default function FlashcardsPage() {
         const rating = accuracy >= 90 ? '🏆 Mükemmel!' : accuracy >= 70 ? '⭐ Harika!' : accuracy >= 50 ? '👍 İyi!' : '💪 Devam Et!';
 
         return (
-            <main className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-6">
+            <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] flex items-center justify-center p-6">
                 <div className="max-w-md w-full text-center space-y-8">
                     <div className="text-6xl mb-4">{accuracy >= 90 ? '🎉' : accuracy >= 50 ? '✨' : '📚'}</div>
-                    <h1 className="text-3xl font-black">{rating}</h1>
-                    <p className="text-slate-400">
+                    <h1 className="text-3xl font-black text-[#2c342e]">{rating}</h1>
+                    <p className="text-[#59615a]">
                         {selectedDeck.title} destesini tamamladınız!
                     </p>
 
                     <div className="grid grid-cols-3 gap-4">
-                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
-                            <div className="text-2xl font-black text-emerald-400">{sessionCorrect}</div>
-                            <div className="text-xs text-slate-500 font-bold">Doğru</div>
+                        <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4">
+                            <div className="text-2xl font-black text-emerald-600">{sessionCorrect}</div>
+                            <div className="text-xs text-[#59615a] font-bold">Doğru</div>
                         </div>
-                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
-                            <div className="text-2xl font-black text-rose-400">{sessionTotal - sessionCorrect}</div>
-                            <div className="text-xs text-slate-500 font-bold">Yanlış</div>
+                        <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4">
+                            <div className="text-2xl font-black text-rose-500">{sessionTotal - sessionCorrect}</div>
+                            <div className="text-xs text-[#59615a] font-bold">Yanlış</div>
                         </div>
-                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
-                            <div className="text-2xl font-black text-indigo-400">%{accuracy}</div>
-                            <div className="text-xs text-slate-500 font-bold">Başarı</div>
+                        <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4">
+                            <div className="text-2xl font-black text-[#386948]">%{accuracy}</div>
+                            <div className="text-xs text-[#59615a] font-bold">Başarı</div>
                         </div>
                     </div>
 
                     <div className="flex gap-3">
                         <button
                             onClick={handleRestart}
-                            className="flex-1 py-4 bg-indigo-500 hover:bg-indigo-600 rounded-2xl font-bold text-lg transition-colors flex items-center justify-center gap-2"
+                            className="flex-1 py-4 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl font-bold text-lg transition-colors flex items-center justify-center gap-2"
                         >
                             <RotateCcw size={20} /> Tekrar
                         </button>
                         <button
                             onClick={handleBackToDecks}
-                            className="flex-1 py-4 bg-slate-800 hover:bg-slate-700 rounded-2xl font-bold text-lg transition-colors"
+                            className="flex-1 py-4 bg-[#f0f5ee] hover:bg-[#e9f0e8] border border-[#abb4ac]/40 text-[#2c342e] rounded-2xl font-bold text-lg transition-colors"
                         >
                             Desteler
                         </button>
@@ -183,29 +183,29 @@ export default function FlashcardsPage() {
         const cardBox = getCardBox(currentCard.id);
 
         return (
-            <main className="min-h-screen bg-[#050505] text-white flex flex-col">
+            <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] flex flex-col">
                 {/* Top Bar */}
-                <div className="px-6 py-4 flex items-center justify-between border-b border-slate-800/50">
+                <div className="px-6 py-4 flex items-center justify-between border-b border-[#abb4ac]/40">
                     <button
                         onClick={handleBackToDecks}
-                        className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                        className="flex items-center gap-2 text-[#59615a] hover:text-[#2c342e] transition-colors"
                     >
                         <ArrowLeft size={18} />
                         <span className="text-sm font-medium">Geri</span>
                     </button>
-                    <div className="text-sm font-bold text-slate-400">
+                    <div className="text-sm font-bold text-[#59615a]">
                         {currentIndex + 1} / {sessionCards.length}
                     </div>
                     <div className="flex items-center gap-2 text-sm">
-                        <Flame size={16} className="text-orange-400" />
-                        <span className="font-bold text-orange-400">{streakDays}</span>
+                        <Flame size={16} className="text-orange-500" />
+                        <span className="font-bold text-orange-500">{streakDays}</span>
                     </div>
                 </div>
 
                 {/* Progress Bar */}
-                <div className="h-1 bg-slate-900">
+                <div className="h-1 bg-[#e9f0e8]">
                     <div
-                        className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500"
+                        className="h-full bg-gradient-to-r from-[#386948] to-emerald-500 transition-all duration-500"
                         style={{ width: `${progress}%` }}
                     />
                 </div>
@@ -229,7 +229,7 @@ export default function FlashcardsPage() {
                         >
                             {/* Front */}
                             <div
-                                className="absolute inset-0 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700/50 p-8 flex flex-col items-center justify-center text-center shadow-2xl"
+                                className="absolute inset-0 rounded-3xl bg-white border border-[#abb4ac]/40 p-8 flex flex-col items-center justify-center text-center shadow-md"
                                 style={{ backfaceVisibility: 'hidden' }}
                             >
                                 <div className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 ${currentCard.difficulty === 'easy'
@@ -240,10 +240,10 @@ export default function FlashcardsPage() {
                                     }`}>
                                     {currentCard.difficulty === 'easy' ? 'Kolay' : currentCard.difficulty === 'medium' ? 'Orta' : 'Zor'}
                                 </div>
-                                <p className="text-xl md:text-2xl font-bold leading-relaxed">
+                                <p className="text-xl md:text-2xl font-bold leading-relaxed text-[#2c342e]">
                                     {currentCard.front}
                                 </p>
-                                <div className="mt-8 flex items-center gap-2 text-slate-500 text-sm">
+                                <div className="mt-8 flex items-center gap-2 text-[#59615a] text-sm">
                                     <RotateCcw size={14} />
                                     <span>Cevabı görmek için tıkla</span>
                                 </div>
@@ -253,7 +253,7 @@ export default function FlashcardsPage() {
                                     {[1, 2, 3, 4, 5].map((b) => (
                                         <div
                                             key={b}
-                                            className={`w-2 h-2 rounded-full ${b <= cardBox ? 'bg-indigo-400' : 'bg-slate-700'}`}
+                                            className={`w-2 h-2 rounded-full ${b <= cardBox ? 'bg-[#386948]' : 'bg-[#abb4ac]/40'}`}
                                         />
                                     ))}
                                 </div>
@@ -261,13 +261,13 @@ export default function FlashcardsPage() {
 
                             {/* Back */}
                             <div
-                                className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-950 to-slate-900 border border-indigo-500/20 p-8 flex flex-col items-center justify-center text-center shadow-2xl"
+                                className="absolute inset-0 rounded-3xl bg-[#e9f0e8] border border-[#386948]/20 p-8 flex flex-col items-center justify-center text-center shadow-md"
                                 style={{
                                     backfaceVisibility: 'hidden',
                                     transform: 'rotateY(180deg)',
                                 }}
                             >
-                                <div className="text-lg md:text-xl leading-relaxed whitespace-pre-line text-slate-200">
+                                <div className="text-lg md:text-xl leading-relaxed whitespace-pre-line text-[#2c342e]">
                                     {currentCard.back}
                                 </div>
                             </div>
@@ -281,22 +281,22 @@ export default function FlashcardsPage() {
                         <div className="flex gap-4 max-w-lg mx-auto">
                             <button
                                 onClick={() => handleAnswer(false)}
-                                className="flex-1 py-4 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 rounded-2xl font-bold text-rose-400 transition-all flex items-center justify-center gap-2"
+                                className="flex-1 py-4 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 rounded-2xl font-bold text-rose-500 transition-all flex items-center justify-center gap-2"
                             >
                                 <X size={20} /> Bilmedim
                             </button>
                             <button
                                 onClick={() => handleAnswer(true)}
-                                className="flex-1 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 rounded-2xl font-bold text-emerald-400 transition-all flex items-center justify-center gap-2"
+                                className="flex-1 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 rounded-2xl font-bold text-emerald-600 transition-all flex items-center justify-center gap-2"
                             >
                                 <Check size={20} /> Bildim
                             </button>
                         </div>
                     ) : (
-                        <div className="text-center text-slate-500 text-sm">
-                            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs mr-1">Space</kbd> ile çevir •
-                            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs mx-1">←</kbd> Bilmedim •
-                            <kbd className="px-2 py-1 bg-slate-800 rounded text-xs ml-1">→</kbd> Bildim
+                        <div className="text-center text-[#59615a] text-sm">
+                            <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs mr-1">Space</kbd> ile çevir •
+                            <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs mx-1">←</kbd> Bilmedim •
+                            <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs ml-1">→</kbd> Bildim
                         </div>
                     )}
                 </div>
@@ -306,11 +306,11 @@ export default function FlashcardsPage() {
 
     // ===== DECK SELECTION =====
     return (
-        <main className="min-h-screen bg-[#050505] text-white">
+        <main className="min-h-screen bg-[#f7faf4] text-[#2c342e]">
             {/* Background */}
             <div className="fixed inset-0 z-0 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-500/10 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/10 rounded-full blur-[120px]" />
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#b9efc5]/20 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#e9f0e8]/40 rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 max-w-5xl mx-auto px-6 py-12">
@@ -318,7 +318,7 @@ export default function FlashcardsPage() {
                 <div className="flex items-center justify-between mb-12">
                     <Link
                         href="/"
-                        className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                        className="flex items-center gap-2 text-[#59615a] hover:text-[#2c342e] transition-colors"
                     >
                         <Home size={20} />
                         <span>Ana Sayfa</span>
@@ -326,22 +326,22 @@ export default function FlashcardsPage() {
 
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-2 px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full">
-                            <Flame size={16} className="text-orange-400" />
-                            <span className="text-sm font-bold text-orange-300">{streakDays} gün seri</span>
+                            <Flame size={16} className="text-orange-500" />
+                            <span className="text-sm font-bold text-orange-600">{streakDays} gün seri</span>
                         </div>
-                        <div className="flex items-center gap-2 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
-                            <Brain size={16} className="text-indigo-400" />
-                            <span className="text-sm font-bold text-indigo-300">{totalReviewed} tekrar</span>
+                        <div className="flex items-center gap-2 px-4 py-2 bg-[#386948]/10 border border-[#386948]/20 rounded-full">
+                            <Brain size={16} className="text-[#386948]" />
+                            <span className="text-sm font-bold text-[#386948]">{totalReviewed} tekrar</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Title */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent">
+                    <h1 className="text-4xl md:text-5xl font-black mb-4 text-[#2c342e]">
                         Flashcard Çalışması
                     </h1>
-                    <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-lg text-[#59615a] max-w-2xl mx-auto">
                         Spaced Repetition sistemiyle etkili öğrenme. Kartları çevir, bilginizi test edin.
                     </p>
                 </div>
@@ -349,19 +349,19 @@ export default function FlashcardsPage() {
                 {/* Overall Stats */}
                 {totalReviewed > 0 && (
                     <div className="grid grid-cols-3 gap-4 mb-12 max-w-lg mx-auto">
-                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-center">
-                            <div className="text-2xl font-black text-white">{totalReviewed}</div>
-                            <div className="text-xs text-slate-500 font-bold">Toplam Tekrar</div>
+                        <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4 text-center">
+                            <div className="text-2xl font-black text-[#2c342e]">{totalReviewed}</div>
+                            <div className="text-xs text-[#59615a] font-bold">Toplam Tekrar</div>
                         </div>
-                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-center">
-                            <div className="text-2xl font-black text-emerald-400">
+                        <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4 text-center">
+                            <div className="text-2xl font-black text-emerald-600">
                                 %{totalReviewed > 0 ? Math.round((totalCorrect / totalReviewed) * 100) : 0}
                             </div>
-                            <div className="text-xs text-slate-500 font-bold">Başarı</div>
+                            <div className="text-xs text-[#59615a] font-bold">Başarı</div>
                         </div>
-                        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-center">
-                            <div className="text-2xl font-black text-orange-400">{streakDays}</div>
-                            <div className="text-xs text-slate-500 font-bold">Gün Serisi</div>
+                        <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4 text-center">
+                            <div className="text-2xl font-black text-orange-500">{streakDays}</div>
+                            <div className="text-xs text-[#59615a] font-bold">Gün Serisi</div>
                         </div>
                     </div>
                 )}
@@ -374,7 +374,7 @@ export default function FlashcardsPage() {
                             <button
                                 key={deck.id}
                                 onClick={() => setSelectedDeck(deck)}
-                                className="group relative overflow-hidden rounded-3xl bg-slate-900/40 border border-slate-800 hover:border-slate-600 p-6 text-left transition-all duration-300 hover:bg-slate-900/60 hover:scale-[1.02] shadow-xl"
+                                className="group relative overflow-hidden rounded-3xl bg-white border border-[#abb4ac]/40 hover:border-[#386948]/40 p-6 text-left transition-all duration-300 hover:bg-[#f0f5ee] hover:scale-[1.02] shadow-sm hover:shadow-md"
                             >
                                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${deck.color} opacity-[0.05] group-hover:opacity-10 transition-opacity blur-2xl translate-x-8 -translate-y-8`} />
 
@@ -382,18 +382,18 @@ export default function FlashcardsPage() {
                                     {iconMap[deck.icon] || <Layers size={24} />}
                                 </div>
 
-                                <h3 className="text-lg font-bold text-white mb-1">{deck.title}</h3>
-                                <p className="text-sm text-slate-400 mb-4">
+                                <h3 className="text-lg font-bold text-[#2c342e] mb-1">{deck.title}</h3>
+                                <p className="text-sm text-[#59615a] mb-4">
                                     {deck.cards.length} kart
                                 </p>
 
                                 {/* Mastery Bar */}
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-xs">
-                                        <span className="text-slate-500 font-medium">Hakimiyet</span>
-                                        <span className="text-slate-400 font-bold">%{mastery}</span>
+                                        <span className="text-[#59615a] font-medium">Hakimiyet</span>
+                                        <span className="text-[#59615a] font-bold">%{mastery}</span>
                                     </div>
-                                    <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                    <div className="h-1.5 bg-[#e9f0e8] rounded-full overflow-hidden">
                                         <div
                                             className={`h-full bg-gradient-to-r ${deck.color} rounded-full transition-all duration-500`}
                                             style={{ width: `${mastery}%` }}

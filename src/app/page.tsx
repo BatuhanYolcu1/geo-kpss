@@ -150,26 +150,26 @@ const stats = [
 // ─── MAIN PAGE ───────────────────────────────────────────────────
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+    <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] overflow-x-hidden">
 
       {/* ── Subtle background blobs ── */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-[700px] h-[700px] bg-indigo-100/50 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-violet-100/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-sky-100/30 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-[700px] h-[700px] bg-[#b9efc5]/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-[#e9f0e8]/60 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-[#f0f5ee]/50 rounded-full blur-3xl" />
       </div>
 
       {/* ════════════ NAVIGATION ════════════ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/80">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#abb4ac]/40">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center overflow-hidden shadow-sm group-hover:shadow-md transition-shadow shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-white border border-[#abb4ac]/40 flex items-center justify-center overflow-hidden shadow-sm group-hover:shadow-md transition-shadow shrink-0">
               <img src="/tr-circle-flag.svg" alt="Türkiye" className="w-full h-full object-cover" />
             </div>
             <div>
-              <span className="font-black text-base tracking-tight text-slate-900">GEO-KPSS</span>
-              <div className="text-[9px] font-bold text-indigo-500 tracking-[0.2em] uppercase leading-none">
+              <span className="font-black text-base tracking-tight text-[#2c342e]">GEO-KPSS</span>
+              <div className="text-[9px] font-bold text-[#386948] tracking-[0.2em] uppercase leading-none">
                 KPSS 2026
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm font-semibold text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all duration-150"
+                className="px-4 py-2 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-lg transition-all duration-150"
               >
                 {item.label}
               </Link>
@@ -197,7 +197,7 @@ export default function HomePage() {
           {/* CTA */}
           <Link
             href="/quiz"
-            className="hidden md:flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold shadow-sm shadow-indigo-200 hover:shadow-indigo-300 transition-all duration-150"
+            className="hidden md:flex items-center gap-2 px-5 py-2 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-xl text-sm font-bold shadow-sm shadow-[#386948]/20 hover:shadow-[#386948]/30 transition-all duration-150"
           >
             Hemen Başla
             <ArrowRight size={14} />
@@ -210,9 +210,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto text-center">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full mb-8 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b9efc5]/40 border border-[#386948]/20 rounded-full mb-8 animate-fade-in-up">
             <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-            <span className="text-xs font-bold text-indigo-700 tracking-wide">2026 KPSS Müfredatına Tam Uyum</span>
+            <span className="text-xs font-bold text-[#386948] tracking-wide">2026 KPSS Müfredatına Tam Uyum</span>
           </div>
 
           {/* Title */}
@@ -220,22 +220,22 @@ export default function HomePage() {
             className="text-5xl sm:text-6xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6 animate-fade-in-up"
             style={{ animationDelay: '0.1s' }}
           >
-            <span className="text-slate-900">Coğrafyayı</span>
+            <span className="text-[#2c342e]">Coğrafyayı</span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-500 animate-gradient-x">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#386948] to-[#2b5d3c] animate-gradient-x">
               Yaşayarak
             </span>
             <br />
-            <span className="text-slate-900">Öğren.</span>
+            <span className="text-[#2c342e]">Öğren.</span>
           </h1>
 
           {/* Subtitle */}
           <p
-            className="text-lg md:text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto mb-10 animate-fade-in-up"
+            className="text-lg md:text-xl text-[#59615a] font-medium leading-relaxed max-w-2xl mx-auto mb-10 animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
             İnteraktif haritalar, akıllı quizler ve zenginleştirilmiş notlarla
-            KPSS 2026&apos;ya <span className="text-slate-800 font-bold">en etkili</span> şekilde hazırlanın.
+            KPSS 2026&apos;ya <span className="text-[#2c342e] font-bold">en etkili</span> şekilde hazırlanın.
           </p>
 
           {/* CTA Buttons */}
@@ -245,7 +245,7 @@ export default function HomePage() {
           >
             <Link
               href="/atlas"
-              className="group flex items-center gap-2.5 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-base font-bold shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-200 hover:-translate-y-0.5 transition-all duration-200"
+              className="group flex items-center gap-2.5 px-7 py-3.5 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl text-base font-bold shadow-lg shadow-[#386948]/20 hover:shadow-xl hover:shadow-[#386948]/25 hover:-translate-y-0.5 transition-all duration-200"
             >
               <Map size={18} />
               Haritayı Keşfet
@@ -253,9 +253,9 @@ export default function HomePage() {
             </Link>
             <Link
               href="/quiz"
-              className="flex items-center gap-2.5 px-7 py-3.5 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-700 rounded-2xl text-base font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+              className="flex items-center gap-2.5 px-7 py-3.5 bg-white hover:bg-[#f0f5ee] border border-[#abb4ac]/40 hover:border-[#abb4ac]/70 text-[#2c342e] rounded-2xl text-base font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
-              <Brain size={18} className="text-violet-500" />
+              <Brain size={18} className="text-[#386948]" />
               Quiz&apos;e Başla
             </Link>
           </div>
@@ -268,7 +268,7 @@ export default function HomePage() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="bg-white border border-slate-100 rounded-2xl p-4 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
+                className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
               >
                 <div className={`w-8 h-8 ${stat.bg} rounded-lg flex items-center justify-center mx-auto mb-2`}>
                   <stat.icon size={16} className={stat.color} />
@@ -276,7 +276,7 @@ export default function HomePage() {
                 <div className={`text-2xl font-black ${stat.color}`}>
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mt-0.5">
+                <div className="text-[11px] font-semibold text-[#59615a] uppercase tracking-wider mt-0.5">
                   {stat.label}
                 </div>
               </div>
@@ -286,13 +286,13 @@ export default function HomePage() {
       </section>
 
       {/* ════════════ MODULES ════════════ */}
-      <section className="py-20 px-6 bg-slate-50/70">
+      <section className="py-20 px-6 bg-[#f0f5ee]/70">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">
+            <h2 className="text-3xl md:text-4xl font-black text-[#2c342e] mb-3">
               Tüm Araçlar, Tek Platform
             </h2>
-            <p className="text-slate-500 text-lg max-w-xl mx-auto">
+            <p className="text-[#59615a] text-lg max-w-xl mx-auto">
               KPSS Coğrafya hazırlığınız için ihtiyacınız olan her şey burada.
             </p>
           </div>
@@ -306,7 +306,7 @@ export default function HomePage() {
                 <Link
                   key={mod.id}
                   href={mod.href}
-                  className={`group bg-white border ${mod.accent} rounded-3xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4
+                  className={`group bg-white border border-[#abb4ac]/40 hover:border-[#386948]/40 rounded-3xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4
                     ${isLarge ? 'md:col-span-2' : ''}`}
                 >
                   {/* Tag */}
@@ -314,7 +314,7 @@ export default function HomePage() {
                     <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${mod.iconColor} ${mod.iconBg} px-2.5 py-1 rounded-full`}>
                       {mod.tag}
                     </span>
-                    <span className="text-[11px] font-bold text-slate-400 bg-slate-50 border border-slate-100 px-2.5 py-1 rounded-full">
+                    <span className="text-[11px] font-bold text-[#59615a] bg-[#f0f5ee] border border-[#abb4ac]/40 px-2.5 py-1 rounded-full">
                       {mod.badge}
                     </span>
                   </div>
@@ -326,10 +326,10 @@ export default function HomePage() {
 
                   {/* Text */}
                   <div className="flex-1">
-                    <h3 className={`${isLarge ? 'text-2xl' : 'text-lg'} font-black text-slate-900 mb-1.5`}>
+                    <h3 className={`${isLarge ? 'text-2xl' : 'text-lg'} font-black text-[#2c342e] mb-1.5`}>
                       {mod.title}
                     </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed">
+                    <p className="text-sm text-[#59615a] leading-relaxed">
                       {mod.description}
                     </p>
                   </div>
@@ -350,20 +350,20 @@ export default function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-slate-900 mb-3">Neden Geo-KPSS?</h2>
-            <p className="text-slate-500 text-lg">Statik kitaplara veda et.</p>
+            <h2 className="text-3xl font-black text-[#2c342e] mb-3">Neden Geo-KPSS?</h2>
+            <p className="text-[#59615a] text-lg">Statik kitaplara veda et.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {features.map((feat) => (
               <div
                 key={feat.label}
-                className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <div className={`w-11 h-11 ${feat.bg} rounded-xl flex items-center justify-center mb-4`}>
                   <feat.icon size={20} className={feat.color} />
                 </div>
-                <h4 className="text-sm font-black text-slate-900 mb-1">{feat.label}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed">{feat.desc}</p>
+                <h4 className="text-sm font-black text-[#2c342e] mb-1">{feat.label}</h4>
+                <p className="text-xs text-[#59615a] leading-relaxed">{feat.desc}</p>
               </div>
             ))}
           </div>
@@ -373,10 +373,10 @@ export default function HomePage() {
       {/* ════════════ CTA BANNER ════════════ */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 rounded-3xl p-12 text-center shadow-2xl shadow-indigo-200">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#386948] to-[#2b5d3c] rounded-3xl p-12 text-center shadow-2xl shadow-[#386948]/20">
             {/* Decorative blobs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-400/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#b9efc5]/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
 
             <div className="relative z-10">
               <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
@@ -385,12 +385,12 @@ export default function HomePage() {
               <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
                 KPSS 2026&apos;ya Hazır mısın?
               </h2>
-              <p className="text-indigo-200 mb-8 max-w-md mx-auto">
+              <p className="text-[#e8ffe9] mb-8 max-w-md mx-auto">
                 Binlerce aday Geo-KPSS ile çalışıyor. Hemen ücretsiz başla, farkı hisset.
               </p>
               <Link
                 href="/atlas"
-                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-indigo-700 rounded-2xl font-black text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-[#386948] rounded-2xl font-black text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
               >
                 Ücretsiz Başla
                 <ArrowRight size={18} />
@@ -401,14 +401,14 @@ export default function HomePage() {
       </section>
 
       {/* ════════════ FOOTER ════════════ */}
-      <footer className="border-t border-slate-100 py-10 text-center px-6">
+      <footer className="border-t border-[#abb4ac]/40 py-10 text-center px-6">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <div className="w-6 h-6 bg-white border border-slate-200 rounded-full overflow-hidden shadow-sm shrink-0">
+          <div className="w-6 h-6 bg-white border border-[#abb4ac]/40 rounded-full overflow-hidden shadow-sm shrink-0">
             <img src="/tr-circle-flag.svg" alt="Türkiye" className="w-full h-full object-cover" />
           </div>
-          <span className="font-black text-sm text-slate-400">GEO-KPSS</span>
+          <span className="font-black text-sm text-[#59615a]">GEO-KPSS</span>
         </div>
-        <p className="text-xs text-slate-400">
+        <p className="text-xs text-[#59615a]">
           © 2026 Geo-KPSS · KPSS sınavına hazırlanan tüm adaylara başarılar
         </p>
       </footer>

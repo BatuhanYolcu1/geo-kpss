@@ -45,7 +45,7 @@ export default function NoteContent({ section }: NoteContentProps) {
         return (
             <Link
                 href={fullHref}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black transition-all shadow-xl shadow-indigo-500/30 group no-underline"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl font-black transition-all shadow-xl shadow-[#386948]/20 group no-underline"
             >
                 <MapIcon size={24} className="group-hover:rotate-12 transition-transform" />
                 <span>KONUYU HARİTADA GÖR</span>
@@ -61,31 +61,31 @@ export default function NoteContent({ section }: NoteContentProps) {
                 {/* Header */}
                 <header className="mb-8">
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-[10px] font-black uppercase tracking-widest">
+                        <div className="px-3 py-1 bg-[#386948]/10 border border-[#386948]/20 rounded-full text-[#386948] text-[10px] font-black uppercase tracking-widest">
                             KPSS 2026 MÜFREDATI
                         </div>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+                    <h1 className="text-4xl md:text-6xl font-black text-[#2c342e] leading-tight mb-6">
                         {section.title}
                     </h1>
-                    <div className="h-2 w-32 bg-indigo-500 rounded-full shadow-[0_0_20px_rgba(79,70,229,0.5)] mb-8" />
+                    <div className="h-2 w-32 bg-[#386948] rounded-full shadow-[0_0_20px_rgba(56,105,72,0.3)] mb-8" />
 
                     <TextToSpeech contentHtml={section.content} title={section.title} />
                 </header>
 
                 {/* Main Reading Area - Prosed optimized for readability */}
-                <div className="prose prose-slate dark:prose-invert prose-lg max-w-none 
-                prose-headings:text-indigo-400 prose-headings:font-black
-                prose-p:text-slate-300 prose-p:leading-[1.8]
-                prose-strong:text-white prose-strong:font-black
-                prose-blockquote:border-indigo-500 prose-blockquote:bg-indigo-500/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl
+                <div className="prose prose-slate prose-lg max-w-none
+                prose-headings:text-[#386948] prose-headings:font-black
+                prose-p:text-[#2c342e] prose-p:leading-[1.8]
+                prose-strong:text-[#2c342e] prose-strong:font-black
+                prose-blockquote:border-[#386948] prose-blockquote:bg-[#386948]/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl
                 mb-16"
                 >
                     <HighlightWrapper
                         sectionId={section.id}
                         contentHtml={section.content
-                            .replace(/^###\s+(.+)$/gim, (match, p1) => `<h3 class="mt-12 mb-6 text-2xl font-bold text-white" id="${p1.trim().replace(/\s+/g, '-').toLowerCase()}">${p1}</h3>`)
-                            .replace(/^##\s+(.+)$/gim, (match, p1) => `<h2 class="mt-16 mb-8 text-3xl font-black text-white" id="${p1.trim().replace(/\s+/g, '-').toLowerCase()}">${p1}</h2>`)
+                            .replace(/^###\s+(.+)$/gim, (match, p1) => `<h3 class="mt-12 mb-6 text-2xl font-bold text-[#386948]" id="${p1.trim().replace(/\s+/g, '-').toLowerCase()}">${p1}</h3>`)
+                            .replace(/^##\s+(.+)$/gim, (match, p1) => `<h2 class="mt-16 mb-8 text-3xl font-black text-[#386948]" id="${p1.trim().replace(/\s+/g, '-').toLowerCase()}">${p1}</h2>`)
                             .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
                             .replace(/\n/gim, '<br />')
                         }
@@ -106,19 +106,19 @@ export default function NoteContent({ section }: NoteContentProps) {
 
                 {/* Teacher Notes */}
                 {section.teacherNotes && section.teacherNotes.length > 0 && (
-                    <div className="my-12 p-8 rounded-3xl bg-indigo-500/5 border border-indigo-500/20 relative overflow-hidden group">
+                    <div className="my-12 p-8 rounded-3xl bg-[#386948]/5 border border-[#386948]/20 relative overflow-hidden group">
                         <div className="absolute -right-8 -bottom-8 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                            <Lightbulb size={200} className="text-indigo-400" />
+                            <Lightbulb size={200} className="text-[#386948]" />
                         </div>
-                        <h5 className="flex items-center gap-3 text-indigo-400 font-black mb-6 text-xl uppercase tracking-tighter">
+                        <h5 className="flex items-center gap-3 text-[#386948] font-black mb-6 text-xl uppercase tracking-tighter">
                             <Lightbulb size={28} />
                             HOCA NOTLARI & TÜYOLAR
                         </h5>
                         <div className="space-y-6">
                             {section.teacherNotes.map((note, i) => (
                                 <div key={i} className="flex gap-4 group/item">
-                                    <div className="mt-2 w-2 h-2 rounded-full bg-indigo-500 shrink-0 group-hover/item:scale-150 transition-transform" />
-                                    <p className="text-slate-200 text-lg leading-relaxed italic">{note}</p>
+                                    <div className="mt-2 w-2 h-2 rounded-full bg-[#386948] shrink-0 group-hover/item:scale-150 transition-transform" />
+                                    <p className="text-[#2c342e] text-lg leading-relaxed italic">{note}</p>
                                 </div>
                             ))}
                         </div>
@@ -127,16 +127,16 @@ export default function NoteContent({ section }: NoteContentProps) {
 
                 {/* Key Points Checklist */}
                 {section.keyPoints && section.keyPoints.length > 0 && (
-                    <div className="my-12 p-10 rounded-[2.5rem] bg-slate-900 border border-slate-800 shadow-2xl relative">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-2 bg-emerald-500 rounded-full text-white text-xs font-black uppercase tracking-[0.2em] shadow-lg shadow-emerald-500/40">
+                    <div className="my-12 p-10 rounded-[2.5rem] bg-white border border-[#abb4ac]/40 shadow-md relative">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-2 bg-emerald-500 rounded-full text-white text-xs font-black uppercase tracking-[0.2em] shadow-lg shadow-emerald-500/30">
                             KRİTİK ÖZET
                         </div>
-                        <h5 className="text-2xl font-black text-white mb-8 text-center">Bu Konuda Bunları Bilelim</h5>
+                        <h5 className="text-2xl font-black text-[#2c342e] mb-8 text-center">Bu Konuda Bunları Bilelim</h5>
                         <div className="grid md:grid-cols-2 gap-4">
                             {section.keyPoints.map((point, i) => (
-                                <div key={i} className="flex items-start gap-4 p-4 bg-white/5 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all hover:bg-emerald-500/5">
+                                <div key={i} className="flex items-start gap-4 p-4 bg-[#f0f5ee] rounded-2xl border border-[#abb4ac]/30 hover:border-emerald-500/30 transition-all hover:bg-[#e9f0e8]">
                                     <CheckCircle2 size={20} className="text-emerald-500 shrink-0 mt-0.5" />
-                                    <span className="text-slate-300 font-bold leading-snug">{point}</span>
+                                    <span className="text-[#2c342e] font-bold leading-snug">{point}</span>
                                 </div>
                             ))}
                         </div>
@@ -149,9 +149,9 @@ export default function NoteContent({ section }: NoteContentProps) {
                 )}
 
                 {/* Action Area: Atlas Integration */}
-                <div className="mt-20 flex flex-col items-center gap-12 py-16 border-t border-slate-800">
+                <div className="mt-20 flex flex-col items-center gap-12 py-16 border-t border-[#abb4ac]/40">
                     <div className="text-center">
-                        <p className="text-slate-500 font-bold mb-6 text-sm tracking-widest uppercase">HARİTA ENTEGRASYONU</p>
+                        <p className="text-[#59615a] font-bold mb-6 text-sm tracking-widest uppercase">HARİTA ENTEGRASYONU</p>
                         {renderAtlasButton()}
                     </div>
                 </div>

@@ -1,17 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Literata, Nunito_Sans } from "next/font/google";
 import BottomNav from "@/components/ui/BottomNav";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const literata = Literata({
+  variable: "--font-literata",
   subsets: ["latin", "latin-ext"],
+  weight: ["700"],
+});
+
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "700"],
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://geo-kpss.vercel.app";
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#f7faf4",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -123,7 +130,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${literata.variable} ${nunitoSans.variable} antialiased`}>
         {children}
         <BottomNav />
       </body>

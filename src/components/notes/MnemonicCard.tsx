@@ -15,7 +15,7 @@ export default function MnemonicCard({ title, text }: MnemonicCardProps) {
             </div>
 
             <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-slate-950 shadow-lg shadow-amber-500/30">
+                <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-white shadow-lg shadow-amber-500/30">
                     <Lightbulb size={24} />
                 </div>
                 <h5 className="text-lg font-black text-amber-500 tracking-tight uppercase">
@@ -23,8 +23,8 @@ export default function MnemonicCard({ title, text }: MnemonicCardProps) {
                 </h5>
             </div>
 
-            <div className="bg-slate-950/40 backdrop-blur-md p-5 rounded-xl border border-amber-500/10">
-                <p className="text-xl font-black text-white leading-relaxed tracking-wide text-center">
+            <div className="bg-white/60 backdrop-blur-md p-5 rounded-xl border border-amber-500/10">
+                <p className="text-xl font-black text-[#2c342e] leading-relaxed tracking-wide text-center">
                     {text}
                 </p>
             </div>

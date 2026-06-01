@@ -21,11 +21,11 @@ export default function MnemonicBox({ title, text }: MnemonicBoxProps) {
                     <span>Hafıza Teknikleri (Şifre)</span>
                 </div>
 
-                <h4 className="text-xl font-bold text-amber-200 mb-2">
+                <h4 className="text-xl font-bold text-amber-700 mb-2">
                     {title}
                 </h4>
 
-                <p className="text-amber-100/80 font-medium italic leading-relaxed">
+                <p className="text-amber-800/80 font-medium italic leading-relaxed">
                     {text}
                 </p>
             </div>

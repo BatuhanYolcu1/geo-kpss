@@ -44,7 +44,7 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen pt-24 pb-12 px-4 bg-slate-950/20">
+        <div className="flex items-center justify-center min-h-screen pt-24 pb-12 px-4 bg-[#f7faf4]">
             <div className="w-full max-w-3xl animate-slide-up">
 
                 {/* Information Badge */}

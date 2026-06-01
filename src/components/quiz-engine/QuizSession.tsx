@@ -25,7 +25,7 @@ import { storageService } from '@/lib/storage';
 // Dynamic import for map component
 const MapQuizComponent = dynamic(() => import('./MapQuestion'), {
     ssr: false,
-    loading: () => <div className="w-full h-full bg-slate-950 flex items-center justify-center text-white font-black animate-pulse">HARİTA YÜKLENİYOR...</div>
+    loading: () => <div className="w-full h-full bg-[#e9f0e8] flex items-center justify-center text-[#2c342e] font-black animate-pulse">HARİTA YÜKLENİYOR...</div>
 });
 
 interface QuizSessionProps {
@@ -151,9 +151,9 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-6">
-                <div className="w-16 h-16 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
-                <div className="text-white font-black tracking-widest text-sm animate-pulse uppercase">Sorular Hazırlanıyor...</div>
+            <div className="min-h-screen bg-[#f7faf4] flex flex-col items-center justify-center gap-6">
+                <div className="w-16 h-16 border-4 border-[#386948]/20 border-t-[#386948] rounded-full animate-spin" />
+                <div className="text-[#2c342e] font-black tracking-widest text-sm animate-pulse uppercase">Sorular Hazırlanıyor...</div>
             </div>
         );
     }
@@ -162,48 +162,48 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
         const accuracy = Math.round((correctCount / questions.length) * 100);
 
         return (
-            <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex items-center justify-center p-6">
-                <div className="w-full max-w-2xl animate-modal-enter">
-                    <div className="glass-premium rounded-[2.5rem] p-10 text-center relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 via-indigo-500 to-purple-600" />
+            <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] flex items-center justify-center p-6">
+                <div className="w-full max-w-2xl">
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-[2.5rem] p-10 text-center relative overflow-hidden shadow-md">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 via-[#386948] to-[#2b5d3c]" />
 
-                        <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-amber-400 to-orange-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-orange-500/30 rotate-3">
+                        <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-amber-400 to-orange-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-orange-500/20 rotate-3">
                             <Trophy size={48} className="text-white" />
                         </div>
 
-                        <h1 className="text-4xl font-black mb-2 tracking-tight">TEBRİKLER!</h1>
-                        <p className="text-slate-400 mb-10 font-medium">Coğrafya uzmanlığına bir adım daha yaklaştın.</p>
+                        <h1 className="text-4xl font-black mb-2 tracking-tight text-[#2c342e]">TEBRİKLER!</h1>
+                        <p className="text-[#59615a] mb-10 font-medium">Coğrafya uzmanlığına bir adım daha yaklaştın.</p>
 
                         <div className="grid grid-cols-2 gap-6 mb-10">
-                            <div className="glass-premium rounded-2xl p-6 border-white/5">
-                                <div className="text-4xl font-black text-emerald-400 mb-1">{score}</div>
-                                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">TOPLAM PUAN</div>
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
+                                <div className="text-4xl font-black text-emerald-600 mb-1">{score}</div>
+                                <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">TOPLAM PUAN</div>
                             </div>
-                            <div className="glass-premium rounded-2xl p-6 border-white/5">
-                                <div className="text-4xl font-black text-blue-400 mb-1">{accuracy}%</div>
-                                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">BAŞARI ORANI</div>
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
+                                <div className="text-4xl font-black text-blue-600 mb-1">{accuracy}%</div>
+                                <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">BAŞARI ORANI</div>
                             </div>
-                            <div className="glass-premium rounded-2xl p-6 border-white/5">
-                                <div className="text-4xl font-black text-green-400 mb-1">{correctCount}</div>
-                                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">DOĞRU CEVAP</div>
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
+                                <div className="text-4xl font-black text-green-600 mb-1">{correctCount}</div>
+                                <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">DOĞRU CEVAP</div>
                             </div>
-                            <div className="glass-premium rounded-2xl p-6 border-white/5">
-                                <div className="text-4xl font-black text-orange-400 mb-1">{bestStreak}</div>
-                                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">EN İYİ SERİ</div>
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
+                                <div className="text-4xl font-black text-orange-500 mb-1">{bestStreak}</div>
+                                <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">EN İYİ SERİ</div>
                             </div>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
                                 onClick={() => window.location.reload()}
-                                className="flex-1 py-4 bg-white text-slate-950 hover:bg-slate-200 rounded-2xl font-black transition-all flex items-center justify-center gap-3"
+                                className="flex-1 py-4 bg-[#386948] text-white hover:bg-[#2b5d3c] rounded-2xl font-black transition-all flex items-center justify-center gap-3"
                             >
                                 <RotateCcw size={20} />
                                 TEKRAR DENE
                             </button>
                             <button
                                 onClick={onEnd}
-                                className="flex-1 py-4 glass-premium border-white/10 hover:bg-white/10 rounded-2xl font-black transition-all flex items-center justify-center gap-3"
+                                className="flex-1 py-4 bg-[#f0f5ee] border border-[#abb4ac]/40 hover:bg-[#e9f0e8] text-[#2c342e] rounded-2xl font-black transition-all flex items-center justify-center gap-3"
                             >
                                 <Home size={20} />
                                 ANA SAYFA
@@ -234,25 +234,25 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
     };
 
     return (
-        <main className={`relative w-full ${mode === 'map' ? 'h-screen overflow-hidden' : 'min-h-screen bg-slate-950 overflow-auto shadow-[0_0_100px_rgba(0,0,0,0.5)]'}`}>
+        <main className={`relative w-full ${mode === 'map' ? 'h-screen overflow-hidden' : 'min-h-screen bg-[#f7faf4] overflow-auto'}`}>
             {/* Header - Premium Navigation */}
             <div className="fixed top-0 left-0 right-0 z-[1000] p-4 flex flex-col gap-2">
                 <div className="flex items-center justify-between gap-4">
                     {/* Left: Stats Badges */}
                     <div className="flex items-center gap-2">
-                        <div className="glass-premium h-11 px-4 flex items-center gap-2.5 rounded-2xl border-white/10 shadow-xl">
+                        <div className="glass-premium h-11 px-4 flex items-center gap-2.5 rounded-2xl shadow-sm">
                             <div className="w-6 h-6 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                                <Star size={14} className="text-emerald-400 fill-emerald-400/20" />
+                                <Star size={14} className="text-emerald-600 fill-emerald-600/20" />
                             </div>
-                            <span className="font-black text-white text-lg tracking-tight">{score}</span>
+                            <span className="font-black text-[#2c342e] text-lg tracking-tight">{score}</span>
                         </div>
 
-                        <div className="glass-premium h-11 px-4 flex items-center gap-3 rounded-2xl border-white/10 shadow-xl">
+                        <div className="glass-premium h-11 px-4 flex items-center gap-3 rounded-2xl shadow-sm">
                             <div className="flex items-center gap-1.5">
-                                <CheckCircle size={16} className="text-emerald-400" />
-                                <span className="font-bold text-emerald-400">{correctCount}</span>
+                                <CheckCircle size={16} className="text-emerald-600" />
+                                <span className="font-bold text-emerald-600">{correctCount}</span>
                             </div>
-                            <div className="w-px h-4 bg-white/10" />
+                            <div className="w-px h-4 bg-[#abb4ac]/40" />
                             <div className="flex items-center gap-1.5">
                                 <XCircle size={16} className="text-rose-500" />
                                 <span className="font-bold text-rose-500">{incorrectCount}</span>
@@ -261,24 +261,24 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
 
                         {streak > 2 && (
                             <div className="glass-premium h-11 px-4 flex items-center gap-2 rounded-2xl border-orange-500/30 bg-orange-500/10 animate-pulse">
-                                <Zap size={16} className="text-orange-400 fill-orange-400" />
-                                <span className="font-black text-orange-400 uppercase text-xs tracking-widest">{streak}X SERİ!</span>
+                                <Zap size={16} className="text-orange-500 fill-orange-500" />
+                                <span className="font-black text-orange-500 uppercase text-xs tracking-widest">{streak}X SERİ!</span>
                             </div>
                         )}
                     </div>
 
                     {/* Right: Progress & Control */}
                     <div className="flex items-center gap-2">
-                        <div className="glass-premium h-11 px-4 flex items-center gap-2 rounded-2xl border-white/10 shadow-xl">
-                            <span className="text-slate-500 font-bold text-xs uppercase tracking-widest">Soru</span>
-                            <span className="text-white font-black">{currentIndex + 1}</span>
-                            <span className="text-slate-600 font-bold">/</span>
-                            <span className="text-slate-400 font-bold">{questions.length}</span>
+                        <div className="glass-premium h-11 px-4 flex items-center gap-2 rounded-2xl shadow-sm">
+                            <span className="text-[#59615a] font-bold text-xs uppercase tracking-widest">Soru</span>
+                            <span className="text-[#2c342e] font-black">{currentIndex + 1}</span>
+                            <span className="text-[#747d75] font-bold">/</span>
+                            <span className="text-[#59615a] font-bold">{questions.length}</span>
                         </div>
 
                         <button
                             onClick={onEnd}
-                            className="glass-premium h-11 w-11 flex items-center justify-center rounded-2xl border-white/10 hover:border-rose-500/50 hover:bg-rose-500/10 transition-all text-slate-400 hover:text-rose-500"
+                            className="glass-premium h-11 w-11 flex items-center justify-center rounded-2xl hover:border-rose-500/50 hover:bg-rose-500/10 transition-all text-[#59615a] hover:text-rose-500"
                         >
                             <X size={20} />
                         </button>
@@ -286,12 +286,12 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                 </div>
 
                 {/* Progress Bar with Glow */}
-                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden relative">
+                <div className="w-full h-1.5 bg-[#abb4ac]/20 rounded-full overflow-hidden relative">
                     <div
-                        className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 transition-all duration-700 ease-out relative"
+                        className="h-full bg-gradient-to-r from-[#386948] to-emerald-500 transition-all duration-700 ease-out relative"
                         style={{ width: `${((currentIndex + (showFeedback ? 1 : 0)) / questions.length) * 100}%` }}
                     >
-                        <div className="absolute right-0 top-0 bottom-0 w-8 bg-white/40 blur-md" />
+                        <div className="absolute right-0 top-0 bottom-0 w-8 bg-white/30 blur-md" />
                     </div>
                 </div>
             </div>
@@ -304,9 +304,9 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
             {/* REDESIGNED: Premium Feedback Overlays */}
             {showFeedback && lastResult && (currentQuestion?.type === 'multiple_choice' || currentQuestion?.type === 'true_false') && (
                 <div className="fixed inset-0 z-[1001] flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-md animate-fade-in" />
+                    <div className="absolute inset-0 bg-[#2c342e]/50 backdrop-blur-md animate-fade-in" />
 
-                    <div className="glass-premium w-full max-w-md rounded-[2.5rem] p-8 border-white/10 shadow-2xl relative z-10 animate-modal-enter overflow-hidden">
+                    <div className="bg-white border border-[#abb4ac]/40 w-full max-w-md rounded-[2.5rem] p-8 shadow-2xl relative z-10 overflow-hidden">
                         {/* Header Highlight */}
                         <div className={`absolute top-0 left-0 right-0 h-1.5 ${lastResult.isCorrect ? 'bg-emerald-500' : 'bg-rose-500'}`} />
 
@@ -324,27 +324,27 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                             {lastResult.isCorrect ? 'MUHTEŞEM!' : 'HAY AKSİ!'}
                         </h2>
 
-                        <div className="bg-white/5 rounded-2xl p-5 mb-8 border border-white/5">
-                            <p className="text-center text-slate-300 font-medium leading-relaxed">
+                        <div className="bg-[#f0f5ee] rounded-2xl p-5 mb-8 border border-[#abb4ac]/40">
+                            <p className="text-center text-[#2c342e] font-medium leading-relaxed">
                                 {lastResult.explanation || 'KPSS sınavında bu bilgi senin için fark yaratacak!'}
                             </p>
                         </div>
 
                         {lastResult.isCorrect && (
                             <div className="text-center mb-8 flex flex-col items-center">
-                                <span className="text-[10px] font-black text-emerald-500/50 uppercase tracking-[0.3em] mb-1">KAZANILAN</span>
+                                <span className="text-[10px] font-black text-emerald-600/60 uppercase tracking-[0.3em] mb-1">KAZANILAN</span>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-5xl font-black text-white">+{lastResult.points}</span>
-                                    <span className="text-emerald-400 font-bold">PUAN</span>
+                                    <span className="text-5xl font-black text-[#2c342e]">+{lastResult.points}</span>
+                                    <span className="text-emerald-600 font-bold">PUAN</span>
                                 </div>
                             </div>
                         )}
 
                         <button
                             onClick={handleNext}
-                            className={`w-full py-5 rounded-[1.25rem] font-black text-white transition-all flex items-center justify-center gap-3 shadow-xl group ${lastResult.isCorrect
+                            className={`w-full py-5 rounded-[1.25rem] font-black text-white transition-all flex items-center justify-center gap-3 shadow-md group ${lastResult.isCorrect
                                 ? 'bg-gradient-to-r from-emerald-500 to-teal-600 shadow-emerald-500/20 hover:scale-[1.02]'
-                                : 'bg-slate-800 hover:bg-slate-700'
+                                : 'bg-[#386948] hover:bg-[#2b5d3c]'
                                 }`}
                         >
                             {currentIndex + 1 < questions.length ? (

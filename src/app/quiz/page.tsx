@@ -116,11 +116,11 @@ export default function QuizPage() {
 
     // Quiz Lobby
     return (
-        <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+        <main className="min-h-screen bg-[#f7faf4] text-[#2c342e]">
             {/* Background Effects */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+                <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#b9efc5]/20 rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#e9f0e8]/40 rounded-full blur-3xl" />
             </div>
 
             {/* Content */}
@@ -129,24 +129,24 @@ export default function QuizPage() {
                 <div className="flex items-center justify-between mb-12">
                     <Link
                         href="/"
-                        className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                        className="flex items-center gap-2 text-[#59615a] hover:text-[#2c342e] transition-colors"
                     >
                         <Home size={20} />
                         <span>Ana Sayfa</span>
                     </Link>
 
-                    <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                        <Sparkles size={16} className="text-emerald-400" />
-                        <span className="text-sm font-medium text-emerald-300">Quiz Modu</span>
+                    <div className="flex items-center gap-2 px-4 py-2 bg-[#386948]/10 border border-[#386948]/20 rounded-full">
+                        <Sparkles size={16} className="text-[#386948]" />
+                        <span className="text-sm font-medium text-[#386948]">Quiz Modu</span>
                     </div>
                 </div>
 
                 {/* Title */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-emerald-200 to-teal-200 bg-clip-text text-transparent">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#2c342e]">
                         Sınav Modunu Seç
                     </h1>
-                    <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-lg text-[#59615a] max-w-2xl mx-auto">
                         KPSS coğrafya hazırlığı için farklı soru tiplerinde kendinizi test edin.
                     </p>
                 </div>
@@ -161,10 +161,9 @@ export default function QuizPage() {
                             className={`
                                 group relative overflow-hidden rounded-2xl p-6 text-left transition-all duration-300
                                 ${mode.enabled
-                                    ? `bg-slate-800/50 hover:bg-slate-800/80 hover:scale-[1.02] hover:shadow-2xl ${mode.shadowColor}`
-                                    : 'bg-slate-800/30 cursor-not-allowed opacity-60'
+                                    ? `bg-white hover:scale-[1.02] hover:shadow-md border border-[#abb4ac]/40 hover:border-[#386948]/40`
+                                    : 'bg-[#f0f5ee] cursor-not-allowed opacity-60 border border-[#abb4ac]/30'
                                 }
-                                border border-slate-700/50
                             `}
                         >
                             {/* Gradient Overlay */}
@@ -183,21 +182,21 @@ export default function QuizPage() {
                                 </div>
 
                                 {/* Content */}
-                                <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                <h2 className="text-xl font-bold text-[#2c342e] mb-2 flex items-center gap-2">
                                     {mode.title}
                                     {mode.enabled && (
-                                        <ChevronRight size={20} className="text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                                        <ChevronRight size={20} className="text-[#59615a] group-hover:text-[#386948] group-hover:translate-x-1 transition-all" />
                                     )}
                                 </h2>
 
-                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                <p className="text-[#59615a] text-sm leading-relaxed mb-4">
                                     {mode.description}
                                 </p>
                             </div>
 
                             {/* Coming Soon */}
                             {!mode.enabled && (
-                                <div className="absolute top-4 right-4 px-3 py-1 bg-slate-700 rounded-lg text-xs text-slate-400">
+                                <div className="absolute top-4 right-4 px-3 py-1 bg-[#e9f0e8] rounded-lg text-xs text-[#59615a]">
                                     Yakında
                                 </div>
                             )}
@@ -207,36 +206,36 @@ export default function QuizPage() {
 
                 {/* Footer Info */}
                 <div className="text-center">
-                    <p className="text-slate-500 text-sm">
-                        Toplam <span className="text-emerald-400 font-medium">100+ soru</span> • 4 farklı mod
+                    <p className="text-[#59615a] text-sm">
+                        Toplam <span className="text-[#386948] font-medium">100+ soru</span> • 4 farklı mod
                     </p>
                 </div>
             </div>
 
             {/* Map Category Filter Modal */}
             {showMapFilters && (
-                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all">
-                    <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-popup">
+                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#2c342e]/40 backdrop-blur-md transition-all">
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-popup">
                         <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-2xl font-bold flex items-center gap-2">
-                                <Map className="text-indigo-400" />
+                            <h2 className="text-2xl font-bold text-[#2c342e] flex items-center gap-2">
+                                <Map className="text-[#386948]" />
                                 Harita Modu
                             </h2>
                             <button
                                 onClick={() => setShowMapFilters(false)}
-                                className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                                className="p-2 hover:bg-[#f0f5ee] rounded-lg transition-colors"
                             >
-                                <X size={20} className="text-slate-400" />
+                                <X size={20} className="text-[#59615a]" />
                             </button>
                         </div>
 
-                        <p className="text-slate-400 mb-6">
+                        <p className="text-[#59615a] mb-6">
                             Hangi alanda harita bilginizi test etmek istersiniz?
                         </p>
 
                         <div className="space-y-3 mb-8">
                             {[
-                                { id: undefined, label: 'Karma Sınav', icon: <Sparkles size={18} />, color: 'bg-indigo-500' },
+                                { id: undefined, label: 'Karma Sınav', icon: <Sparkles size={18} />, color: 'bg-[#386948]' },
                                 { id: 'physical', label: 'Fiziki Özellikler', icon: <Map size={18} />, color: 'bg-emerald-500' },
                                 { id: 'economic', label: 'Ekonomik Coğrafya', icon: <Zap size={18} />, color: 'bg-amber-500' },
                                 { id: 'tourism', label: 'Kültür & Turizm', icon: <Trophy size={18} />, color: 'bg-rose-500' },
@@ -244,22 +243,22 @@ export default function QuizPage() {
                                 <button
                                     key={cat.label}
                                     onClick={() => startMapQuiz(cat.id)}
-                                    className="w-full p-4 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-xl flex items-center justify-between group transition-all"
+                                    className="w-full p-4 bg-[#f0f5ee] hover:bg-[#e9f0e8] border border-[#abb4ac]/40 hover:border-[#386948]/50 rounded-xl flex items-center justify-between group transition-all"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className={`w-8 h-8 rounded-lg ${cat.color} flex items-center justify-center`}>
+                                        <div className={`w-8 h-8 rounded-lg ${cat.color} flex items-center justify-center text-white`}>
                                             {cat.icon}
                                         </div>
-                                        <span className="font-medium">{cat.label}</span>
+                                        <span className="font-medium text-[#2c342e]">{cat.label}</span>
                                     </div>
-                                    <ChevronRight size={18} className="text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+                                    <ChevronRight size={18} className="text-[#59615a] group-hover:text-[#386948] group-hover:translate-x-1 transition-all" />
                                 </button>
                             ))}
                         </div>
 
                         <button
                             onClick={() => setShowMapFilters(false)}
-                            className="w-full py-3 text-slate-400 hover:text-white transition-colors text-sm font-medium"
+                            className="w-full py-3 text-[#59615a] hover:text-[#2c342e] transition-colors text-sm font-medium"
                         >
                             Vazgeç
                         </button>
@@ -268,22 +267,22 @@ export default function QuizPage() {
             )}
             {/* MCQ Category Filter Modal */}
             {showMCQFilters && (
-                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all">
-                    <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-popup">
+                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#2c342e]/40 backdrop-blur-md transition-all">
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-popup">
                         <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-2xl font-bold flex items-center gap-2">
-                                <Brain className="text-indigo-400" />
+                            <h2 className="text-2xl font-bold text-[#2c342e] flex items-center gap-2">
+                                <Brain className="text-[#386948]" />
                                 Deneme Sınavları
                             </h2>
                             <button
                                 onClick={() => setShowMCQFilters(false)}
-                                className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                                className="p-2 hover:bg-[#f0f5ee] rounded-lg transition-colors"
                             >
-                                <X size={20} className="text-slate-400" />
+                                <X size={20} className="text-[#59615a]" />
                             </button>
                         </div>
 
-                        <p className="text-slate-400 mb-6">
+                        <p className="text-[#59615a] mb-6">
                             Sınav formatını veya odaklanmak istediğiniz konuyu seçin:
                         </p>
 
@@ -292,30 +291,30 @@ export default function QuizPage() {
                                 { id: 'standard_kpss', label: 'Standart KPSS Denemesi', sub: 'Tam 18 Soru • Karma Dağılım', icon: <Trophy size={18} />, color: 'bg-gradient-to-br from-amber-500 to-orange-600' },
                                 { id: 'physical', label: 'Fiziki Coğrafya', sub: 'Dağlar, İklim, Yer Şekilleri', icon: <Map size={18} />, color: 'bg-emerald-500' },
                                 { id: 'economic', label: 'Beşeri & Ekonomik', sub: 'Nüfus, Sanayi, Madenler', icon: <Zap size={18} />, color: 'bg-amber-500' },
-                                { id: undefined, label: 'Genel Karma Sınav', sub: '15 Soruluk Rastgele Karışım', icon: <Sparkles size={18} />, color: 'bg-indigo-500' },
+                                { id: undefined, label: 'Genel Karma Sınav', sub: '15 Soruluk Rastgele Karışım', icon: <Sparkles size={18} />, color: 'bg-[#386948]' },
                             ].map((cat) => (
                                 <button
                                     key={cat.label}
                                     onClick={() => startMCQuiz(cat.id)}
-                                    className="w-full p-4 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-xl flex items-center justify-between group transition-all"
+                                    className="w-full p-4 bg-[#f0f5ee] hover:bg-[#e9f0e8] border border-[#abb4ac]/40 hover:border-[#386948]/50 rounded-xl flex items-center justify-between group transition-all"
                                 >
                                     <div className="flex items-center gap-3">
                                         <div className={`w-10 h-10 rounded-lg ${cat.color} flex items-center justify-center text-white`}>
                                             {cat.icon}
                                         </div>
                                         <div className="text-left">
-                                            <div className="font-bold">{cat.label}</div>
-                                            <div className="text-xs text-slate-500">{cat.sub}</div>
+                                            <div className="font-bold text-[#2c342e]">{cat.label}</div>
+                                            <div className="text-xs text-[#59615a]">{cat.sub}</div>
                                         </div>
                                     </div>
-                                    <ChevronRight size={18} className="text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+                                    <ChevronRight size={18} className="text-[#59615a] group-hover:text-[#386948] group-hover:translate-x-1 transition-all" />
                                 </button>
                             ))}
                         </div>
 
                         <button
                             onClick={() => setShowMCQFilters(false)}
-                            className="w-full py-3 text-slate-400 hover:text-white transition-colors text-sm font-medium"
+                            className="w-full py-3 text-[#59615a] hover:text-[#2c342e] transition-colors text-sm font-medium"
                         >
                             Vazgeç
                         </button>

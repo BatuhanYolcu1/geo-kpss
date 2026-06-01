@@ -99,7 +99,7 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen pt-20 pb-8 px-4 bg-slate-950/20">
+        <div className="flex items-center justify-center min-h-screen pt-20 pb-8 px-4 bg-[#f7faf4]">
             <div className="w-full max-w-4xl animate-slide-up">
                 {/* Header Section */}
                 <div className="glass-premium rounded-3xl p-8 mb-8 text-center relative overflow-hidden">

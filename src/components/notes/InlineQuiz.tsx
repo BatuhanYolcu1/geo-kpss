@@ -55,28 +55,28 @@ export default function InlineQuiz({ quizzes }: InlineQuizProps) {
     };
 
     return (
-        <div className="my-16 p-8 rounded-[2.5rem] bg-indigo-950/20 border border-indigo-500/20 relative overflow-hidden">
+        <div className="my-16 p-8 rounded-[2.5rem] bg-white border border-[#abb4ac]/40 relative overflow-hidden shadow-sm">
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#b9efc5]/20 rounded-full blur-[80px]" />
 
             <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-8">
-                    <div className="w-12 h-12 rounded-2xl bg-indigo-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
+                    <div className="w-12 h-12 rounded-2xl bg-[#386948] flex items-center justify-center text-white shadow-lg shadow-[#386948]/20">
                         <Target size={24} />
                     </div>
                     <div>
-                        <h4 className="text-2xl font-black text-white">Hızlı Özel Test</h4>
-                        <p className="text-slate-400 text-sm font-medium">Bölümü bitirmeden önce öğrendiklerini pekiştir</p>
+                        <h4 className="text-2xl font-black text-[#2c342e]">Hızlı Özel Test</h4>
+                        <p className="text-[#59615a] text-sm font-medium">Bölümü bitirmeden önce öğrendiklerini pekiştir</p>
                     </div>
                 </div>
 
                 {!isComplete ? (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="flex items-center justify-between mb-6">
-                            <span className="text-xs font-black tracking-widest text-indigo-400 uppercase">Soru {currentQuestionIdx + 1} / {quizzes.length}</span>
+                            <span className="text-xs font-black tracking-widest text-[#386948] uppercase">Soru {currentQuestionIdx + 1} / {quizzes.length}</span>
                         </div>
 
-                        <h5 className="text-xl font-bold text-white mb-6 leading-relaxed">
+                        <h5 className="text-xl font-bold text-[#2c342e] mb-6 leading-relaxed">
                             {currentQuiz.question}
                         </h5>
 
@@ -86,18 +86,18 @@ export default function InlineQuiz({ quizzes }: InlineQuizProps) {
                                 const isCorrect = idx === currentQuiz.correctOptionIndex;
                                 const isWrong = isSelected && !isCorrect;
 
-                                let stateClasses = 'bg-slate-800/50 border-slate-700 hover:border-indigo-500/50 hover:bg-slate-800 text-slate-300';
+                                let stateClasses = 'bg-[#f0f5ee] border-[#abb4ac]/40 hover:border-[#386948]/50 hover:bg-[#e9f0e8] text-[#2c342e]';
 
                                 if (isAnswered) {
                                     if (isCorrect) {
-                                        stateClasses = 'bg-emerald-500/20 border-emerald-500 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.2)] scale-[1.02]';
+                                        stateClasses = 'bg-emerald-500/20 border-emerald-500 text-emerald-800 shadow-[0_0_15px_rgba(16,185,129,0.15)] scale-[1.02]';
                                     } else if (isWrong) {
-                                        stateClasses = 'bg-rose-500/20 border-rose-500 text-rose-100 animate-shake';
+                                        stateClasses = 'bg-rose-500/10 border-rose-500 text-rose-700 animate-shake';
                                     } else {
-                                        stateClasses = 'bg-slate-800/30 border-slate-700/50 text-slate-500 opacity-50';
+                                        stateClasses = 'bg-[#f0f5ee] border-[#abb4ac]/30 text-[#59615a] opacity-50';
                                     }
                                 } else if (isSelected) {
-                                    stateClasses = 'bg-indigo-500/20 border-indigo-500 text-indigo-100'; // Should not happen since answer is immediate
+                                    stateClasses = 'bg-[#386948]/10 border-[#386948] text-[#386948]'; // Should not happen since answer is immediate
                                 }
 
                                 return (
@@ -119,14 +119,14 @@ export default function InlineQuiz({ quizzes }: InlineQuizProps) {
                         {isAnswered && (
                             <div className="mt-8 animate-in fade-in slide-in-from-top-4 duration-500">
                                 {currentQuiz.explanation && (
-                                    <div className="mb-6 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex gap-4 items-start">
-                                        <Lightbulb size={24} className="text-indigo-400 shrink-0 mt-1" />
-                                        <p className="text-indigo-200 text-sm leading-relaxed">{currentQuiz.explanation}</p>
+                                    <div className="mb-6 p-4 rounded-2xl bg-[#386948]/5 border border-[#386948]/20 flex gap-4 items-start">
+                                        <Lightbulb size={24} className="text-[#386948] shrink-0 mt-1" />
+                                        <p className="text-[#2c342e] text-sm leading-relaxed">{currentQuiz.explanation}</p>
                                     </div>
                                 )}
                                 <button
                                     onClick={handleNext}
-                                    className="w-full sm:w-auto px-8 py-3 bg-white text-slate-900 font-black rounded-xl hover:bg-indigo-50 transition-colors flex items-center justify-center gap-2"
+                                    className="w-full sm:w-auto px-8 py-3 bg-[#386948] text-white font-black rounded-xl hover:bg-[#2b5d3c] transition-colors flex items-center justify-center gap-2"
                                 >
                                     {currentQuestionIdx < quizzes.length - 1 ? 'Sıradaki Soru' : 'Sonuçları Gör'}
                                     <ArrowRight size={18} />
@@ -137,11 +137,11 @@ export default function InlineQuiz({ quizzes }: InlineQuizProps) {
                 ) : (
                     /* Results Screen */
                     <div className="text-center py-8 animate-in zoom-in-95 duration-500">
-                        <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-2xl shadow-indigo-500/40">
+                        <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#386948] to-[#2b5d3c] flex items-center justify-center shadow-2xl shadow-[#386948]/30">
                             <span className="text-4xl font-black text-white">{score}/{quizzes.length}</span>
                         </div>
-                        <h4 className="text-3xl font-black text-white mb-4">Test Tamamlandı!</h4>
-                        <p className="text-slate-400 mb-8 max-w-md mx-auto">
+                        <h4 className="text-3xl font-black text-[#2c342e] mb-4">Test Tamamlandı!</h4>
+                        <p className="text-[#59615a] mb-8 max-w-md mx-auto">
                             {score === quizzes.length
                                 ? 'Harika! Bu konuyu tam anlamıyla kavramışsın.'
                                 : score >= quizzes.length / 2
@@ -150,7 +150,7 @@ export default function InlineQuiz({ quizzes }: InlineQuizProps) {
                         </p>
                         <button
                             onClick={handleRetry}
-                            className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-colors"
+                            className="px-8 py-3 bg-[#f0f5ee] hover:bg-[#e9f0e8] border border-[#abb4ac]/40 text-[#2c342e] font-bold rounded-xl transition-colors"
                         >
                             Testi Tekrar Çöz
                         </button>

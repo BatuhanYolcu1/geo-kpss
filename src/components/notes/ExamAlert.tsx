@@ -17,7 +17,7 @@ export default function ExamAlert({ title = 'ÖSYM Uyarısı', children }: ExamA
                 <span>{title}</span>
             </div>
 
-            <div className="text-slate-200 font-medium leading-relaxed italic">
+            <div className="text-[#2c342e] font-medium leading-relaxed italic">
                 {children}
             </div>
         </div>

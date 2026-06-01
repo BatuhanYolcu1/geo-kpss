@@ -29,17 +29,17 @@ export default function StatsDashboard() {
 
     if (!stats || stats.totalQuizzes === 0) {
         return (
-            <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-12 text-center">
-                <div className="w-16 h-16 bg-slate-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="text-slate-500" size={32} />
+            <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-12 text-center">
+                <div className="w-16 h-16 bg-[#e9f0e8] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <BarChart3 className="text-[#59615a]" size={32} />
                 </div>
-                <h2 className="text-xl font-bold text-white mb-2">Henüz Veri Yok</h2>
-                <p className="text-slate-400 mb-8 max-w-sm mx-auto">
+                <h2 className="text-xl font-bold text-[#2c342e] mb-2">Henüz Veri Yok</h2>
+                <p className="text-[#59615a] mb-8 max-w-sm mx-auto">
                     İstatistiklerinizin oluşması için en az bir quizi tamamlamanız gerekiyor.
                 </p>
                 <Link
                     href="/quiz"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-bold transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-xl font-bold transition-all"
                 >
                     Hadi Başlayalım
                     <ChevronRight size={18} />
@@ -96,9 +96,9 @@ export default function StatsDashboard() {
             <div className="grid lg:grid-cols-3 gap-8">
                 {/* Category Performance */}
                 <div className="lg:col-span-2 space-y-6">
-                    <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6">
-                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            <BarChart3 size={20} className="text-indigo-400" />
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6">
+                        <h3 className="text-lg font-bold text-[#2c342e] mb-6 flex items-center gap-2">
+                            <BarChart3 size={20} className="text-[#386948]" />
                             Kategori Performansı
                         </h3>
 
@@ -106,14 +106,14 @@ export default function StatsDashboard() {
                             {Object.entries(stats.categoryPerformance).map(([category, data]) => (
                                 <div key={category} className="space-y-2">
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-slate-300 capitalize">{category}</span>
-                                        <span className="text-slate-400">
+                                        <span className="text-[#2c342e] capitalize">{category}</span>
+                                        <span className="text-[#59615a]">
                                             {data.correctAnswers} / {data.totalAnswers} doğru (%{data.accuracy})
                                         </span>
                                     </div>
-                                    <div className="h-2 w-full bg-slate-700 rounded-full overflow-hidden">
+                                    <div className="h-2 w-full bg-[#e9f0e8] rounded-full overflow-hidden">
                                         <div
-                                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-1000"
+                                            className="h-full bg-gradient-to-r from-[#386948] to-emerald-500 transition-all duration-1000"
                                             style={{ width: `${data.accuracy}%` }}
                                         />
                                     </div>
@@ -123,9 +123,9 @@ export default function StatsDashboard() {
                     </div>
 
                     {/* Recent History Table */}
-                    <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl overflow-hidden">
-                        <div className="p-6 border-b border-slate-700/50 flex justify-between items-center">
-                            <h3 className="text-lg font-bold text-white">Son Aktiviteler</h3>
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-2xl overflow-hidden">
+                        <div className="p-6 border-b border-[#abb4ac]/40 flex justify-between items-center">
+                            <h3 className="text-lg font-bold text-[#2c342e]">Son Aktiviteler</h3>
                             <button
                                 onClick={handleClearHistory}
                                 className="text-slate-500 hover:text-red-400 transition-colors p-2"
@@ -136,8 +136,8 @@ export default function StatsDashboard() {
                         </div>
                         <div className="overflow-x-auto">
                             <table className="w-full text-left">
-                                <thead className="bg-slate-900/50">
-                                    <tr className="text-xs uppercase tracking-wider text-slate-500">
+                                <thead className="bg-[#f0f5ee]">
+                                    <tr className="text-xs uppercase tracking-wider text-[#59615a]">
                                         <th className="px-6 py-4 font-semibold">Tarih</th>
                                         <th className="px-6 py-4 font-semibold">Mod</th>
                                         <th className="px-6 py-4 font-semibold">Doğru / Soru</th>
@@ -145,19 +145,19 @@ export default function StatsDashboard() {
                                         <th className="px-6 py-4 font-semibold text-right">Puan</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-slate-700/30">
+                                <tbody className="divide-y divide-[#abb4ac]/20">
                                     {stats.recentActivity.map((result) => (
-                                        <tr key={result.id} className="hover:bg-slate-700/20 transition-colors">
-                                            <td className="px-6 py-4 text-sm text-slate-400">
+                                        <tr key={result.id} className="hover:bg-[#f0f5ee] transition-colors">
+                                            <td className="px-6 py-4 text-sm text-[#59615a]">
                                                 {new Date(result.date).toLocaleDateString('tr-TR')}
                                             </td>
                                             <td className="px-6 py-4">
-                                                <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-slate-700/50 text-xs text-slate-300 capitalize">
+                                                <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-[#e9f0e8] text-xs text-[#2c342e] capitalize">
                                                     {getModeIcon(result.mode)}
                                                     {result.mode === 'map' ? 'Harita' : result.mode}
                                                 </span>
                                             </td>
-                                            <td className="px-6 py-4 text-sm text-white">
+                                            <td className="px-6 py-4 text-sm text-[#2c342e]">
                                                 {result.correctCount} / {result.totalQuestions}
                                             </td>
                                             <td className="px-6 py-4">
@@ -165,7 +165,7 @@ export default function StatsDashboard() {
                                                     %{result.accuracy}
                                                 </span>
                                             </td>
-                                            <td className="px-6 py-4 text-right font-bold text-white">
+                                            <td className="px-6 py-4 text-right font-bold text-[#2c342e]">
                                                 {result.score}
                                             </td>
                                         </tr>
@@ -178,30 +178,30 @@ export default function StatsDashboard() {
 
                 {/* Sidebar / Tips */}
                 <div className="space-y-6">
-                    <div className="bg-indigo-600/10 border border-indigo-500/20 rounded-2xl p-6">
-                        <h4 className="font-bold text-indigo-300 mb-3 flex items-center gap-2">
+                    <div className="bg-[#386948]/5 border border-[#386948]/20 rounded-2xl p-6">
+                        <h4 className="font-bold text-[#386948] mb-3 flex items-center gap-2">
                             <TrendingUp size={18} />
                             Gelişim Önerisi
                         </h4>
-                        <p className="text-sm text-indigo-100/70 leading-relaxed mb-4">
+                        <p className="text-sm text-[#2c342e]/70 leading-relaxed mb-4">
                             {stats.averageAccuracy < 50
                                 ? "Temel konuları tekrar etmek için İnteraktif Atlas modülünü kullanabilirsiniz."
                                 : "Başarı oranınızı %80'in üzerine çıkarmak için yanlış yaptığınız kategorilere odaklanın."}
                         </p>
                     </div>
 
-                    <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6">
-                        <h4 className="font-bold text-white mb-4">Hızlı İstatistik</h4>
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6">
+                        <h4 className="font-bold text-[#2c342e] mb-4">Hızlı İstatistik</h4>
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
-                                <span className="text-sm text-slate-400">Ort. Süre</span>
-                                <span className="text-sm font-medium text-white">
+                                <span className="text-sm text-[#59615a]">Ort. Süre</span>
+                                <span className="text-sm font-medium text-[#2c342e]">
                                     {Math.round(stats.recentActivity.reduce((a, b) => a + b.duration, 0) / stats.recentActivity.length)} sn
                                 </span>
                             </div>
                             <div className="flex justify-between items-center">
-                                <span className="text-sm text-slate-400">Verimlilik</span>
-                                <span className="text-sm font-medium text-white">Yüksek</span>
+                                <span className="text-sm text-[#59615a]">Verimlilik</span>
+                                <span className="text-sm font-medium text-[#2c342e]">Yüksek</span>
                             </div>
                         </div>
                     </div>
@@ -213,13 +213,13 @@ export default function StatsDashboard() {
 
 function StatCard({ icon, label, value, subValue }: { icon: React.ReactNode, label: string, value: string, subValue: string }) {
     return (
-        <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6 hover:border-slate-600 transition-colors">
-            <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center mb-4">
+        <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6 hover:border-[#386948]/30 transition-colors shadow-sm">
+            <div className="w-10 h-10 bg-[#f0f5ee] rounded-xl flex items-center justify-center mb-4">
                 {icon}
             </div>
-            <div className="text-2xl font-bold text-white mb-1">{value}</div>
-            <div className="text-sm font-medium text-slate-300 mb-1">{label}</div>
-            <div className="text-xs text-slate-500">{subValue}</div>
+            <div className="text-2xl font-bold text-[#2c342e] mb-1">{value}</div>
+            <div className="text-sm font-medium text-[#2c342e] mb-1">{label}</div>
+            <div className="text-xs text-[#59615a]">{subValue}</div>
         </div>
     );
 }

@@ -34,13 +34,13 @@ export default function NotesSidebar({ units, activeSectionId, onSelectSection }
     };
 
     return (
-        <aside className="w-full h-full bg-slate-900/30 border-r border-slate-700/50 flex flex-col">
-            <div className="p-6 border-b border-slate-700/50">
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                    <BookOpen className="text-indigo-400" />
+        <aside className="w-full h-full bg-white border-r border-[#abb4ac]/40 flex flex-col">
+            <div className="p-6 border-b border-[#abb4ac]/40">
+                <h2 className="text-xl font-bold text-[#2c342e] flex items-center gap-2">
+                    <BookOpen className="text-[#386948]" />
                     Müfredat
                 </h2>
-                <p className="text-xs text-slate-500 mt-1 uppercase tracking-widest font-semibold italic">KPSS 2026 Hazırlık</p>
+                <p className="text-xs text-[#59615a] mt-1 uppercase tracking-widest font-semibold italic">KPSS 2026 Hazırlık</p>
             </div>
 
             <nav className="flex-1 overflow-y-auto p-4 custom-scrollbar">
@@ -51,19 +51,19 @@ export default function NotesSidebar({ units, activeSectionId, onSelectSection }
                         className={`
                             w-full flex items-center justify-between p-3 rounded-xl transition-all
                             ${activeSectionId === null
-                                ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20'
-                                : 'text-slate-400 hover:bg-slate-800/50 hover:text-white'}
+                                ? 'bg-[#386948] text-white shadow-lg shadow-[#386948]/20'
+                                : 'text-[#59615a] hover:bg-[#f0f5ee] hover:text-[#2c342e]'}
                         `}
                     >
                         <div className="flex items-center gap-3">
-                            <div className={`p-2 rounded-lg ${activeSectionId === null ? 'bg-white/20' : 'bg-slate-700/50'}`}>
+                            <div className={`p-2 rounded-lg ${activeSectionId === null ? 'bg-white/20' : 'bg-[#e9f0e8]'}`}>
                                 <TrendingUp size={18} />
                             </div>
                             <span className="font-bold text-sm">Müfredat Özeti</span>
                         </div>
                     </button>
 
-                    <div className="h-px bg-slate-800/50 mx-2" />
+                    <div className="h-px bg-[#abb4ac]/30 mx-2" />
 
                     {units.map((unit) => {
                         const isExpanded = expandedUnits[unit.id];
@@ -73,11 +73,11 @@ export default function NotesSidebar({ units, activeSectionId, onSelectSection }
                                     onClick={() => toggleUnit(unit.id)}
                                     className={`
                                         w-full flex items-center justify-between p-3 rounded-xl transition-all
-                                        ${isExpanded ? 'bg-slate-800/50 text-white border border-white/5' : 'hover:bg-slate-800/30 text-slate-400'}
+                                        ${isExpanded ? 'bg-[#f0f5ee] text-[#2c342e] border border-[#abb4ac]/30' : 'hover:bg-[#f0f5ee] text-[#59615a]'}
                                     `}
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className={`p-2 rounded-lg ${isExpanded ? 'bg-indigo-500 text-white' : 'bg-slate-700/50 text-slate-400'}`}>
+                                        <div className={`p-2 rounded-lg ${isExpanded ? 'bg-[#386948] text-white' : 'bg-[#e9f0e8] text-[#59615a]'}`}>
                                             {getIcon(unit.icon)}
                                         </div>
                                         <div className="flex flex-col items-start">
@@ -96,8 +96,8 @@ export default function NotesSidebar({ units, activeSectionId, onSelectSection }
                                                 className={`
                                                     w-full text-left p-2.5 rounded-lg text-sm transition-all flex items-center justify-between
                                                     ${activeSectionId === section.id
-                                                        ? 'bg-indigo-500/10 text-indigo-400 font-bold border-l-2 border-indigo-500 pl-4'
-                                                        : 'text-slate-500 hover:text-slate-300 hover:pl-4'}
+                                                        ? 'bg-[#386948]/10 text-[#386948] font-bold border-l-2 border-[#386948] pl-4'
+                                                        : 'text-[#59615a] hover:text-[#2c342e] hover:pl-4'}
                                                 `}
                                             >
                                                 <span>{section.title}</span>
