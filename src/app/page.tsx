@@ -51,87 +51,37 @@ function AnimatedCounter({ target, suffix = '', duration = 2000 }: { target: num
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-// ─── TURKEY MAP SVG ───────────────────────────────────────────
+// ─── TURKEY MAP IMAGE ─────────────────────────────────────────
 function TurkeyMap() {
   return (
     <div className="relative w-full">
       {/* Card */}
-      <div className="relative bg-[#e9f0e8] rounded-3xl border border-[#abb4ac]/30 p-8 overflow-hidden">
-        {/* Topographic rings */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[70%] rounded-full border border-[#386948]/15" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[55%] rounded-full border border-[#386948]/15" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[40%] rounded-full border border-[#386948]/10" />
+      <div className="relative bg-[#e8f0e9] rounded-3xl border border-[#abb4ac]/30 overflow-hidden shadow-md">
+
+        {/* Harita görseli — kenarlar CSS mask ile yumuşatıldı */}
+        <div
+          className="relative w-full"
+          style={{
+            maskImage: 'radial-gradient(ellipse 88% 82% at 50% 50%, black 55%, transparent 100%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 88% 82% at 50% 50%, black 55%, transparent 100%)',
+          }}
+        >
+          <img
+            src="/turkey-map.png"
+            alt="Türkiye Fiziki Haritası"
+            className="w-full object-cover"
+            style={{
+              aspectRatio: '2 / 1',
+              objectPosition: 'center 40%',
+            }}
+          />
         </div>
 
-        {/* Turkey SVG */}
-        <svg
-          viewBox="0 0 500 240"
-          className="relative w-full drop-shadow-[0_12px_28px_rgba(56,105,72,0.40)]"
-          aria-label="Türkiye Haritası"
-        >
-          <defs>
-            <linearGradient id="mapGrad" x1="10%" y1="0%" x2="90%" y2="100%">
-              <stop offset="0%" stopColor="#5ca877" />
-              <stop offset="55%" stopColor="#386948" />
-              <stop offset="100%" stopColor="#2a5539" />
-            </linearGradient>
-            <filter id="mapShadow" x="-5%" y="-10%" width="115%" height="130%">
-              <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#1e4028" floodOpacity="0.30" />
-            </filter>
-          </defs>
-          {/* Simplified Turkey outline — Thrace + Anatolia */}
-          <path
-            fill="url(#mapGrad)"
-            filter="url(#mapShadow)"
-            d="
-              M 18,96
-              L 28,78 L 44,66 L 60,60 L 76,56
-              L 92,52 L 110,46 L 128,41 L 148,37
-              L 168,34 L 188,32 L 208,31 L 228,30
-              L 248,30 L 268,32 L 288,35 L 308,39
-              L 328,44 L 348,50 L 366,58 L 382,68
-              L 395,80 L 403,94 L 406,108 L 404,122
-              L 398,133 L 388,141 L 374,147 L 358,149
-              L 342,147 L 328,142 L 315,146 L 302,152
-              L 287,156 L 270,158 L 252,158 L 234,155
-              L 218,150 L 203,148 L 188,151 L 172,154
-              L 155,153 L 138,148 L 120,140 L 102,132
-              L 84,124 L 64,116 L 44,108 L 28,102 Z
-            "
-          />
-          {/* Thrace protrusion (European side) */}
-          <path
-            fill="url(#mapGrad)"
-            filter="url(#mapShadow)"
-            d="
-              M 18,96 L 12,88 L 10,76 L 14,64
-              L 22,56 L 32,52 L 42,54 L 48,62
-              L 44,66 L 28,78 Z
-            "
-          />
-        </svg>
-
         {/* Floating badge */}
-        <div className="absolute top-5 right-5 flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#abb4ac]/40 rounded-full px-3 py-1.5 shadow-sm">
+        <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#abb4ac]/40 rounded-full px-3 py-1.5 shadow-sm">
           <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
           <span className="text-xs font-bold text-[#2c342e]">İnteraktif Harita</span>
         </div>
-
-        {/* City dots */}
-        {[
-          { cx: 58, cy: 72, r: 3, label: 'İstanbul' },
-          { cx: 178, cy: 88, r: 2.5, label: 'Ankara' },
-          { cx: 108, cy: 108, r: 2, label: 'İzmir' },
-          { cx: 254, cy: 118, r: 2, label: 'Konya' },
-          { cx: 336, cy: 100, r: 2, label: 'Diyarbakır' },
-          { cx: 368, cy: 108, r: 2.5, label: 'Van' },
-        ].map(dot => (
-          <svg key={dot.label} className="absolute inset-0 w-full h-full" viewBox="0 0 500 240" style={{ pointerEvents: 'none' }}>
-            <circle cx={dot.cx} cy={dot.cy} r={dot.r + 3} fill="white" opacity="0.3" />
-            <circle cx={dot.cx} cy={dot.cy} r={dot.r} fill="white" opacity="0.9" />
-          </svg>
-        ))}
       </div>
     </div>
   );
