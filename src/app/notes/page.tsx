@@ -4,25 +4,39 @@ import { useState, useEffect } from 'react';
 import { curriculum } from '@/data/curriculum';
 import NotesSidebar from '@/components/notes/NotesSidebar';
 import NoteContent from '@/components/notes/NoteContent';
-import { Home, Menu, X, ArrowLeft, BookOpen, ChevronRight, Mountain, CloudRain, TrendingUp, Globe, Waves, Zap, Factory, MapPin, AlertTriangle, Users } from 'lucide-react';
+import { Home, Menu, X, ArrowLeft, BookOpen, ChevronRight, Mountain, CloudRain, TrendingUp, Globe, Waves, Zap, Factory, MapPin, AlertTriangle, Users, Search } from 'lucide-react';
+import Link from 'next/link';
 
 const unitIconMap: Record<string, React.ReactNode> = {
-    Globe: <Globe size={24} />,
-    Mountain: <Mountain size={24} />,
-    CloudRain: <CloudRain size={24} />,
-    Users: <Users size={24} />,
-    TrendingUp: <TrendingUp size={24} />,
-    Zap: <Zap size={24} />,
-    Factory: <Factory size={24} />,
-    MapPin: <MapPin size={24} />,
-    Waves: <Waves size={24} />,
-    AlertTriangle: <AlertTriangle size={24} />,
+    Globe: <Globe size={20} />,
+    Mountain: <Mountain size={20} />,
+    CloudRain: <CloudRain size={20} />,
+    Users: <Users size={20} />,
+    TrendingUp: <TrendingUp size={20} />,
+    Zap: <Zap size={20} />,
+    Factory: <Factory size={20} />,
+    MapPin: <MapPin size={20} />,
+    Waves: <Waves size={20} />,
+    AlertTriangle: <AlertTriangle size={20} />,
 };
-import Link from 'next/link';
 
 export default function NotesPage() {
     const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Tüm section'ları düz liste olarak al (arama için)
+    const allSections = curriculum.flatMap(u =>
+        u.sections.map(s => ({ ...s, unitTitle: u.title, unitIcon: u.icon }))
+    );
+
+    // Arama sonuçları
+    const searchResults = searchQuery.trim().length > 1
+        ? allSections.filter(s =>
+            s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            s.content.toLowerCase().includes(searchQuery.toLowerCase())
+        ).slice(0, 12)
+        : [];
 
     // Find current section
     const currentSection = curriculum
@@ -31,7 +45,8 @@ export default function NotesPage() {
 
     const handleSelectSection = (id: string | null) => {
         setActiveSectionId(id);
-        setIsSidebarOpen(false); // Close on mobile
+        setSearchQuery('');
+        setIsSidebarOpen(false);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -66,26 +81,45 @@ export default function NotesPage() {
             {/* Content Area */}
             <div className="flex-1 flex flex-col h-screen overflow-hidden">
                 {/* Header / Mobile Nav */}
-                <header className="h-16 border-b border-[#abb4ac]/40 bg-white/80 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-50">
-                    <div className="flex items-center gap-4">
-                        <button
-                            onClick={() => setIsSidebarOpen(true)}
-                            className="lg:hidden p-2 hover:bg-[#f0f5ee] rounded-lg transition-colors"
-                        >
-                            <Menu size={24} />
-                        </button>
-                        <Link
-                            href="/"
-                            className="flex items-center gap-2 text-[#59615a] hover:text-[#2c342e] transition-colors"
-                        >
-                            <ArrowLeft size={18} />
-                            <span className="font-medium hidden sm:inline">Ana Sayfa</span>
-                        </Link>
-                    </div>
+                <header className="border-b border-[#abb4ac]/40 bg-white/80 backdrop-blur-md px-4 lg:px-6 sticky top-0 z-50">
+                    <div className="h-14 flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-3 shrink-0">
+                            <button
+                                onClick={() => setIsSidebarOpen(true)}
+                                className="lg:hidden p-2 hover:bg-[#f0f5ee] rounded-lg transition-colors"
+                            >
+                                <Menu size={22} />
+                            </button>
+                            <Link
+                                href="/"
+                                className="flex items-center gap-1.5 text-[#59615a] hover:text-[#2c342e] transition-colors"
+                            >
+                                <ArrowLeft size={16} />
+                                <span className="font-medium text-sm hidden sm:inline">Ana Sayfa</span>
+                            </Link>
+                        </div>
 
-                    <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                        <span className="text-sm font-bold text-[#59615a]">Canlı Müfredat</span>
+                        {/* Arama Kutusu */}
+                        <div className="flex-1 max-w-md relative">
+                            <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#747d75]" />
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={e => { setSearchQuery(e.target.value); setActiveSectionId(null); }}
+                                placeholder="Konu ara... (Kızılırmak, horst, nadas...)"
+                                className="w-full pl-8 pr-8 py-2 text-sm bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-xl focus:outline-none focus:border-[#386948]/60 focus:bg-white transition-all text-[#2c342e] placeholder:text-[#747d75]"
+                            />
+                            {searchQuery && (
+                                <button onClick={() => setSearchQuery('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#747d75] hover:text-[#2c342e]">
+                                    <X size={14} />
+                                </button>
+                            )}
+                        </div>
+
+                        <div className="hidden sm:flex items-center gap-2 shrink-0">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                            <span className="text-xs font-bold text-[#59615a]">Canlı</span>
+                        </div>
                     </div>
                 </header>
 
@@ -98,6 +132,38 @@ export default function NotesPage() {
 
                         {currentSection ? (
                             <NoteContent section={currentSection} />
+                        ) : searchResults.length > 0 ? (
+                            /* Arama Sonuçları */
+                            <div className="max-w-3xl mx-auto px-6 py-8 animate-in fade-in duration-300">
+                                <p className="text-sm text-[#59615a] mb-4 font-medium">
+                                    <span className="text-[#386948] font-bold">{searchResults.length}</span> sonuç bulundu: &ldquo;{searchQuery}&rdquo;
+                                </p>
+                                <div className="space-y-2">
+                                    {searchResults.map(s => (
+                                        <button
+                                            key={s.id}
+                                            onClick={() => handleSelectSection(s.id)}
+                                            className="w-full flex items-center gap-3 p-4 bg-white border border-[#abb4ac]/40 rounded-2xl hover:border-[#386948]/50 hover:bg-[#f0f5ee] transition-all text-left group"
+                                        >
+                                            <div className="w-8 h-8 bg-[#386948]/10 rounded-xl flex items-center justify-center text-[#386948] shrink-0">
+                                                {unitIconMap[s.unitIcon] ?? <BookOpen size={16} />}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="font-semibold text-[#2c342e] text-sm truncate">{s.title}</div>
+                                                <div className="text-xs text-[#747d75]">{s.unitTitle}</div>
+                                            </div>
+                                            <ChevronRight size={16} className="text-[#747d75] group-hover:text-[#386948] shrink-0 transition-colors" />
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : searchQuery.trim().length > 1 ? (
+                            /* Sonuç Yok */
+                            <div className="max-w-3xl mx-auto px-6 py-16 text-center animate-in fade-in duration-300">
+                                <Search size={40} className="mx-auto text-[#abb4ac] mb-4" />
+                                <p className="text-[#59615a] font-medium">&ldquo;{searchQuery}&rdquo; için sonuç bulunamadı.</p>
+                                <p className="text-sm text-[#747d75] mt-1">Farklı anahtar kelimeler deneyin.</p>
+                            </div>
                         ) : (
                             /* Overview State */
                             <div className="max-w-5xl mx-auto px-6 py-12 animate-in fade-in duration-500">

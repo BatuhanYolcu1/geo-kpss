@@ -207,7 +207,7 @@ export default function QuizPage() {
                 {/* Footer Info */}
                 <div className="text-center">
                     <p className="text-[#59615a] text-sm">
-                        Toplam <span className="text-[#386948] font-medium">100+ soru</span> • 4 farklı mod
+                        Toplam <span className="text-[#386948] font-medium">239+ soru</span> • 4 farklı mod • 6 konu kategorisi
                     </p>
                 </div>
             </div>
@@ -289,9 +289,11 @@ export default function QuizPage() {
                         <div className="space-y-3 mb-8">
                             {[
                                 { id: 'standard_kpss', label: 'Standart KPSS Denemesi', sub: 'Tam 18 Soru • Karma Dağılım', icon: <Trophy size={18} />, color: 'bg-gradient-to-br from-amber-500 to-orange-600' },
-                                { id: 'physical', label: 'Fiziki Coğrafya', sub: 'Dağlar, İklim, Yer Şekilleri', icon: <Map size={18} />, color: 'bg-emerald-500' },
-                                { id: 'economic', label: 'Beşeri & Ekonomik', sub: 'Nüfus, Sanayi, Madenler', icon: <Zap size={18} />, color: 'bg-amber-500' },
-                                { id: undefined, label: 'Genel Karma Sınav', sub: '15 Soruluk Rastgele Karışım', icon: <Sparkles size={18} />, color: 'bg-[#386948]' },
+                                { id: 'physical', label: 'Fiziki Coğrafya', sub: 'Dağlar, İklim, Su, Yer Şekilleri', icon: <Map size={18} />, color: 'bg-emerald-500' },
+                                { id: 'regions', label: 'Coğrafi Bölgeler', sub: '7 Bölge • Karşılaştırmalı Sorular', icon: <ChevronRight size={18} />, color: 'bg-[#386948]' },
+                                { id: 'economic', label: 'Ekonomik Coğrafya', sub: 'Sanayi, Madenler, Enerji, Tarım', icon: <Zap size={18} />, color: 'bg-amber-500' },
+                                { id: 'human', label: 'Nüfus & Yerleşme', sub: 'Göç, TÜİK Verileri, Şehirleşme', icon: <Trophy size={18} />, color: 'bg-violet-500' },
+                                { id: undefined, label: 'Genel Karma Sınav', sub: '15 Soruluk Rastgele Karışım', icon: <Sparkles size={18} />, color: 'bg-[#59615a]' },
                             ].map((cat) => (
                                 <button
                                     key={cat.label}
