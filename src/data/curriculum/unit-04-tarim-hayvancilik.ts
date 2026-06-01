@@ -178,6 +178,94 @@ Tarladan sofraya doğrudan yenmeyen, önce fabrikaya kütük gibi girip oradan e
                     explanation: "Besi/Ahır hayvancılığı korkunç derecede kapitalist ve paraya dayalı MASRAFLI fabrikatördür. Klimalı hangar kapalı binalar, sürekli İthalatlı Dolar bazında Suni Yem / Sanayi yemi alınması mecburiyeti gibi nedenlerden dolayı Ahır Hayvancılığının girdi kalemi (Maliyeti) Mera hayvancılığına göre KAT BE KAT PAHALIDIR ve bu nedenle Ahır besisinde 'Tüketici Piyasasına Ucuzluk' diye bir kavram görülmesi imkansız/zıt bir durumdur."
                 }
             ]
+        },
+        {
+            id: 'ormancilik-balikcilik-seracilik',
+            slug: 'ormancilik-balikcilik-ve-seracilik',
+            title: '3. Ormancılık, Balıkçılık ve Seracılık',
+            content: `## Ormancılık
+
+Türkiye orman alanları açısından Avrupa'nın orta sıralarındadır. Toplam ülke yüzeyinin yaklaşık **%28-30'u** ormanlarla kaplıdır.
+
+### Türkiye'nin Ormanlık Bölgeleri
+* **İl bazında en geniş orman:** Antalya (1. sıra), Kastamonu, Bolu, İstanbul.
+* **Bölge bazında en ormanlık:** Karadeniz Bölgesi (nem + yağış).
+* **En az orman:** İç Anadolu ve Güneydoğu Anadolu (kurak iklim, step).
+
+### Orman Ürünleri Sanayi
+* **Kağıt-Karton:** Giresun (Türkiye Selüloz — SEKA), Kastamonu, Zonguldak Çaycuma, Muğla Dalaman, Mersin Taşucu.
+* **Kereste-Mobilya:** Karabük, Bolu, Kastamonu.
+* **Reçine:** Akdeniz bölgesi çam ormanları (Muğla, Antalya).
+
+> [!WARNING]
+> Kağıt fabrikaları su ve hammadde (orman) gerektirdiğinden **yalnızca ormanlık kıyı bölgelerine** kurulur. İç Anadolu ve GDA'da kağıt fabrikası olamaz!
+
+### Ormanların Azalma Nedenleri
+1. Orman yangınları (Akdeniz ve Ege: yaz kuraklığı)
+2. Kaçak kesim
+3. Aşırı otlatma (orman altı tahribi)
+4. Tarım ve yapılaşma baskısı
+
+---
+
+## Balıkçılık
+
+### Su Ürünleri Üretimi
+* Türkiye denizlerinde **avcılık balıkçılığı** yapılmaktadır.
+* **En fazla balık avı yapılan deniz: Karadeniz** (Türkiye balık üretiminin yaklaşık %65-70'i).
+    * Karadeniz'de en çok avlanan balık: **Hamsi** (Aralık-Ocak zirvesi — Trabzon, Rize, Ordu).
+    * Hamsi Türkiye'nin en çok avlanan balığıdır.
+
+### Denizlere Göre Balıkçılık
+| Deniz | Önemli Türler | Avlanma Miktarı |
+|-------|--------------|-----------------|
+| Karadeniz | Hamsi, İstavrit, Palamut | 1. sıra (%65-70) |
+| Ege | Çipura, Levrek, Sardalya | 2. sıra |
+| Akdeniz | Çipura, Orfoz, Barbunya | 3. sıra |
+| Marmara | Lüfer, İstavrit | Az (kirliliğe bağlı) |
+
+### Kültür Balıkçılığı (Aquakültür)
+* Doğal ortamlarda çiftlik ortamında balık yetiştiriciliği.
+* **Ege kıyıları (İzmir, Muğla):** Çipura ve Levrek yetiştiriciliğinde Türkiye 1. sıradadır.
+* **İç su balıkçılığı:** Sakarya, Seyhan havzaları ve baraj göllerinde alabalık.
+
+---
+
+## Seracılık
+
+Sera kültürü (kapalı ortamda tarım), mevsim dışında sebze-meyve üretimine olanak sağlar.
+
+### Türkiye'de Seracılık
+* **Antalya:** Türkiye'nin seracılık başkentidir. Özellikle **Kumluca ve Finike** ilçeleri.
+    * Kışın tüm Türkiye'nin domates, biber, salatalığı Antalya seralarından çıkar.
+    * Avrupa'ya ihracat: Türkiye sera sebzelerinde önemli ihracatçı.
+* **Mersin (Erdemli):** İkinci büyük sera alanı.
+
+### Seracılığın Gelişme Nedenleri
+1. Kış aylarında bile sıcak iklim (Akdeniz kıyısı — don olmuyor)
+2. Yoğun güneş ışığı (güneş ısıtması ile enerji tasarrufu)
+3. Su kaynakları yeterliliği
+4. Yakın liman (ihracat kolaylığı — Antalya ve Mersin limanları)`,
+            keyPoints: [
+                'En fazla orman: Antalya ili (1. sıra).',
+                'Kağıt fabrikaları: Yalnızca ormanlık kıyı bölgelerine kurulur.',
+                'En fazla balık: Karadeniz (%65-70, hamsi).',
+                'Kültür balıkçılığı: Ege (çipura, levrek).',
+                'Seracılık başkenti: Antalya (Kumluca, Finike).'
+            ],
+            inlineQuizzes: [
+                {
+                    question: "Türkiye'de avcılık yoluyla en fazla balık avlanan deniz ve en çok avlanan tür hangisidir?",
+                    options: [
+                        "Ege Denizi — Çipura",
+                        "Karadeniz — Hamsi",
+                        "Akdeniz — Levrek",
+                        "Marmara Denizi — Lüfer"
+                    ],
+                    correctOptionIndex: 1,
+                    explanation: "Türkiye'nin toplam balık avının yaklaşık %65-70'i Karadeniz'den yapılmaktadır. Karadeniz'de en çok avlanan balık hamsidir. Hamsi, kış aylarında sürüler halinde hareket ettiğinden avcılığı son derece yoğundur."
+                }
+            ]
         }
     ]
 };

@@ -167,6 +167,92 @@ Ucuz ayna ve güneş paneli sahasıdır. Türkiye yazları kavrulan bir Akdeniz/
                     explanation: "Güneş enerjisi yatırımı yapılacak coğrafyanın yıl boyunca bulutsuz ve güneşli (açık) gün sayısının yani saatlik (Miktar) olarak en zirvede olması lazımdır (Kurak bölgeler, denizsellikten veya yağışından uzak iklimler, GDA ve İç Anadolu bu konuda kusursuzdur, aylarca güneş batmaz.) Karadeniz ise her mevsim bulutla perdelidir."
                 }
             ]
+        },
+        {
+            id: 'nükleer-enerji-ve-boru-hatlari',
+            slug: 'akkuyu-nukleer-ve-boru-hatlari',
+            title: '3. Nükleer Enerji, Boru Hatları ve Enerji Politikası',
+            content: `## Akkuyu Nükleer Santrali (Güncel ÖSYM Konusu)
+
+**Türkiye'nin ilk ve tek nükleer santralidir.**
+* **Konum:** Mersin ili, Gülnar ilçesi (Akdeniz kıyısı).
+* **Ortak:** Rusya'nın Rosatom şirketi ile inşa edilmektedir.
+* **Kapasite:** 4 reaktör × 1200 MW = **4800 MW** (tam kapasite).
+* **Durum (2026):** İlk reaktör 2023'te yakıt yüklendi, kısmen faaliyette.
+* **Önemi:** Türkiye'nin enerji dışa bağımlılığını azaltmak, elektrik üretiminde çeşitlilik sağlamak.
+
+> [!TIP]
+> KPSS'de "Türkiye'nin ilk nükleer santrali hangi ilde?" sorusu için cevap: **Mersin**
+
+---
+
+## Türkiye'nin Enerji Boru Hatları (Jeopolitik Önemi)
+
+Türkiye enerji açısından bir **transit (geçiş) ülkesidir.** Orta Doğu ve Hazar bölgesinin enerji kaynaklarını Avrupa'ya taşıyan boru hatları Türkiye üzerinden geçmektedir.
+
+### 1. BTC — Bakü-Tiflis-Ceyhan Ham Petrol Boru Hattı
+* Azerbaycan'ın (Hazar Denizi) ham petrolünü Türkiye'ye ve oradan **Ceyhan (Adana) limanına** taşır.
+* Ceyhan'dan tankerlerle dünya pazarlarına ihraç edilir.
+* Güzergah: Bakü (Azerbaycan) → Tiflis (Gürcistan) → Ceyhan (Türkiye/Akdeniz).
+
+### 2. TANAP — Trans Anadolu Doğalgaz Boru Hattı
+* Azerbaycan'ın (Shah Deniz sahası) doğalgazını Türkiye üzerinden Avrupa'ya (Yunanistan sınırına kadar) taşır.
+* Türkiye hem taşıma ücreti alır hem de gazın bir kısmını kendi kullanımı için alır.
+
+### 3. TürkAkım (TurkStream)
+* Rusya'nın Karadeniz altındaki boru hattıyla Türkiye'ye getirdiği doğalgaz.
+* Hem Türkiye'nin tüketimi hem de Avrupa'ya yeniden ihracat amaçlı.
+
+### 4. Irak-Türkiye Ham Petrol Boru Hattı (Kerkük-Ceyhan)
+* Irak'ın Kerkük petrolünü Ceyhan limanına taşır.
+
+---
+
+## Türkiye'nin Enerji Dışa Bağımlılığı
+
+Türkiye enerji ihtiyacının büyük bölümünü **ithal eder:**
+* **Petrol:** %90'dan fazlası ithal (Rusya, Irak, İran, Suudi Arabistan başlıca kaynaklar).
+* **Doğalgaz:** %95'ten fazlası ithal (Rusya, Azerbaycan, İran, LNG).
+* **Taşkömürü:** Önemli bölümü ithal (iç üretim Zonguldak yetmiyor).
+
+Bu dışa bağımlılığı azaltmak için:
+* Yenilenebilir enerji yatırımları (rüzgar, güneş, HES)
+* Akkuyu nükleer santrali
+* Enerji verimliliği projeleri
+
+## Türkiye'nin Enerji Özeti (ÖSYM Tablosu)
+
+| Kaynak | Türkiye'nin Durumu |
+|--------|-------------------|
+| Petrol | Üretim az (Batman), büyük ithalat |
+| Doğalgaz | Üretim yok, tamamı ithalat |
+| Taşkömürü | Sadece Zonguldak, yetersiz |
+| Linyit | Bol rezerv (Afyon, Kütahya, Konya) |
+| Hidroelektrik | Güçlü — Avrupa 3. sırası |
+| Rüzgar | Hızla büyüyor — Ege+Marmara |
+| Güneş | Hızla büyüyor — GDA+Akdeniz |
+| Jeotermal | Dünya 4.-5. sırası — Ege |
+| Nükleer | Akkuyu (Mersin) — yeni başladı |`,
+            keyPoints: [
+                'Akkuyu: Türkiye\'nin ilk nükleer santrali (Mersin).',
+                'BTC boru hattı: Azerbaycan petrolü → Ceyhan.',
+                'TANAP: Azerbaycan gazı → Avrupa.',
+                'Türkiye enerji ihtiyacının büyük kısmını ithal eder.',
+                'Jeotermal: Dünya 4.-5. sırası (Ege).'
+            ],
+            inlineQuizzes: [
+                {
+                    question: "Türkiye'nin inşa ettiği ilk nükleer santral olan Akkuyu'nun hangi ilde kurulduğu ve bu konumun seçilmesinde hangi faktörün belirleyici olduğu doğru verilmiştir?",
+                    options: [
+                        "Sinop — Karadeniz'e kıyısı olması",
+                        "Mersin — Akdeniz'e kıyısı, soğutma suyu erişimi ve nüfus yoğunluğunun görece az olması",
+                        "Adana — Ceyhan petrol terminaline yakınlık",
+                        "Hatay — Suriye sınırına yakınlık ve enerji ihracatı kolaylığı"
+                    ],
+                    correctOptionIndex: 1,
+                    explanation: "Akkuyu, Mersin iline bağlı Gülnar ilçesinde inşa edilmektedir. Nükleer santraller büyük miktarda soğutma suyuna ihtiyaç duyduğundan deniz kıyısına kurulur. Mersin'in seçilmesinde Akdeniz kıyısında olması, görece seyrek nüfus ve jeolojik uygunluk belirleyici olmuştur."
+                }
+            ]
         }
     ]
 };

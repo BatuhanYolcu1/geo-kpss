@@ -179,6 +179,128 @@ Soruda **Aynı enlemde olmalarına rağmen...** deniyorsa, o farklılık kesinli
                     explanation: "Aynı enlem üzerinde güneşten gelen enerji (gelme açısı) eşittir. Sıcaklığın Erzurum'da düşük olması doğuya gidildikçe yükseltinin ve deniz etkisinden uzaklaşmanın (karasallık) aniden artmasına (Özel Konum) bağlanır."
                 }
             ]
+        },
+        {
+            id: 'harita-bilgisi-komsular',
+            slug: 'harita-bilgisi-ve-komsu-ulkeler',
+            title: '3. Harita Bilgisi, Ölçek ve Komşu Ülkeler',
+            content: `## Harita Bilgisi
+
+Harita, yeryüzünün tamamının veya bir bölümünün kuşbakışı görünümünün belirli bir ölçeğe göre düzleme aktarılmasıdır.
+
+### Ölçek Türleri
+
+#### 1. Kesir (Sayı) Ölçek
+"1/50.000" veya "1:50.000" biçiminde gösterilir.
+* Payda ne kadar **büyükse** harita ölçeği o kadar **küçüktür** (daha geniş alan — daha az ayrıntı).
+* Payda ne kadar **küçükse** harita ölçeği o kadar **büyüktür** (daha dar alan — daha fazla ayrıntı).
+
+**Örnek:** 1/25.000 ölçekli harita, 1/100.000 ölçekli haritadan daha büyük ölçeklidir.
+
+> [!TIP]
+> **Büyük ölçekli harita = Küçük alan + Çok ayrıntı (Şehir planı, arazi haritası)**
+> **Küçük ölçekli harita = Büyük alan + Az ayrıntı (Türkiye, Dünya haritası)**
+
+#### 2. Çizgi (Grafik) Ölçek
+Harita üzerindeki çizginin gerçek mesafeyi göstermesi.
+
+### Ölçek Hesabı
+* **Harita mesafesi = Gerçek mesafe ÷ Ölçek paydası**
+* Gerçek uzunluk = Harita uzunluğu × Ölçek paydası
+
+**Örnek:** 1/200.000 ölçekli haritada 5 cm'lik yol → Gerçek uzunluk = 5 × 200.000 = 1.000.000 cm = **10 km**
+
+### Harita Projeksiyon Tipleri (ÖSYM Sorar)
+
+| Projeksiyon | Şekil | Uygun Alan | Özellik |
+|-------------|-------|-----------|---------|
+| **Silindirik (Mercator)** | Silindir | Ekvator çevresi | Şekil bozulmaz, alan bozulur (kutuplar büyür) |
+| **Konik** | Koni | Orta enlemler (Türkiye gibi) | En uygun Türkiye haritası için |
+| **Düzlemsel (Azimuthal)** | Düzlem | Kutuplar | Kutup haritaları |
+
+### Kontur (İzohips) Haritaları
+* Deniz seviyesinden eşit yükseklikteki noktaları birleştiren eğrilere **izohips (kontur)** denir.
+* İzohipsler sık aralıklıysa arazi **diktir (sarp)**, seyrekse **yatıktır**.
+* İzohipsler birbirini kesmez.
+
+---
+
+## Türkiye'nin Komşu Ülkeleri
+
+Türkiye **8 ülkeyle** kara sınırına sahiptir.
+
+### Kara Komşuları (Batıdan doğuya, saat yönünde)
+1. **Yunanistan** (Batı) — Edirne üçgeni, Meriç Nehri sınır
+2. **Bulgaristan** (Kuzeybatı) — Trakya
+3. **Gürcistan** (Kuzeydoğu) — Artvin
+4. **Ermenistan** (Doğu) — Iğdır, Ağrı
+5. **Azerbaycan (Nahçıvan)** (Doğu) — Iğdır sınırı
+6. **İran** (Doğu) — Ağrı, Van, Hakkari
+7. **Irak** (Güneydoğu) — Hakkari, Şırnak, Mardin
+8. **Suriye** (Güney) — Hatay, Gaziantep, Şanlıurfa, Mardin
+
+> [!NOTE]
+> Türkiye kara sınırı uzunluğu bakımından en uzun sınırı **İran** ile paylaşır.
+
+### Deniz Komşuları
+* **Karadeniz'de:** Rusya, Ukrayna, Moldova (dolaylı), Romanya, Bulgaristan, Gürcistan
+* **Ege'de:** Yunanistan
+* **Akdeniz'de:** Kıbrıs, Lübnan, İsrail, Mısır, Libya
+
+---
+
+## Türkiye'nin Jeopolitik Önemi
+
+Türkiye'nin coğrafi konumu ona **küresel ölçekte stratejik bir önem** kazandırmaktadır.
+
+### 1. Kıtalararası Köprü
+* Asya ve Avrupa kıtalarının en dar noktasında (İstanbul ve Çanakkale Boğazları).
+* Kara yoluyla Avrupa'dan Asya'ya veya Afrika'ya geçilecekse Türkiye üzerinden geçmek zorunludur.
+
+### 2. Boğazlar Hâkimiyeti (Montrö Sözleşmesi)
+* **İstanbul Boğazı** ve **Çanakkale Boğazı** üzerindeki egemenlik Türkiye'ye özel haklar sağlar.
+* 1936 Montrö Sözleşmesi ile askeri gemilerin geçişi Türkiye'nin denetimine bırakılmıştır.
+* Karadeniz'e kıyısı olan Rusya, Ukrayna gibi ülkeler için boğazlar hayati önemdedir.
+
+### 3. Enerji Koridoru
+* **BTC (Bakü-Tiflis-Ceyhan) Petrol Boru Hattı:** Azerbaycan petrolünü Türkiye üzerinden Akdeniz'e taşır.
+* **TANAP (Trans Anadolu Doğalgaz Boru Hattı):** Azerbaycan gazını Türkiye üzerinden Avrupa'ya taşır.
+* **TürkAkım:** Rusya'dan Karadeniz altından Türkiye'ye ulaşan gaz boru hattı.
+* Bu hatlar Türkiye'yi **enerji merkezi (hub)** konumuna taşımaktadır.
+
+### 4. NATO ve Batı Savunması
+* Türkiye, NATO'nun Rusya'ya en yakın güney kanadıdır.
+* İncirlik (Adana) ve Kürecik (Malatya) üsleri stratejik öneme sahiptir.`,
+            mnemonics: [
+                {
+                    title: 'Türkiye\'nin 8 Kara Komşusu (Saat yönünde)',
+                    text: 'YBGEAIS: Yunanistan-Bulgaristan-Gürcistan-Ermenistan-Azerbaycan-İran-Irak-Suriye'
+                }
+            ],
+            warnings: [
+                'Büyük ölçekli harita = küçük alan + çok ayrıntı. "Büyük ölçek = büyük alan" sanılmamalı!',
+                'Türkiye 8 ülkeyle kara sınırı paylaşır. 9 veya 7 diyenlere dikkat!'
+            ],
+            keyPoints: [
+                'Büyük ölçek: Küçük alan, çok detay (1/25.000).',
+                'Küçük ölçek: Büyük alan, az detay (1/1.000.000).',
+                'Kara komşusu sayısı: 8.',
+                'En uzun kara sınırı: İran.',
+                'Boğazlar Montrö Sözleşmesi (1936) ile Türkiye kontrolünde.'
+            ],
+            inlineQuizzes: [
+                {
+                    question: "1/25.000 ölçekli bir topografya haritası ile 1/500.000 ölçekli bir fiziki harita karşılaştırıldığında hangisi doğrudur?",
+                    options: [
+                        "1/500.000 ölçekli harita daha büyük ölçeklidir ve daha fazla ayrıntı içerir",
+                        "1/25.000 ölçekli harita daha büyük ölçeklidir, daha küçük alan gösterir ama çok daha fazla ayrıntı içerir",
+                        "Her iki harita da aynı alanı gösterir, yalnızca boyut farkı vardır",
+                        "1/500.000 ölçekli haritada dağ eğrileri daha sık çizilir"
+                    ],
+                    correctOptionIndex: 1,
+                    explanation: "Ölçek kesrinde payda küçüldükçe ölçek büyür. 1/25.000, 1/500.000'den çok daha büyük ölçeklidir. Büyük ölçekli haritalar küçük bir alanı daha ayrıntılı gösterir (bina, sokak görünür), küçük ölçekli haritalar ülkeleri, kıtaları gösterir."
+                }
+            ]
         }
     ]
 };

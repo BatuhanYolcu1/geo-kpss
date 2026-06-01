@@ -179,6 +179,102 @@ Fay hatları ve Genç (3. zaman çocuğu) olmanın bize verdiği jeotermal su ö
                     explanation: "Körfez ülkelerinden (Arap turist gibi) 40 derece çöl sıcağından bunalanların ile batıdan doğa trekking arayanların serinlik, oksijen, yemyeşil orman, şelale ve ahşap kültür (Uzungöl, Ayder vb) gibi Yayla (Ekosistem/Doğa) turizminde sığındıkları ve Türkiye turizmin en tavan yaptığı yeşil bölge tartışmasız Doğu Karadeniz yaylalarıdır."
                 }
             ]
+        },
+        {
+            id: 'dis-ticaret-ve-liman',
+            slug: 'turkiye-dis-ticaret-ve-liman-sistemi',
+            title: '4. Dış Ticaret (İhracat-İthalat) ve Liman Sistemi',
+            content: `## Türkiye'nin Dış Ticareti
+
+Türkiye gelişmekte olan ekonomisiyle hem mal ihraç eden hem de önemli miktarda hammadde ve enerji ithal eden bir ülkedir.
+
+### İhracat Yapısı
+
+Türkiye'nin ihracat gelirinin büyük bölümü **sanayi ürünlerinden** gelmektedir.
+* **Sanayi ürünleri payı:** İhracatın yaklaşık **%90'ı** sanayi ürünleridir (tarım değil!).
+* Bu oran Türkiye'nin artık tarım ülkesi değil, sanayi ülkesi olduğunu kanıtlar.
+
+**Başlıca İhracat Kalemleri:**
+1. **Motorlu taşıtlar ve parçaları** (Otomotiv — Bursa, Kocaeli)
+2. **Tekstil ve hazır giyim** (İstanbul, Bursa, Denizli)
+3. **Makine ve teçhizat**
+4. **Demir-çelik** (İskenderun)
+5. **Tarım ürünleri:** Fındık (1. sıra dünya), mermer, kuru meyve
+
+**En Fazla İhracat Yapılan Ülkeler:**
+1. Almanya
+2. İngiltere
+3. ABD
+4. İtalya
+5. Irak (Orta Doğu'ya ihracatta 1. hedef ülke)
+
+### İthalat Yapısı
+
+Türkiye özellikle **enerji ve hammadde** ithal etmektedir.
+
+**Başlıca İthalat Kalemleri:**
+1. **Petrol ve Doğalgaz** (en büyük ithalat kalemi — Rusya, Irak, İran)
+2. **Makine ve teçhizat**
+3. **Demir-çelik hammaddesi**
+4. **Kimyasal maddeler**
+
+**Dış Ticaret Açığı:**
+* Türkiye genel olarak **dış ticaret açığı** verir (ithalat > ihracat).
+* Turizm gelirleri bu açığı kısmen kapatır.
+
+---
+
+## Türkiye'nin Önemli Limanları
+
+Deniz taşımacılığı Türkiye dış ticaretinin yaklaşık **%90'ını** karşılar.
+
+| Liman | Bölge | Özellik |
+|-------|-------|---------|
+| **Mersin** | Akdeniz | Türkiye'nin en büyük konteyner limanı |
+| **İstanbul (Haydarpaşa/Ambarlı)** | Marmara | En fazla yük taşınan liman (iç tüketim) |
+| **İzmir (Alsancak)** | Ege | Türkiye'nin üçüncü büyük limanı |
+| **İskenderun** | Akdeniz | Çelik ve petürn ihracatı |
+| **Ceyhan** | Akdeniz | BTC petrol ihracat terminali |
+| **Samsun** | Karadeniz | Karadeniz'in en büyük limanı |
+| **Trabzon** | Karadeniz | İran ve İç Asya'ya transit geçiş |
+| **Bandırma** | Marmara | Bor ihracat terminali |
+
+---
+
+## Turizm İstatistikleri (2024-2025 Güncel)
+
+Turizm Türkiye ekonomisine büyük katkı sağlamaktadır.
+* **Yıllık yabancı turist sayısı:** 50-55 milyon (2024 itibarıyla).
+* **Turizm geliri:** Yıllık 50-60 milyar dolar.
+* **En fazla turist alan il:** Antalya (yıllık 15-20 milyon yabancı turist).
+
+**Turizm Türleri ve Önemli Merkezler:**
+* **Kültür turizmi:** İstanbul (Topkapı, Ayasofya), Kapadokya (Nevşehir), Efes (İzmir)
+* **Deniz-kum-güneş turizmi:** Antalya, Muğla (Bodrum, Marmaris, Fethiye), İzmir (Çeşme)
+* **Sağlık ve kaplıca turizmi:** Afyon, Denizli (Pamukkale), Bursa
+* **Kış turizmi:** Uludağ (Bursa), Erciyes (Kayseri), Sarıkamış (Kars), Palandöken (Erzurum)
+* **Yayla turizmi:** Rize-Trabzon yaylaları (Karadeniz), Toroslar yaylaları (Akdeniz)`,
+            keyPoints: [
+                'İhracatın %90\'ı sanayi ürünleridir (tarım değil).',
+                'En büyük ihracat kalemi: Otomotiv.',
+                'En büyük ithalat kalemi: Petrol ve doğalgaz.',
+                'En büyük konteyner limanı: Mersin.',
+                'Yıllık turist: 50-55 milyon, gelir 50-60 milyar dolar.',
+                'En fazla turist alan il: Antalya.'
+            ],
+            inlineQuizzes: [
+                {
+                    question: "Türkiye'nin ihracat yapısıyla ilgili aşağıdaki bilgilerden hangisi doğrudur?",
+                    options: [
+                        "İhracatın büyük bölümünü tarım ürünleri oluşturmaktadır",
+                        "Türkiye hammadde ihracatçısı, sanayi ürünleri ithalatçısı konumundadır",
+                        "İhracatın yaklaşık %90'ı sanayi ürünlerinden oluşmakta, otomotiv ve tekstil başı çekmektedir",
+                        "Türkiye'nin en büyük ihracat pazarı Orta Doğu ülkeleridir"
+                    ],
+                    correctOptionIndex: 2,
+                    explanation: "Türkiye ihracatının yaklaşık %90'ı sanayi ürünleridir. Başta otomotiv (Bursa, Kocaeli) ve tekstil (İstanbul, Bursa, Denizli) gelmektedir. En büyük ihracat pazarı Almanya'dır. Bu veri Türkiye'nin artık bir sanayi ekonomisi olduğunun kanıtıdır."
+                }
+            ]
         }
     ]
 };
