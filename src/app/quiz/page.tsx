@@ -207,7 +207,7 @@ export default function QuizPage() {
                 {/* Footer Info */}
                 <div className="text-center">
                     <p className="text-[#59615a] text-sm">
-                        Toplam <span className="text-[#386948] font-medium">239+ soru</span> • 4 farklı mod • 6 konu kategorisi
+                        Toplam <span className="text-[#386948] font-medium">330+ soru</span> • 4 farklı mod • 6 konu kategorisi
                     </p>
                 </div>
             </div>

@@ -94,7 +94,7 @@ const features = [
   {
     icon: Brain,
     title: 'Kapsamlı Soru Bankası',
-    desc: '239+ KPSS formatında soru, 4 farklı mod ile kendini test et.',
+    desc: '330+ KPSS formatında soru, 4 farklı mod ile kendini test et.',
     iconBg: 'bg-emerald-100',
     iconColor: 'text-emerald-700',
   },
@@ -110,7 +110,7 @@ const features = [
 // ─── MODULE CARDS ───────────────────────────────────────────
 const modules = [
   { id: 'atlas', title: 'İnteraktif Atlas', desc: 'Katmanlı haritalarla Türkiye coğrafyasını keşfet.', icon: Map, href: '/atlas', iconBg: 'bg-[#386948]/10', iconColor: 'text-[#386948]', accent: 'hover:border-[#386948]/40', badge: '229+ Özellik', tag: 'KEŞFET', featured: true },
-  { id: 'quiz', title: 'Quiz Modu', desc: 'KPSS formatında 4 farklı soru tipiyle kendini sına.', icon: Brain, href: '/quiz', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-700', accent: 'hover:border-emerald-400/60', badge: '239+ Soru', tag: 'TEST ET', featured: false },
+  { id: 'quiz', title: 'Quiz Modu', desc: 'KPSS formatında 4 farklı soru tipiyle kendini sına.', icon: Brain, href: '/quiz', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-700', accent: 'hover:border-emerald-400/60', badge: '330+ Soru', tag: 'TEST ET', featured: false },
   { id: 'notes', title: 'Ders Notları', desc: 'Tam müfredat, kodlamalar ve analizler.', icon: BookOpen, href: '/notes', iconBg: 'bg-rose-100', iconColor: 'text-rose-600', accent: 'hover:border-rose-400/60', badge: 'Full Müfredat', tag: 'ÇALIŞ', featured: false },
   { id: 'flashcards', title: 'Flashcard', desc: 'Spaced repetition ile kalıcı öğrenme.', icon: Sparkles, href: '/flashcards', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', accent: 'hover:border-violet-400/60', badge: '80+ Kart', tag: 'TEKRAR ET', featured: false },
   { id: 'stats', title: 'İstatistikler', desc: 'Quiz performansını analiz et.', icon: BarChart3, href: '/stats', iconBg: 'bg-amber-100', iconColor: 'text-amber-600', accent: 'hover:border-amber-400/60', badge: 'Gerçek Zamanlı', tag: 'TAKİP ET', featured: false },
@@ -119,7 +119,7 @@ const modules = [
 const stats = [
   { icon: Target, value: 100, suffix: '%', label: 'Müfredat', color: 'text-[#386948]', bg: 'bg-[#386948]/10' },
   { icon: Layers, value: 12, suffix: '+', label: 'Katman', color: 'text-emerald-700', bg: 'bg-emerald-100' },
-  { icon: Brain, value: 239, suffix: '+', label: 'Soru', color: 'text-violet-600', bg: 'bg-violet-100' },
+  { icon: Brain, value: 330, suffix: '+', label: 'Soru', color: 'text-violet-600', bg: 'bg-violet-100' },
   { icon: Star, value: 80, suffix: '+', label: 'Flashcard', color: 'text-amber-600', bg: 'bg-amber-100' },
 ];
 
@@ -213,7 +213,7 @@ export default function HomePage() {
               {/* Mini stats */}
               <div className="flex items-center gap-6 pt-2">
                 {[
-                  { value: '239+', label: 'Soru' },
+                  { value: '330+', label: 'Soru' },
                   { value: '12+', label: 'Harita Katmanı' },
                   { value: '10', label: 'Ünite' },
                 ].map(s => (

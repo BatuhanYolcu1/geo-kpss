@@ -93,7 +93,7 @@ export default function OGImage() {
                             maxWidth: '620px',
                             lineHeight: 1.5,
                         }}>
-                            İnteraktif haritalar, 239+ quiz sorusu ve kapsamlı ders notlarıyla KPSS 2026&apos;ya hazırlan.
+                            İnteraktif haritalar, 330+ quiz sorusu ve kapsamlı ders notlarıyla KPSS 2026&apos;ya hazırlan.
                         </p>
                     </div>
 
@@ -102,7 +102,7 @@ export default function OGImage() {
                         {[
                             { value: '100%', label: 'Müfredat' },
                             { value: '12+', label: 'Harita Katmanı' },
-                            { value: '239+', label: 'Quiz Sorusu' },
+                            { value: '330+', label: 'Quiz Sorusu' },
                             { value: '80+', label: 'Flashcard' },
                         ].map((stat) => (
                             <div key={stat.label} style={{

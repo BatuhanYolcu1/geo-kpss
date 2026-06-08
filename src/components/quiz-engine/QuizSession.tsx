@@ -16,7 +16,7 @@ import {
     Zap
 } from 'lucide-react';
 import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion, MultipleChoiceQuestion as MCQuestionType } from '@/types/quiz';
-import { getRandomQuestions, getQuestionsByType } from '@/data/mock-quiz-data';
+import { getRandomQuestions, getQuestionsByType, selectAvoidingRepeats } from '@/data/mock-quiz-data';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import TrueFalseQuestion from './TrueFalseQuestion';
 import MatchingQuestion from './MatchingQuestion';
@@ -58,6 +58,9 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
             count = 18;
         }
 
+        // Önceki oturumlarda gösterilen soruları al — tekrarları önlemek için kullanılacak
+        const seenIds = storageService.getSeenQuestionIds();
+
         let loadedQuestions: QuizQuestion[] = [];
 
         if (mode === 'map') {
@@ -65,26 +68,30 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
             const filtered = subCategory
                 ? allMapQuestions.filter(q => q.category === subCategory || q.subCategory === subCategory)
                 : allMapQuestions;
-            loadedQuestions = [...filtered].sort(() => Math.random() - 0.5).slice(0, count);
+            loadedQuestions = selectAvoidingRepeats(filtered, count, seenIds);
         } else if (mode === 'multiple_choice') {
             const allMCQuestions = getQuestionsByType('multiple_choice') as MCQuestionType[];
 
             if (subCategory === 'standard_kpss') {
-                const phys = allMCQuestions.filter(q => q.category === 'physical').sort(() => Math.random() - 0.5).slice(0, 6);
-                const econ = allMCQuestions.filter(q => q.category === 'economic').sort(() => Math.random() - 0.5).slice(0, 10);
-                const mixed = allMCQuestions.filter(q => q.category === 'mixed').sort(() => Math.random() - 0.5).slice(0, 2);
+                const phys = selectAvoidingRepeats(allMCQuestions.filter(q => q.category === 'physical'), 6, seenIds);
+                const econ = selectAvoidingRepeats(allMCQuestions.filter(q => q.category === 'economic'), 10, seenIds);
+                const mixed = selectAvoidingRepeats(allMCQuestions.filter(q => q.category === 'mixed'), 2, seenIds);
                 loadedQuestions = [...phys, ...econ, ...mixed].sort(() => Math.random() - 0.5);
             } else {
                 const filtered = subCategory
                     ? allMCQuestions.filter(q => q.category === subCategory)
                     : allMCQuestions;
-                loadedQuestions = [...filtered].sort(() => Math.random() - 0.5).slice(0, count);
+                loadedQuestions = selectAvoidingRepeats(filtered, count, seenIds);
             }
         } else {
-            loadedQuestions = getRandomQuestions(count, questionType as QuizQuestion['type']);
+            loadedQuestions = getRandomQuestions(count, questionType as QuizQuestion['type'], seenIds);
         }
 
-        Promise.resolve().then(() => setQuestions(loadedQuestions));
+        Promise.resolve().then(() => {
+            setQuestions(loadedQuestions);
+            // Bu oturumda gösterilen soruları "görüldü" geçmişine kaydet
+            storageService.recordSeenQuestions(loadedQuestions.map(q => q.id));
+        });
     }, [mode, subCategory]);
 
     const handleAnswer = useCallback((isCorrect: boolean, points: number, explanation?: string) => {

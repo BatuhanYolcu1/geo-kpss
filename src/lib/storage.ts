@@ -1,6 +1,8 @@
 import { QuizResult, UserStats } from '@/types/quiz';
 
 const STORAGE_KEY = 'geo_kpss_quiz_history';
+const SEEN_QUESTIONS_KEY = 'geo_kpss_seen_questions';
+const MAX_SEEN_QUESTIONS = 300; // ~ birkaç quiz oturumunu hatırlamaya yetecek kapasite
 
 export const storageService = {
     saveQuizResult: (result: QuizResult): void => {
@@ -68,5 +70,53 @@ export const storageService = {
     clearHistory: (): void => {
         if (typeof window === 'undefined') return;
         localStorage.removeItem(STORAGE_KEY);
+    },
+
+    /**
+     * Son oturumlarda kullanıcıya gösterilen soruların ID listesini döndürür
+     * (en yeniden en eskiye doğru sıralı). Quiz motoru, art arda yapılan
+     * denemelerde aynı soruların tekrar gelmesini engellemek için bunu kullanır.
+     */
+    getSeenQuestionIds: (): string[] => {
+        if (typeof window === 'undefined') return [];
+
+        try {
+            const stored = localStorage.getItem(SEEN_QUESTIONS_KEY);
+            return stored ? JSON.parse(stored) : [];
+        } catch (error) {
+            console.error('Failed to get seen questions:', error);
+            return [];
+        }
+    },
+
+    /**
+     * Az önce gösterilen soru ID'lerini "görüldü" geçmişinin başına ekler,
+     * tekrarları temizler ve listeyi belirli bir uzunlukla sınırlar.
+     */
+    recordSeenQuestions: (ids: string[]): void => {
+        if (typeof window === 'undefined' || ids.length === 0) return;
+
+        try {
+            const existing = storageService.getSeenQuestionIds();
+            const merged = [...ids, ...existing];
+            const seen = new Set<string>();
+            const deduped: string[] = [];
+
+            for (const id of merged) {
+                if (!seen.has(id)) {
+                    seen.add(id);
+                    deduped.push(id);
+                }
+            }
+
+            localStorage.setItem(SEEN_QUESTIONS_KEY, JSON.stringify(deduped.slice(0, MAX_SEEN_QUESTIONS)));
+        } catch (error) {
+            console.error('Failed to record seen questions:', error);
+        }
+    },
+
+    clearSeenQuestions: (): void => {
+        if (typeof window === 'undefined') return;
+        localStorage.removeItem(SEEN_QUESTIONS_KEY);
     }
 };
