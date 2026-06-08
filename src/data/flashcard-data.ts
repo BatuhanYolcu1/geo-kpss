@@ -139,10 +139,10 @@ export const flashcardDecks: FlashcardCategory[] = [
         icon: 'Users',
         color: 'from-violet-500 to-purple-600',
         cards: [
-            { id: 'fc-080', front: 'Türkiye\'nin 2025 nüfusu ve temel istatistikleri?', back: 'Nüfus: 85.664.944\nKentleşme: %93,4\nMedian yaş: 34,4\nNüfus artış hızı: 3,4‰\nEn kalabalık: İstanbul (15,7 milyon)', difficulty: 'medium', category: 'nufus' },
+            { id: 'fc-080', front: 'Türkiye\'nin 2025 nüfusu ve temel istatistikleri?', back: 'Nüfus: 86.092.168\nKentleşme: %93,6\nMedian yaş: 34,9\nNüfus artış hızı: ‰5\nEn kalabalık: İstanbul (15,75 milyon, %18,3)', difficulty: 'medium', category: 'nufus' },
             { id: 'fc-081', front: 'Türkiye\'de nüfus dağılımını etkileyen en önemli beşeri faktör?', back: 'Sanayileşme. İş imkânı yaratır, nüfusu çeker. Sanayi gelişen İstanbul, Kocaeli, Bursa, İzmir yoğun; sanayi olmayan Doğu seyrek.', difficulty: 'easy', category: 'nufus' },
             { id: 'fc-082', front: 'İklime rağmen neden bazı bölgeler seyrek nüfusludur?', back: '• Menteşe: İklim iyi ama sarp arazi\n• Yıldız Dağları: İklim uygun ama ulaşıma sapa\n• Teke-Taşeli: Karstik (verimsiz) arazi\n• Tuz Gölü çevresi: Su yok, buharlaşma yüksek', difficulty: 'hard', category: 'nufus' },
-            { id: 'fc-083', front: 'Türkiye\'de kırdan kente göçün temel nedenleri?', back: '• Tarımda makineleşme (en önemli)\n• Sanayi iş imkânı\n• Eğitim + sağlık\nSonuç: Kentleşme %93,4\'e ulaştı', difficulty: 'easy', category: 'nufus' },
+            { id: 'fc-083', front: 'Türkiye\'de kırdan kente göçün temel nedenleri?', back: '• Tarımda makineleşme (en önemli)\n• Sanayi iş imkânı\n• Eğitim + sağlık\nSonuç: Kentleşme %93,6\'ya ulaştı', difficulty: 'easy', category: 'nufus' },
             { id: 'fc-084', front: 'Mevsimlik (geçici) göç nedir, örnekler?', back: 'Belirli dönemlerde iş için yapılan geçici göç.\n• Fındık hasatı: Ağustos-Eylül (Giresun, Ordu)\n• Pamuk hasatı: Ağustos-Ekim (Adana, Şanlıurfa)\n• Kış turizmi: Uludağ, Erciyes', difficulty: 'medium', category: 'nufus' },
             { id: 'fc-085', front: 'Türkiye\'nin en genç ve en yaşlı ili?', back: 'En genç (median yaş en düşük): Şanlıurfa\nEn yaşlı (median yaş en yüksek): Sinop\nEn kalabalık: İstanbul\nEn seyrek: Tunceli', difficulty: 'hard', category: 'nufus' },
         ],
