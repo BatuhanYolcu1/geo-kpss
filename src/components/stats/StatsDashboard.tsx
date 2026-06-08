@@ -11,7 +11,10 @@ import {
     TrendingUp,
     Map,
     Brain,
-    Hash
+    Hash,
+    BookOpen,
+    Sparkles,
+    ArrowRight,
 } from 'lucide-react';
 import { storageService } from '@/lib/storage';
 import { UserStats, QuizResult, QuizMode } from '@/types/quiz';
@@ -178,17 +181,59 @@ export default function StatsDashboard() {
 
                 {/* Sidebar / Tips */}
                 <div className="space-y-6">
-                    <div className="bg-[#386948]/5 border border-[#386948]/20 rounded-2xl p-6">
-                        <h4 className="font-bold text-[#386948] mb-3 flex items-center gap-2">
-                            <TrendingUp size={18} />
-                            Gelişim Önerisi
-                        </h4>
-                        <p className="text-sm text-[#2c342e]/70 leading-relaxed mb-4">
-                            {stats.averageAccuracy < 50
-                                ? "Temel konuları tekrar etmek için İnteraktif Atlas modülünü kullanabilirsiniz."
-                                : "Başarı oranınızı %80'in üzerine çıkarmak için yanlış yaptığınız kategorilere odaklanın."}
-                        </p>
-                    </div>
+                    {/* Akıllı Gelişim Önerisi */}
+                    {(() => {
+                        const catEntries = Object.entries(stats.categoryPerformance)
+                            .filter(([, d]) => d.totalAnswers >= 3);
+                        const weakest = catEntries.length > 0
+                            ? catEntries.sort((a, b) => a[1].accuracy - b[1].accuracy)[0]
+                            : null;
+                        const categoryLabels: Record<string, string> = {
+                            physical: 'Fiziki Coğrafya',
+                            economic: 'Ekonomik Coğrafya',
+                            human: 'Nüfus & Yerleşme',
+                            regions: 'Coğrafi Bölgeler',
+                            mixed: 'Karma',
+                        };
+                        return (
+                            <div className="bg-[#386948]/5 border border-[#386948]/20 rounded-2xl p-6">
+                                <h4 className="font-bold text-[#386948] mb-3 flex items-center gap-2">
+                                    <TrendingUp size={18} />
+                                    Gelişim Önerisi
+                                </h4>
+                                {weakest ? (
+                                    <>
+                                        <p className="text-sm text-[#2c342e]/80 leading-relaxed mb-4">
+                                            <span className="font-bold text-[#2c342e]">{categoryLabels[weakest[0]] ?? weakest[0]}</span> kategorisinde
+                                            başarı oranın <span className="font-bold text-rose-600">%{weakest[1].accuracy}</span> — bu konuyu güçlendirmek için:
+                                        </p>
+                                        <div className="space-y-2">
+                                            <Link href="/notes" className="flex items-center justify-between w-full px-4 py-3 bg-white border border-[#abb4ac]/40 hover:border-[#386948]/40 hover:bg-[#f0f5ee] rounded-xl transition-all group text-sm">
+                                                <div className="flex items-center gap-2.5">
+                                                    <BookOpen size={15} className="text-rose-600" />
+                                                    <span className="font-semibold text-[#2c342e]">Ders Notlarını Oku</span>
+                                                </div>
+                                                <ArrowRight size={14} className="text-[#386948] group-hover:translate-x-0.5 transition-transform" />
+                                            </Link>
+                                            <Link href="/flashcards" className="flex items-center justify-between w-full px-4 py-3 bg-white border border-[#abb4ac]/40 hover:border-violet-300/60 hover:bg-violet-50/50 rounded-xl transition-all group text-sm">
+                                                <div className="flex items-center gap-2.5">
+                                                    <Sparkles size={15} className="text-violet-600" />
+                                                    <span className="font-semibold text-[#2c342e]">Flashcard Çalış</span>
+                                                </div>
+                                                <ArrowRight size={14} className="text-violet-500 group-hover:translate-x-0.5 transition-transform" />
+                                            </Link>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <p className="text-sm text-[#2c342e]/70 leading-relaxed">
+                                        {stats.averageAccuracy < 50
+                                            ? 'Temel konuları pekiştirmek için ders notlarını ve flashcard modülünü kullanabilirsin.'
+                                            : "Başarı oranını %80'in üzerine çıkarmak için yanlış yaptığın kategorilere odaklan."}
+                                    </p>
+                                )}
+                            </div>
+                        );
+                    })()}
 
                     <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6">
                         <h4 className="font-bold text-[#2c342e] mb-4">Hızlı İstatistik</h4>
@@ -201,8 +246,36 @@ export default function StatsDashboard() {
                             </div>
                             <div className="flex justify-between items-center">
                                 <span className="text-sm text-[#59615a]">Verimlilik</span>
-                                <span className="text-sm font-medium text-[#2c342e]">Yüksek</span>
+                                <span className={`text-sm font-medium ${stats.averageAccuracy >= 70 ? 'text-emerald-600' : stats.averageAccuracy >= 40 ? 'text-amber-600' : 'text-rose-500'}`}>
+                                    {stats.averageAccuracy >= 70 ? 'Yüksek' : stats.averageAccuracy >= 40 ? 'Orta' : 'Geliştirilebilir'}
+                                </span>
                             </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-sm text-[#59615a]">En iyi seri</span>
+                                <span className="text-sm font-medium text-[#2c342e]">
+                                    {Math.max(...stats.recentActivity.map(() => 0), 0) || '—'}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Hızlı Yönlendirme */}
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-6">
+                        <h4 className="font-bold text-[#2c342e] mb-4">Hızlı Erişim</h4>
+                        <div className="space-y-2">
+                            {[
+                                { href: '/quiz', Icon: Brain, label: 'Yeni Quiz Başlat', color: 'text-[#386948]', bg: 'bg-[#386948]/10' },
+                                { href: '/flashcards', Icon: Sparkles, label: 'Flashcard Çalış', color: 'text-violet-600', bg: 'bg-violet-50' },
+                                { href: '/notes', Icon: BookOpen, label: 'Ders Notları', color: 'text-rose-600', bg: 'bg-rose-50' },
+                            ].map(({ href, Icon, label, color, bg }) => (
+                                <Link key={href} href={href} className="flex items-center gap-3 px-3 py-2.5 hover:bg-[#f0f5ee] rounded-xl transition-colors group">
+                                    <div className={`w-8 h-8 ${bg} rounded-lg flex items-center justify-center shrink-0`}>
+                                        <Icon size={15} className={color} />
+                                    </div>
+                                    <span className="text-sm font-semibold text-[#2c342e] group-hover:text-[#386948] transition-colors">{label}</span>
+                                    <ChevronRight size={14} className="ml-auto text-[#abb4ac] group-hover:text-[#386948] group-hover:translate-x-0.5 transition-all" />
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </div>

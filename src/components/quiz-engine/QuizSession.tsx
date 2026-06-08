@@ -13,8 +13,12 @@ import {
     CheckCircle,
     XCircle,
     Star,
-    Zap
+    Zap,
+    Sparkles,
+    BookOpen,
+    BarChart3,
 } from 'lucide-react';
+import Link from 'next/link';
 import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion, MultipleChoiceQuestion as MCQuestionType } from '@/types/quiz';
 import { getRandomQuestions, getQuestionsByType, selectAvoidingRepeats } from '@/data/mock-quiz-data';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
@@ -200,7 +204,30 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                             </div>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        {/* Sıradaki Adım */}
+                        <div className="mb-6">
+                            <p className="text-[10px] font-black text-[#747d75] uppercase tracking-widest text-center mb-3">Sıradaki Adım</p>
+                            <div className="grid grid-cols-3 gap-3">
+                                {[
+                                    { href: '/flashcards', Icon: Sparkles, label: 'Flashcard', color: 'text-violet-600', bg: 'bg-violet-50', border: 'hover:border-violet-300/60' },
+                                    { href: '/notes', Icon: BookOpen, label: 'Notlar', color: 'text-rose-600', bg: 'bg-rose-50', border: 'hover:border-rose-300/60' },
+                                    { href: '/stats', Icon: BarChart3, label: 'İstatistik', color: 'text-amber-600', bg: 'bg-amber-50', border: 'hover:border-amber-300/60' },
+                                ].map(({ href, Icon, label, color, bg, border }) => (
+                                    <Link
+                                        key={href}
+                                        href={href}
+                                        className={`flex flex-col items-center gap-2 py-4 bg-[#f0f5ee] border border-[#abb4ac]/40 ${border} rounded-2xl hover:bg-white hover:-translate-y-0.5 transition-all duration-200 group`}
+                                    >
+                                        <div className={`w-9 h-9 ${bg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                                            <Icon size={18} className={color} />
+                                        </div>
+                                        <span className="text-xs font-bold text-[#59615a]">{label}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-3">
                             <button
                                 onClick={() => window.location.reload()}
                                 className="flex-1 py-4 bg-[#386948] text-white hover:bg-[#2b5d3c] rounded-2xl font-black transition-all flex items-center justify-center gap-3"
@@ -210,10 +237,10 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                             </button>
                             <button
                                 onClick={onEnd}
-                                className="flex-1 py-4 bg-[#f0f5ee] border border-[#abb4ac]/40 hover:bg-[#e9f0e8] text-[#2c342e] rounded-2xl font-black transition-all flex items-center justify-center gap-3"
+                                className="flex-1 py-4 bg-[#f0f5ee] border border-[#abb4ac]/40 hover:bg-[#e9f0e8] text-[#2c342e] rounded-2xl font-bold transition-all flex items-center justify-center gap-3"
                             >
                                 <Home size={20} />
-                                ANA SAYFA
+                                Mod Seçimi
                             </button>
                         </div>
                     </div>

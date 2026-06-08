@@ -15,6 +15,8 @@ import {
     ArrowRight,
     Layers,
     Trophy,
+    Star,
+    BookOpen,
     Mountain,
     Globe,
     CloudRain,
@@ -138,18 +140,27 @@ export default function FlashcardsPage() {
     // ===== RESULT SCREEN =====
     if (showResult && selectedDeck) {
         const accuracy = sessionTotal > 0 ? Math.round((sessionCorrect / sessionTotal) * 100) : 0;
-        const rating = accuracy >= 90 ? '🏆 Mükemmel!' : accuracy >= 70 ? '⭐ Harika!' : accuracy >= 50 ? '👍 İyi!' : '💪 Devam Et!';
+        const ratingText = accuracy >= 90 ? 'Mükemmel!' : accuracy >= 70 ? 'Harika!' : accuracy >= 50 ? 'İyi!' : 'Devam Et!';
+        const RatingIcon = accuracy >= 90 ? Trophy : accuracy >= 70 ? Star : accuracy >= 50 ? Check : RotateCcw;
+        const ratingIconColor = accuracy >= 90 ? 'text-amber-500' : accuracy >= 70 ? 'text-violet-500' : accuracy >= 50 ? 'text-emerald-500' : 'text-[#386948]';
+        const ratingIconBg = accuracy >= 90 ? 'bg-amber-50' : accuracy >= 70 ? 'bg-violet-50' : accuracy >= 50 ? 'bg-emerald-50' : 'bg-[#386948]/5';
 
         return (
             <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] flex items-center justify-center p-6">
-                <div className="max-w-md w-full text-center space-y-8">
-                    <div className="text-6xl mb-4">{accuracy >= 90 ? '🎉' : accuracy >= 50 ? '✨' : '📚'}</div>
-                    <h1 className="text-3xl font-black text-[#2c342e]">{rating}</h1>
-                    <p className="text-[#59615a]">
-                        {selectedDeck.title} destesini tamamladınız!
-                    </p>
+                <div className="max-w-md w-full text-center space-y-6">
+                    {/* Icon */}
+                    <div className={`w-20 h-20 ${ratingIconBg} rounded-3xl flex items-center justify-center mx-auto`}>
+                        <RatingIcon size={40} className={ratingIconColor} />
+                    </div>
 
-                    <div className="grid grid-cols-3 gap-4">
+                    <div>
+                        <h1 className="text-3xl font-black text-[#2c342e]">{ratingText}</h1>
+                        <p className="text-[#59615a] mt-1">
+                            {selectedDeck.title} destesi tamamlandı
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-3">
                         <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4">
                             <div className="text-2xl font-black text-emerald-600">{sessionCorrect}</div>
                             <div className="text-xs text-[#59615a] font-bold">Doğru</div>
@@ -164,16 +175,51 @@ export default function FlashcardsPage() {
                         </div>
                     </div>
 
+                    {/* Sıradaki adım */}
+                    <div>
+                        <p className="text-[10px] font-black text-[#747d75] uppercase tracking-widest mb-3">Sıradaki Adım</p>
+                        <Link
+                            href="/quiz"
+                            className="flex items-center justify-between w-full px-5 py-4 bg-white border border-[#abb4ac]/40 hover:border-[#386948]/40 hover:bg-[#f0f5ee] rounded-2xl transition-all duration-200 group mb-2"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-9 h-9 bg-[#386948]/10 rounded-xl flex items-center justify-center">
+                                    <Brain size={18} className="text-[#386948]" />
+                                </div>
+                                <div className="text-left">
+                                    <div className="font-bold text-[#2c342e] text-sm">Quiz&apos;le Test Et</div>
+                                    <div className="text-xs text-[#59615a]">Öğrendiklerini KPSS formatında sına</div>
+                                </div>
+                            </div>
+                            <ChevronRight size={16} className="text-[#386948] group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                        <Link
+                            href="/notes"
+                            className="flex items-center justify-between w-full px-5 py-4 bg-white border border-[#abb4ac]/40 hover:border-rose-300/60 hover:bg-rose-50/50 rounded-2xl transition-all duration-200 group"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-9 h-9 bg-rose-50 rounded-xl flex items-center justify-center">
+                                    <BookOpen size={18} className="text-rose-600" />
+                                </div>
+                                <div className="text-left">
+                                    <div className="font-bold text-[#2c342e] text-sm">Notları Tekrar Oku</div>
+                                    <div className="text-xs text-[#59615a]">Eksikleri müfredat üzerinden tamamla</div>
+                                </div>
+                            </div>
+                            <ChevronRight size={16} className="text-rose-500 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                    </div>
+
                     <div className="flex gap-3">
                         <button
                             onClick={handleRestart}
-                            className="flex-1 py-4 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl font-bold text-lg transition-colors flex items-center justify-center gap-2"
+                            className="flex-1 py-3.5 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl font-bold transition-colors flex items-center justify-center gap-2"
                         >
-                            <RotateCcw size={20} /> Tekrar
+                            <RotateCcw size={18} /> Tekrar
                         </button>
                         <button
                             onClick={handleBackToDecks}
-                            className="flex-1 py-4 bg-[#f0f5ee] hover:bg-[#e9f0e8] border border-[#abb4ac]/40 text-[#2c342e] rounded-2xl font-bold text-lg transition-colors"
+                            className="flex-1 py-3.5 bg-[#f0f5ee] hover:bg-[#e9f0e8] border border-[#abb4ac]/40 text-[#2c342e] rounded-2xl font-bold transition-colors"
                         >
                             Desteler
                         </button>

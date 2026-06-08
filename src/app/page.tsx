@@ -309,6 +309,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══ NASIL ÇALIŞMALIYIM? ═══ */}
+      <section className="py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-black text-[#2c342e] mb-3">Nereden Başlamalısın?</h2>
+            <p className="text-[#59615a] text-base">3 adımda etkili KPSS Coğrafya hazırlığı</p>
+          </div>
+
+          <div className="relative grid md:grid-cols-3 gap-4">
+            {/* Connecting line — desktop only */}
+            <div className="hidden md:block absolute top-[3.75rem] left-[33.3%] right-[33.3%] h-px bg-gradient-to-r from-rose-300 via-violet-300 to-[#386948]/40 z-0 pointer-events-none" />
+
+            {(
+              [
+                { step: '1', title: 'Ders Notlarını Oku', desc: 'Tam müfredat, konular arası bağlantılar ve KPSS odaklı özetler ile temeli sağlam at.', href: '/notes', Icon: BookOpen, color: 'text-rose-600', bg: 'bg-rose-50', borderHover: 'hover:border-rose-300/70', numBg: 'bg-rose-500' },
+                { step: '2', title: "Flashcard'larla Pekiştir", desc: 'Spaced repetition yöntemiyle öğrendiklerini kalıcı hale getir, boşlukları doldur.', href: '/flashcards', Icon: Sparkles, color: 'text-violet-600', bg: 'bg-violet-50', borderHover: 'hover:border-violet-300/70', numBg: 'bg-violet-500' },
+                { step: '3', title: "Quiz'le Kendini Sına", desc: 'KPSS formatında soru çözerek gerçek sınavda seni ne beklediğini öğren.', href: '/quiz', Icon: Brain, color: 'text-[#386948]', bg: 'bg-[#386948]/5', borderHover: 'hover:border-[#386948]/30', numBg: 'bg-[#386948]' },
+              ] as const
+            ).map(({ step, title, desc, href, Icon, color, bg, borderHover, numBg }) => (
+              <Link
+                key={step}
+                href={href}
+                className={`group relative z-10 bg-white border border-[#abb4ac]/40 ${borderHover} rounded-2xl p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col gap-4`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className={`w-8 h-8 ${numBg} text-white text-sm font-black rounded-xl flex items-center justify-center shadow-sm`}>{step}</span>
+                  <ArrowRight size={15} className={`${color} opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200`} />
+                </div>
+                <div className={`w-11 h-11 ${bg} rounded-xl flex items-center justify-center`}>
+                  <Icon size={22} className={color} />
+                </div>
+                <div>
+                  <h3 className="font-black text-[#2c342e] mb-1.5">{title}</h3>
+                  <p className="text-sm text-[#59615a] leading-relaxed">{desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CTA BANNER ═══ */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
