@@ -188,7 +188,7 @@ Tarladan sofraya doğrudan yenmeyen, önce fabrikaya kütük gibi girip oradan e
 Türkiye orman alanları açısından Avrupa'nın orta sıralarındadır. Toplam ülke yüzeyinin yaklaşık **%28-30'u** ormanlarla kaplıdır.
 
 ### Türkiye'nin Ormanlık Bölgeleri
-* **İl bazında en geniş orman:** Antalya (1. sıra), Kastamonu, Bolu, İstanbul.
+* **İl bazında en geniş orman alanı (toplam hektar):** Antalya (1. sıra), Kastamonu, Mersin, Muğla. *(Yüzölçümüne oranla en ormanlık il ise farklıdır: Karabük (%67) > Kastamonu > Muğla)*
 * **Bölge bazında en ormanlık:** Karadeniz Bölgesi (nem + yağış).
 * **En az orman:** İç Anadolu ve Güneydoğu Anadolu (kurak iklim, step).
 

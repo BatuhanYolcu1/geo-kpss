@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import {
     Home,
@@ -45,6 +45,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function FlashcardsPage() {
     const [selectedDeck, setSelectedDeck] = useState<FlashcardCategory | null>(null);
+    const [sessionCards, setSessionCards] = useState<Flashcard[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [sessionCorrect, setSessionCorrect] = useState(0);
@@ -55,18 +56,14 @@ export default function FlashcardsPage() {
     const { markCard, updateStreak, getCardBox, streakDays, totalReviewed, totalCorrect, cardProgress } =
         useFlashcardStore();
 
-    const [sessionCards, setSessionCards] = useState<Flashcard[]>([]);
-
-    // Shuffle cards for the session
-    useEffect(() => {
-        if (!selectedDeck) {
-            setSessionCards([]);
-            return;
-        }
-        setSessionCards([...selectedDeck.cards].sort(() => Math.random() - 0.5));
-    }, [selectedDeck]);
-
     const currentCard = sessionCards[currentIndex];
+
+    // Shuffling uses Math.random, which is impure — must run in an event handler,
+    // never during render (useMemo) or as a derived-state effect.
+    const startDeck = useCallback((deck: FlashcardCategory) => {
+        setSessionCards([...deck.cards].sort(() => Math.random() - 0.5));
+        setSelectedDeck(deck);
+    }, []);
 
     const handleFlip = useCallback(() => {
         setIsFlipped((prev) => !prev);
@@ -109,6 +106,7 @@ export default function FlashcardsPage() {
 
     const handleBackToDecks = () => {
         setSelectedDeck(null);
+        setSessionCards([]);
         handleRestart();
     };
 
@@ -381,7 +379,7 @@ export default function FlashcardsPage() {
                         return (
                             <button
                                 key={deck.id}
-                                onClick={() => setSelectedDeck(deck)}
+                                onClick={() => startDeck(deck)}
                                 className="group relative overflow-hidden rounded-3xl bg-white border border-[#abb4ac]/40 hover:border-[#386948]/40 p-6 text-left transition-all duration-300 hover:bg-[#f0f5ee] hover:scale-[1.02] shadow-sm hover:shadow-md"
                             >
                                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${deck.color} opacity-[0.05] group-hover:opacity-10 transition-opacity blur-2xl translate-x-8 -translate-y-8`} />

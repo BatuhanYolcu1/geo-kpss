@@ -102,7 +102,7 @@ export const unit08: NoteUnit = {
 
 ### 1. Tektonik (Çöküntü) Göller
 Fay hatları boyunca yerin çökmesiyle oluşan göllerdir. En büyük Türk gölleri bu tiptedir.
-* **Van Gölü (430 km²):** Türkiye'nin en büyük ve en derin gölü (451 m). Sodalı-tuzlu. Kapalı havzada (suyu denize akmıyor). Tektonik + volkanik set kökenli. İnci kefali balığı yaşar.
+* **Van Gölü (3713 km²):** Türkiye'nin en büyük ve en derin gölü (451 m). Sodalı-tuzlu. Kapalı havzada (suyu denize akmıyor). Tektonik + volkanik set kökenli. İnci kefali balığı yaşar.
 * **Beyşehir Gölü:** Türkiye'nin en büyük tatlı su gölü. Konya.
 * **Eğirdir Gölü:** Isparta. Tatlı su.
 * **Burdur Gölü:** Isparta/Burdur. Sodalı.

@@ -241,12 +241,12 @@ Deniz taşımacılığı Türkiye dış ticaretinin yaklaşık **%90'ını** kar
 
 ---
 
-## Turizm İstatistikleri (2024-2025 Güncel)
+## Turizm İstatistikleri (2025 Güncel - TÜİK Rekoru)
 
 Turizm Türkiye ekonomisine büyük katkı sağlamaktadır.
-* **Yıllık yabancı turist sayısı:** 50-55 milyon (2024 itibarıyla).
-* **Turizm geliri:** Yıllık 50-60 milyar dolar.
-* **En fazla turist alan il:** Antalya (yıllık 15-20 milyon yabancı turist).
+* **Yıllık yabancı ziyaretçi sayısı:** ~64 milyon (2025 rekoru — dünya sıralamasında 4.).
+* **Turizm geliri:** ~65,2 milyar dolar (2025 rekoru — dünya sıralamasında 7.).
+* **En fazla turist alan il:** Antalya (yıllık ~16-17,5 milyon ziyaretçi).
 
 **Turizm Türleri ve Önemli Merkezler:**
 * **Kültür turizmi:** İstanbul (Topkapı, Ayasofya), Kapadokya (Nevşehir), Efes (İzmir)
@@ -259,7 +259,7 @@ Turizm Türkiye ekonomisine büyük katkı sağlamaktadır.
                 'En büyük ihracat kalemi: Otomotiv.',
                 'En büyük ithalat kalemi: Petrol ve doğalgaz.',
                 'En büyük konteyner limanı: Mersin.',
-                'Yıllık turist: 50-55 milyon, gelir 50-60 milyar dolar.',
+                'Yıllık turist: ~64 milyon (2025 rekoru), gelir ~65,2 milyar dolar.',
                 'En fazla turist alan il: Antalya.'
             ],
             inlineQuizzes: [

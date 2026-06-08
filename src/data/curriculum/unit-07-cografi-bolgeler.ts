@@ -256,7 +256,7 @@ Türkiye'nin en önemli turizm bölgelerinden biri. Efes (Selçuk), Bodrum, Marm
 
 ## Turizm
 Türkiye turizm gelirinin büyük kısmı bu bölgeden gelir.
-* **Antalya:** Türkiye'nin en çok turist alan ili (yılda 15-20 milyon yabancı turist).
+* **Antalya:** Türkiye'nin en çok turist alan ili (2025'te ~16-17,5 milyon ziyaretçi ile rekor kırdı).
 * **Olimpos, Kaş, Alanya, Side, Belek** gibi dünyaca tanınan tatil merkezleri.
 * **Kültür turizmi:** Perge, Aspendos, Termessos, Xanthos antik kentleri.`,
             mnemonics: [
@@ -387,7 +387,7 @@ Türkiye turizm gelirinin büyük kısmı bu bölgeden gelir.
 * **Kivi:** Ordu (Türkiye'de üretim başladı, gelişiyor).
 
 ## Orman Kaynakları
-* Türkiye'nin en büyük **orman alanına** sahip bölgesidir (Antalya il olarak 1.).
+* Bölge bazında Türkiye'nin **en büyük orman alanına sahip bölgesidir** (~5,6 milyon hektar, ülke ormanlarının ~%24'ü — bol yağış sayesinde). *Dikkat: İl bazında en geniş orman alanı Karadeniz'de değil, Akdeniz Bölgesi'ndeki Antalya'dadır — bölge ile il sıralamasını karıştırma!*
 * Kağıt-karton tesisleri: Giresun, Kastamonu, Zonguldak-Çaycuma.
 
 ## Sanayi

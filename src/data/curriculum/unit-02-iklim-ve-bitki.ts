@@ -45,7 +45,7 @@ Türkiye Kuzey Yarım Kürede olduğu için kuzeyden gelenler sıcaklığı her 
 Coğrafyada 3 tip nemden bahsedilir:
 1. **Mutlak Nem (Gerçek Su Buharı):** Sadece DENİZ kenarlarında vardır.
 2. **Maksimum Nem (Havanın Su Taşıma Kapasitesi) = SICAKLIKTIR.** Sıcak hava tıpkı şişen bir sünger gibi büyür, suyu kolay tutar. Bu yüzden Çöllerde maksimum nem (kapasite) devasadır ama hava kurudur çünkü mutlak nem (gerçek su) yoktur. *Maksimum nemin en yüksek olduğu yer yazın GDA, kışın Akdeniz'dir.*
-3. **Bağıl Nem (Yağış İhtimali):** Bir bardağın hangi oranda su ile dolduğunun yüzdesidir. %100'e ulaştığında yağmur yağar. **Bağıl nemin Türkiye'de her zaman en yüksek olduğu yer DAİMA Karedeniz'dir.**
+3. **Bağıl Nem (Yağış İhtimali):** Bir bardağın hangi oranda su ile dolduğunun yüzdesidir. %100'e ulaştığında yağmur yağar. **Bağıl nemin Türkiye'de her zaman en yüksek olduğu yer DAİMA Karadeniz'dir.**
 
 ### Yağış Oluşum Tipleri
 Türkiye'de 3 farklı sistemle yağış düşer:

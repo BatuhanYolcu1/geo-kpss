@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { List } from 'lucide-react';
 
 interface TOCItem {
@@ -15,9 +15,8 @@ interface TableOfContentsProps {
 
 export default function TableOfContents({ contentHtml }: TableOfContentsProps) {
     const [activeId, setActiveId] = useState<string>('');
-    const [headings, setHeadings] = useState<TOCItem[]>([]);
 
-    useEffect(() => {
+    const headings = useMemo<TOCItem[]>(() => {
         // Parse the markdown-like content to find headers
         const lines = contentHtml.split('\n');
         const extractedHeadings: TOCItem[] = [];
@@ -35,7 +34,7 @@ export default function TableOfContents({ contentHtml }: TableOfContentsProps) {
             }
         });
 
-        setHeadings(extractedHeadings);
+        return extractedHeadings;
     }, [contentHtml]);
 
     useEffect(() => {
