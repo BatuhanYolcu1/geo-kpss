@@ -240,7 +240,7 @@ Türkiye **8 ülkeyle** kara sınırına sahiptir.
 8. **Suriye** (Güney) — Hatay, Gaziantep, Şanlıurfa, Mardin
 
 > [!NOTE]
-> Türkiye kara sınırı uzunluğu bakımından en uzun sınırı **İran** ile paylaşır.
+> Türkiye kara sınırı uzunluğu bakımından en uzun sınırı **Suriye** ile paylaşır (yaklaşık 911 km). İran ile sınır yaklaşık 560 km, Irak ile yaklaşık 378 km'dir.
 
 ### Deniz Komşuları
 * **Karadeniz'de:** Rusya, Ukrayna, Moldova (dolaylı), Romanya, Bulgaristan, Gürcistan
@@ -285,7 +285,7 @@ Türkiye'nin coğrafi konumu ona **küresel ölçekte stratejik bir önem** kaza
                 'Büyük ölçek: Küçük alan, çok detay (1/25.000).',
                 'Küçük ölçek: Büyük alan, az detay (1/1.000.000).',
                 'Kara komşusu sayısı: 8.',
-                'En uzun kara sınırı: İran.',
+                'En uzun kara sınırı: Suriye (~911 km).',
                 'Boğazlar Montrö Sözleşmesi (1936) ile Türkiye kontrolünde.'
             ],
             inlineQuizzes: [
