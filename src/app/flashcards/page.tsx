@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { flashcardDecks } from '@/data/flashcard-data';
 import { useFlashcardStore } from '@/stores/flashcardStore';
+import { useUser } from '@/contexts/AuthContext';
 import type { Flashcard, FlashcardCategory } from '@/types/flashcard';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -55,6 +56,7 @@ export default function FlashcardsPage() {
     const [showResult, setShowResult] = useState(false);
     const [animDir, setAnimDir] = useState<'left' | 'right' | null>(null);
 
+    const { user } = useUser();
     const { markCard, updateStreak, getCardBox, streakDays, totalReviewed, totalCorrect, cardProgress } =
         useFlashcardStore();
 
@@ -75,7 +77,7 @@ export default function FlashcardsPage() {
         (correct: boolean) => {
             if (!currentCard) return;
 
-            markCard(currentCard.id, correct);
+            markCard(currentCard.id, correct, user?.id);
             updateStreak();
             setSessionTotal((prev) => prev + 1);
             if (correct) setSessionCorrect((prev) => prev + 1);
@@ -94,7 +96,7 @@ export default function FlashcardsPage() {
                 }
             }, 300);
         },
-        [currentCard, currentIndex, sessionCards.length, markCard, updateStreak]
+        [currentCard, currentIndex, sessionCards.length, markCard, updateStreak, user]
     );
 
     const handleRestart = () => {

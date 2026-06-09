@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { FlashcardStats, FlashcardProgress } from '@/types/flashcard';
+import { syncService } from '@/lib/syncService';
 
 interface FlashcardStore extends FlashcardStats {
     // Actions
-    markCard: (cardId: string, correct: boolean) => void;
+    markCard: (cardId: string, correct: boolean, userId?: string) => void;
     getCardBox: (cardId: string) => number;
     shouldReviewCard: (cardId: string, sessionNumber: number) => boolean;
     resetProgress: () => void;
@@ -24,7 +25,7 @@ export const useFlashcardStore = create<FlashcardStore>()(
         (set, get) => ({
             ...defaultStats,
 
-            markCard: (cardId: string, correct: boolean) => {
+            markCard: (cardId: string, correct: boolean, userId?: string) => {
                 set((state) => {
                     const existing = state.cardProgress[cardId];
                     const currentBox = existing?.box || 1;
@@ -43,6 +44,11 @@ export const useFlashcardStore = create<FlashcardStore>()(
                         reviewCount: (existing?.reviewCount || 0) + 1,
                         correctCount: (existing?.correctCount || 0) + (correct ? 1 : 0),
                     };
+
+                    // Giriş yapılmışsa Supabase'e de kaydet (fire-and-forget)
+                    if (userId) {
+                        syncService.pushSingleCardProgress(userId, progress).catch(console.warn);
+                    }
 
                     return {
                         totalReviewed: state.totalReviewed + 1,

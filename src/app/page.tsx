@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { useUser } from '@/contexts/AuthContext';
 import Link from 'next/link';
 import {
   Map,
@@ -19,6 +20,9 @@ import {
   Zap,
   Users,
   TrendingUp,
+  LogIn,
+  LogOut,
+  UserCircle2,
 } from 'lucide-react';
 
 // ─── ANIMATED COUNTER ───────────────────────────────────────────
@@ -125,6 +129,8 @@ const stats = [
 
 // ─── MAIN PAGE ───────────────────────────────────────────────
 export default function HomePage() {
+  const { user, isLoading, signOut } = useUser();
+
   return (
     <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] overflow-x-hidden">
 
@@ -161,11 +167,41 @@ export default function HomePage() {
             ))}
           </div>
 
-          <Link href="/quiz"
-            className="hidden md:flex items-center gap-2 px-5 py-2 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-xl text-sm font-bold shadow-sm transition-all duration-150">
-            Hemen Başla
-            <ArrowRight size={14} />
-          </Link>
+          {/* Auth durumu */}
+          <div className="hidden md:flex items-center gap-2">
+            {!isLoading && (
+              user ? (
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 px-3 py-1.5 bg-[#386948]/10 border border-[#386948]/20 rounded-xl">
+                    <UserCircle2 size={16} className="text-[#386948]" />
+                    <span className="text-sm font-semibold text-[#386948] max-w-[140px] truncate">
+                      {user.email?.split('@')[0]}
+                    </span>
+                  </div>
+                  <button
+                    onClick={signOut}
+                    className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-[#59615a] hover:text-rose-600 hover:bg-rose-50 border border-transparent hover:border-rose-200/60 rounded-xl transition-all duration-150 font-semibold"
+                  >
+                    <LogOut size={14} />
+                    Çıkış
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <Link href="/auth/login"
+                    className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-xl transition-all duration-150">
+                    <LogIn size={14} />
+                    Giriş
+                  </Link>
+                  <Link href="/quiz"
+                    className="flex items-center gap-2 px-5 py-2 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-xl text-sm font-bold shadow-sm transition-all duration-150">
+                    Hemen Başla
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+              )
+            )}
+          </div>
         </div>
       </nav>
 

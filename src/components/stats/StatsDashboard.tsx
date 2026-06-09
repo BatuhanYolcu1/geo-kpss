@@ -18,9 +18,12 @@ import {
 } from 'lucide-react';
 import { storageService } from '@/lib/storage';
 import { UserStats, QuizResult, QuizMode } from '@/types/quiz';
+import { useUser } from '@/contexts/AuthContext';
 import Link from 'next/link';
+import { LogIn, Shield } from 'lucide-react';
 
 export default function StatsDashboard() {
+    const { user } = useUser();
     const [stats, setStats] = useState<UserStats | null>(null);
 
     useEffect(() => {
@@ -68,6 +71,27 @@ export default function StatsDashboard() {
 
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+
+            {/* Misafir nudge — giriş yapılmamışsa göster */}
+            {!user && (
+                <div className="flex items-center gap-4 px-5 py-4 bg-amber-50 border border-amber-200/60 rounded-2xl">
+                    <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center shrink-0">
+                        <Shield size={18} className="text-amber-600" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                        <p className="text-sm font-bold text-amber-800">Verilerini kaybetme</p>
+                        <p className="text-xs text-amber-700/80 mt-0.5">Ücretsiz hesap oluşturarak tüm istatistiklerini buluta yedekle — her cihazdan eriş.</p>
+                    </div>
+                    <Link
+                        href="/auth/register"
+                        className="shrink-0 flex items-center gap-1.5 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition-colors"
+                    >
+                        <LogIn size={13} />
+                        Kayıt Ol
+                    </Link>
+                </div>
+            )}
+
             {/* Overview Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <StatCard

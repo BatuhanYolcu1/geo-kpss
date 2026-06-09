@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Literata, Nunito_Sans } from "next/font/google";
 import BottomNav from "@/components/ui/BottomNav";
+import { AuthProvider } from "@/contexts/AuthContext";
 import "./globals.css";
 
 const literata = Literata({
@@ -131,8 +132,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${literata.variable} ${nunitoSans.variable} antialiased`}>
-        {children}
-        <BottomNav />
+        <AuthProvider>
+          {children}
+          <BottomNav />
+        </AuthProvider>
       </body>
     </html>
   );

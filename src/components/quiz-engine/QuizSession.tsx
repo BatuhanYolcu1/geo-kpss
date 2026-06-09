@@ -25,6 +25,8 @@ import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import TrueFalseQuestion from './TrueFalseQuestion';
 import MatchingQuestion from './MatchingQuestion';
 import { storageService } from '@/lib/storage';
+import { syncService } from '@/lib/syncService';
+import { useUser } from '@/contexts/AuthContext';
 
 // Dynamic import for map component
 const MapQuizComponent = dynamic(() => import('./MapQuestion'), {
@@ -39,6 +41,7 @@ interface QuizSessionProps {
 }
 
 export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionProps) {
+    const { user } = useUser();
     const [questions, setQuestions] = useState<QuizQuestion[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -144,7 +147,7 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
             const duration = Math.floor((Date.now() - startTime) / 1000);
             const accuracy = Math.round((correctCount / questions.length) * 100);
 
-            storageService.saveQuizResult({
+            const result = {
                 id: crypto.randomUUID(),
                 date: new Date().toISOString(),
                 mode,
@@ -153,12 +156,19 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                 correctCount,
                 accuracy,
                 duration,
-                categoryBreakdown: categoryResults
-            });
+                categoryBreakdown: categoryResults,
+            };
+
+            storageService.saveQuizResult(result);
+
+            // Giriş yapılmışsa Supabase'e de kaydet (fire-and-forget)
+            if (user) {
+                syncService.pushQuizResult(user.id, result).catch(console.warn);
+            }
         } else {
             setCurrentIndex(prev => prev + 1);
         }
-    }, [currentIndex, questions.length, startTime, correctCount, score, mode, categoryResults]);
+    }, [currentIndex, questions.length, startTime, correctCount, score, mode, categoryResults, user]);
 
     if (questions.length === 0) {
         return (
