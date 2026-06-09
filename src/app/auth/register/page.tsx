@@ -34,9 +34,15 @@ export default function RegisterPage() {
 
         if (error) {
             setError(
-                error.message.includes('already registered')
+                error.message.includes('already registered') || error.message.includes('User already registered')
                     ? 'Bu e-posta adresi zaten kayıtlı.'
-                    : 'Kayıt başarısız. Lütfen tekrar deneyin.'
+                    : error.message.includes('signup_disabled') || error.message.includes('Signups not allowed')
+                    ? 'Kayıt şu an devre dışı. Supabase → Authentication → Providers → Email → Enable Email Signup.'
+                    : error.message.includes('email_address_not_authorized')
+                    ? 'Bu e-posta adresi yetkili değil.'
+                    : error.message.includes('over_email_send_rate_limit')
+                    ? 'Çok fazla istek gönderildi. Birkaç dakika bekleyip tekrar deneyin.'
+                    : `Kayıt başarısız: ${error.message}`
             );
         } else {
             setSuccess(true);
