@@ -126,7 +126,7 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
             </MapContainer>
 
             {/* Right Side UI Stack (HUD & Results) */}
-            <div className="fixed top-4 right-2 sm:top-28 sm:right-8 z-[1001] flex flex-col gap-3 sm:gap-4 pointer-events-none w-[min(calc(100vw-1rem),22rem)] sm:w-auto sm:max-w-sm">
+            <div className="fixed top-24 right-2 sm:top-28 sm:right-8 z-[1001] flex flex-col gap-3 sm:gap-4 pointer-events-none w-[min(calc(100vw-1rem),22rem)] sm:w-auto sm:max-w-sm">
 
                 {/* Question HUD - Slim Capsule */}
                 {!answered && (
