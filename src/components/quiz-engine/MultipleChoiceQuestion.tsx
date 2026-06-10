@@ -47,13 +47,13 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
     const optionLabels = ['A', 'B', 'C', 'D', 'E'];
 
     return (
-        <div className="flex items-center justify-center min-h-screen pt-24 pb-12 px-4 bg-[#f7faf4]">
+        <div className="flex items-center justify-center min-h-screen pt-20 pb-10 px-3 sm:px-4 bg-[#f7faf4]">
             <div className="w-full max-w-2xl animate-slide-up">
 
                 {/* Question Card */}
-                <div className="bg-white rounded-3xl p-8 md:p-10 border border-[#abb4ac]/40 shadow-md mb-8">
+                <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-10 border border-[#abb4ac]/40 shadow-md mb-5 sm:mb-8">
                     {/* Tags */}
-                    <div className="flex items-center gap-3 mb-6 flex-wrap">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 flex-wrap">
                         <div className="flex items-center gap-1.5 px-3 py-1 bg-[#386948]/10 rounded-full border border-[#386948]/20">
                             <BookOpen size={12} className="text-[#386948]" />
                             <span className="text-[10px] font-black text-[#386948] uppercase tracking-widest">
@@ -70,15 +70,15 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
                     {/* Question Text */}
                     <div className="relative">
                         <Sparkles size={20} className="absolute -top-4 -left-4 text-[#386948]/20" />
-                        <h2 className="text-xl md:text-2xl font-black text-[#2c342e] leading-tight tracking-tight">
+                        <h2 className="text-base sm:text-xl md:text-2xl font-black text-[#2c342e] leading-snug tracking-tight">
                             {question.text}
                         </h2>
                     </div>
                 </div>
 
                 {/* Options */}
-                <div className="space-y-3">
-                    <div className="flex items-center gap-2 mb-3 ml-2">
+                <div className="space-y-2.5 sm:space-y-3">
+                    <div className="flex items-center gap-2 mb-2 sm:mb-3 ml-2">
                         <Target size={13} className="text-[#747d75]" />
                         <span className="text-[10px] font-black text-[#747d75] uppercase tracking-widest">LÜTFEN BİR SEÇENEK BELİRLEYİN</span>
                     </div>
@@ -88,12 +88,12 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
                             key={index}
                             onClick={() => handleSelect(index)}
                             disabled={disabled || selectedIndex !== null}
-                            className={`w-full flex items-center gap-4 p-4 rounded-2xl border-2 transition-all duration-200 text-left group
+                            className={`w-full flex items-center gap-3 p-3 sm:p-4 rounded-2xl border-2 transition-all duration-200 text-left group
                                 ${getOptionStyle(index)}
                                 ${disabled || selectedIndex !== null ? 'cursor-default' : 'cursor-pointer'}`}
                         >
                             {/* Label */}
-                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-base shrink-0 transition-all
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center font-black text-sm sm:text-base shrink-0 transition-all
                                 ${selectedIndex === null
                                     ? 'bg-[#f0f5ee] text-[#59615a] group-hover:bg-[#386948] group-hover:text-white'
                                     : index === question.correctIndex
@@ -105,7 +105,7 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
                             </div>
 
                             {/* Text */}
-                            <span className={`font-semibold text-base flex-1 transition-colors
+                            <span className={`font-semibold text-sm sm:text-base flex-1 transition-colors leading-snug
                                 ${selectedIndex !== null && index !== question.correctIndex && index !== selectedIndex
                                     ? 'text-[#747d75]'
                                     : 'text-[#2c342e]'}`}>
@@ -119,7 +119,7 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
                     ))}
                 </div>
 
-                <p className="mt-8 text-center text-[10px] font-bold text-[#747d75] uppercase tracking-widest">
+                <p className="mt-6 sm:mt-8 text-center text-[10px] font-bold text-[#747d75] uppercase tracking-widest">
                     DOĞRU CEVAP İÇİN +{question.points} PUAN KAZANACAKSINIZ
                 </p>
             </div>

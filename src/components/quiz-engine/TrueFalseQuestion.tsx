@@ -32,11 +32,11 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen pt-24 pb-12 px-4 bg-[#f7faf4]">
+        <div className="flex items-center justify-center min-h-screen pt-20 pb-10 px-3 sm:px-4 bg-[#f7faf4]">
             <div className="w-full max-w-3xl animate-slide-up">
 
                 {/* Badge */}
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-4 sm:mb-6">
                     <div className="px-4 py-1.5 bg-white border border-[#abb4ac]/40 rounded-full flex items-center gap-2 shadow-sm">
                         <AlertCircle size={14} className="text-amber-500" />
                         <span className="text-[10px] font-black text-[#59615a] uppercase tracking-widest">
@@ -46,35 +46,36 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
                 </div>
 
                 {/* Statement Card */}
-                <div className="relative mb-10">
-                    <div className="bg-white rounded-3xl p-10 md:p-14 border border-[#abb4ac]/40 shadow-md text-center">
-                        <Sparkles size={28} className="mx-auto mb-6 text-[#386948]/30" />
-                        <h2 className="text-2xl md:text-3xl font-black text-[#2c342e] leading-[1.35] tracking-tight">
+                <div className="relative mb-5 sm:mb-10">
+                    <div className="bg-white rounded-3xl p-6 sm:p-10 md:p-14 border border-[#abb4ac]/40 shadow-md text-center">
+                        <Sparkles size={24} className="mx-auto mb-4 sm:mb-6 text-[#386948]/30" />
+                        <h2 className="text-lg sm:text-2xl md:text-3xl font-black text-[#2c342e] leading-snug tracking-tight">
                             &quot;{question.statement}&quot;
                         </h2>
-                        <div className="mt-8 pt-6 border-t border-[#abb4ac]/30">
+                        <div className="mt-5 sm:mt-8 pt-4 sm:pt-6 border-t border-[#abb4ac]/30">
                             <span className="text-xs font-bold text-[#747d75] uppercase tracking-[0.2em]">ÖNERME ANALİZİ</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Buttons */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-2 gap-3 sm:gap-5">
                     {/* DOĞRU */}
                     <button
                         onClick={() => handleSelect(true)}
                         disabled={disabled || selectedAnswer !== null}
-                        className={`group flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border-2 transition-all duration-300
+                        className={`group flex flex-col items-center justify-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-3xl border-2 transition-all duration-300
                             ${getButtonStyle(true)}
                             ${disabled || selectedAnswer !== null ? 'cursor-default' : 'cursor-pointer'}`}
                     >
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-200
+                        <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center transition-all duration-200
                             ${selectedAnswer === null
                                 ? 'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-110'
                                 : question.isTrue ? 'bg-emerald-500 text-white' : 'bg-[#e9f0e8] text-[#59615a]'}`}>
-                            <CheckCircle2 size={36} />
+                            <CheckCircle2 size={28} className="sm:hidden" />
+                            <CheckCircle2 size={36} className="hidden sm:block" />
                         </div>
-                        <span className={`text-2xl font-black tracking-tight
+                        <span className={`text-xl sm:text-2xl font-black tracking-tight
                             ${selectedAnswer === null ? 'text-emerald-600' : question.isTrue ? 'text-emerald-700' : 'text-[#59615a]'}`}>
                             DOĞRU
                         </span>
@@ -84,24 +85,25 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
                     <button
                         onClick={() => handleSelect(false)}
                         disabled={disabled || selectedAnswer !== null}
-                        className={`group flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border-2 transition-all duration-300
+                        className={`group flex flex-col items-center justify-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-3xl border-2 transition-all duration-300
                             ${getButtonStyle(false)}
                             ${disabled || selectedAnswer !== null ? 'cursor-default' : 'cursor-pointer'}`}
                     >
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-200
+                        <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center transition-all duration-200
                             ${selectedAnswer === null
                                 ? 'bg-rose-100 text-rose-500 group-hover:bg-rose-500 group-hover:text-white group-hover:scale-110'
                                 : !question.isTrue ? 'bg-rose-500 text-white' : 'bg-[#e9f0e8] text-[#59615a]'}`}>
-                            <XCircle size={36} />
+                            <XCircle size={28} className="sm:hidden" />
+                            <XCircle size={36} className="hidden sm:block" />
                         </div>
-                        <span className={`text-2xl font-black tracking-tight
+                        <span className={`text-xl sm:text-2xl font-black tracking-tight
                             ${selectedAnswer === null ? 'text-rose-500' : !question.isTrue ? 'text-rose-600' : 'text-[#59615a]'}`}>
                             YANLIŞ
                         </span>
                     </button>
                 </div>
 
-                <div className="mt-10 text-center">
+                <div className="mt-6 sm:mt-10 text-center">
                     <div className="inline-flex items-center gap-2 px-5 py-2 bg-white border border-[#abb4ac]/40 rounded-full shadow-sm">
                         <div className="w-2 h-2 rounded-full bg-emerald-500" />
                         <span className="text-xs font-bold text-[#747d75] uppercase tracking-widest">Hızlı karar ver, puanları topla!</span>

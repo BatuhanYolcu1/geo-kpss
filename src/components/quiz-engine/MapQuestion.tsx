@@ -126,26 +126,27 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
             </MapContainer>
 
             {/* Right Side UI Stack (HUD & Results) */}
-            <div className="fixed top-28 right-8 z-[1001] flex flex-col gap-4 pointer-events-none w-auto max-w-sm">
+            <div className="fixed top-4 right-2 sm:top-28 sm:right-8 z-[1001] flex flex-col gap-3 sm:gap-4 pointer-events-none w-[min(calc(100vw-1rem),22rem)] sm:w-auto sm:max-w-sm">
 
                 {/* Question HUD - Slim Capsule */}
                 {!answered && (
-                    <div className="bg-slate-950 rounded-[1.5rem] px-5 py-3 border-2 border-slate-800 shadow-2xl ring-1 ring-white/5 flex items-center gap-4 relative overflow-hidden animate-slide-up pointer-events-auto">
+                    <div className="bg-slate-950 rounded-[1.5rem] px-4 py-2.5 sm:px-5 sm:py-3 border-2 border-slate-800 shadow-2xl ring-1 ring-white/5 flex items-center gap-3 sm:gap-4 relative overflow-hidden animate-slide-up pointer-events-auto">
                         <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-indigo-500 to-purple-600" />
-                        <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center shrink-0 shadow-lg">
-                            <Navigation size={22} className="text-white rotate-45" />
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-indigo-500 flex items-center justify-center shrink-0 shadow-lg">
+                            <Navigation size={18} className="text-white rotate-45 sm:hidden" />
+                            <Navigation size={22} className="text-white rotate-45 hidden sm:block" />
                         </div>
-                        <div className="pr-2">
+                        <div className="min-w-0 flex-1 pr-1">
                             <div className="text-[9px] font-black text-indigo-400 uppercase tracking-[0.2em] leading-none mb-1">HARİTADA BULUN</div>
-                            <div className="text-xl font-black text-white tracking-tighter leading-none mb-1.5">
+                            <div className="text-base sm:text-xl font-black text-white tracking-tighter leading-tight mb-1 truncate">
                                 {question.targetName}
                             </div>
 
                             {question.hint && (
                                 <div>
                                     {showHint ? (
-                                        <p className="text-[11px] text-slate-300 font-bold animate-fade-in flex items-center gap-1.5 whitespace-nowrap">
-                                            <div className="w-1 h-1 rounded-full bg-indigo-400" />
+                                        <p className="text-[11px] text-slate-300 font-bold animate-fade-in flex items-center gap-1.5 break-words">
+                                            <span className="w-1 h-1 rounded-full bg-indigo-400 shrink-0 inline-block" />
                                             {question.hint}
                                         </p>
                                     ) : (
@@ -168,44 +169,44 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
 
                 {/* Result Modal - Integrated Stack */}
                 {showFeedback && result && (
-                    <div className="w-auto max-w-[280px] animate-modal-enter pointer-events-auto">
-                        <div className="bg-slate-950 border-2 border-white/20 rounded-[2rem] p-6 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                    <div className="w-full animate-modal-enter pointer-events-auto">
+                        <div className="bg-slate-950 border-2 border-white/20 rounded-[2rem] p-5 sm:p-6 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
                             <div
                                 className="absolute top-0 left-0 right-0 h-1.5"
                                 style={{ backgroundColor: getRatingColor(result.rating) }}
                             />
 
                             <div
-                                className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center shadow-2xl relative"
+                                className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-2xl flex items-center justify-center shadow-2xl relative"
                                 style={{ backgroundColor: getRatingColor(result.rating), transform: 'rotate(2deg)' }}
                             >
                                 <div className="absolute inset-0 bg-white/10 rounded-2xl animate-pulse" />
-                                {result.rating === 'perfect' && <Sparkles size={32} className="text-white relative z-10" />}
-                                {result.rating === 'great' && <Trophy size={32} className="text-white relative z-10" />}
-                                {result.rating === 'good' && <MapPin size={32} className="text-white relative z-10" />}
-                                {result.rating === 'miss' && <Navigation size={32} className="text-white relative z-10" />}
+                                {result.rating === 'perfect' && <Sparkles size={28} className="text-white relative z-10" />}
+                                {result.rating === 'great' && <Trophy size={28} className="text-white relative z-10" />}
+                                {result.rating === 'good' && <MapPin size={28} className="text-white relative z-10" />}
+                                {result.rating === 'miss' && <Navigation size={28} className="text-white relative z-10" />}
                             </div>
 
-                            <h2 className="text-2xl font-black text-center text-white mb-3 tracking-tighter uppercase italic">
+                            <h2 className="text-xl sm:text-2xl font-black text-center text-white mb-3 tracking-tighter uppercase italic">
                                 {result.rating === 'perfect' && 'KUSURSUZ!'}
                                 {result.rating === 'great' && 'HARİKA!'}
                                 {result.rating === 'good' && 'BAŞARILI!'}
                                 {result.rating === 'miss' && 'ÜZGÜNÜM!'}
                             </h2>
 
-                            <div className="bg-white/5 rounded-3xl p-4 mb-4 border border-white/10 text-center">
+                            <div className="bg-white/5 rounded-3xl p-3 sm:p-4 mb-3 sm:mb-4 border border-white/10 text-center">
                                 <p className="text-slate-200 text-sm font-bold leading-tight">
                                     <span className="text-indigo-400 block mb-1 text-[8px] uppercase tracking-[0.2em] font-black">MESAFE</span>
-                                    <span className="text-2xl font-black block" style={{ color: getRatingColor(result.rating) }}>
+                                    <span className="text-xl sm:text-2xl font-black block" style={{ color: getRatingColor(result.rating) }}>
                                         {result.distance.toFixed(1)} <span className="text-xs">km</span>
                                     </span>
                                 </p>
                             </div>
 
                             {result.points > 0 && (
-                                <div className="text-center mb-5 flex flex-col items-center">
+                                <div className="text-center mb-4 sm:mb-5 flex flex-col items-center">
                                     <div className="flex items-center gap-2 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/30">
-                                        <span className="text-2xl font-black text-emerald-400">+{result.points}</span>
+                                        <span className="text-xl sm:text-2xl font-black text-emerald-400">+{result.points}</span>
                                         <span className="text-emerald-400/70 font-black text-[9px] uppercase tracking-widest">PUAN</span>
                                     </div>
                                 </div>
@@ -213,7 +214,7 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
 
                             {/* Slim Did You Know Section */}
                             {question.didYouKnow && (
-                                <div className="mb-6 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
+                                <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
                                     <p className="text-xs text-slate-200 leading-relaxed font-bold italic">
                                         &quot;{question.didYouKnow}&quot;
                                     </p>
@@ -222,7 +223,7 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
 
                             <button
                                 onClick={onNext}
-                                className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] text-white rounded-xl font-black text-sm transition-all flex items-center justify-center gap-2 shadow-xl border-t border-white/20"
+                                className="w-full py-3 sm:py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] text-white rounded-xl font-black text-sm transition-all flex items-center justify-center gap-2 shadow-xl border-t border-white/20"
                             >
                                 SIRADAKİ
                                 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />

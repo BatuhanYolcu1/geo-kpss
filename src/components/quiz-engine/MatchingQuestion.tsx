@@ -99,39 +99,39 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen pt-20 pb-8 px-4 bg-[#f7faf4]">
+        <div className="flex items-center justify-center min-h-screen pt-20 pb-8 px-3 sm:px-4 bg-[#f7faf4]">
             <div className="w-full max-w-4xl animate-slide-up">
 
                 {/* Header */}
-                <div className="bg-white rounded-3xl p-7 mb-8 border border-[#abb4ac]/40 shadow-md text-center relative overflow-hidden">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 mb-5 sm:mb-8 border border-[#abb4ac]/40 shadow-md text-center relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#386948] via-emerald-400 to-[#386948]" />
-                    <div className="flex items-center justify-center gap-2 mb-3">
+                    <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
                         <Sparkles size={15} className="text-amber-500" />
                         <span className="text-xs font-bold text-amber-600 uppercase tracking-widest">
                             {categoryLabel[question.category] ?? question.category} • EŞLEŞTİRME
                         </span>
                     </div>
-                    <h2 className="text-xl md:text-2xl font-black text-[#2c342e] mb-4">
+                    <h2 className="text-base sm:text-xl md:text-2xl font-black text-[#2c342e] mb-3 sm:mb-4">
                         {question.instruction}
                     </h2>
-                    <div className="flex items-center justify-center gap-4 text-[#59615a] text-sm">
+                    <div className="flex items-center justify-center gap-3 sm:gap-4 text-[#59615a] text-sm">
                         <div className="flex items-center gap-1.5">
                             <div className="w-2 h-2 rounded-full bg-[#386948]" />
-                            <span className="font-medium">Terim Seç</span>
+                            <span className="font-medium text-xs sm:text-sm">Terim Seç</span>
                         </div>
                         <ArrowRight size={14} />
                         <div className="flex items-center gap-1.5">
                             <div className="w-2 h-2 rounded-full bg-rose-500" />
-                            <span className="font-medium">Eşini Bul</span>
+                            <span className="font-medium text-xs sm:text-sm">Eşini Bul</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Matching Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     {/* Sol Sütun */}
-                    <div className="space-y-3">
-                        <h3 className="text-center text-[10px] font-black text-[#747d75] uppercase tracking-[0.2em] mb-4">SOL SÜTUN: TERİMLER</h3>
+                    <div className="space-y-2 sm:space-y-3">
+                        <h3 className="text-center text-[10px] font-black text-[#747d75] uppercase tracking-[0.2em] mb-3 sm:mb-4">SOL SÜTUN: TERİMLER</h3>
                         {question.pairs.map((pair, index) => {
                             const isSelected = selectedLeft === index;
                             const isMatched = matches.has(index);
@@ -140,7 +140,7 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                                     key={`left-${index}`}
                                     onClick={() => handleLeftClick(index)}
                                     disabled={disabled || submitted || isMatched}
-                                    className={`w-full p-4 rounded-2xl border-2 transition-all duration-200 text-left font-semibold
+                                    className={`w-full p-3 sm:p-4 rounded-2xl border-2 transition-all duration-200 text-left font-semibold
                                         ${isMatched
                                             ? 'bg-emerald-50 border-emerald-300 opacity-70'
                                             : isSelected
@@ -149,11 +149,11 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                                         }`}
                                 >
                                     <div className="flex items-center justify-between">
-                                        <span className={`font-bold text-base
+                                        <span className={`font-bold text-sm sm:text-base leading-snug
                                             ${isMatched ? 'text-emerald-700' : isSelected ? 'text-white' : 'text-[#2c342e]'}`}>
                                             {pair.left}
                                         </span>
-                                        {isMatched && <Check size={18} className="text-emerald-500 shrink-0" />}
+                                        {isMatched && <Check size={18} className="text-emerald-500 shrink-0 ml-2" />}
                                     </div>
                                 </button>
                             );
@@ -161,8 +161,8 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                     </div>
 
                     {/* Sağ Sütun */}
-                    <div className="space-y-3">
-                        <h3 className="text-center text-[10px] font-black text-[#747d75] uppercase tracking-[0.2em] mb-4">SAĞ SÜTUN: EŞLEŞMELER</h3>
+                    <div className="space-y-2 sm:space-y-3">
+                        <h3 className="text-center text-[10px] font-black text-[#747d75] uppercase tracking-[0.2em] mb-3 sm:mb-4">SAĞ SÜTUN: EŞLEŞMELER</h3>
                         {shuffledRight.map((item, idx) => {
                             const isAlreadyMatched = Array.from(matches.values()).includes(item.id);
                             const isBeingValidated = correctSelection === item.id;
@@ -174,7 +174,7 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                                     key={`right-${idx}`}
                                     onClick={() => handleRightClick(item)}
                                     disabled={disabled || submitted || isAlreadyMatched || selectedLeft === null}
-                                    className={`w-full p-4 rounded-2xl border-2 transition-all duration-200 text-left font-semibold
+                                    className={`w-full p-3 sm:p-4 rounded-2xl border-2 transition-all duration-200 text-left font-semibold
                                         ${isAlreadyMatched
                                             ? 'bg-emerald-50 border-emerald-300 opacity-70'
                                             : isBeingValidated
@@ -187,7 +187,7 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                                         }`}
                                 >
                                     <div className="flex items-center justify-between">
-                                        <span className={`font-bold text-base
+                                        <span className={`font-bold text-sm sm:text-base leading-snug
                                             ${isAlreadyMatched
                                                 ? 'text-emerald-700'
                                                 : isActive
@@ -195,8 +195,8 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                                                     : 'text-[#59615a]'}`}>
                                             {item.text}
                                         </span>
-                                        {isAlreadyMatched && <Check size={18} className="text-emerald-500 shrink-0" />}
-                                        {isWrong && <X size={18} className="text-rose-500 shrink-0" />}
+                                        {isAlreadyMatched && <Check size={18} className="text-emerald-500 shrink-0 ml-2" />}
+                                        {isWrong && <X size={18} className="text-rose-500 shrink-0 ml-2" />}
                                     </div>
                                 </button>
                             );
@@ -205,7 +205,7 @@ export default function MatchingQuestion({ question, onAnswer, onNext, disabled 
                 </div>
 
                 {/* Progress */}
-                <div className="mt-10 flex flex-col items-center gap-3">
+                <div className="mt-7 sm:mt-10 flex flex-col items-center gap-3">
                     <div className="flex gap-2">
                         {question.pairs.map((_, i) => (
                             <div key={i}
