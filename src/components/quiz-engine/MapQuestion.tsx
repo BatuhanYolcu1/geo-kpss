@@ -126,7 +126,7 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
             </MapContainer>
 
             {/* Right Side UI Stack (HUD & Results) */}
-            <div className="fixed top-24 right-2 sm:top-28 sm:right-8 z-[1001] flex flex-col gap-3 sm:gap-4 pointer-events-none w-[min(calc(100vw-1rem),22rem)] sm:w-auto sm:max-w-sm">
+            <div className="fixed top-24 right-2 sm:top-28 sm:right-8 z-[1001] flex flex-col gap-3 sm:gap-4 pointer-events-none w-[min(calc(100vw-4rem),14rem)] sm:w-auto sm:max-w-sm">
 
                 {/* Question HUD - Slim Capsule */}
                 {!answered && (
@@ -170,63 +170,92 @@ export default function MapQuestion({ question, onAnswer, onNext, showFeedback }
                 {/* Result Modal - Integrated Stack */}
                 {showFeedback && result && (
                     <div className="w-full animate-modal-enter pointer-events-auto">
-                        <div className="bg-slate-950 border-2 border-white/20 rounded-[2rem] p-5 sm:p-6 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                        <div className="bg-slate-950 border-2 border-white/20 rounded-2xl sm:rounded-[2rem] p-3 sm:p-6 shadow-[0_32px_64px_rgba(0,0,0,0.8)] relative overflow-hidden">
                             <div
-                                className="absolute top-0 left-0 right-0 h-1.5"
+                                className="absolute top-0 left-0 right-0 h-1"
                                 style={{ backgroundColor: getRatingColor(result.rating) }}
                             />
 
-                            <div
-                                className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-2xl flex items-center justify-center shadow-2xl relative"
-                                style={{ backgroundColor: getRatingColor(result.rating), transform: 'rotate(2deg)' }}
-                            >
-                                <div className="absolute inset-0 bg-white/10 rounded-2xl animate-pulse" />
-                                {result.rating === 'perfect' && <Sparkles size={28} className="text-white relative z-10" />}
-                                {result.rating === 'great' && <Trophy size={28} className="text-white relative z-10" />}
-                                {result.rating === 'good' && <MapPin size={28} className="text-white relative z-10" />}
-                                {result.rating === 'miss' && <Navigation size={28} className="text-white relative z-10" />}
-                            </div>
-
-                            <h2 className="text-xl sm:text-2xl font-black text-center text-white mb-3 tracking-tighter uppercase italic">
-                                {result.rating === 'perfect' && 'KUSURSUZ!'}
-                                {result.rating === 'great' && 'HARİKA!'}
-                                {result.rating === 'good' && 'BAŞARILI!'}
-                                {result.rating === 'miss' && 'ÜZGÜNÜM!'}
-                            </h2>
-
-                            <div className="bg-white/5 rounded-3xl p-3 sm:p-4 mb-3 sm:mb-4 border border-white/10 text-center">
-                                <p className="text-slate-200 text-sm font-bold leading-tight">
-                                    <span className="text-indigo-400 block mb-1 text-[8px] uppercase tracking-[0.2em] font-black">MESAFE</span>
-                                    <span className="text-xl sm:text-2xl font-black block" style={{ color: getRatingColor(result.rating) }}>
-                                        {result.distance.toFixed(1)} <span className="text-xs">km</span>
-                                    </span>
-                                </p>
-                            </div>
-
-                            {result.points > 0 && (
-                                <div className="text-center mb-4 sm:mb-5 flex flex-col items-center">
-                                    <div className="flex items-center gap-2 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/30">
-                                        <span className="text-xl sm:text-2xl font-black text-emerald-400">+{result.points}</span>
-                                        <span className="text-emerald-400/70 font-black text-[9px] uppercase tracking-widest">PUAN</span>
+                            {/* Mobile: inline row layout — icon + title + distance */}
+                            <div className="flex items-center gap-2 mb-2 sm:hidden">
+                                <div
+                                    className="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center shadow-lg relative"
+                                    style={{ backgroundColor: getRatingColor(result.rating) }}
+                                >
+                                    {result.rating === 'perfect' && <Sparkles size={18} className="text-white" />}
+                                    {result.rating === 'great' && <Trophy size={18} className="text-white" />}
+                                    {result.rating === 'good' && <MapPin size={18} className="text-white" />}
+                                    {result.rating === 'miss' && <Navigation size={18} className="text-white" />}
+                                </div>
+                                <div className="min-w-0">
+                                    <div className="text-sm font-black text-white uppercase italic leading-none" style={{ color: getRatingColor(result.rating) }}>
+                                        {result.rating === 'perfect' && 'KUSURSUZ!'}
+                                        {result.rating === 'great' && 'HARİKA!'}
+                                        {result.rating === 'good' && 'BAŞARILI!'}
+                                        {result.rating === 'miss' && 'ÜZGÜNÜM!'}
+                                    </div>
+                                    <div className="text-[10px] text-slate-400 font-bold mt-0.5">
+                                        {result.distance.toFixed(1)} km uzakta
+                                        {result.points > 0 && <span className="ml-1.5 text-emerald-400">+{result.points} puan</span>}
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Mobile: didYouKnow (compact) */}
+                            {question.didYouKnow && (
+                                <p className="sm:hidden text-[10px] text-slate-300 leading-relaxed italic mb-2 border-t border-white/10 pt-2">
+                                    {question.didYouKnow}
+                                </p>
                             )}
 
-                            {/* Slim Did You Know Section */}
-                            {question.didYouKnow && (
-                                <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
-                                    <p className="text-xs text-slate-200 leading-relaxed font-bold italic">
-                                        &quot;{question.didYouKnow}&quot;
-                                    </p>
+                            {/* Desktop: full layout */}
+                            <div className="hidden sm:block">
+                                <div
+                                    className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center shadow-2xl relative"
+                                    style={{ backgroundColor: getRatingColor(result.rating), transform: 'rotate(2deg)' }}
+                                >
+                                    <div className="absolute inset-0 bg-white/10 rounded-2xl animate-pulse" />
+                                    {result.rating === 'perfect' && <Sparkles size={28} className="text-white relative z-10" />}
+                                    {result.rating === 'great' && <Trophy size={28} className="text-white relative z-10" />}
+                                    {result.rating === 'good' && <MapPin size={28} className="text-white relative z-10" />}
+                                    {result.rating === 'miss' && <Navigation size={28} className="text-white relative z-10" />}
                                 </div>
-                            )}
+                                <h2 className="text-2xl font-black text-center text-white mb-3 tracking-tighter uppercase italic">
+                                    {result.rating === 'perfect' && 'KUSURSUZ!'}
+                                    {result.rating === 'great' && 'HARİKA!'}
+                                    {result.rating === 'good' && 'BAŞARILI!'}
+                                    {result.rating === 'miss' && 'ÜZGÜNÜM!'}
+                                </h2>
+                                <div className="bg-white/5 rounded-3xl p-4 mb-4 border border-white/10 text-center">
+                                    <span className="text-indigo-400 block mb-1 text-[8px] uppercase tracking-[0.2em] font-black">MESAFE</span>
+                                    <span className="text-2xl font-black block" style={{ color: getRatingColor(result.rating) }}>
+                                        {result.distance.toFixed(1)} <span className="text-xs">km</span>
+                                    </span>
+                                </div>
+                                {result.points > 0 && (
+                                    <div className="text-center mb-5 flex flex-col items-center">
+                                        <div className="flex items-center gap-2 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/30">
+                                            <span className="text-2xl font-black text-emerald-400">+{result.points}</span>
+                                            <span className="text-emerald-400/70 font-black text-[9px] uppercase tracking-widest">PUAN</span>
+                                        </div>
+                                    </div>
+                                )}
+                                {question.didYouKnow && (
+                                    <div className="mb-6 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
+                                        <p className="text-xs text-slate-200 leading-relaxed font-bold italic">
+                                            &quot;{question.didYouKnow}&quot;
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
 
                             <button
                                 onClick={onNext}
-                                className="w-full py-3 sm:py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] text-white rounded-xl font-black text-sm transition-all flex items-center justify-center gap-2 shadow-xl border-t border-white/20"
+                                className="w-full py-2.5 sm:py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] text-white rounded-xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl"
                             >
                                 SIRADAKİ
-                                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                <ChevronRight size={16} className="sm:hidden" />
+                                <ChevronRight size={20} className="hidden sm:block" />
                             </button>
                         </div>
                     </div>
