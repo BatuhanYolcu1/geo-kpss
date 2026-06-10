@@ -271,7 +271,7 @@ function RunningScreen({
 }: {
     questions: ExamQuestion[];
     preset: ExamPreset;
-    onFinish: (answers: (number | boolean | null)[], flagged: Set<number>, timeTaken: number) => void;
+    onFinish: (answers: (number | boolean | null)[], flagged: boolean[], timeTaken: number) => void;
 }) {
     const totalSeconds = preset.durationMinutes * 60;
     const [timeLeft, setTimeLeft] = useState(totalSeconds);
@@ -279,12 +279,14 @@ function RunningScreen({
     const [answers, setAnswers] = useState<(number | boolean | null)[]>(
         Array(questions.length).fill(null)
     );
-    const [flagged, setFlagged] = useState<Set<number>>(new Set());
+    const [flagged, setFlagged] = useState<boolean[]>(
+        Array(questions.length).fill(false)
+    );
     const [showConfirm, setShowConfirm] = useState(false);
     const startRef = useRef(Date.now());
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-    const handleFinish = useCallback((ans: (number | boolean | null)[], fl: Set<number>) => {
+    const handleFinish = useCallback((ans: (number | boolean | null)[], fl: boolean[]) => {
         if (timerRef.current) clearInterval(timerRef.current);
         const timeTaken = Math.floor((Date.now() - startRef.current) / 1000);
         onFinish(ans, fl, timeTaken);
@@ -320,9 +322,8 @@ function RunningScreen({
 
     const handleToggleFlag = () => {
         setFlagged(prev => {
-            const next = new Set(prev);
-            if (next.has(currentIndex)) next.delete(currentIndex);
-            else next.add(currentIndex);
+            const next = [...prev];
+            next[currentIndex] = !next[currentIndex];
             return next;
         });
     };
@@ -371,7 +372,7 @@ function RunningScreen({
                         questionNumber={currentIndex + 1}
                         totalQuestions={questions.length}
                         answer={answers[currentIndex]}
-                        flagged={flagged.has(currentIndex)}
+                        flagged={flagged[currentIndex]}
                         onAnswer={handleAnswer}
                         onToggleFlag={handleToggleFlag}
                     />
@@ -409,7 +410,7 @@ function RunningScreen({
                         <div className="grid grid-cols-5 gap-1.5 mb-4">
                             {questions.map((_, idx) => {
                                 const isAnswered = answers[idx] !== null;
-                                const isFlagged = flagged.has(idx);
+                                const isFlagged = flagged[idx];
                                 const isCurrent = idx === currentIndex;
                                 return (
                                     <button
@@ -493,7 +494,7 @@ function ResultsScreen({
 }: {
     questions: ExamQuestion[];
     answers: (number | boolean | null)[];
-    flagged: Set<number>;
+    flagged: boolean[];
     timeTaken: number;
     preset: ExamPreset;
     onRetry: () => void;
@@ -724,7 +725,7 @@ export default function ExamPage() {
     const [preset, setPreset] = useState<ExamPreset | null>(null);
     const [questions, setQuestions] = useState<ExamQuestion[]>([]);
     const [answers, setAnswers] = useState<(number | boolean | null)[]>([]);
-    const [flagged, setFlagged] = useState<Set<number>>(new Set());
+    const [flagged, setFlagged] = useState<boolean[]>([]);
     const [timeTaken, setTimeTaken] = useState(0);
 
     const allExamQuestions: ExamQuestion[] = [
@@ -739,13 +740,13 @@ export default function ExamPage() {
         setPreset(selectedPreset);
         setQuestions(shuffled);
         setAnswers(Array(shuffled.length).fill(null));
-        setFlagged(new Set());
+        setFlagged(Array(shuffled.length).fill(false));
         setPhase('running');
     };
 
     const handleFinish = (
         finalAnswers: (number | boolean | null)[],
-        finalFlagged: Set<number>,
+        finalFlagged: boolean[],
         time: number
     ) => {
         setAnswers(finalAnswers);
