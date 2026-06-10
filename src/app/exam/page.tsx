@@ -422,7 +422,7 @@ function RunningScreen({
                                                 : isFlagged
                                                 ? 'bg-amber-100 text-amber-700 border border-amber-200'
                                                 : isAnswered
-                                                ? 'bg-[#386948]/15 text-[#386948]'
+                                                ? 'bg-[#386948]/25 text-[#386948] border border-[#386948]/30'
                                                 : 'bg-[#f0f5ee] text-[#747d75] hover:bg-[#e0ead0]'
                                         }`}
                                     >
@@ -435,7 +435,7 @@ function RunningScreen({
                         <div className="space-y-1.5 pt-3 border-t border-[#f0f5ee]">
                             {[
                                 { color: 'bg-[#386948]', label: 'Aktif' },
-                                { color: 'bg-[#386948]/15', label: 'Cevaplı' },
+                                { color: 'bg-[#386948]/25 border border-[#386948]/30', label: 'Cevaplı' },
                                 { color: 'bg-amber-100 border border-amber-200', label: 'İşaretli' },
                                 { color: 'bg-[#f0f5ee]', label: 'Boş' },
                             ].map(({ color, label }) => (
