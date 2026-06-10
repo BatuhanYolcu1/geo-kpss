@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { useUser } from '@/contexts/AuthContext';
 import Link from 'next/link';
 import {
@@ -131,18 +130,16 @@ const stats = [
 // ─── MAIN PAGE ───────────────────────────────────────────────
 export default function HomePage() {
   const { user, isLoading, signOut } = useUser();
-  const searchParams = useSearchParams();
   const [welcomeBanner, setWelcomeBanner] = useState(false);
 
   useEffect(() => {
-    if (searchParams.get('welcome') === '1') {
+    if (sessionStorage.getItem('just_registered') === '1') {
+      sessionStorage.removeItem('just_registered');
       setWelcomeBanner(true);
-      // URL'den welcome parametresini temizle
-      window.history.replaceState({}, '', '/');
       const t = setTimeout(() => setWelcomeBanner(false), 5000);
       return () => clearTimeout(t);
     }
-  }, [searchParams]);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] overflow-x-hidden">

@@ -47,7 +47,8 @@ export default function RegisterPage() {
             );
         } else {
             // Supabase session'ı anında oluşturur — direkt anasayfaya yönlendir
-            router.push('/?welcome=1');
+            sessionStorage.setItem('just_registered', '1');
+            router.push('/');
         }
         setIsLoading(false);
     };
