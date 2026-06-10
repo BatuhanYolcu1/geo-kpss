@@ -149,9 +149,9 @@ export default function StatsDashboard() {
                         </div>
                     </div>
 
-                    {/* Recent History Table */}
+                    {/* Recent History */}
                     <div className="bg-white border border-[#abb4ac]/40 rounded-2xl overflow-hidden">
-                        <div className="p-6 border-b border-[#abb4ac]/40 flex justify-between items-center">
+                        <div className="p-4 md:p-6 border-b border-[#abb4ac]/40 flex justify-between items-center">
                             <h3 className="text-lg font-bold text-[#2c342e]">Son Aktiviteler</h3>
                             <button
                                 onClick={handleClearHistory}
@@ -161,7 +161,8 @@ export default function StatsDashboard() {
                                 <Trash2 size={18} />
                             </button>
                         </div>
-                        <div className="overflow-x-auto">
+                        {/* Desktop: tablo */}
+                        <div className="hidden md:block overflow-x-auto">
                             <table className="w-full text-left">
                                 <thead className="bg-[#f0f5ee]">
                                     <tr className="text-xs uppercase tracking-wider text-[#59615a]">
@@ -199,6 +200,28 @@ export default function StatsDashboard() {
                                     ))}
                                 </tbody>
                             </table>
+                        </div>
+                        {/* Mobil: kart listesi */}
+                        <div className="md:hidden divide-y divide-[#abb4ac]/20">
+                            {stats.recentActivity.map((result) => (
+                                <div key={result.id} className="px-4 py-3 flex items-center justify-between gap-3">
+                                    <div className="flex items-center gap-2.5">
+                                        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-[#e9f0e8] text-xs text-[#2c342e] capitalize">
+                                            {getModeIcon(result.mode)}
+                                            {result.mode === 'map' ? 'Harita' : result.mode}
+                                        </span>
+                                        <span className="text-xs text-[#747d75]">
+                                            {new Date(result.date).toLocaleDateString('tr-TR')}
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-sm">
+                                        <span className="text-[#59615a]">{result.correctCount}/{result.totalQuestions}</span>
+                                        <span className={`font-bold ${result.accuracy >= 70 ? 'text-emerald-500' : result.accuracy >= 40 ? 'text-amber-500' : 'text-rose-500'}`}>
+                                            %{result.accuracy}
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

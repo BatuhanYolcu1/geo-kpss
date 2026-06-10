@@ -185,31 +185,32 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
         return (
             <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] flex items-center justify-center p-6">
                 <div className="w-full max-w-2xl">
-                    <div className="bg-white border border-[#abb4ac]/40 rounded-[2.5rem] p-10 text-center relative overflow-hidden shadow-md">
+                    <div className="bg-white border border-[#abb4ac]/40 rounded-[2.5rem] p-6 md:p-10 text-center relative overflow-hidden shadow-md">
                         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 via-[#386948] to-[#2b5d3c]" />
 
-                        <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-amber-400 to-orange-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-orange-500/20 rotate-3">
-                            <Trophy size={48} className="text-white" />
+                        <div className="w-16 h-16 md:w-24 md:h-24 mx-auto mb-5 md:mb-8 bg-gradient-to-br from-amber-400 to-orange-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-orange-500/20 rotate-3">
+                            <Trophy size={32} className="text-white md:hidden" />
+                            <Trophy size={48} className="text-white hidden md:block" />
                         </div>
 
-                        <h1 className="text-4xl font-black mb-2 tracking-tight text-[#2c342e]">TEBRİKLER!</h1>
-                        <p className="text-[#59615a] mb-10 font-medium">Coğrafya uzmanlığına bir adım daha yaklaştın.</p>
+                        <h1 className="text-2xl md:text-4xl font-black mb-2 tracking-tight text-[#2c342e]">TEBRİKLER!</h1>
+                        <p className="text-sm md:text-base text-[#59615a] mb-6 md:mb-10 font-medium">Coğrafya uzmanlığına bir adım daha yaklaştın.</p>
 
-                        <div className="grid grid-cols-2 gap-6 mb-10">
-                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
-                                <div className="text-4xl font-black text-emerald-600 mb-1">{score}</div>
+                        <div className="grid grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-10">
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-3 md:p-6">
+                                <div className="text-2xl md:text-4xl font-black text-emerald-600 mb-1">{score}</div>
                                 <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">TOPLAM PUAN</div>
                             </div>
-                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
-                                <div className="text-4xl font-black text-blue-600 mb-1">{accuracy}%</div>
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-3 md:p-6">
+                                <div className="text-2xl md:text-4xl font-black text-blue-600 mb-1">{accuracy}%</div>
                                 <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">BAŞARI ORANI</div>
                             </div>
-                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
-                                <div className="text-4xl font-black text-green-600 mb-1">{correctCount}</div>
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-3 md:p-6">
+                                <div className="text-2xl md:text-4xl font-black text-green-600 mb-1">{correctCount}</div>
                                 <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">DOĞRU CEVAP</div>
                             </div>
-                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-6">
-                                <div className="text-4xl font-black text-orange-500 mb-1">{bestStreak}</div>
+                            <div className="bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-3 md:p-6">
+                                <div className="text-2xl md:text-4xl font-black text-orange-500 mb-1">{bestStreak}</div>
                                 <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">EN İYİ SERİ</div>
                             </div>
                         </div>

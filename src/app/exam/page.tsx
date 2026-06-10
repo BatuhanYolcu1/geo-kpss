@@ -377,8 +377,33 @@ function RunningScreen({
                         onToggleFlag={handleToggleFlag}
                     />
 
+                    {/* Mobil soru grid — sadece küçük ekranlarda */}
+                    <div className="lg:hidden mt-4 overflow-x-auto pb-2">
+                        <div className="flex gap-1.5 w-max px-1">
+                            {questions.map((_, idx) => {
+                                const isAns = answers[idx] !== null;
+                                const isFlg = flagged[idx];
+                                const isCur = idx === currentIndex;
+                                return (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setCurrentIndex(idx)}
+                                        className={`w-8 h-8 rounded-lg text-[11px] font-bold shrink-0 transition-all duration-150 ${
+                                            isCur ? 'bg-[#386948] text-white shadow-sm' :
+                                            isFlg ? 'bg-amber-100 text-amber-700 border border-amber-200' :
+                                            isAns ? 'bg-[#386948]/25 text-[#386948] border border-[#386948]/30' :
+                                            'bg-[#f0f5ee] text-[#747d75]'
+                                        }`}
+                                    >
+                                        {idx + 1}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
                     {/* Navigation */}
-                    <div className="flex items-center justify-between mt-6">
+                    <div className="flex items-center justify-between mt-4">
                         <button
                             onClick={() => setCurrentIndex(i => Math.max(0, i - 1))}
                             disabled={currentIndex === 0}
