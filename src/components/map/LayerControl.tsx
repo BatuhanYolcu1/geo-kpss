@@ -20,6 +20,7 @@ import {
     MapPin,
     Palmtree,
     Camera,
+    ArrowRight,
 } from 'lucide-react';
 import { useLayerStore } from '@/stores/layerStore';
 import { useUserStore } from '@/stores/userStore';
@@ -235,6 +236,22 @@ export default function LayerControl() {
                     <CategorySection category="economic" layers={economicLayers} />
                     <CategorySection category="administrative" layers={administrativeLayers} />
                     <CategorySection category="tourism" layers={tourismLayers} />
+                </div>
+
+                {/* Mobile: Haritayı Gör CTA — sticky, her zaman altta */}
+                <div className="lg:hidden px-3 py-3 border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                    <button
+                        onClick={toggleSidebar}
+                        className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl font-black text-base text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-xl active:scale-95 transition-all"
+                    >
+                        <span>Haritayı Gör</span>
+                        {totalActive > 0 && (
+                            <span className="bg-white/25 px-2 py-0.5 rounded-full text-sm font-bold">
+                                {totalActive} katman
+                            </span>
+                        )}
+                        <ArrowRight size={20} />
+                    </button>
                 </div>
 
             </aside>
