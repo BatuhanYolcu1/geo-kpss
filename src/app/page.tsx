@@ -117,6 +117,7 @@ const modules = [
   { id: 'quiz', title: 'Quiz Modu', desc: 'KPSS formatında 4 farklı soru tipiyle kendini sına.', icon: Brain, href: '/quiz', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-700', accent: 'hover:border-emerald-400/60', badge: '330+ Soru', tag: 'TEST ET', featured: false },
   { id: 'notes', title: 'Ders Notları', desc: 'Tam müfredat, kodlamalar ve analizler.', icon: BookOpen, href: '/notes', iconBg: 'bg-rose-100', iconColor: 'text-rose-600', accent: 'hover:border-rose-400/60', badge: 'Full Müfredat', tag: 'ÇALIŞ', featured: false },
   { id: 'flashcards', title: 'Flashcard', desc: 'Spaced repetition ile kalıcı öğrenme.', icon: Sparkles, href: '/flashcards', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', accent: 'hover:border-violet-400/60', badge: '80+ Kart', tag: 'TEKRAR ET', featured: false },
+  { id: 'exam', title: 'Sınav Simülasyonu', desc: 'Zamanlı KPSS formatında sınav dene. 20/40/80 soruluk modlar.', icon: Clock, href: '/exam', iconBg: 'bg-indigo-100', iconColor: 'text-indigo-600', accent: 'hover:border-indigo-400/60', badge: 'Yeni', tag: 'SINAVLAN', featured: false },
   { id: 'stats', title: 'İstatistikler', desc: 'Quiz performansını analiz et.', icon: BarChart3, href: '/stats', iconBg: 'bg-amber-100', iconColor: 'text-amber-600', accent: 'hover:border-amber-400/60', badge: 'Gerçek Zamanlı', tag: 'TAKİP ET', featured: false },
 ];
 
@@ -169,6 +170,7 @@ export default function HomePage() {
               { href: '/atlas', label: 'İnteraktif Harita' },
               { href: '/notes', label: 'Ders Notları' },
               { href: '/quiz', label: 'Quiz' },
+              { href: '/exam', label: 'Sınav Simülasyonu' },
             ].map((item) => (
               <Link key={item.href} href={item.href}
                 className="px-4 py-2 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-lg transition-all duration-150">

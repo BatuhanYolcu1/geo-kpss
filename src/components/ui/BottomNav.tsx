@@ -2,21 +2,21 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Map, Brain, BookOpen, Sparkles, BarChart3 } from 'lucide-react';
+import { Map, Brain, BookOpen, Sparkles, Timer } from 'lucide-react';
 
 const navItems = [
     { href: '/atlas', label: 'Atlas', icon: Map },
     { href: '/quiz', label: 'Quiz', icon: Brain },
+    { href: '/exam', label: 'Sınav', icon: Timer },
     { href: '/notes', label: 'Notlar', icon: BookOpen },
     { href: '/flashcards', label: 'Kartlar', icon: Sparkles },
-    { href: '/stats', label: 'İstatistik', icon: BarChart3 },
 ];
 
 export default function BottomNav() {
     const pathname = usePathname();
 
-    // Don't show on homepage or atlas (full screen map)
-    if (pathname === '/' || pathname === '/atlas') return null;
+    // Don't show on homepage, atlas (full screen map), or exam (immersive mode)
+    if (pathname === '/' || pathname === '/atlas' || pathname === '/exam') return null;
 
     return (
         <nav className="fixed bottom-0 left-0 right-0 z-[999] md:hidden">
