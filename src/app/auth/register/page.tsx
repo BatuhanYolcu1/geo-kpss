@@ -2,17 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import { Mail, Lock, ArrowRight, GraduationCap, Eye, EyeOff, CheckCircle } from 'lucide-react';
+import { Mail, Lock, ArrowRight, GraduationCap, Eye, EyeOff } from 'lucide-react';
 
 export default function RegisterPage() {
+    const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isGoogleLoading, setIsGoogleLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [success, setSuccess] = useState(false);
 
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -37,15 +38,16 @@ export default function RegisterPage() {
                 error.message.includes('already registered') || error.message.includes('User already registered')
                     ? 'Bu e-posta adresi zaten kayıtlı.'
                     : error.message.includes('signup_disabled') || error.message.includes('Signups not allowed')
-                    ? 'Kayıt şu an devre dışı. Supabase → Authentication → Providers → Email → Enable Email Signup.'
+                    ? 'Kayıt şu an devre dışı.'
                     : error.message.includes('email_address_not_authorized')
                     ? 'Bu e-posta adresi yetkili değil.'
-                    : error.message.includes('over_email_send_rate_limit')
+                    : error.message.includes('rate_limit') || error.message.includes('rate limit')
                     ? 'Çok fazla istek gönderildi. Birkaç dakika bekleyip tekrar deneyin.'
                     : `Kayıt başarısız: ${error.message}`
             );
         } else {
-            setSuccess(true);
+            // Supabase session'ı anında oluşturur — direkt anasayfaya yönlendir
+            router.push('/?welcome=1');
         }
         setIsLoading(false);
     };
@@ -65,29 +67,6 @@ export default function RegisterPage() {
             setIsGoogleLoading(false);
         }
     };
-
-    if (success) {
-        return (
-            <main className="min-h-screen bg-[#f7faf4] flex items-center justify-center p-6">
-                <div className="w-full max-w-md text-center">
-                    <div className="w-20 h-20 bg-[#386948]/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle size={40} className="text-[#386948]" />
-                    </div>
-                    <h1 className="text-2xl font-black text-[#2c342e] mb-2">E-postanı doğrula</h1>
-                    <p className="text-[#59615a] mb-6 max-w-sm mx-auto leading-relaxed">
-                        <span className="font-semibold text-[#2c342e]">{email}</span> adresine
-                        bir doğrulama bağlantısı gönderdik. Gelen kutunu kontrol et ve bağlantıya tıkla.
-                    </p>
-                    <Link
-                        href="/"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#386948] text-white rounded-2xl font-bold text-sm hover:bg-[#2b5d3c] transition-colors"
-                    >
-                        Ana Sayfaya Dön <ArrowRight size={16} />
-                    </Link>
-                </div>
-            </main>
-        );
-    }
 
     return (
         <main className="min-h-screen bg-[#f7faf4] flex items-center justify-center p-6">

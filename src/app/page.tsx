@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useUser } from '@/contexts/AuthContext';
 import Link from 'next/link';
 import {
@@ -130,6 +131,18 @@ const stats = [
 // ─── MAIN PAGE ───────────────────────────────────────────────
 export default function HomePage() {
   const { user, isLoading, signOut } = useUser();
+  const searchParams = useSearchParams();
+  const [welcomeBanner, setWelcomeBanner] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get('welcome') === '1') {
+      setWelcomeBanner(true);
+      // URL'den welcome parametresini temizle
+      window.history.replaceState({}, '', '/');
+      const t = setTimeout(() => setWelcomeBanner(false), 5000);
+      return () => clearTimeout(t);
+    }
+  }, [searchParams]);
 
   return (
     <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] overflow-x-hidden">
@@ -204,6 +217,16 @@ export default function HomePage() {
           </div>
         </div>
       </nav>
+
+      {/* ═══ WELCOME BANNER ═══ */}
+      {welcomeBanner && (
+        <div className="fixed top-16 left-0 right-0 z-40 flex justify-center px-4 pt-3 pointer-events-none">
+          <div className="flex items-center gap-3 px-5 py-3 bg-[#386948] text-white rounded-2xl shadow-lg text-sm font-semibold animate-fade-in-up pointer-events-auto">
+            <CheckCircle2 size={18} />
+            Hesabın oluşturuldu, hoş geldin{user?.email ? ` ${user.email.split('@')[0]}` : ''}!
+          </div>
+        </div>
+      )}
 
       {/* ═══ HERO — 2 sütun ═══ */}
       <section className="pt-28 pb-16 px-6">
