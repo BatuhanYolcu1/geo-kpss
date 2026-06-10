@@ -102,7 +102,7 @@ export default function RegionFilter({ compact = false }: RegionFilterProps) {
                             key={region.id}
                             onClick={() => toggleRegion(region.name)}
                             className={`
-                                flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all
+                                flex items-center gap-2 px-2 sm:px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all
                                 ${isSelected
                                     ? 'text-white shadow-lg'
                                     : 'bg-slate-800/50 text-slate-400 hover:bg-slate-700/50'}
