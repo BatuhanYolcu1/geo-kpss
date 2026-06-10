@@ -84,12 +84,12 @@ function SetupScreen({ onStart }: { onStart: (preset: ExamPreset) => void }) {
                 </div>
 
                 {/* Presets */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
                     {PRESETS.map((preset) => (
                         <button
                             key={preset.id}
                             onClick={() => setSelected(preset.id)}
-                            className={`relative p-5 rounded-2xl border-2 text-left transition-all duration-200 ${
+                            className={`relative p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 ${
                                 selected === preset.id
                                     ? 'border-[#386948] bg-[#386948]/5 shadow-sm shadow-[#386948]/10'
                                     : 'border-[#abb4ac]/40 bg-white hover:border-[#386948]/40'
@@ -166,14 +166,14 @@ function QuestionView({
     const isAnswered = answer !== null;
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-4">
             {/* Question header */}
-            <div className="flex items-start justify-between gap-3">
-                <div>
+            <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0">
                     <span className="text-xs font-bold text-[#747d75] uppercase tracking-wider">
                         Soru {questionNumber} / {totalQuestions}
                     </span>
-                    <div className="mt-1 flex items-center gap-2">
+                    <div className="mt-1 flex items-center gap-1.5 flex-wrap">
                         <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
                             question.difficulty === 'easy' ? 'bg-emerald-50 text-emerald-700' :
                             question.difficulty === 'medium' ? 'bg-amber-50 text-amber-700' :
@@ -188,20 +188,20 @@ function QuestionView({
                 </div>
                 <button
                     onClick={onToggleFlag}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                    className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 ${
                         flagged
                             ? 'bg-amber-100 text-amber-700 border border-amber-200'
                             : 'bg-[#f0f5ee] text-[#747d75] hover:text-amber-600 border border-transparent'
                     }`}
                 >
-                    <Flag size={13} />
-                    {flagged ? 'İşaretli' : 'İşaretle'}
+                    <Flag size={12} />
+                    <span className="hidden sm:inline">{flagged ? 'İşaretli' : 'İşaretle'}</span>
                 </button>
             </div>
 
             {/* Question text */}
-            <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-5">
-                <p className="text-[#2c342e] font-semibold text-base leading-relaxed">
+            <div className="bg-white border border-[#abb4ac]/40 rounded-2xl p-4 sm:p-5">
+                <p className="text-[#2c342e] font-semibold text-sm sm:text-base leading-relaxed">
                     {isMC
                         ? (question as MultipleChoiceQuestion).text
                         : (question as TrueFalseQuestion).statement
@@ -211,12 +211,12 @@ function QuestionView({
 
             {/* Options */}
             {isMC ? (
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                     {(question as MultipleChoiceQuestion).options.map((opt, idx) => (
                         <button
                             key={idx}
                             onClick={() => onAnswer(idx)}
-                            className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all duration-150 ${
+                            className={`w-full flex items-center gap-3 p-3 sm:p-4 rounded-xl border-2 text-left transition-all duration-150 ${
                                 answer === idx
                                     ? 'border-[#386948] bg-[#386948]/8 shadow-sm'
                                     : 'border-[#abb4ac]/40 bg-white hover:border-[#386948]/50 hover:bg-[#f7faf4]'
@@ -244,7 +244,7 @@ function QuestionView({
                         <button
                             key={label}
                             onClick={() => onAnswer(value)}
-                            className={`p-5 rounded-xl border-2 font-black text-base transition-all duration-150 ${
+                            className={`p-4 sm:p-5 rounded-xl border-2 font-black text-sm sm:text-base transition-all duration-150 ${
                                 answer === value
                                     ? 'border-[#386948] bg-[#386948]/8 text-[#386948]'
                                     : 'border-[#abb4ac]/40 bg-white hover:border-[#386948]/50 text-[#2c342e]'
@@ -332,18 +332,18 @@ function RunningScreen({
         <div className="min-h-screen bg-[#f7faf4] flex flex-col">
             {/* Top bar */}
             <div className={`sticky top-0 z-10 border-b transition-colors ${isLowTime ? 'bg-rose-50 border-rose-200' : 'bg-white border-[#abb4ac]/40'}`}>
-                <div className="max-w-5xl mx-auto px-4 h-14 flex items-center gap-4">
+                <div className="max-w-5xl mx-auto px-3 sm:px-4 h-14 flex items-center gap-2 sm:gap-4">
                     {/* Timer */}
-                    <div className={`flex items-center gap-2 font-black text-lg tabular-nums min-w-[80px] ${isLowTime ? 'text-rose-600' : 'text-[#2c342e]'}`}>
-                        <Clock size={16} className={isLowTime ? 'text-rose-500 animate-pulse' : 'text-[#386948]'} />
+                    <div className={`flex items-center gap-1.5 font-black text-base sm:text-lg tabular-nums shrink-0 ${isLowTime ? 'text-rose-600' : 'text-[#2c342e]'}`}>
+                        <Clock size={15} className={isLowTime ? 'text-rose-500 animate-pulse' : 'text-[#386948]'} />
                         {formatTime(timeLeft)}
                     </div>
 
                     {/* Progress bar */}
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                         <div className="flex justify-between text-[10px] font-semibold text-[#747d75] mb-1">
-                            <span>{answeredCount}/{questions.length} cevaplandı</span>
-                            <span>{Math.round(timePct)}% süre kaldı</span>
+                            <span className="truncate">{answeredCount}/{questions.length} cevaplandı</span>
+                            <span className="shrink-0 ml-1">{Math.round(timePct)}% kaldı</span>
                         </div>
                         <div className="h-1.5 bg-[#e9f0e8] rounded-full overflow-hidden">
                             <div
@@ -356,7 +356,7 @@ function RunningScreen({
                     {/* Finish button */}
                     <button
                         onClick={() => setShowConfirm(true)}
-                        className="px-4 py-2 bg-[#386948] hover:bg-[#2b5d3c] text-white text-xs font-bold rounded-xl transition-colors whitespace-nowrap"
+                        className="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#386948] hover:bg-[#2b5d3c] text-white text-xs font-bold rounded-xl transition-colors whitespace-nowrap shrink-0"
                     >
                         Teslim Et
                     </button>
@@ -364,7 +364,7 @@ function RunningScreen({
             </div>
 
             {/* Main content */}
-            <div className="flex-1 max-w-5xl mx-auto w-full px-4 py-6 grid lg:grid-cols-[1fr_220px] gap-6">
+            <div className="flex-1 max-w-5xl mx-auto w-full px-3 sm:px-4 py-4 sm:py-6 grid lg:grid-cols-[1fr_220px] gap-4 sm:gap-6">
                 {/* Question area */}
                 <div>
                     <QuestionView
@@ -403,24 +403,24 @@ function RunningScreen({
                     </div>
 
                     {/* Navigation */}
-                    <div className="flex items-center justify-between mt-4">
+                    <div className="flex items-center justify-between mt-3 gap-2">
                         <button
                             onClick={() => setCurrentIndex(i => Math.max(0, i - 1))}
                             disabled={currentIndex === 0}
-                            className="flex items-center gap-2 px-4 py-2.5 bg-white border border-[#abb4ac]/40 rounded-xl text-sm font-bold text-[#2c342e] hover:bg-[#f0f5ee] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                            className="flex items-center gap-1.5 px-3 sm:px-4 py-2.5 bg-white border border-[#abb4ac]/40 rounded-xl text-sm font-bold text-[#2c342e] hover:bg-[#f0f5ee] disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0"
                         >
                             <ChevronLeft size={16} />
                             Önceki
                         </button>
 
-                        <span className="text-sm font-bold text-[#747d75]">
+                        <span className="text-xs sm:text-sm font-bold text-[#747d75] shrink-0">
                             {currentIndex + 1} / {questions.length}
                         </span>
 
                         <button
                             onClick={() => setCurrentIndex(i => Math.min(questions.length - 1, i + 1))}
                             disabled={currentIndex === questions.length - 1}
-                            className="flex items-center gap-2 px-4 py-2.5 bg-[#386948] rounded-xl text-sm font-bold text-white hover:bg-[#2b5d3c] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                            className="flex items-center gap-1.5 px-3 sm:px-4 py-2.5 bg-[#386948] rounded-xl text-sm font-bold text-white hover:bg-[#2b5d3c] disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0"
                         >
                             Sonraki
                             <ChevronRight size={16} />
@@ -578,7 +578,7 @@ function ResultsScreen({
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-4 gap-3 mb-6">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                     {[
                         { label: 'Doğru', value: correct, icon: CheckCircle2, color: 'text-[#386948] bg-[#386948]/10' },
                         { label: 'Yanlış', value: wrong, icon: XCircle, color: 'text-rose-600 bg-rose-50' },
