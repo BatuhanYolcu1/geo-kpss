@@ -23,6 +23,8 @@ import {
   LogIn,
   LogOut,
   UserCircle2,
+  Menu,
+  X,
 } from 'lucide-react';
 
 // ─── ANIMATED COUNTER ───────────────────────────────────────────
@@ -132,6 +134,7 @@ const stats = [
 export default function HomePage() {
   const { user, isLoading, signOut } = useUser();
   const [welcomeBanner, setWelcomeBanner] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (sessionStorage.getItem('just_registered') === '1') {
@@ -153,7 +156,7 @@ export default function HomePage() {
 
       {/* ═══ NAVIGATION ═══ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#abb4ac]/40">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-xl bg-white border border-[#abb4ac]/40 flex items-center justify-center overflow-hidden shadow-sm shrink-0">
               <img src="/tr-circle-flag.svg" alt="Türkiye" className="w-full h-full object-cover" />
@@ -179,7 +182,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Auth durumu */}
+          {/* Auth durumu — desktop */}
           <div className="hidden md:flex items-center gap-2">
             {!isLoading && (
               user ? (
@@ -214,7 +217,59 @@ export default function HomePage() {
               )
             )}
           </div>
+
+          {/* Hamburger — mobile */}
+          <button
+            onClick={() => setMobileMenuOpen(o => !o)}
+            className="md:hidden p-2 rounded-xl hover:bg-[#f0f5ee] transition-colors"
+            aria-label="Menüyü aç"
+          >
+            {mobileMenuOpen ? <X size={22} className="text-[#2c342e]" /> : <Menu size={22} className="text-[#2c342e]" />}
+          </button>
         </div>
+
+        {/* Mobile dropdown menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-[#abb4ac]/40 bg-white/95 backdrop-blur-xl px-4 py-3 flex flex-col gap-1">
+            {[
+              { href: '/', label: 'Ana Sayfa', icon: MapPin },
+              { href: '/atlas', label: 'İnteraktif Harita', icon: Map },
+              { href: '/notes', label: 'Ders Notları', icon: BookOpen },
+              { href: '/quiz', label: 'Quiz', icon: Brain },
+              { href: '/exam', label: 'Sınav Simülasyonu', icon: Clock },
+              { href: '/flashcards', label: 'Flashcard', icon: Sparkles },
+              { href: '/stats', label: 'İstatistikler', icon: BarChart3 },
+            ].map(({ href, label, icon: Icon }) => (
+              <Link key={href} href={href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-xl transition-all duration-150">
+                <Icon size={16} className="text-[#386948] shrink-0" />
+                {label}
+              </Link>
+            ))}
+            <div className="pt-2 mt-1 border-t border-[#abb4ac]/30 flex gap-2">
+              {user ? (
+                <button onClick={() => { signOut(); setMobileMenuOpen(false); }}
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-xl transition-colors">
+                  <LogOut size={14} />
+                  Çıkış Yap
+                </button>
+              ) : (
+                <>
+                  <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}
+                    className="flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold text-[#2c342e] bg-[#f0f5ee] hover:bg-[#e0ead0] rounded-xl transition-colors">
+                    <LogIn size={14} />
+                    Giriş
+                  </Link>
+                  <Link href="/auth/register" onClick={() => setMobileMenuOpen(false)}
+                    className="flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold text-white bg-[#386948] hover:bg-[#2b5d3c] rounded-xl transition-colors">
+                    Kayıt Ol
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ═══ WELCOME BANNER ═══ */}
@@ -228,12 +283,12 @@ export default function HomePage() {
       )}
 
       {/* ═══ HERO — 2 sütun ═══ */}
-      <section className="pt-28 pb-16 px-6">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[520px]">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[480px] lg:min-h-[520px]">
 
             {/* Sol — Metin */}
-            <div className="flex flex-col gap-7 animate-fade-in-up">
+            <div className="flex flex-col gap-5 sm:gap-7 animate-fade-in-up">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b9efc5]/40 border border-[#386948]/20 rounded-full w-fit">
                 <Star size={13} className="text-[#386948]" />
@@ -241,14 +296,14 @@ export default function HomePage() {
               </div>
 
               {/* Başlık */}
-              <h1 className="text-5xl md:text-6xl font-black leading-[1.05] tracking-tight text-[#2c342e]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.05] tracking-tight text-[#2c342e]">
                 Coğrafya Atlasını
                 <br />
                 <span className="text-[#386948]">Yeniden Keşfet</span>
               </h1>
 
               {/* Alt başlık */}
-              <p className="text-lg text-[#59615a] leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg text-[#59615a] leading-relaxed max-w-lg">
                 Türkiye&apos;nin kapsamlı interaktif coğrafya platformu ile
                 KPSS hazırlığını üst seviyeye taşı.
               </p>
@@ -256,27 +311,27 @@ export default function HomePage() {
               {/* CTA */}
               <div className="flex flex-wrap gap-3">
                 <Link href="/atlas"
-                  className="group flex items-center gap-2.5 px-7 py-3.5 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl text-base font-bold shadow-md shadow-[#386948]/20 hover:-translate-y-0.5 transition-all duration-200">
-                  <Map size={18} />
+                  className="group flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-[#386948] hover:bg-[#2b5d3c] text-white rounded-2xl text-sm sm:text-base font-bold shadow-md shadow-[#386948]/20 hover:-translate-y-0.5 transition-all duration-200">
+                  <Map size={17} />
                   Haritayı Keşfet
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link href="/quiz"
-                  className="flex items-center gap-2.5 px-7 py-3.5 bg-white border border-[#abb4ac]/60 hover:border-[#386948]/40 hover:bg-[#f0f5ee] text-[#2c342e] rounded-2xl text-base font-bold hover:-translate-y-0.5 transition-all duration-200">
-                  <Brain size={18} className="text-[#386948]" />
+                  className="flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-white border border-[#abb4ac]/60 hover:border-[#386948]/40 hover:bg-[#f0f5ee] text-[#2c342e] rounded-2xl text-sm sm:text-base font-bold hover:-translate-y-0.5 transition-all duration-200">
+                  <Brain size={17} className="text-[#386948]" />
                   Quiz&apos;e Başla
                 </Link>
               </div>
 
               {/* Mini stats */}
-              <div className="flex items-center gap-6 pt-2">
+              <div className="flex items-center gap-4 sm:gap-6 pt-1">
                 {[
                   { value: '330+', label: 'Soru' },
                   { value: '12+', label: 'Harita Katmanı' },
                   { value: '10', label: 'Ünite' },
                 ].map(s => (
                   <div key={s.label} className="flex flex-col">
-                    <span className="text-xl font-black text-[#386948]">{s.value}</span>
+                    <span className="text-lg sm:text-xl font-black text-[#386948]">{s.value}</span>
                     <span className="text-xs text-[#747d75] font-medium">{s.label}</span>
                   </div>
                 ))}
@@ -411,7 +466,7 @@ export default function HomePage() {
       {/* ═══ CTA BANNER ═══ */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="relative overflow-hidden bg-gradient-to-br from-[#386948] via-[#2f5c40] to-[#2b5d3c] rounded-3xl p-12 text-center shadow-xl shadow-[#386948]/20">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#386948] via-[#2f5c40] to-[#2b5d3c] rounded-3xl p-8 sm:p-12 text-center shadow-xl shadow-[#386948]/20">
             <div className="absolute top-0 right-0 w-56 h-56 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10">
               <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5">

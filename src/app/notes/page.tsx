@@ -106,7 +106,7 @@ export default function NotesPage() {
                                 type="text"
                                 value={searchQuery}
                                 onChange={e => { setSearchQuery(e.target.value); setActiveSectionId(null); }}
-                                placeholder="Konu ara... (Kızılırmak, horst, nadas...)"
+                                placeholder="Konu ara... (iklim, nehir, maden...)"
                                 className="w-full pl-8 pr-8 py-2 text-sm bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-xl focus:outline-none focus:border-[#386948]/60 focus:bg-white transition-all text-[#2c342e] placeholder:text-[#747d75]"
                             />
                             {searchQuery && (
@@ -166,27 +166,27 @@ export default function NotesPage() {
                             </div>
                         ) : (
                             /* Overview State */
-                            <div className="max-w-5xl mx-auto px-6 py-12 animate-in fade-in duration-500">
-                                <header className="mb-12">
-                                    <h1 className="text-4xl font-black mb-4 bg-gradient-to-r from-[#2c342e] to-[#59615a] bg-clip-text text-transparent">
+                            <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate-in fade-in duration-500">
+                                <header className="mb-8 sm:mb-12">
+                                    <h1 className="text-2xl sm:text-4xl font-black mb-3 sm:mb-4 bg-gradient-to-r from-[#2c342e] to-[#59615a] bg-clip-text text-transparent">
                                         Müfredat Rehberi
                                     </h1>
-                                    <p className="text-[#59615a] text-lg max-w-2xl">
+                                    <p className="text-[#59615a] text-sm sm:text-lg max-w-2xl">
                                         KPSS Coğrafya konularını ünite bazlı inceleyin. Harita destekli notlar ve özel kodlamalarla çalışın.
                                     </p>
                                 </header>
 
-                                <div className="grid md:grid-cols-2 gap-6">
+                                <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                                     {curriculum.map((unit) => (
                                         <div
                                             key={unit.id}
-                                            className="bg-white border border-[#abb4ac]/40 rounded-3xl p-8 hover:border-[#386948]/30 transition-all group"
+                                            className="bg-white border border-[#abb4ac]/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 hover:border-[#386948]/30 transition-all group"
                                         >
-                                            <div className="flex items-center gap-4 mb-6">
-                                                <div className="w-12 h-12 bg-[#386948]/10 rounded-2xl flex items-center justify-center text-[#386948] group-hover:bg-[#386948] group-hover:text-white transition-all">
-                                                    {unitIconMap[unit.icon] ?? <BookOpen size={24} />}
+                                            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#386948]/10 rounded-xl sm:rounded-2xl flex items-center justify-center text-[#386948] group-hover:bg-[#386948] group-hover:text-white transition-all shrink-0">
+                                                    {unitIconMap[unit.icon] ?? <BookOpen size={20} />}
                                                 </div>
-                                                <h2 className="text-2xl font-bold text-[#2c342e] leading-tight">
+                                                <h2 className="text-lg sm:text-2xl font-bold text-[#2c342e] leading-tight">
                                                     {unit.title}
                                                 </h2>
                                             </div>
