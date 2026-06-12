@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Map, Brain, BookOpen, Sparkles, Timer } from 'lucide-react';
+import { Map, Brain, BookOpen, Sparkles, Timer, BarChart3 } from 'lucide-react';
 
 const navItems = [
     { href: '/atlas', label: 'Atlas', icon: Map },
@@ -10,6 +10,7 @@ const navItems = [
     { href: '/exam', label: 'Sınav', icon: Timer },
     { href: '/notes', label: 'Notlar', icon: BookOpen },
     { href: '/flashcards', label: 'Kartlar', icon: Sparkles },
+    { href: '/stats', label: 'Puanlar', icon: BarChart3 },
 ];
 
 export default function BottomNav() {

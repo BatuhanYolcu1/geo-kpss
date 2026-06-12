@@ -348,9 +348,12 @@ export default function FlashcardsPage() {
                         </div>
                     ) : (
                         <div className="text-center text-[#59615a] text-sm">
-                            <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs mr-1">Space</kbd> ile çevir •
-                            <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs mx-1">←</kbd> Bilmedim •
-                            <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs ml-1">→</kbd> Bildim
+                            <span className="sm:hidden text-xs text-[#747d75]">Kartı çevirmek için dokun</span>
+                            <span className="hidden sm:inline">
+                                <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs mr-1">Space</kbd> ile çevir •
+                                <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs mx-1">←</kbd> Bilmedim •
+                                <kbd className="px-2 py-1 bg-[#e9f0e8] border border-[#abb4ac]/40 rounded text-xs ml-1">→</kbd> Bildim
+                            </span>
                         </div>
                     )}
                 </div>
@@ -360,7 +363,7 @@ export default function FlashcardsPage() {
 
     // ===== DECK SELECTION =====
     return (
-        <main className="min-h-screen bg-[#f7faf4] text-[#2c342e]">
+        <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] pb-24 sm:pb-0">
             {/* Background */}
             <div className="fixed inset-0 z-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#b9efc5]/20 rounded-full blur-[120px]" />

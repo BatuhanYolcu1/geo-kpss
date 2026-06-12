@@ -116,7 +116,7 @@ export default function QuizPage() {
 
     // Quiz Lobby
     return (
-        <main className="min-h-screen bg-[#f7faf4] text-[#2c342e]">
+        <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] pb-24 sm:pb-0">
             {/* Background Effects */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#b9efc5]/20 rounded-full blur-3xl" />

@@ -298,9 +298,9 @@ export default function StatsDashboard() {
                                 </span>
                             </div>
                             <div className="flex justify-between items-center">
-                                <span className="text-sm text-[#59615a]">En iyi seri</span>
+                                <span className="text-sm text-[#59615a]">Toplam Soru</span>
                                 <span className="text-sm font-medium text-[#2c342e]">
-                                    {Math.max(...stats.recentActivity.map(() => 0), 0) || '—'}
+                                    {stats.recentActivity.reduce((sum, r) => sum + r.totalQuestions, 0)}
                                 </span>
                             </div>
                         </div>
