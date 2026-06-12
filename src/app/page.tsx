@@ -174,6 +174,7 @@ export default function HomePage() {
               { href: '/notes', label: 'Ders Notları' },
               { href: '/quiz', label: 'Quiz' },
               { href: '/exam', label: 'Sınav Simülasyonu' },
+              { href: '/pricing', label: '💎 Pro' },
             ].map((item) => (
               <Link key={item.href} href={item.href}
                 className="px-4 py-2 text-sm font-semibold text-[#59615a] hover:text-[#2c342e] hover:bg-[#f0f5ee] rounded-lg transition-all duration-150">
@@ -239,6 +240,7 @@ export default function HomePage() {
               { href: '/exam', label: 'Sınav Simülasyonu', icon: Clock },
               { href: '/flashcards', label: 'Flashcard', icon: Sparkles },
               { href: '/stats', label: 'İstatistikler', icon: BarChart3 },
+              { href: '/pricing', label: '💎 Pro\'ya Geç', icon: Zap },
             ].map(({ href, label, icon: Icon }) => (
               <Link key={href} href={href}
                 onClick={() => setMobileMenuOpen(false)}
