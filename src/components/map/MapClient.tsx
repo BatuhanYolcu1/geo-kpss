@@ -326,7 +326,7 @@ export default function MapClient() {
     return (
         <>
             {/* Search Bar - Top Center */}
-            <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[1000] w-full max-w-md px-4">
+            <div className="fixed top-4 z-[1000] left-[4.5rem] right-[7.5rem] sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-full sm:max-w-md sm:px-4">
                 <SearchBar onSelectResult={handleSearchSelect} />
             </div>
 
