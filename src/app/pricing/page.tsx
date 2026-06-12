@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
     Check,
@@ -76,12 +76,66 @@ export default function PricingPage() {
     const { user } = useUser();
     const [yearly, setYearly] = useState(false);
     const [openFaq, setOpenFaq] = useState<number | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [checkoutHtml, setCheckoutHtml] = useState<string | null>(null);
+    const [successMsg, setSuccessMsg] = useState<string | null>(null);
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const formRef = useRef<HTMLDivElement>(null);
 
     const monthlyPrice = 79;
-    const yearlyMonthly = 49; // per month when billed yearly
+    const yearlyMonthly = 49;
     const yearlyTotal = yearlyMonthly * 12; // 588
-
     const currentPrice = yearly ? yearlyMonthly : monthlyPrice;
+
+    // URL parametrelerinden başarı/hata mesajı oku
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('success') === '1') {
+            setSuccessMsg('🎉 Pro üyeliğin aktif! Tüm özelliklere erişebilirsin.');
+            window.history.replaceState({}, '', '/pricing');
+        } else if (params.get('error')) {
+            const errMap: Record<string, string> = {
+                payment_failed: 'Ödeme başarısız oldu. Lütfen tekrar deneyin.',
+                no_token: 'Ödeme doğrulanamadı.',
+                server: 'Sunucu hatası oluştu.',
+            };
+            setErrorMsg(errMap[params.get('error')!] ?? 'Bir hata oluştu.');
+            window.history.replaceState({}, '', '/pricing');
+        }
+    }, []);
+
+    // iyzico form HTML'i gelince DOM'a enjekte et ve submit et
+    useEffect(() => {
+        if (!checkoutHtml || !formRef.current) return;
+        formRef.current.innerHTML = checkoutHtml;
+        const script = formRef.current.querySelector('script');
+        if (script) {
+            const newScript = document.createElement('script');
+            newScript.src = script.src;
+            document.head.appendChild(newScript);
+        }
+    }, [checkoutHtml]);
+
+    const handleCheckout = async () => {
+        if (!user) { window.location.href = '/auth/register?next=/pricing'; return; }
+
+        setLoading(true);
+        setErrorMsg(null);
+        try {
+            const res = await fetch('/api/payment/checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ plan: yearly ? 'pro_yearly' : 'pro_monthly' }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error ?? 'Ödeme başlatılamadı.');
+            setCheckoutHtml(data.checkoutFormContent);
+        } catch (err: unknown) {
+            setErrorMsg(err instanceof Error ? err.message : 'Bir hata oluştu.');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <main className="min-h-screen bg-[#f7faf4] text-[#2c342e]">
@@ -91,7 +145,34 @@ export default function PricingPage() {
                 <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#e9f0e8]/40 rounded-full blur-[120px]" />
             </div>
 
-            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pb-20">
+            {/* iyzico checkout form konteyneri */}
+        {checkoutHtml && (
+            <div className="fixed inset-0 z-[2000] bg-[#2c342e]/60 backdrop-blur-sm flex items-center justify-center p-4">
+                <div className="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl">
+                    <div className="flex items-center justify-between px-6 py-4 border-b border-[#abb4ac]/40">
+                        <span className="font-black text-[#2c342e]">Güvenli Ödeme</span>
+                        <button onClick={() => setCheckoutHtml(null)} className="text-[#59615a] hover:text-rose-500 transition-colors">✕</button>
+                    </div>
+                    <div ref={formRef} className="p-4 min-h-[400px]" />
+                </div>
+            </div>
+        )}
+
+        {/* Başarı / hata banner */}
+        {successMsg && (
+            <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[1500] px-6 py-3 bg-emerald-600 text-white rounded-2xl shadow-xl font-bold text-sm text-center max-w-sm">
+                {successMsg}
+                <button onClick={() => setSuccessMsg(null)} className="ml-3 opacity-70 hover:opacity-100">✕</button>
+            </div>
+        )}
+        {errorMsg && (
+            <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[1500] px-6 py-3 bg-rose-600 text-white rounded-2xl shadow-xl font-bold text-sm text-center max-w-sm">
+                {errorMsg}
+                <button onClick={() => setErrorMsg(null)} className="ml-3 opacity-70 hover:opacity-100">✕</button>
+            </div>
+        )}
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pb-20">
                 {/* Nav */}
                 <div className="flex items-center justify-between py-6">
                     <Link href="/" className="flex items-center gap-2 text-[#59615a] hover:text-[#2c342e] transition-colors text-sm font-medium">
@@ -224,15 +305,15 @@ export default function PricingPage() {
                         </ul>
 
                         <button
-                            onClick={() => {
-                                if (!user) { window.location.href = '/auth/register?next=/pricing'; return; }
-                                // TODO: iyzico checkout başlat
-                                alert('Ödeme sistemi entegrasyon aşamasında — çok yakında!');
-                            }}
-                            className="w-full py-4 bg-gradient-to-r from-[#386948] to-emerald-500 hover:from-[#2b5d3c] hover:to-[#386948] rounded-2xl font-black text-white transition-all text-sm flex items-center justify-center gap-2 shadow-xl shadow-[#386948]/30 hover:scale-[1.02] active:scale-[0.98]"
+                            onClick={handleCheckout}
+                            disabled={loading}
+                            className="w-full py-4 bg-gradient-to-r from-[#386948] to-emerald-500 hover:from-[#2b5d3c] hover:to-[#386948] rounded-2xl font-black text-white transition-all text-sm flex items-center justify-center gap-2 shadow-xl shadow-[#386948]/30 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-wait"
                         >
-                            <Zap size={18} className="fill-white" />
-                            {yearly ? `Pro'ya Geç — ${yearlyTotal} ₺/yıl` : `Pro'ya Geç — ${monthlyPrice} ₺/ay`}
+                            {loading ? (
+                                <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />Yükleniyor...</span>
+                            ) : (
+                                <><Zap size={18} className="fill-white" />{yearly ? `Pro'ya Geç — ${yearlyTotal} ₺/yıl` : `Pro'ya Geç — ${monthlyPrice} ₺/ay`}</>
+                            )}
                         </button>
 
                         <p className="text-center text-xs text-slate-500 mt-3">
