@@ -391,15 +391,15 @@ export default function PricingPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button
-                            onClick={() => {
-                                if (!user) { window.location.href = '/auth/register?next=/pricing'; return; }
-                                alert('Ödeme sistemi entegrasyon aşamasında — çok yakında!');
-                            }}
-                            className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#386948] to-emerald-500 hover:from-[#2b5d3c] hover:to-[#386948] rounded-2xl font-black text-white transition-all shadow-xl shadow-[#386948]/30 hover:scale-[1.02]"
+                            onClick={handleCheckout}
+                            disabled={loading}
+                            className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#386948] to-emerald-500 hover:from-[#2b5d3c] hover:to-[#386948] rounded-2xl font-black text-white transition-all shadow-xl shadow-[#386948]/30 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-wait"
                         >
-                            <Zap size={18} className="fill-white" />
-                            Pro'yu Dene
-                            <ArrowRight size={18} />
+                            {loading ? (
+                                <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />Yükleniyor...</span>
+                            ) : (
+                                <><Zap size={18} className="fill-white" />Pro'yu Dene<ArrowRight size={18} /></>
+                            )}
                         </button>
                         <Link
                             href={user ? '/quiz' : '/auth/register'}
@@ -408,6 +408,22 @@ export default function PricingPage() {
                             Ücretsiz Başla
                         </Link>
                     </div>
+                </div>
+
+                {/* Legal footer */}
+                <div className="mt-12 pt-8 border-t border-[#abb4ac]/30 text-center">
+                    <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-[#747d75]">
+                        <Link href="/kvkk" className="hover:text-[#386948] transition-colors">KVKK Aydınlatma Metni</Link>
+                        <span className="text-[#abb4ac]">·</span>
+                        <Link href="/sozlesme" className="hover:text-[#386948] transition-colors">Mesafeli Satış Sözleşmesi</Link>
+                        <span className="text-[#abb4ac]">·</span>
+                        <Link href="/iade" className="hover:text-[#386948] transition-colors">İptal ve İade Politikası</Link>
+                        <span className="text-[#abb4ac]">·</span>
+                        <a href="mailto:bthnylc1@gmail.com" className="hover:text-[#386948] transition-colors">Destek</a>
+                    </div>
+                    <p className="text-xs text-[#abb4ac] mt-3">
+                        Ödemeler İyzico Ödeme Hizmetleri A.Ş. altyapısıyla güvence altındadır.
+                    </p>
                 </div>
             </div>
         </main>

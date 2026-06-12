@@ -188,12 +188,12 @@ export default function HomePage() {
             {!isLoading && (
               user ? (
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-2 px-3 py-1.5 bg-[#386948]/10 border border-[#386948]/20 rounded-xl">
+                  <Link href="/account" className="flex items-center gap-2 px-3 py-1.5 bg-[#386948]/10 border border-[#386948]/20 rounded-xl hover:bg-[#386948]/20 transition-colors">
                     <UserCircle2 size={16} className="text-[#386948]" />
                     <span className="text-sm font-semibold text-[#386948] max-w-[140px] truncate">
                       {user.email?.split('@')[0]}
                     </span>
-                  </div>
+                  </Link>
                   <button
                     onClick={signOut}
                     className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-[#59615a] hover:text-rose-600 hover:bg-rose-50 border border-transparent hover:border-rose-200/60 rounded-xl transition-all duration-150 font-semibold"
@@ -241,6 +241,7 @@ export default function HomePage() {
               { href: '/flashcards', label: 'Flashcard', icon: Sparkles },
               { href: '/stats', label: 'İstatistikler', icon: BarChart3 },
               { href: '/pricing', label: '💎 Pro\'ya Geç', icon: Zap },
+              { href: '/account', label: 'Hesabım', icon: UserCircle2 },
             ].map(({ href, label, icon: Icon }) => (
               <Link key={href} href={href}
                 onClick={() => setMobileMenuOpen(false)}
