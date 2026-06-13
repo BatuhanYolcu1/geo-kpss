@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { multipleChoiceQuestions, multipleChoiceQuestionsExtra, trueFalseQuestions, trueFalseQuestionsExtra } from '@/data/mock-quiz-data';
 import type { MultipleChoiceQuestion, TrueFalseQuestion } from '@/types/quiz';
+import { ProGate } from '@/components/ProGate';
 
 // ─── TYPES ───────────────────────────────────────────────────────
 type ExamPhase = 'setup' | 'running' | 'finished' | 'review';
@@ -786,7 +787,11 @@ export default function ExamPage() {
     };
 
     if (phase === 'setup') {
-        return <SetupScreen onStart={handleStart} />;
+        return (
+            <ProGate feature="Sınav Simülasyonu">
+                <SetupScreen onStart={handleStart} />
+            </ProGate>
+        );
     }
 
     if (phase === 'running' && preset) {

@@ -27,11 +27,16 @@ import {
     Sprout,
     Users,
     AlertTriangle,
+    Crown,
 } from 'lucide-react';
 import { flashcardDecks } from '@/data/flashcard-data';
 import { useFlashcardStore } from '@/stores/flashcardStore';
 import { useUser } from '@/contexts/AuthContext';
+import { usePlan } from '@/lib/plan';
 import type { Flashcard, FlashcardCategory } from '@/types/flashcard';
+
+/** İlk kaç deste ücretsiz */
+const FREE_DECK_COUNT = 2;
 
 const iconMap: Record<string, React.ReactNode> = {
     Globe: <Globe size={24} />,
@@ -57,6 +62,7 @@ export default function FlashcardsPage() {
     const [animDir, setAnimDir] = useState<'left' | 'right' | null>(null);
 
     const { user } = useUser();
+    const { isPro } = usePlan();
     const { markCard, updateStreak, getCardBox, streakDays, totalReviewed, totalCorrect, cardProgress } =
         useFlashcardStore();
 
@@ -425,9 +431,36 @@ export default function FlashcardsPage() {
 
                 {/* Deck Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    {flashcardDecks.map((deck) => {
+                    {flashcardDecks.map((deck, idx) => {
                         const mastery = getDeckMastery(deck);
-                        return (
+                        const locked = !isPro && idx >= FREE_DECK_COUNT;
+                        return locked ? (
+                            /* ── Kilitli deste ── */
+                            <a
+                                key={deck.id}
+                                href="/pricing"
+                                className="group relative overflow-hidden rounded-3xl bg-white border border-[#abb4ac]/40 hover:border-amber-300 p-6 text-left transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md"
+                            >
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-200 to-orange-200 opacity-[0.08] blur-2xl translate-x-8 -translate-y-8" />
+
+                                {/* Kilit ikonu + Pro rozeti */}
+                                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#abb4ac]/40 to-[#abb4ac]/20 flex items-center justify-center mb-4 relative">
+                                    <Layers size={24} className="text-[#abb4ac]" />
+                                    <div className="absolute -top-1.5 -right-1.5 w-6 h-6 bg-[#386948] rounded-full flex items-center justify-center shadow">
+                                        <Crown size={11} className="text-white" />
+                                    </div>
+                                </div>
+
+                                <h3 className="text-lg font-bold text-[#abb4ac] mb-1">{deck.title}</h3>
+                                <p className="text-sm text-[#abb4ac]/70 mb-4">{deck.cards.length} kart</p>
+
+                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#386948]/10 border border-[#386948]/20 rounded-xl w-fit">
+                                    <Crown size={12} className="text-[#386948]" />
+                                    <span className="text-xs font-black text-[#386948]">Pro ile aç</span>
+                                </div>
+                            </a>
+                        ) : (
+                            /* ── Açık deste ── */
                             <button
                                 key={deck.id}
                                 onClick={() => startDeck(deck)}
