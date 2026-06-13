@@ -34,18 +34,20 @@ export const metadata: Metadata = {
     template: "%s | Geo-KPSS",
   },
   description:
-    "KPSS 2026 Coğrafya sınavına interaktif haritalar, 120+ quiz sorusu ve kapsamlı ders notları ile hazırlanın. Dağlar, nehirler, göller, madenler ve daha fazlası.",
+    "KPSS 2026 Coğrafya sınavına interaktif haritalar, 330+ quiz sorusu, flashcard ve kapsamlı ders notları ile hazırlanın. Türkiye dağları, nehirleri, gölleri, madenleri ve iklimi.",
   keywords: [
-    "KPSS",
-    "KPSS Coğrafya",
-    "KPSS 2026",
-    "Türkiye Coğrafyası",
-    "Coğrafya Quiz",
-    "İnteraktif Harita",
-    "Sınav Hazırlık",
-    "ÖSYM",
-    "Türkiye Haritası",
-    "Coğrafya Ders Notları",
+    "KPSS coğrafya",
+    "KPSS 2026 coğrafya",
+    "KPSS coğrafya soru bankası",
+    "Türkiye coğrafyası quiz",
+    "KPSS coğrafya ders notları",
+    "interaktif Türkiye haritası",
+    "KPSS sınav hazırlık",
+    "ÖSYM coğrafya",
+    "Türkiye fiziki coğrafyası",
+    "KPSS flashcard",
+    "coğrafya soru çöz",
+    "KPSS coğrafya 2026",
   ],
   authors: [{ name: "Geo-KPSS Team" }],
   creator: "Geo-KPSS",
@@ -64,17 +66,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Geo-KPSS | İnteraktif KPSS Coğrafya Hazırlık Platformu",
     description:
-      "KPSS 2026 Coğrafya sınavına interaktif haritalar, 120+ quiz sorusu ve kapsamlı ders notları ile hazırlanın.",
+      "KPSS 2026 Coğrafya sınavına interaktif haritalar, 330+ quiz sorusu ve kapsamlı ders notları ile hazırlanın.",
     type: "website",
     locale: "tr_TR",
     url: SITE_URL,
     siteName: "Geo-KPSS",
+    images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "Geo-KPSS — KPSS 2026 Coğrafya Hazırlık Platformu" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Geo-KPSS | İnteraktif KPSS Coğrafya Hazırlık Platformu",
     description:
-      "KPSS 2026 Coğrafya sınavına interaktif haritalar, quizler ve ders notları ile hazırlanın.",
+      "KPSS 2026 Coğrafya sınavına interaktif haritalar, 330+ quiz sorusu ve ders notlarıyla hazırlanın.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
   alternates: {
     canonical: SITE_URL,
@@ -82,27 +86,71 @@ export const metadata: Metadata = {
   category: "education",
 };
 
-// JSON-LD Structured Data
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Geo-KPSS",
-  description:
-    "KPSS Coğrafya sınavına hazırlık için interaktif Türkiye coğrafya öğrenme platformu",
-  url: SITE_URL,
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Web",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "TRY",
+// JSON-LD Structured Data — WebApplication + LearningResource
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Geo-KPSS",
+    description:
+      "KPSS 2026 Coğrafya sınavına hazırlık için interaktif Türkiye coğrafya öğrenme platformu. İnteraktif haritalar, 330+ quiz sorusu, flashcard ve ders notları.",
+    url: SITE_URL,
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "Web",
+    browserRequirements: "Requires JavaScript",
+    inLanguage: "tr",
+    offers: {
+      "@type": "AggregateOffer",
+      lowPrice: "0",
+      highPrice: "588",
+      priceCurrency: "TRY",
+      offerCount: "2",
+      offers: [
+        {
+          "@type": "Offer",
+          name: "Ücretsiz Plan",
+          price: "0",
+          priceCurrency: "TRY",
+          description: "Temel özellikler — quiz, ders notları ve 2 flashcard destesi",
+        },
+        {
+          "@type": "Offer",
+          name: "Pro Plan (Yıllık)",
+          price: "588",
+          priceCurrency: "TRY",
+          description: "Tüm özellikler — sınırsız quiz, sınav simülasyonu, 12+ harita katmanı, tüm flashcard desteleri",
+        },
+      ],
+    },
+    audience: {
+      "@type": "EducationalAudience",
+      educationalRole: "student",
+    },
   },
-  inLanguage: "tr",
-  audience: {
-    "@type": "EducationalAudience",
-    educationalRole: "student",
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "KPSS 2026 Coğrafya Hazırlık Kursu",
+    description:
+      "KPSS sınavı için kapsamlı Türkiye coğrafyası eğitimi. Fiziki coğrafya, beşeri coğrafya, iklim, ekonomi ve coğrafi bölgeler.",
+    url: SITE_URL,
+    provider: { "@type": "Organization", name: "Geo-KPSS", url: SITE_URL },
+    inLanguage: "tr",
+    educationalLevel: "undergraduate",
+    teaches: [
+      "Türkiye Fiziki Coğrafyası",
+      "Türkiye Beşeri Coğrafyası",
+      "KPSS Coğrafya Soruları",
+      "Türkiye İklimi",
+      "Türkiye Ekonomik Coğrafyası",
+    ],
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "TRY" },
+    },
   },
-};
+];
 
 export default function RootLayout({
   children,
@@ -116,17 +164,9 @@ export default function RootLayout({
           rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>"
         />
-        {/* Preconnect for performance */}
+        {/* Preconnect for Leaflet (atlas sayfasında gerekli) */}
         <link rel="dns-prefetch" href="https://unpkg.com" />
         <link rel="preconnect" href="https://unpkg.com" crossOrigin="" />
-        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossOrigin=""
-        />
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"

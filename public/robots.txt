@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Gizli sayfaları indeksleme
+Disallow: /account
+Disallow: /auth/
+Disallow: /api/
+Disallow: /kvkk
+Disallow: /sozlesme
+Disallow: /iade
+
+# Sitemap
+Sitemap: https://geo-kpss.vercel.app/sitemap.xml
