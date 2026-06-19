@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Geo-KPSS",
   },
   description:
-    "KPSS 2026 Coğrafya sınavına interaktif haritalar, 330+ quiz sorusu, flashcard ve kapsamlı ders notları ile hazırlanın. Türkiye dağları, nehirleri, gölleri, madenleri ve iklimi.",
+    "KPSS 2026 Coğrafya sınavına interaktif haritalar, 460+ quiz sorusu, flashcard ve kapsamlı ders notları ile hazırlanın. Türkiye dağları, nehirleri, gölleri, madenleri ve iklimi.",
   keywords: [
     "KPSS coğrafya",
     "KPSS 2026 coğrafya",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Geo-KPSS | İnteraktif KPSS Coğrafya Hazırlık Platformu",
     description:
-      "KPSS 2026 Coğrafya sınavına interaktif haritalar, 330+ quiz sorusu ve kapsamlı ders notları ile hazırlanın.",
+      "KPSS 2026 Coğrafya sınavına interaktif haritalar, 460+ quiz sorusu ve kapsamlı ders notları ile hazırlanın.",
     type: "website",
     locale: "tr_TR",
     url: SITE_URL,
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Geo-KPSS | İnteraktif KPSS Coğrafya Hazırlık Platformu",
     description:
-      "KPSS 2026 Coğrafya sınavına interaktif haritalar, 330+ quiz sorusu ve ders notlarıyla hazırlanın.",
+      "KPSS 2026 Coğrafya sınavına interaktif haritalar, 460+ quiz sorusu ve ders notlarıyla hazırlanın.",
     images: [`${SITE_URL}/opengraph-image`],
   },
   alternates: {
@@ -93,7 +93,7 @@ const jsonLd = [
     "@type": "WebApplication",
     name: "Geo-KPSS",
     description:
-      "KPSS 2026 Coğrafya sınavına hazırlık için interaktif Türkiye coğrafya öğrenme platformu. İnteraktif haritalar, 330+ quiz sorusu, flashcard ve ders notları.",
+      "KPSS 2026 Coğrafya sınavına hazırlık için interaktif Türkiye coğrafya öğrenme platformu. İnteraktif haritalar, 460+ quiz sorusu, flashcard ve ders notları.",
     url: SITE_URL,
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web",

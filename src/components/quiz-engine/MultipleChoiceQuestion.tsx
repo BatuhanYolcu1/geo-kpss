@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Target, Sparkles, BookOpen } from 'lucide-react';
+import { Target, Sparkles, BookOpen, Bookmark, BookmarkCheck } from 'lucide-react';
 import type { MultipleChoiceQuestion as MCQuestion } from '@/types/quiz';
 
 interface Props {
@@ -27,6 +27,21 @@ const difficultyLabel: Record<string, string> = {
 
 export default function MultipleChoiceQuestion({ question, onAnswer, disabled }: Props) {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const [isBookmarked, setIsBookmarked] = useState(() => {
+        if (typeof window === 'undefined') return false;
+        const saved = localStorage.getItem('geo_bookmarks');
+        if (!saved) return false;
+        return (JSON.parse(saved) as string[]).includes(question.id);
+    });
+
+    const toggleBookmark = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        const saved = localStorage.getItem('geo_bookmarks');
+        const arr: string[] = saved ? JSON.parse(saved) : [];
+        const next = isBookmarked ? arr.filter(id => id !== question.id) : [...arr, question.id];
+        localStorage.setItem('geo_bookmarks', JSON.stringify(next));
+        setIsBookmarked(!isBookmarked);
+    };
 
     const handleSelect = (index: number) => {
         if (disabled || selectedIndex !== null) return;
@@ -51,7 +66,18 @@ export default function MultipleChoiceQuestion({ question, onAnswer, disabled }:
             <div className="w-full max-w-2xl animate-slide-up">
 
                 {/* Question Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-10 border border-[#abb4ac]/40 shadow-md mb-5 sm:mb-8">
+                <div className="relative bg-white rounded-3xl p-5 sm:p-8 md:p-10 border border-[#abb4ac]/40 shadow-md mb-5 sm:mb-8">
+                    {/* Bookmark Button */}
+                    <button
+                        onClick={toggleBookmark}
+                        className={`absolute top-4 right-4 w-9 h-9 rounded-xl flex items-center justify-center transition-all
+                            ${isBookmarked
+                                ? 'bg-amber-100 text-amber-600 border border-amber-200'
+                                : 'bg-[#f0f5ee] text-[#747d75] border border-[#abb4ac]/30 hover:text-amber-500 hover:bg-amber-50'}`}
+                    >
+                        {isBookmarked ? <BookmarkCheck size={15} /> : <Bookmark size={15} />}
+                    </button>
+
                     {/* Tags */}
                     <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 flex-wrap">
                         <div className="flex items-center gap-1.5 px-3 py-1 bg-[#386948]/10 rounded-full border border-[#386948]/20">

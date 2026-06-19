@@ -326,7 +326,7 @@ export default function PricingPage() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
                     {[
                         { icon: <Map size={20} className="text-indigo-500" />, label: '12+ Harita Katmanı', bg: 'bg-indigo-50' },
-                        { icon: <Brain size={20} className="text-emerald-600" />, label: '330+ Quiz Sorusu', bg: 'bg-emerald-50' },
+                        { icon: <Brain size={20} className="text-emerald-600" />, label: '460+ Quiz Sorusu', bg: 'bg-emerald-50' },
                         { icon: <Timer size={20} className="text-amber-600" />, label: 'Tam Sınav Simülasyonu', bg: 'bg-amber-50' },
                         { icon: <Sparkles size={20} className="text-violet-600" />, label: '250+ Flashcard', bg: 'bg-violet-50' },
                     ].map((item, i) => (

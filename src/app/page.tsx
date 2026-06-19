@@ -100,7 +100,7 @@ const features = [
   {
     icon: Brain,
     title: 'Kapsamlı Soru Bankası',
-    desc: '330+ KPSS formatında soru, 4 farklı mod ile kendini test et.',
+    desc: '460+ KPSS formatında soru, 4 farklı mod ile kendini test et.',
     iconBg: 'bg-emerald-100',
     iconColor: 'text-emerald-700',
   },
@@ -116,7 +116,7 @@ const features = [
 // ─── MODULE CARDS ───────────────────────────────────────────
 const modules = [
   { id: 'atlas', title: 'İnteraktif Atlas', desc: 'Katmanlı haritalarla Türkiye coğrafyasını keşfet.', icon: Map, href: '/atlas', iconBg: 'bg-[#386948]/10', iconColor: 'text-[#386948]', accent: 'hover:border-[#386948]/40', badge: '229+ Özellik', tag: 'KEŞFET', featured: true },
-  { id: 'quiz', title: 'Quiz Modu', desc: 'KPSS formatında 4 farklı soru tipiyle kendini sına.', icon: Brain, href: '/quiz', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-700', accent: 'hover:border-emerald-400/60', badge: '330+ Soru', tag: 'TEST ET', featured: false },
+  { id: 'quiz', title: 'Quiz Modu', desc: 'KPSS formatında 4 farklı soru tipiyle kendini sına.', icon: Brain, href: '/quiz', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-700', accent: 'hover:border-emerald-400/60', badge: '460+ Soru', tag: 'TEST ET', featured: false },
   { id: 'notes', title: 'Ders Notları', desc: 'Tam müfredat, kodlamalar ve analizler.', icon: BookOpen, href: '/notes', iconBg: 'bg-rose-100', iconColor: 'text-rose-600', accent: 'hover:border-rose-400/60', badge: 'Full Müfredat', tag: 'ÇALIŞ', featured: false },
   { id: 'flashcards', title: 'Flashcard', desc: 'Spaced repetition ile kalıcı öğrenme.', icon: Sparkles, href: '/flashcards', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', accent: 'hover:border-violet-400/60', badge: '80+ Kart', tag: 'TEKRAR ET', featured: false },
   { id: 'exam', title: 'Sınav Simülasyonu', desc: 'Zamanlı KPSS formatında sınav dene. 20/40/80 soruluk modlar.', icon: Clock, href: '/exam', iconBg: 'bg-indigo-100', iconColor: 'text-indigo-600', accent: 'hover:border-indigo-400/60', badge: 'Yeni', tag: 'SINAVLAN', featured: false },
@@ -329,7 +329,7 @@ export default function HomePage() {
               {/* Mini stats */}
               <div className="flex items-center gap-4 sm:gap-6 pt-1">
                 {[
-                  { value: '330+', label: 'Soru' },
+                  { value: '460+', label: 'Soru' },
                   { value: '12+', label: 'Harita Katmanı' },
                   { value: '10', label: 'Ünite' },
                 ].map(s => (

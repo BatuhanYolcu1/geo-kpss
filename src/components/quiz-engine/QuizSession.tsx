@@ -8,6 +8,7 @@ import {
     Flame,
     X,
     ChevronRight,
+    ChevronLeft,
     Home,
     RotateCcw,
     CheckCircle,
@@ -19,7 +20,7 @@ import {
     BarChart3,
 } from 'lucide-react';
 import Link from 'next/link';
-import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion, MultipleChoiceQuestion as MCQuestionType } from '@/types/quiz';
+import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion, MultipleChoiceQuestion as MCQuestionType, TrueFalseQuestion as TFQuestionType } from '@/types/quiz';
 import { getRandomQuestions, getQuestionsByType, selectAvoidingRepeats } from '@/data/mock-quiz-data';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import TrueFalseQuestion from './TrueFalseQuestion';
@@ -33,6 +34,20 @@ const MapQuizComponent = dynamic(() => import('./MapQuestion'), {
     ssr: false,
     loading: () => <div className="w-full h-full bg-[#e9f0e8] flex items-center justify-center text-[#2c342e] font-black animate-pulse">HARİTA YÜKLENİYOR...</div>
 });
+
+interface WrongAnswer {
+    question: QuizQuestion;
+    explanation?: string;
+}
+
+const categoryNames: Record<string, string> = {
+    physical: 'Fiziki Coğrafya',
+    economic: 'Ekonomik',
+    regions: 'Coğrafi Bölgeler',
+    human: 'Nüfus & Yerleşme',
+    mixed: 'Karma',
+    tourism: 'Turizm & UNESCO',
+};
 
 interface QuizSessionProps {
     mode: QuizMode;
@@ -55,6 +70,8 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
     const [lastResult, setLastResult] = useState<{ isCorrect: boolean; points: number; explanation?: string } | null>(null);
     const [startTime] = useState<number>(() => Date.now());
     const [categoryResults, setCategoryResults] = useState<Record<string, { total: number; correct: number }>>({});
+    const [wrongAnswers, setWrongAnswers] = useState<WrongAnswer[]>([]);
+    const [showReview, setShowReview] = useState(false);
 
     // Initialize questions
     useEffect(() => {
@@ -135,6 +152,10 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                     }
                 };
             });
+
+            if (!isCorrect && (currentQuestion.type === 'multiple_choice' || currentQuestion.type === 'true_false')) {
+                setWrongAnswers(prev => [...prev, { question: currentQuestion, explanation }]);
+            }
         }
     }, [currentIndex, questions]);
 
@@ -179,6 +200,78 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
         );
     }
 
+    if (showReview) {
+        return (
+            <main className="min-h-screen bg-[#f7faf4] text-[#2c342e] pb-12">
+                {/* Header */}
+                <div className="sticky top-0 z-10 bg-[#f7faf4]/90 backdrop-blur-sm border-b border-[#abb4ac]/30 px-4 py-4">
+                    <div className="max-w-2xl mx-auto flex items-center gap-3">
+                        <button
+                            onClick={() => setShowReview(false)}
+                            className="w-10 h-10 rounded-2xl bg-white border border-[#abb4ac]/40 flex items-center justify-center hover:bg-[#f0f5ee] transition-all"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        <div>
+                            <h1 className="text-base font-black tracking-tight">Yanlış Cevaplarım</h1>
+                            <p className="text-[10px] font-bold text-[#747d75] uppercase tracking-widest">{wrongAnswers.length} SORU — TEKRAR GÖZDEN GEÇİR</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="max-w-2xl mx-auto px-4 pt-6 space-y-4">
+                    {wrongAnswers.map((wa, i) => {
+                        const isMC = wa.question.type === 'multiple_choice';
+                        const isTF = wa.question.type === 'true_false';
+                        const mcQ = isMC ? (wa.question as MCQuestionType) : null;
+                        const tfQ = isTF ? (wa.question as TFQuestionType) : null;
+                        const questionText = mcQ?.text ?? `"${tfQ?.statement}"`;
+                        const correctText = mcQ
+                            ? `${['A', 'B', 'C', 'D', 'E'][mcQ.correctIndex]}) ${mcQ.options[mcQ.correctIndex]}`
+                            : (tfQ?.isTrue ? 'DOĞRU' : 'YANLIŞ');
+
+                        return (
+                            <div key={wa.question.id} className="bg-white rounded-3xl p-5 sm:p-6 border border-[#abb4ac]/40 shadow-sm">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <div className="w-6 h-6 rounded-lg bg-rose-100 flex items-center justify-center shrink-0">
+                                        <XCircle size={14} className="text-rose-500" />
+                                    </div>
+                                    <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">{i + 1}. YANLIŞ CEVAP • {categoryNames[wa.question.category] ?? wa.question.category}</span>
+                                </div>
+
+                                <p className="font-bold text-[#2c342e] mb-4 text-sm sm:text-base leading-snug">
+                                    {questionText}
+                                </p>
+
+                                <div className="flex items-start gap-2 mb-3 bg-emerald-50 border border-emerald-200/60 rounded-2xl p-3">
+                                    <CheckCircle size={16} className="text-emerald-600 shrink-0 mt-0.5" />
+                                    <div>
+                                        <span className="text-[10px] font-black text-emerald-600/70 uppercase tracking-wider block mb-0.5">DOĞRU CEVAP</span>
+                                        <span className="text-sm font-bold text-emerald-800">{correctText}</span>
+                                    </div>
+                                </div>
+
+                                {wa.explanation && (
+                                    <div className="bg-[#f0f5ee] rounded-2xl p-4 border border-[#abb4ac]/30">
+                                        <p className="text-sm text-[#2c342e] leading-relaxed">{wa.explanation}</p>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+
+                    <button
+                        onClick={() => setShowReview(false)}
+                        className="w-full py-4 bg-[#386948] text-white hover:bg-[#2b5d3c] rounded-2xl font-black transition-all flex items-center justify-center gap-3"
+                    >
+                        <ChevronLeft size={20} />
+                        SONUÇLARA DÖN
+                    </button>
+                </div>
+            </main>
+        );
+    }
+
     if (isCompleted) {
         const accuracy = Math.round((correctCount / questions.length) * 100);
 
@@ -214,6 +307,43 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                                 <div className="text-[10px] font-bold text-[#59615a] uppercase tracking-widest">EN İYİ SERİ</div>
                             </div>
                         </div>
+
+                        {/* Konu Analizi */}
+                        {Object.keys(categoryResults).length > 0 && (
+                            <div className="mb-6 bg-[#f0f5ee] border border-[#abb4ac]/40 rounded-2xl p-4">
+                                <p className="text-[10px] font-black text-[#747d75] uppercase tracking-widest text-center mb-3">Konu Analizi</p>
+                                <div className="space-y-2.5">
+                                    {Object.entries(categoryResults).map(([cat, result]) => {
+                                        const pct = Math.round((result.correct / result.total) * 100);
+                                        return (
+                                            <div key={cat} className="flex items-center gap-2">
+                                                <span className="text-[11px] font-bold text-[#59615a] w-28 shrink-0 truncate">
+                                                    {categoryNames[cat] ?? cat}
+                                                </span>
+                                                <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden">
+                                                    <div
+                                                        className={`h-full rounded-full transition-all ${pct >= 70 ? 'bg-emerald-500' : pct >= 40 ? 'bg-amber-400' : 'bg-rose-400'}`}
+                                                        style={{ width: `${pct}%` }}
+                                                    />
+                                                </div>
+                                                <span className="text-[11px] font-black text-[#2c342e] w-8 text-right">%{pct}</span>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Yanlışları Gözden Geçir */}
+                        {wrongAnswers.length > 0 && (
+                            <button
+                                onClick={() => setShowReview(true)}
+                                className="w-full py-4 bg-rose-50 border-2 border-rose-200 text-rose-600 hover:bg-rose-100 rounded-2xl font-black transition-all flex items-center justify-center gap-3 mb-4"
+                            >
+                                <XCircle size={20} />
+                                YANLIŞLARIMI GÖZDEN GEÇİR ({wrongAnswers.length})
+                            </button>
+                        )}
 
                         {/* Sıradaki Adım */}
                         <div className="mb-6">

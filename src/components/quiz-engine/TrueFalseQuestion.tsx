@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CheckCircle2, XCircle, Sparkles, AlertCircle } from 'lucide-react';
+import { CheckCircle2, XCircle, Sparkles, AlertCircle, Bookmark, BookmarkCheck } from 'lucide-react';
 import type { TrueFalseQuestion as TFQuestion } from '@/types/quiz';
 
 interface Props {
@@ -12,6 +12,21 @@ interface Props {
 
 export default function TrueFalseQuestion({ question, onAnswer, disabled }: Props) {
     const [selectedAnswer, setSelectedAnswer] = useState<boolean | null>(null);
+    const [isBookmarked, setIsBookmarked] = useState(() => {
+        if (typeof window === 'undefined') return false;
+        const saved = localStorage.getItem('geo_bookmarks');
+        if (!saved) return false;
+        return (JSON.parse(saved) as string[]).includes(question.id);
+    });
+
+    const toggleBookmark = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        const saved = localStorage.getItem('geo_bookmarks');
+        const arr: string[] = saved ? JSON.parse(saved) : [];
+        const next = isBookmarked ? arr.filter(id => id !== question.id) : [...arr, question.id];
+        localStorage.setItem('geo_bookmarks', JSON.stringify(next));
+        setIsBookmarked(!isBookmarked);
+    };
 
     const handleSelect = (answer: boolean) => {
         if (disabled || selectedAnswer !== null) return;
@@ -47,7 +62,17 @@ export default function TrueFalseQuestion({ question, onAnswer, disabled }: Prop
 
                 {/* Statement Card */}
                 <div className="relative mb-5 sm:mb-10">
-                    <div className="bg-white rounded-3xl p-6 sm:p-10 md:p-14 border border-[#abb4ac]/40 shadow-md text-center">
+                    <div className="relative bg-white rounded-3xl p-6 sm:p-10 md:p-14 border border-[#abb4ac]/40 shadow-md text-center">
+                        {/* Bookmark Button */}
+                        <button
+                            onClick={toggleBookmark}
+                            className={`absolute top-4 right-4 w-9 h-9 rounded-xl flex items-center justify-center transition-all
+                                ${isBookmarked
+                                    ? 'bg-amber-100 text-amber-600 border border-amber-200'
+                                    : 'bg-[#f0f5ee] text-[#747d75] border border-[#abb4ac]/30 hover:text-amber-500 hover:bg-amber-50'}`}
+                        >
+                            {isBookmarked ? <BookmarkCheck size={15} /> : <Bookmark size={15} />}
+                        </button>
                         <Sparkles size={24} className="mx-auto mb-4 sm:mb-6 text-[#386948]/30" />
                         <h2 className="text-lg sm:text-2xl md:text-3xl font-black text-[#2c342e] leading-snug tracking-tight">
                             &quot;{question.statement}&quot;
