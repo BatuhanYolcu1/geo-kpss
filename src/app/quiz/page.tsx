@@ -12,7 +12,8 @@ import {
     Trophy,
     Sparkles,
     Zap,
-    X
+    X,
+    Bookmark
 } from 'lucide-react';
 import type { QuizMode } from '@/types/quiz';
 import QuizSession from '@/components/quiz-engine/QuizSession';
@@ -135,9 +136,18 @@ export default function QuizPage() {
                         <span>Ana Sayfa</span>
                     </Link>
 
-                    <div className="flex items-center gap-2 px-4 py-2 bg-[#386948]/10 border border-[#386948]/20 rounded-full">
-                        <Sparkles size={16} className="text-[#386948]" />
-                        <span className="text-sm font-medium text-[#386948]">Quiz Modu</span>
+                    <div className="flex items-center gap-3">
+                        <Link
+                            href="/bookmarks"
+                            className="flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200 rounded-full hover:bg-amber-100 transition-colors"
+                        >
+                            <Bookmark size={15} className="text-amber-600" />
+                            <span className="text-sm font-bold text-amber-700">Kaydedilenler</span>
+                        </Link>
+                        <div className="flex items-center gap-2 px-4 py-2 bg-[#386948]/10 border border-[#386948]/20 rounded-full">
+                            <Sparkles size={16} className="text-[#386948]" />
+                            <span className="text-sm font-medium text-[#386948]">Quiz Modu</span>
+                        </div>
                     </div>
                 </div>
 

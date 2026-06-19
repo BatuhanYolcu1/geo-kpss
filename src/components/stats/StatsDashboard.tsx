@@ -15,6 +15,7 @@ import {
     BookOpen,
     Sparkles,
     ArrowRight,
+    Bookmark,
 } from 'lucide-react';
 import { storageService } from '@/lib/storage';
 import { UserStats, QuizResult, QuizMode } from '@/types/quiz';
@@ -313,6 +314,7 @@ export default function StatsDashboard() {
                             {[
                                 { href: '/quiz', Icon: Brain, label: 'Yeni Quiz Başlat', color: 'text-[#386948]', bg: 'bg-[#386948]/10' },
                                 { href: '/flashcards', Icon: Sparkles, label: 'Flashcard Çalış', color: 'text-violet-600', bg: 'bg-violet-50' },
+                                { href: '/bookmarks', Icon: Bookmark, label: 'Kaydedilen Sorular', color: 'text-amber-600', bg: 'bg-amber-50' },
                                 { href: '/notes', Icon: BookOpen, label: 'Ders Notları', color: 'text-rose-600', bg: 'bg-rose-50' },
                             ].map(({ href, Icon, label, color, bg }) => (
                                 <Link key={href} href={href} className="flex items-center gap-3 px-3 py-2.5 hover:bg-[#f0f5ee] rounded-xl transition-colors group">
