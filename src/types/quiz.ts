@@ -1,4 +1,4 @@
-export type QuizMode = 'map' | 'multiple_choice' | 'true_false' | 'matching' | 'mixed';
+export type QuizMode = 'map' | 'multiple_choice' | 'true_false' | 'matching' | 'mixed' | 'adaptive';
 
 export interface BaseQuestion {
     id: string;

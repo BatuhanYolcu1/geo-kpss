@@ -657,3 +657,68 @@ export function getRandomQuestions(count: number, type?: QuizQuestion['type'], s
     const pool = type ? getQuestionsByType(type) : getAllQuestions();
     return selectAvoidingRepeats(pool, count, seenIds);
 }
+
+/**
+ * Adaptif quiz: kullanıcının zayıf kategorilerine ve genel başarı oranına
+ * göre ağırlıklı soru seçimi yapar.
+ *
+ * Kategori ağırlıkları (doğruluk oranına göre):
+ *   <40%  → 4x (çok zayıf)
+ *   40-70% → 2x (orta)
+ *   >70%  → 1x (güçlü)
+ *   veri yok → 2x (bilinmiyor)
+ *
+ * Zorluk dağılımı (genel doğruluk oranına göre):
+ *   <40%  → easy:70% medium:30%
+ *   40-70% → easy:30% medium:50% hard:20%
+ *   >70%  → easy:10% medium:40% hard:50%
+ */
+export function getAdaptiveQuestions(
+    categoryPerformance: Record<string, { accuracy: number; totalAnswers: number }>,
+    overallAccuracy: number,
+    count: number,
+    seenIds: string[] = []
+): (MultipleChoiceQuestion | TrueFalseQuestion)[] {
+    const allMC = [...multipleChoiceQuestions, ...multipleChoiceQuestionsExtra];
+    const allTF = [...trueFalseQuestions, ...trueFalseQuestionsExtra];
+    const pool = [...allMC, ...allTF];
+
+    // Difficulty targets
+    let easyPct: number, medPct: number, hardPct: number;
+    if (overallAccuracy < 40) {
+        easyPct = 0.7; medPct = 0.3; hardPct = 0;
+    } else if (overallAccuracy < 70) {
+        easyPct = 0.3; medPct = 0.5; hardPct = 0.2;
+    } else {
+        easyPct = 0.1; medPct = 0.4; hardPct = 0.5;
+    }
+
+    // Category weight function
+    const catWeight = (cat: string): number => {
+        const perf = categoryPerformance[cat];
+        if (!perf || perf.totalAnswers < 3) return 2;
+        if (perf.accuracy < 40) return 4;
+        if (perf.accuracy < 70) return 2;
+        return 1;
+    };
+
+    // Score each question
+    const diffWeight = (d: string, easy: number, med: number, hard: number) =>
+        d === 'easy' ? easy : d === 'medium' ? med : hard;
+
+    const scored = pool.map(q => ({
+        q,
+        score: catWeight(q.category) * diffWeight(q.difficulty, easyPct, medPct, hardPct) * (Math.random() * 0.4 + 0.8),
+        seenAt: seenIds.indexOf(q.id),
+    }));
+
+    // Unseen first, then by score descending
+    scored.sort((a, b) => {
+        const aUnseen = a.seenAt === -1;
+        const bUnseen = b.seenAt === -1;
+        if (aUnseen !== bUnseen) return aUnseen ? -1 : 1;
+        return b.score - a.score;
+    });
+
+    return scored.slice(0, Math.min(count, scored.length)).map(s => s.q);
+}

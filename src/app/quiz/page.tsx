@@ -13,7 +13,8 @@ import {
     Sparkles,
     Zap,
     X,
-    Bookmark
+    Bookmark,
+    TrendingUp
 } from 'lucide-react';
 import type { QuizMode } from '@/types/quiz';
 import QuizSession from '@/components/quiz-engine/QuizSession';
@@ -30,6 +31,16 @@ interface QuizModeCard {
 }
 
 const quizModes: QuizModeCard[] = [
+    {
+        id: 'adaptive',
+        title: 'Adaptif Quiz',
+        description: 'Zayıf olduğun konulardan ağırlıklı soru gelir. Sistem performansına göre seni zorlar.',
+        icon: <TrendingUp size={32} />,
+        gradient: 'from-violet-500 to-indigo-600',
+        shadowColor: 'shadow-violet-500/25',
+        questionCount: 20,
+        enabled: true,
+    },
     {
         id: 'map',
         title: 'Harita Bilgisi',

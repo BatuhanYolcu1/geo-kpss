@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import type { QuizMode, QuizQuestion, QuizAnswer, MapQuestion, MultipleChoiceQuestion as MCQuestionType, TrueFalseQuestion as TFQuestionType } from '@/types/quiz';
-import { getRandomQuestions, getQuestionsByType, selectAvoidingRepeats } from '@/data/mock-quiz-data';
+import { getRandomQuestions, getQuestionsByType, selectAvoidingRepeats, getAdaptiveQuestions } from '@/data/mock-quiz-data';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import TrueFalseQuestion from './TrueFalseQuestion';
 import MatchingQuestion from './MatchingQuestion';
@@ -88,7 +88,15 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
 
         let loadedQuestions: QuizQuestion[] = [];
 
-        if (mode === 'map') {
+        if (mode === 'adaptive') {
+            const stats = storageService.getUserStats();
+            loadedQuestions = getAdaptiveQuestions(
+                stats.categoryPerformance,
+                stats.averageAccuracy,
+                20,
+                seenIds
+            );
+        } else if (mode === 'map') {
             const allMapQuestions = getQuestionsByType('map_pinpoint') as MapQuestion[];
             const filtered = subCategory
                 ? allMapQuestions.filter(q => q.category === subCategory || q.subCategory === subCategory)
@@ -334,6 +342,20 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
                                         );
                                     })}
                                 </div>
+                            </div>
+                        )}
+
+                        {/* Adaptif mod bilgi kutusu */}
+                        {mode === 'adaptive' && (
+                            <div className="mb-4 px-4 py-3 bg-violet-50 border border-violet-200 rounded-2xl text-left">
+                                <p className="text-[10px] font-black text-violet-700 uppercase tracking-widest mb-1">Adaptif Analiz</p>
+                                <p className="text-xs text-violet-800 leading-relaxed">
+                                    {accuracy >= 70
+                                        ? 'Harika! Bir sonraki oturumda daha zor sorular gelecek.'
+                                        : accuracy >= 40
+                                            ? 'İyi gidiyorsun. Sistem zayıf kategorileri belirledi ve sıradaki oturuma hazır.'
+                                            : 'Temel konuları pekiştirmek için ders notlarını ve flashcard\'ları incele, sonra tekrar dene.'}
+                                </p>
                             </div>
                         )}
 
