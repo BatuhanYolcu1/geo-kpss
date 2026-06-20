@@ -22,6 +22,7 @@ import { UserStats, QuizResult, QuizMode } from '@/types/quiz';
 import { useUser } from '@/contexts/AuthContext';
 import Link from 'next/link';
 import { LogIn, Shield } from 'lucide-react';
+import StreakWidget from '@/components/ui/StreakWidget';
 
 export default function StatsDashboard() {
     const { user } = useUser();
@@ -229,6 +230,9 @@ export default function StatsDashboard() {
 
                 {/* Sidebar / Tips */}
                 <div className="space-y-6">
+                    {/* Streak & Daily Goal */}
+                    <StreakWidget />
+
                     {/* Akıllı Gelişim Önerisi */}
                     {(() => {
                         const catEntries = Object.entries(stats.categoryPerformance)

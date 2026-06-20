@@ -1,0 +1,27 @@
+{
+  "name": "Geo KPSS — Türkiye Coğrafyası",
+  "short_name": "Geo KPSS",
+  "description": "KPSS coğrafya hazırlığı için interaktif harita, quiz ve flashcard platformu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7faf4",
+  "theme_color": "#386948",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["education"],
+  "lang": "tr"
+}

@@ -3,6 +3,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { useUser } from '@/contexts/AuthContext';
 import Link from 'next/link';
+import KpssCountdown from '@/components/ui/KpssCountdown';
+import StreakWidget from '@/components/ui/StreakWidget';
 import {
   Map,
   Brain,
@@ -285,17 +287,27 @@ export default function HomePage() {
         </div>
       )}
 
+      {/* ═══ KPSS COUNTDOWN BANNER ═══ */}
+      <section className="pt-20 sm:pt-24 pb-2 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <KpssCountdown />
+        </div>
+      </section>
+
       {/* ═══ HERO — 2 sütun ═══ */}
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6">
+      <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[480px] lg:min-h-[520px]">
 
             {/* Sol — Metin */}
             <div className="flex flex-col gap-5 sm:gap-7 animate-fade-in-up">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b9efc5]/40 border border-[#386948]/20 rounded-full w-fit">
-                <Star size={13} className="text-[#386948]" />
-                <span className="text-xs font-bold text-[#386948] tracking-wide">100K+ Aktif Kullanıcı</span>
+              {/* Badge + Streak compact */}
+              <div className="flex items-center gap-3 flex-wrap">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#b9efc5]/40 border border-[#386948]/20 rounded-full">
+                  <Star size={13} className="text-[#386948]" />
+                  <span className="text-xs font-bold text-[#386948] tracking-wide">100K+ Aktif Kullanıcı</span>
+                </div>
+                <StreakWidget compact />
               </div>
 
               {/* Başlık */}

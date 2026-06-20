@@ -28,6 +28,7 @@ import MatchingQuestion from './MatchingQuestion';
 import { storageService } from '@/lib/storage';
 import { syncService } from '@/lib/syncService';
 import { useUser } from '@/contexts/AuthContext';
+import { recordQuestions } from '@/lib/streak';
 
 // Dynamic import for map component
 const MapQuizComponent = dynamic(() => import('./MapQuestion'), {
@@ -181,6 +182,8 @@ export default function QuizSession({ mode, subCategory, onEnd }: QuizSessionPro
             };
 
             storageService.saveQuizResult(result);
+            recordQuestions(questions.length);
+            window.dispatchEvent(new Event('geo_progress_update'));
 
             // Giriş yapılmışsa Supabase'e de kaydet (fire-and-forget)
             if (user) {
