@@ -56,6 +56,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'daily',
             priority: 0.55,
         },
+        // Rehber sayfaları (SEO içerik)
+        {
+            url: `${SITE_URL}/rehber`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.80,
+        },
+        {
+            url: `${SITE_URL}/rehber/kpss-cografya-konulari`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.78,
+        },
+        {
+            url: `${SITE_URL}/rehber/turkiye-cografya-bolgeler`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        },
+        {
+            url: `${SITE_URL}/rehber/turkiye-fiziki-cografya`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        },
+        {
+            url: `${SITE_URL}/rehber/kpss-cografya-nasil-calisilir`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        },
         // Not: /account, /kvkk, /sozlesme, /iade, /auth/* → robots.txt'de Disallow
     ];
 }
