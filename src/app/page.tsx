@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useUser } from '@/contexts/AuthContext';
 import Link from 'next/link';
-import KpssCountdown from '@/components/ui/KpssCountdown';
 import StreakWidget from '@/components/ui/StreakWidget';
 import {
   Map,
@@ -287,15 +286,8 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* ═══ KPSS COUNTDOWN BANNER ═══ */}
-      <section className="pt-20 sm:pt-24 pb-2 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <KpssCountdown />
-        </div>
-      </section>
-
       {/* ═══ HERO — 2 sütun ═══ */}
-      <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 px-4 sm:px-6">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[480px] lg:min-h-[520px]">
 
